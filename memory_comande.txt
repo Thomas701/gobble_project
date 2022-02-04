@@ -8,3 +8,5 @@ add all files :
 	git push 
 		ID
 		Token
+
+git pull origin master

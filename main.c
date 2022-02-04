@@ -4,5 +4,6 @@
 int main(int argc, char ** argv)
 {
   printf("Hello World ! \n");
+  printf("Thibault, j'espère que tu pourra voir ce message\n");
   return EXIT_SUCCESS;
 }

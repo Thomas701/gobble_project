@@ -10,3 +10,4 @@ add all files :
 		Token
 
 git pull origin master
+git push -u origin master

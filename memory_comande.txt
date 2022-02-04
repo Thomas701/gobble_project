@@ -11,3 +11,10 @@ add all files :
 
 git pull origin master
 git push -u origin master
+
+
+begin push : git pull origin master
+			 if error :
+			 	git add . + git -m commit "(my files)" 
+			 else :
+			 	push

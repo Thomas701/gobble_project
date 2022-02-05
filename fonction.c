@@ -100,7 +100,7 @@ void printMap2D(char ** map2D)
   {
     for(int j=0; j<N; ++j)
     {
-       printf("%c", map2D[i][j]);
+       printf("%c ", map2D[i][j]);
     }
     printf("\n");
   }

@@ -2,6 +2,30 @@
 
 /*Fonctions essentielles map :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+char ** createStack(char c)
+{
+  char ** pile = (char **) malloc(sizeof(char *)*(N-1));
+  if(!pile) errorInCreatePile();
+
+  for(int i = 0; i < N; i++)
+  {
+    pile[i] = (char*) malloc(sizeof(char)*N);
+    if(!pile[i])
+    {
+      for(int l = 0; l < i; l++) { free(pile[l]); pile[l] = NULL; }
+      free(pile); pile = NULL;
+      errorInCreate3D() ;
+    }
+  }
+
+  for (int i = 0; i < N-1; i++)
+  {
+      for (int j = 0; j < N; j++)
+        pile[i][j] = c;
+  }
+  return pile;
+}
+
 
 char *** createMap() 
 {
@@ -10,32 +34,23 @@ char *** createMap()
   map = (char ***) malloc(sizeof(char **)*N);
   if(!map) errorInCreate3D() ; // map == NULL
 
-  for(int i = 0 ; i < N; ++i) 
+  for(int i = 0 ; i < N; i++) 
   {
     map[i] = (char **) malloc(sizeof(char *)*N);
     if(!map[i])
     {
-      for(int l=0; l<i; ++l)
-      {
-        free(map[l]); map[l] = NULL;
-      }
+      for(int l = 0; l < i; l++) { free(map[l]); map[l] = NULL; }
       free(map); map = NULL;
       errorInCreate3D() ;
     }
 
-    for(int j=0; j<N; ++j)
+    for(int j = 0; j<N; j++)
     {
       map[i][j] = (char *) malloc(sizeof(char) * N);
       if(!map[i][j])
       {
-        for(int m=0; m<j; ++m)
-        {
-          free(map[i][m]); map[i][m] = NULL;
-        }
-        for(int n=0; n<i; ++n)
-        {
-          free(map[n]); map[n] = NULL;
-        }
+        for(int m = 0; m < j; m++) { free(map[i][m]); map[i][m] = NULL; }
+        for(int n = 0; n < i; n++) { free(map[n]); map[n] = NULL; }
         free(map); map = NULL;
         errorInCreate3D() ;
       }
@@ -211,7 +226,7 @@ int moove(char *** map, int posDeb, int posEnd)
   }
 }
 
-int check_End_Game(char *** map)
+int check_End_Game(char *** map, int nbre)
 {
   char ** map_Temporaire = createMap2D();
   initMap2D(map_Temporaire, map);
@@ -226,16 +241,41 @@ int check_End_Game(char *** map)
   {
     for (int j = 0; j < N-1; j++)
     {
-      if (map_Temporaire[i][j] == map_Temporaire[i][j+1])
-        count_L++;
-      if (map_Temporaire[j][i] == map_Temporaire[j+1][i])
-        count_C++;
-      if (map_Temporaire[i][j] == map_Temporaire[i+1][j+1])
-        count_DD++;
-      if (map_Temporaire[N-1-i][j] == map_Temporaire[N-1-(i+1)][j+1])
-        count_DG++;
+      if (map_Temporaire[i][j] == map_Temporaire[i][j+1]) {count_L++;}
+      if (map_Temporaire[j][i] == map_Temporaire[j+1][i]) {count_C++;}
+      if (map_Temporaire[j][j] == map_Temporaire[j+1][j+1]) {count_DD++;}
+      if (map_Temporaire[N-1-j][j] == map_Temporaire[N-1-(j+1)][j+1]) {count_DG++;}
     }
     if (count_C == N-1 || count_L == N-1 || count_DD == N-1 || count_DG == N-1) /* partie terminée */
+    {
+      freeMap2D(map_Temporaire);
+      return 1;
+    }
+    else
+      count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
+  }
+  freeMap2D(map_Temporaire);
+  return 0;                                                                     /* partie non-terminée */
+}
+
+int count_pion(char *** map, int nbre, char c)
+{
+  char ** map_Temporaire = createMap2D();
+  initMap2D(map_Temporaire, map);
+  int count_L  = 0; int count_C  = 0; 
+  int count_DD = 0; int count_DG = 0; 
+
+/* Vérification si il y a une ligne, colonne ou diagonale complété */
+  for (int i = 0; i < N; i++)
+  {
+    for (int j = 0; j < N; j++)
+    {
+      count_L += (map_Temporaire[i][j] == c) ? 1 : 0;
+      count_C += (map_Temporaire[j][i] == c) ? 1 : 0;
+      count_DD += (map_Temporaire[j][j] == c) ? 1 : 0;
+      count_DG += (map_Temporaire[N-1-j][j] == c) ? 1 : 0;
+    }
+    if (count_C == nbre-1 || count_L == nbre-1 || count_DD == nbre-1 || count_DG == nbre-1) /* partie terminée */
     {
       freeMap2D(map_Temporaire);
       return 1;
@@ -268,31 +308,37 @@ void writeFile(char ** map2D)
 
 
 /*Attention malloc ici, il faut lib"rer char **  */ 
-char **  readFile(char  * nameFile)
-{
-  FILE * mapTXT = NULL;
-  mapTXT = fopen(nameFile, "r");
-  if (!mapTXT){
-    perror("Opening Problem in readFile()");
-    exit(EXIT_FAILURE);
-  }
+// char **  readFile(char  * nameFile)
+// {
+//   FILE * mapTXT = NULL;
+//   mapTXT = fopen(nameFile, "r");
+//   if (!mapTXT){
+//     perror("Opening Problem in readFile()");
+//     exit(EXIT_FAILURE);
+//   }
 
-  char ** map2D = createMap2D();
-  if (!map2D)
-  {
-    perror("Error Allocation Memory in readFile()");
-    exit(EXIT_FAILURE);
-  }
-  int charActu = " ";
-  while (charActu != EOF)
-  {
-    charActu = fgetc(mapTXT);
-    if 
-  }
-}
+//   char ** map2D = createMap2D();
+//   if (!map2D)
+//   {
+//     perror("Error Allocation Memory in readFile()");
+//     exit(EXIT_FAILURE);
+//   }
+//   int charActu = " ";
+//   while (charActu != EOF)
+//   {
+//     charActu = fgetc(mapTXT);
+//     if 
+//   }
+// }
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void errorInCreatePile() 
+{
+    perror("ERROR ALLOCATION MEMORY in createPile\n");
+    exit(EXIT_FAILURE);
+}
 
 void errorInCreate3D() 
 {

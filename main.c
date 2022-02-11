@@ -29,9 +29,14 @@ int main(int argc, char ** argv)
   initMap2D(map2D, map3D);
   printMap2D(map2D);
 
+
   writeFile(map2D);
 
+  char ** map2DBIS = readFile("map.txt");
+    printMap2D(map2DBIS);
+
   freeMap2D(map2D);
+  freeMap2D(map2DBIS);
   freeMap(map3D);
 
 

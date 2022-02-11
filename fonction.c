@@ -267,7 +267,7 @@ void writeFile(char ** map2D)
 }
 
 
-/*Attention malloc ici, il faut lib"rer char **  */ 
+/*Attention malloc ici, il faut libérer char **  */ 
 char **  readFile(char  * nameFile)
 {
   FILE * mapTXT = NULL;
@@ -283,12 +283,24 @@ char **  readFile(char  * nameFile)
     perror("Error Allocation Memory in readFile()");
     exit(EXIT_FAILURE);
   }
-  int charActu = " ";
+  int  charActu = ' ';
+  int i = 0 ; int j = 0 ;
   while (charActu != EOF)
   {
     charActu = fgetc(mapTXT);
-    if 
+    if ('0' == charActu || 'b' == charActu ||  'n' == charActu)
+    {
+      map2D[i][j] = charActu;
+      ++ j;
+      if (N == j)
+      {
+	j = 0 ;
+	++i   ;
+      }
+    }
   }
+  fclose(mapTXT);
+  return map2D;
 }
 
 /*Fonctions d'erreur pour eviter la répétition :

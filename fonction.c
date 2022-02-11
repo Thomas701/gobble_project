@@ -306,30 +306,69 @@ void writeFile(char ** map2D)
   fclose(mapTXT);
 }
 
+/*Attention malloc ici, il faut libérer char **  */ 
+char **  readFile(char  * nameFile)
+{
+  FILE * mapTXT = NULL;
+  mapTXT = fopen(nameFile, "r");
+  if (!mapTXT){
+    perror("Opening Problem in readFile()");
+    exit(EXIT_FAILURE);
+  }
 
-/*Attention malloc ici, il faut lib"rer char **  */ 
-// char **  readFile(char  * nameFile)
-// {
-//   FILE * mapTXT = NULL;
-//   mapTXT = fopen(nameFile, "r");
-//   if (!mapTXT){
-//     perror("Opening Problem in readFile()");
-//     exit(EXIT_FAILURE);
-//   }
+  char ** map2D = createMap2D();
+  if (!map2D)
+  {
+    perror("Error Allocation Memory in readFile()");
+    exit(EXIT_FAILURE);
+  }
+  int  charActu = ' ';
+  int i = 0 ; int j = 0 ;
+  while (charActu != EOF)
+  {
+    charActu = fgetc(mapTXT);
+    if ('0' == charActu || 'b' == charActu ||  'n' == charActu)
+    {
+      map2D[i][j] = charActu;
+      ++ j;
+      if (N == j)
+      {
+        j = 0 ;
+        ++i   ;
+      }
+    }
+  }
+  fclose(mapTXT);
+  return map2D;
+}
 
-//   char ** map2D = createMap2D();
-//   if (!map2D)
-//   {
-//     perror("Error Allocation Memory in readFile()");
-//     exit(EXIT_FAILURE);
-//   }
-//   int charActu = " ";
-//   while (charActu != EOF)
-//   {
-//     charActu = fgetc(mapTXT);
-//     if 
-//   }
-// }
+void vider_buffer(void)
+{
+    int c; 
+    do {
+        c = getchar();
+    } while(c != '\n' && c != EOF);
+}
+
+
+char checkGameOption(char input)
+{
+  while (input != '1' &&  input != '2')
+  {
+    printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+    scanf(" %c",&input);
+  }
+  return input ;
+}
+void play()//char ** pileArray)
+{
+  char answer = ' ';
+  printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+  scanf("%c", &answer);
+  answer = checkGameOption(answer);
+  printf("%c \n", answer);
+  
+}
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

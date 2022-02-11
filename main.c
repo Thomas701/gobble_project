@@ -35,6 +35,8 @@ int main(int argc, char ** argv)
   char ** map2DBIS = readFile("map.txt");
     printMap2D(map2DBIS);
 
+    play();
+    
   freeMap2D(map2D);
   freeMap2D(map2DBIS);
   freeMap(map3D);

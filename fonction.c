@@ -303,6 +303,35 @@ char **  readFile(char  * nameFile)
   return map2D;
 }
 
+
+void vider_buffer(void)
+{
+    int c; 
+    do {
+        c = getchar();
+    } while(c != '\n' && c != EOF);
+}
+
+
+char checkGameOption(char input)
+{
+  while (input != '1' &&  input != '2')
+  {
+    printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+    scanf(" %c",&input);
+  }
+  return input ;
+}
+void play()//char ** pileArray)
+{
+  char answer = ' ';
+  printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+  scanf("%c", &answer);
+  answer = checkGameOption(answer);
+  printf("%c \n", answer);
+  
+}
+
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

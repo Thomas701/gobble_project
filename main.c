@@ -29,6 +29,8 @@ int main(int argc, char ** argv)
   initMap2D(map2D, map3D);
   printMap2D(map2D);
 
+  writeFile(map2D);
+
   freeMap2D(map2D);
   freeMap(map3D);
 

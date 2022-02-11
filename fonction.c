@@ -249,6 +249,47 @@ int check_End_Game(char *** map)
   return 0;                                                                     /* partie non-terminée */
 }
 
+void writeFile(char ** map2D)
+{
+  FILE * mapTXT = NULL;
+  mapTXT = fopen("map.txt", "w+");
+  if(!mapTXT) {
+    perror("Opening Problem in writeFile()");
+    exit(EXIT_FAILURE);
+  }
+  for(int i=0; i<N; ++i) {
+    for(int j=0; j<N; ++j){
+      fputc(map2D[i][j], mapTXT);
+    }
+    fputs("\n", mapTXT);
+  }
+  fclose(mapTXT);
+}
+
+
+/*Attention malloc ici, il faut lib"rer char **  */ 
+char **  readFile(char  * nameFile)
+{
+  FILE * mapTXT = NULL;
+  mapTXT = fopen(nameFile, "r");
+  if (!mapTXT){
+    perror("Opening Problem in readFile()");
+    exit(EXIT_FAILURE);
+  }
+
+  char ** map2D = createMap2D();
+  if (!map2D)
+  {
+    perror("Error Allocation Memory in readFile()");
+    exit(EXIT_FAILURE);
+  }
+  int charActu = " ";
+  while (charActu != EOF)
+  {
+    charActu = fgetc(mapTXT);
+    if 
+  }
+}
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -256,11 +297,11 @@ int check_End_Game(char *** map)
 void errorInCreate3D() 
 {
     perror("ERROR ALLOCATION MEMORY in createMap\n");
-    exit(1);
+    exit(EXIT_FAILURE);
 }
 
 void errorInCreate2D() 
 {
     perror("ERROR ALLOCATION MEMORY in createMap2D\n");
-    exit(1);
+    exit(EXIT_FAILURE);
 }

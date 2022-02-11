@@ -2,7 +2,6 @@
 #define FONCTION_H_
 
 #define N 3                                      // taille de la map +  taille d'une pile
-
 /*Fonctions essentielles map :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

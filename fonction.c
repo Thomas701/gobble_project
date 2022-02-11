@@ -166,14 +166,14 @@ void freeMap2D(char ** map2D)
   }
 }
 
-int canMoove(char *** map, int posDep, int posEnd)
+int canMoove(char *** map, int posDeb, int posEnd)
 {
-  x      = (posDeb - posDep % N) / N;
-  y      = posDeb % N;
-  x2     = (posEnd - posEnd % N) / N;
-  y2     = posEnd % N;
-  count  = 0;
-  count2 = 0;
+  int x      = (posDeb - posDeb % N) / N;
+  int y      = posDeb % N;
+  int x2     = (posEnd - posEnd % N) / N;
+  int y2     = posEnd % N;
+  int count  = 0;
+  int count2 = 0;
   for (int i = 0; i < N; i++)
   {
     if (map[x][y][i] != '0')
@@ -187,16 +187,16 @@ int canMoove(char *** map, int posDep, int posEnd)
     return 0;
 }
 
-int moove(char *** map, int posDep, int posEnd)
+int moove(char *** map, int posDeb, int posEnd)
 {
-  if (!canMoove(map, posDep, posEnd))
+  if (!canMoove(map, posDeb, posEnd))
     return 0;
   else
   {
-    x = (posDeb - posDep % N) / N;
-    y = posDeb % N;
-    x2 = (posEnd - posEnd % N) / N;
-    y2 = posEnd % N;
+    int x = (posDeb - posDeb % N) / N;
+    int y = posDeb % N;
+    int x2 = (posEnd - posEnd % N) / N;
+    int y2 = posEnd % N;
     for (int i = N-1; i >= 0; i--)
     {
       if (map[x][y][i] != '0')
@@ -241,7 +241,9 @@ int check_End_Game(char *** map)
       return 1;
     }
     else
+    {
       count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
+    }
   }
   freeMap2D(map_Temporaire);
   return 0;                                                                     /* partie non-terminée */

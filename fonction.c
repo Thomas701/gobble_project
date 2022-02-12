@@ -2,6 +2,8 @@
 
 /*Fonctions essentielles map :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
 char ** createStack(char c)
 {
   char ** pile = (char **) malloc(sizeof(char *)*(N-1));
@@ -25,7 +27,6 @@ char ** createStack(char c)
   }
   return pile;
 }
-
 
 char *** createMap() 
 {
@@ -157,14 +158,14 @@ void  initMap2D(char ** map2D, char *** map3D)
   {
     for(int j=0; j<N; ++j)
     {
-        for(int k=N-1; k>=0; --k)
+      for(int k=N-1; k>=0; --k)
+      {
+        if(map3D[i][j][k] != '0' && '0' == map2D[i][j])
         {
-          if(map3D[i][j][k] != '0' && '0' == map2D[i][j])
-          {
-            map2D[i][j] = map3D[i][j][k];
-            k = 0;
-          }
+          map2D[i][j] = map3D[i][j][k];
+          k = 0;
         }
+      }
     }
   }
 }
@@ -226,6 +227,7 @@ int moove(char *** map, int posDeb, int posEnd)
   }
 }
 
+
 int check_End_Game(char *** map, int nbre)
 {
   char ** map_Temporaire = createMap2D();
@@ -236,7 +238,7 @@ int check_End_Game(char *** map, int nbre)
   int count_DG = 0;
 
 
-/* Vérification si il y a une ligne, colonne ou diagonale complété */
+  /* Vérification si il y a une ligne, colonne ou diagonale complété */
   for (int i = 0; i < N-1; i++)
   {
     for (int j = 0; j < N-1; j++)
@@ -252,7 +254,9 @@ int check_End_Game(char *** map, int nbre)
       return 1;
     }
     else
+    {
       count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
+    }
   }
   freeMap2D(map_Temporaire);
   return 0;                                                                     /* partie non-terminée */
@@ -282,6 +286,7 @@ int count_pion(char *** map, int nbre, char c)
     }
     else
     {
+      /*ATTENTION THOMAS PLUSIEURS LIGNESSSSSS ARRETE D'ENLEVER LES "{}" XDD*/
       count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
     }
   }
@@ -289,7 +294,12 @@ int count_pion(char *** map, int nbre, char c)
   return 0;                                                                     /* partie non-terminée */
 }
 
-void writeFile(char ** map2D)
+
+/*
+blanc : 1, 2, 3
+noire : a, b, c
+*/
+void writeFile(char *** map3D)
 {
   FILE * mapTXT = NULL;
   mapTXT = fopen("map.txt", "w+");
@@ -297,17 +307,85 @@ void writeFile(char ** map2D)
     perror("Opening Problem in writeFile()");
     exit(EXIT_FAILURE);
   }
+  int find = 0 ;
   for(int i=0; i<N; ++i) {
     for(int j=0; j<N; ++j){
-      fputc(map2D[i][j], mapTXT);
+      find = 0;
+      for(int k=N-1; k>=0; --k){
+	       if(!find && map3D[i][j][k] != '0'){
+	         if(map3D[i][j][k] == 'b') {
+	           fputc('1'+k, mapTXT);
+	         }
+	         else{
+	           fputc('a'+ k, mapTXT);
+	         }
+	         ++ find;
+	       }
+       }
+        if (!find){
+          fputc('0', mapTXT);
+        }
     }
     fputs("\n", mapTXT);
   }
   fclose(mapTXT);
 }
 
-/*Attention malloc ici, il faut libérer char **  */ 
-char **  readFile(char  * nameFile)
+/*
+retourne char ***
+Attention malloc ici, il faut libérer char *** 
+*/ 
+char ***  readFile3D(char  * nameFile)
+{
+  FILE * mapTXT = NULL;
+  mapTXT = fopen(nameFile, "r");
+  if (!mapTXT){
+    perror("Opening Problem in readFile()");
+    exit(EXIT_FAILURE);
+  }
+
+  char *** map3D = createMap();
+  if (!map3D)
+  {
+    perror("Error Allocation Memory in readFile()");
+    exit(EXIT_FAILURE);
+  }
+  initMap(map3D);
+  char  charActu = ' ';
+  int i = 0 ; int j = 0 ; int k ;
+  while (charActu != EOF)
+  {
+    charActu = fgetc(mapTXT);
+    if ('0' == charActu ||
+	(charActu >= '1' && charActu <= '3' )||
+	(charActu >= 'a' && charActu <= 'c'))
+    {
+      if ('0' == charActu) k = 0 ;
+      else if (charActu >= '1' && charActu <= '3' ) k = charActu - '1';
+      else k =  charActu - 'a' ;
+
+      if (charActu >= 'a')      charActu = 'n';
+      else if (charActu >= '1') charActu = 'b';
+  
+      map3D[i][j][k] = charActu;
+      ++ j;
+      if (N == j)
+      {
+        j = 0 ;
+        ++i   ;
+      }
+    }
+  }
+  fclose(mapTXT);
+  return map3D;
+}
+
+
+/*
+return map2D
+Attention malloc ici, il faut libérer char **
+ */ 
+char **  readFile2D(char  * nameFile)
 {
   FILE * mapTXT = NULL;
   mapTXT = fopen(nameFile, "r");
@@ -327,8 +405,14 @@ char **  readFile(char  * nameFile)
   while (charActu != EOF)
   {
     charActu = fgetc(mapTXT);
-    if ('0' == charActu || 'b' == charActu ||  'n' == charActu)
+    if ('0' == charActu ||
+	(charActu >= '1' && charActu <= '3' )||
+	(charActu >= 'a' && charActu <= 'c'))
     {
+
+      if (charActu >= 'a')      charActu = 'n';
+      else if (charActu >= '1') charActu = 'b';
+      
       map2D[i][j] = charActu;
       ++ j;
       if (N == j)
@@ -341,6 +425,8 @@ char **  readFile(char  * nameFile)
   fclose(mapTXT);
   return map2D;
 }
+
+
 
 void vider_buffer(void)
 {
@@ -360,7 +446,9 @@ char checkGameOption(char input)
   }
   return input ;
 }
-void play()//char ** pileArray)
+
+
+void play() //char ** pileArray)
 {
   char answer = ' ';
   printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
@@ -369,6 +457,8 @@ void play()//char ** pileArray)
   printf("%c \n", answer);
   
 }
+
+
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

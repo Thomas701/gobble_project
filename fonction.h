@@ -18,7 +18,7 @@ void freeMap2D(char ** );                        // libere map2D
 
 int canMoove(char ***, int, int);                // Renvoie 1 ou 0 selon si le joueur a le droit de déplacer un pion d'une position A à une position B
 int moove(char ***, int posDep, int posEnd);     // Déplace un pion sur la map
-int check_End_Game(char *** );                   // Renvoie 1 ou 0 selon si la partie est terminé ou pas (à améliorer pour plus tard)
+int check_End_Game(char ***, int nbre);                   // Renvoie 1 ou 0 selon si la partie est terminé ou pas (à améliorer pour plus tard)
 
 
 
@@ -27,6 +27,6 @@ int check_End_Game(char *** );                   // Renvoie 1 ou 0 selon si la p
 
 void errorInCreate3D();                           // erreur allocation + exit
 void errorInCreate2D();                           // erreur allocation + exit
-
+void errorInCreatePile();                         // erreur allocation + exi
 
 #endif

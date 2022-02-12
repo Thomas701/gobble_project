@@ -3,6 +3,53 @@
 /*Fonctions active:
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+int canPutPiont(char *** map, int sizePiont, int endPiont)
+{
+  int x = (endPiont - endPiont % N) / N;
+  int y = endPiont % N;
+
+  for(int i = N-1; i >= sizePiont-1 ; i--)
+  {
+    if(map[x][y][i] != '0') return 0;
+  }
+  return 1;
+}
+
+/*return la taille du piont le plus grand d'une pile*/
+int sizePiontMaxStack(char ** stackArray, int numStack)
+{
+  int sizePiont = 0 ;
+  for(int i = N-1 ; i >= 0 ; i--)
+  {
+    if (stackArray[numStack][i] != '0')
+    {
+      sizePiont = i; i = -1;
+    }
+  }
+  return sizePiont ;
+}
+
+
+/*fonction vetif pile non vide + existe case pouvant acceuilir deja faites avant*/
+/*return 1 si réussi à déplacer, 0 sinon */
+int mooveSinceStack(char *** map, char ** stackArray, int numStack, int endPiont, char c) // c = 'b' or 'n'
+{
+  int sizePiont = sizePiontMaxStack(stackArray, numStack) ;
+  if (canPutPiont(map, sizePiont, endPiont))
+  {
+    stackArray[numStack][sizePiont] = '0';
+    int x = (endPiont - endPiont % N) / N;
+    int y = endPiont % N;
+    map[x][y][sizePiont] = c;
+    return 1;
+  }
+  else
+  {
+    printf("Mouvement impossible \n");
+    return 0;
+  }
+}
+
 int moove(char *** map, int posDeb, int posEnd)
 {
   if (!canMoove(map, posDeb, posEnd))
@@ -27,13 +74,14 @@ int moove(char *** map, int posDeb, int posEnd)
   }
 }
 
-char gameOption(char ** stackArray, char *** map3D,char ** map2D){
+void gameOption(char ** stackArray, char *** map3D,char ** map2D)
+{
   char answer = ' ';
   if (canPlayNewPiont(stackArray, map2D))
   {
       printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
       scanf("%c", &answer);
-      vider_buffer(),
+      vider_buffer();
 
       while (answer != '1' &&  answer != '2')
       {
@@ -52,15 +100,28 @@ char gameOption(char ** stackArray, char *** map3D,char ** map2D){
     scanf(" %d", &debPiont);
     vider_buffer();
 
-    while( piont < 0 && debPiont > N*N-1)
+    while( debPiont < 0 && debPiont > N*N-1)
     {
       printf("Je n'ai pas compris ! \nQuel piont voulez vous jouer ?\n");
       scanf(" %d", &debPiont);
       vider_buffer();
     }
-    printf("\n");
+
+    printf("Sur quel case voulez vous déplacer le piont %d :", debPiont);
+    scanf(" %d", &endPiont);
+    vider_buffer();
+
+    while(endPiont < 0 && endPiont > N*N-1 && endPiont == debPiont)
+    {
+      printf("Deplacement invalide, veuillez recommencer. \n");
+      printf("Sur quelle case voulez vous déplacer le piont %d ? ", debPiont);
+      scanf(" %d", &endPiont);
+      vider_buffer();
+    }
+
   }
-  return answer ;
+
+    // appeler canmoove + moove
 }
 
 /*Fonctions Vérifications :
@@ -244,12 +305,11 @@ int sizeMaxPiont(char ** stackArray)
   {
     for(int j = N-1 ; j >= 1 ; j--)
     {
-      if('0' != satckArray[i][j]) 
+      if('0' != stackArray[i][j]) 
         return 0;
     }
   }
-  else
-    return 1;
+  return 1;
 }
 
 int canPlayNewPiont(char **  stackArray, char ** map2D)
@@ -464,6 +524,18 @@ void freeMap2D(char ** map2D)
   }
 }
 
+void freeStack(char ** stackArray)
+{
+  if (!stackArray)
+  {
+    for(int i = 0; i < N-1; i++)
+    {
+      free(stackArray[i]) ; stackArray = NULL;
+    }
+    free(stackArray) ; stackArray = NULL;
+  }
+}
+
 /*Fonctions lecture/ecriture fichiers :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -583,7 +655,8 @@ char **  readFile2D(char  * nameFile)
   }
   fclose(mapTXT);
   return map2D;
-} 
+}
+
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

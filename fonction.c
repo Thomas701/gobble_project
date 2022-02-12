@@ -26,7 +26,6 @@ char ** createStack(char c)
   return pile;
 }
 
-
 char *** createMap() 
 {
   char *** map;

@@ -32,27 +32,6 @@ char ** createStack(char c)
   stack is empty return 1
   else 0
 */
-
-int isEmptyStacks(char ** stack){
-  for(int i=0; i<N-1; ++i) {
-    for(int j=0; j<N; ++j) { // ascendant pour opti
-      if (stack[i][j] != '0'){
-	return 0;
-      }
-    }
-  }
-    return 1;
-}
-
-int isEmptyStack(char ** stack, int num)
-{
-  for (int i=0; i<N; ++i){
-    if (stack[num][i] != '0'){
-      return 0;
-    }
-  }
-  return 1;
-}
   
 
 char *** createMap() 
@@ -463,25 +442,119 @@ void vider_buffer(void)
     } while(c != '\n' && c != EOF);
 }
 
-char gameOption() {
-  char answer = ' ';
-  printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
-  scanf("%c", &answer);
-  vider_buffer(),
-  while (answer != '1' &&  answer != '2') {
-    printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
-    scanf(" %c",&answer);
-    vider_buffer();
+
+ int isEmptyCase(char ** map2D)
+ {
+   for(int i = 0; i < N; i++)
+   {
+     for(int j = 0 ; j < N ; j++)
+     {
+       if('0' == map2D[i][j])
+	 return 1;
+     }
+   }
+   return 0;
+ }
+
+
+int isEmptyStack(char ** stack, int num)
+{
+  for (int i=0; i<N; ++i){
+    if (stack[num][i] != '0'){
+      return 0;
+    }
   }
+  return 1;
+}
+
+int isEmptyStacks(char ** stack){
+  for(int i=0; i<N-1; ++i) {
+    for(int j=0; j<N; ++j) { // ascendant pour opti
+      if (stack[i][j] != '0'){
+	return 0;
+      }
+    }
+  }
+    return 1;
+}
+
+
+/*return 1 si on a au moins une pile ayant une taille max de piont de 1
+  patant de l'hypothèse que les piles sont non vide appelle dans canPlayNewPiont
+*/
+int sizeMaxPiont(char ** stackArray)
+{
+  for(int i = 0 ; i < N-1 ; i++)
+  {
+    for(int j = N-1 ; j >= 1 ; j--)
+    {
+      if('0' != satckArray[i][j]) return 0;
+    }
+  }
+  else
+    return 1;
+}
+
+int canPlayNewPiont(char **  stackArray, char ** map2D)
+{
+  if(isEmptyCase(map2D))
+  {
+    if(isEmptyStacks(stackArray)) return 0;
+    else return 1;
+  }
+  else
+  {
+    if(sizeMaxPiont(stackArray)) return 0;
+    else return 1;
+  }
+}
+
+char gameOption(char ** stackArray, char *** map3D,char ** map2D){
+  char answer = ' ';
+  if (canPlayNewPiont(stackArray, map2D))
+  {
+      printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+      scanf("%c", &answer);
+      vider_buffer(),
+
+      while (answer != '1' &&  answer != '2')
+      {
+	  printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+	  scanf(" %c",&answer);
+	  vider_buffer();
+      }  
+  }
+  else
+  {
+    int debPiont = 0 ;
+    int endPiont = 0 ;
+
+    
+    printf("Quel piont voulez-vous jouer ? \n");
+    printMap3D(map3D);
+    scanf(" %d", &debPiont);
+    vider_buffer();
+
+    while( piont < 0 && debPiont > N*N-1)
+    {
+      printf("Je n'ai pas compris ! \nQuel piont voulez vous jouer ?\n");
+      scanf(" %d", &debPiont);
+      vider_buffer();
+    }
+
+    printf("\n");
+  }
+    
+
   return answer ;
 }
 
 
-void choicePlayer(char ** pileArray) //char ** pileArray)
+void jaiPasDeNom(char ** pileArray, char *** map3D) //char ** pileArray)
 {
   char option = gameOption();
   printf("%c \n",option);
-  if (1 == option){
+  if ('1' == option){
     /*Faire fonction test si il peut jouer , cad il existe un coup + pile non vide*/
     if (!isEmptyStacks(pileArray)) {
       playNewPiont(PileArray);
@@ -492,8 +565,6 @@ void choicePlayer(char ** pileArray) //char ** pileArray)
   }
 }
 
-
-/*
 int choiceStack4Play(char ** stack){
   char numpile ;
   printf("Quelle pile souhaitez vous jouez ? \nChoisir une pile non-vide compris entre 0 et %d.\n",N-1);
@@ -503,10 +574,7 @@ int choiceStack4Play(char ** stack){
   if(numpile < '0' || numpile > 
   
 }
-void playNewPiont(char ** stack) {
-  
-}
-*/
+
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -527,3 +595,4 @@ void errorInCreate2D()
     perror("ERROR ALLOCATION MEMORY in createMap2D\n");
     exit(EXIT_FAILURE);
 }
+

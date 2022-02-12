@@ -14,7 +14,7 @@ char '0' pour case vide   ,
 
 int main(int argc, char ** argv)
 {
-
+  /*
   char *** map3D = createMap();
   initMap(map3D);
 
@@ -37,13 +37,16 @@ int main(int argc, char ** argv)
 
   char ** map2DBIS = readFile2D("map.txt");
   printMap2D(map2DBIS);
+  */
+
   play();
-    
+
+  /*
   freeMap2D(map2D);
   freeMap2D(map2DBIS);
   freeMap(map3DBIS);
   freeMap(map3D);
-
+  */
 
   return EXIT_SUCCESS;
 }

@@ -3,7 +3,6 @@
 /*Fonctions essentielles map :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-
 char ** createStack(char c)
 {
   char ** pile = (char **) malloc(sizeof(char *)*(N-1));
@@ -27,6 +26,34 @@ char ** createStack(char c)
   }
   return pile;
 }
+
+/*
+  les deux piles du joueur
+  stack is empty return 1
+  else 0
+*/
+
+int isEmptyStacks(char ** stack){
+  for(int i=0; i<N-1; ++i) {
+    for(int j=0; j<N; ++j) { // ascendant pour opti
+      if (stack[i][j] != '0'){
+	return 0;
+      }
+    }
+  }
+    return 1;
+}
+
+int isEmptyStack(char ** stack, int num)
+{
+  for (int i=0; i<N; ++i){
+    if (stack[num][i] != '0'){
+      return 0;
+    }
+  }
+  return 1;
+}
+  
 
 char *** createMap() 
 {
@@ -436,30 +463,50 @@ void vider_buffer(void)
     } while(c != '\n' && c != EOF);
 }
 
-
-char checkGameOption(char input)
-{
-  while (input != '1' &&  input != '2')
-  {
-    printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
-    scanf(" %c",&input);
-  }
-  return input ;
-}
-
-
-void play() //char ** pileArray)
-{
+char gameOption() {
   char answer = ' ';
   printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
   scanf("%c", &answer);
-  answer = checkGameOption(answer);
-  printf("%c \n", answer);
-  
+  vider_buffer(),
+  while (answer != '1' &&  answer != '2') {
+    printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
+    scanf(" %c",&answer);
+    vider_buffer();
+  }
+  return answer ;
 }
 
 
+void choicePlayer(char ** pileArray) //char ** pileArray)
+{
+  char option = gameOption();
+  printf("%c \n",option);
+  if (1 == option){
+    /*Faire fonction test si il peut jouer , cad il existe un coup + pile non vide*/
+    if (!isEmptyStacks(pileArray)) {
+      playNewPiont(PileArray);
+    }
+  }
+  else {
+    movePiont();
+  }
+}
 
+
+/*
+int choiceStack4Play(char ** stack){
+  char numpile ;
+  printf("Quelle pile souhaitez vous jouez ? \nChoisir une pile non-vide compris entre 0 et %d.\n",N-1);
+  scanf(" %c", &numpile);
+  vider_buffer();
+  
+  if(numpile < '0' || numpile > 
+  
+}
+void playNewPiont(char ** stack) {
+  
+}
+*/
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 

@@ -29,25 +29,13 @@ int sizePiontMaxStack(char ** stackArray, int numStack)
   return sizePiont ;
 }
 
-
-/*fonction vetif pile non vide + existe case pouvant acceuilir deja faites avant*/
 /*return 1 si réussi à déplacer, 0 sinon */
-int mooveSinceStack(char *** map, char ** stackArray, int numStack, int endPiont, char c) // c = 'b' or 'n'
+int mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePiont ,int endPiont, char c) // c = 'b' or 'n'
 {
-  int sizePiont = sizePiontMaxStack(stackArray, numStack) ;
-  if (canPutPiont(map, sizePiont, endPiont))
-  {
-    stackArray[numStack][sizePiont] = '0';
-    int x = (endPiont - endPiont % N) / N;
-    int y = endPiont % N;
-    map[x][y][sizePiont] = c;
-    return 1;
-  }
-  else
-  {
-    printf("Mouvement impossible \n");
-    return 0;
-  }
+  stackArray[numStack][sizePiont] = '0';
+  int x = (endPiont - endPiont % N) / N;
+  int y = endPiont % N;
+  map[x][y][sizePiont] = c;
 }
 
 int moove(char *** map, int posDeb, int posEnd)
@@ -62,6 +50,7 @@ int moove(char *** map, int posDeb, int posEnd)
     int y2 = posEnd % N;
     for (int i = N-1; i >= 0; i--)
     {
+
       if (map[x][y][i] != '0')
       {
         map[x2][y2][i] = map[x][y][i];
@@ -74,9 +63,9 @@ int moove(char *** map, int posDeb, int posEnd)
   }
 }
 
-void gameOption(char ** stackArray, char *** map3D,char ** map2D)
+void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c) // c = 'b' or 'n' joueur qui choisie
 {
-  char answer = ' ';
+  char answer = '0';
   if (canPlayNewPiont(stackArray, map2D))
   {
       printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
@@ -88,19 +77,20 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D)
         printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
         scanf(" %c",&answer);
         vider_buffer();
-      }  
+      }
   }
-  else
+  
+  if (answer == '2' || answer == '0') // cas ou il a choisi l'option 2 ou cas ou il a seulement l'option 2 possible
   {
     int debPiont = 0 ;
     int endPiont = 0 ;
 
     printf("Quel piont voulez-vous jouer ? \n");
-    printMap3D(map3D);
+    printMap3dDebug(map3D);
     scanf(" %d", &debPiont);
     vider_buffer();
 
-    while( debPiont < 0 && debPiont > N*N-1)
+    while(debPiont < 0 || debPiont > N*N-1)
     {
       printf("Je n'ai pas compris ! \nQuel piont voulez vous jouer ?\n");
       scanf(" %d", &debPiont);
@@ -111,19 +101,64 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D)
     scanf(" %d", &endPiont);
     vider_buffer();
 
-    while(endPiont < 0 && endPiont > N*N-1 && endPiont == debPiont)
+    while(endPiont < 0 || endPiont > N*N-1 || endPiont == debPiont)
     {
       printf("Deplacement invalide, veuillez recommencer. \n");
       printf("Sur quelle case voulez vous déplacer le piont %d ? ", debPiont);
       scanf(" %d", &endPiont);
       vider_buffer();
     }
-
   }
-
-    // appeler canmoove + moove
+  
+  else // cas ou il joue un nouveau piont et il peut le jouer cad il existe une pile ou il peut mettre un piont sur le plateau
+  {
+    int numStack ;
+    int endPiont ;
+    printf("Voici vos piles : \n");
+    printStacks(stackArray);
+    printf("Quelle pile voulez vous jouer ?\n");
+    scanf(" %d",&numStack);
+    while(numStack < 0 || numStack > N-2 || isEpmtyStack(stackArray, numStack) || !canPlayStack(sizePiontMaxStack(stackArray , numStack)))
+    {
+      printf("Vous ne pouvez rien faire avec cette pile ! \nVeuillez saisir un nouveau numéro de pile : ");
+      scanf(" %d", &numStack);
+      vider_buffer();
+    }
+    int sizePiontMax = sizePiontMaxStack(stackArray, numStack);
+    printf("A quelle place voulez vous jouez le piont numéro %d ? ", sizePiontMax);
+    scanf(" %d", &endPiont);
+    while(endPiont < 0 || endPiont > N*N-1 || canPutPiont(map3D, sizePiontMax,endPiont))
+    {
+      printf("Position arrivé invalide !\n Veuillez resaisir le numéro de case où vous voulez jouer : ");
+      scanf(" %d", &endPiont);
+      vider_buffer();
+    }
+    mooveSinceStack(map3D, stackArray, numStack, sizePiontMax, endPiont, c);
+ }
 }
 
+
+int canPlayStack(int sizePiont, char *** map)
+{
+  int possible;
+  for(int i = 0 ; i < N ; i++)
+  {
+    for(int j = 0 ; j < N ; j++)
+    {
+      possible = 1 ;
+      for(int k = N-1 ; k >= sizePiont; k--)
+      {
+	if (map[i][j][k] != '0')
+        {
+	  possible = 0 ;
+	  k = -1;
+	}
+      }
+      if(1 == possible) return 1; 
+    }
+  }
+  return 0;
+}
 /*Fonctions Vérifications :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -449,7 +484,7 @@ void  initMap2D(char ** map2D, char *** map3D)
   }
 }
 
-/*Fonctions print pour afficher les maps :
+/*Fonctions print pour afficher les maps & piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void printMap3dDebug(char *** map)
@@ -477,6 +512,17 @@ void printMap2D(char ** map2D)
     printf("\n");
   }
   printf("\n");
+}
+
+void printStacks(char ** stacksArray)
+{
+  for(int i = 0; i < N-1 ; i++)
+  {
+    printf("pile numéro %d : |", i);
+    for(int j=0; j < N ; j++)
+      printf(" %c |", stacksArray[i][j]);
+    printf("\n");
+  }
 }
 
 /*Fonctions free pour libérer la mémoire :

@@ -39,8 +39,6 @@ int main(int argc, char ** argv)
   printMap2D(map2DBIS);
   */
 
-  play();
-
   /*
   freeMap2D(map2D);
   freeMap2D(map2DBIS);

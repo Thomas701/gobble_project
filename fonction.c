@@ -27,20 +27,20 @@ int moove(char *** map, int posDeb, int posEnd)
   }
 }
 
-char gameOption(char ** stackArray, char *** map3D,char ** map2D){
+char gameOption(char ** stackArray, char *** map3D,char ** map2D)
+{
   char answer = ' ';
   if (canPlayNewPiont(stackArray, map2D))
   {
       printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
       scanf("%c", &answer);
-      vider_buffer(),
-
+      vider_buffer();
       while (answer != '1' &&  answer != '2')
       {
         printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau piont ? (de votre pile)  \n[2] Deplacer un piont se trouvant sur la map  \n");
         scanf(" %c",&answer);
         vider_buffer();
-      }  
+      } 
   }
   else
   {
@@ -52,7 +52,7 @@ char gameOption(char ** stackArray, char *** map3D,char ** map2D){
     scanf(" %d", &debPiont);
     vider_buffer();
 
-    while( piont < 0 && debPiont > N*N-1)
+    while(debPiont < 0 && debPiont > N*N-1)
     {
       printf("Je n'ai pas compris ! \nQuel piont voulez vous jouer ?\n");
       scanf(" %d", &debPiont);
@@ -244,12 +244,11 @@ int sizeMaxPiont(char ** stackArray)
   {
     for(int j = N-1 ; j >= 1 ; j--)
     {
-      if('0' != satckArray[i][j]) 
+      if('0' != stackArray[i][j]) 
         return 0;
     }
   }
-  else
-    return 1;
+  return 1;
 }
 
 int canPlayNewPiont(char **  stackArray, char ** map2D)

@@ -605,7 +605,7 @@ void freeStack(char ** stackArray)
   {
     for(int i = 0; i < N-1; i++)
     {
-      free(stackArray[i]) ; stackArray = NULL;
+      free(stackArray[i]) ; stackArray[i] = NULL;
     }
     free(stackArray) ; stackArray = NULL;
   }

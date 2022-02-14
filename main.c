@@ -32,24 +32,13 @@ int main(int argc, char ** argv)
     printf("Le joueur 1 a gagne!\n");
   else
     printf("Le joueur 2 a gagne!\n");
-
+  
   freeMap(map3D);
   freeMap2D(map2D);
   freeStack(pileJ1);
   freeStack(pileJ2);
 
-  char ** map2D1 = createMap2D();
-  char ** map2D2 = createMap2D();
-  char ** map2D3 = createMap2D();
-  char ** map2D4 = createMap2D();
-  char ** map2D5 = createMap2D();
-  char ** map2D6 = createMap2D();
-  freeMap2D(map2D1);
-  freeMap2D(map2D2);
-  freeMap2D(map2D3);
-  freeMap2D(map2D4);
-  freeMap2D(map2D5);
-  freeMap2D(map2D6);
+  
   
   return EXIT_SUCCESS;
 }

@@ -405,9 +405,10 @@ int isStackFull(char ** pile1)
 char ** createStack(char c)
 {
   char ** pile = (char **) malloc(sizeof(char *)*(N-1));
-  if(!pile) errorInCreatePile();
+  if(!pile) 
+    errorInCreatePile();
 
-  for(int i = 0; i < N; i++)
+  for(int i = 0; i < N-1; i++)
   {
     pile[i] = (char*) malloc(sizeof(char)*N);
     if(!pile[i])
@@ -420,8 +421,8 @@ char ** createStack(char c)
 
   for (int i = 0; i < N-1; i++)
   {
-      for (int j = 0; j < N; j++)
-        pile[i][j] = c;
+    for (int j = 0; j < N; j++)
+      pile[i][j] = c;
   }
   return pile;
 }
@@ -605,7 +606,7 @@ void freeMap2D(char ** map2D)
 
 void freeStack(char ** stackArray)
 {
-  if (!stackArray)
+  if (stackArray)
   {
     for(int i = 0; i < N-1; i++)
     {

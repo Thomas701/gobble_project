@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "fonction.c"
+#include "../include/SDL2/SDL.h"
 
 /*
 char 'b' pour joeur blanc ,
@@ -10,6 +11,10 @@ char '0' pour case vide   ,
 */
 int main(int argc, char ** argv)
 {
+  SDL_version np;
+  SDL_VERSION(&np);
+  printf("Bienvenue sur la SDL %d %d %d\n", np.major, np.minor, np.patch);
+
   char ** pileJ1 = createStack('b');
   char ** pileJ2 = createStack('n');
   char *** map3D = createMap();
@@ -32,11 +37,13 @@ int main(int argc, char ** argv)
     printf("Le joueur 1 a gagne!\n");
   else
     printf("Le joueur 2 a gagne!\n");
-
+  
   freeMap(map3D);
   freeMap2D(map2D);
   freeStack(pileJ1);
   freeStack(pileJ2);
 
+  
+  
   return EXIT_SUCCESS;
 }

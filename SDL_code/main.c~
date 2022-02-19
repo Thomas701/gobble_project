@@ -1,0 +1,403 @@
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define HEIGHT 1280 // hauteur fenetre
+#define WIDTH  800 // largeur fenetre
+ 
+
+SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer)
+{
+  SDL_Surface *tmp = NULL;
+  SDL_Texture *texture = NULL;
+  tmp = IMG_Load(path);
+
+  if(!tmp) // probleme chargement image
+  {
+    fprintf(stderr, "Erreur SDL_LoadBMP : %s", SDL_GetError());
+    return NULL;
+ }
+  texture = SDL_CreateTextureFromSurface(renderer, tmp);
+  SDL_FreeSurface(tmp);
+
+  if(!texture) // probleme transfo image en texture
+  {
+    fprintf(stderr, "Erreur SDL_CreateTextureFromSurface : %s", SDL_GetError());
+    return NULL;
+  }
+  return texture;
+}
+
+
+void intro_authors(SDL_Window * window)
+{
+  // texture
+  SDL_Texture * texture_authors  = NULL; // contient la texture qui va acceuilir l'image authors
+
+  // renderer
+  SDL_Renderer * renderer = NULL ;
+
+  // musique
+  Mix_Music * music_intro = NULL;
+
+
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    
+  if(!renderer)
+  {
+    fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+  }
+  else
+  {
+    texture_authors = loadImage("authors.png", renderer);
+
+    if(!texture_authors)
+    {
+      fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+      perror("Impossible d'afficher la texture = NULL");
+    }
+    else
+    {
+      //boucle pour rendre l'image d'intro transparente
+      for (int i = 0 ; i < 130 ; ++i )
+      {
+        SDL_RenderClear(renderer);
+        if(0 != SDL_SetTextureAlphaMod(texture_authors, i))
+        {
+            fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+        }
+        else
+        {
+          SDL_RenderCopy(renderer, texture_authors, NULL, NULL);
+          SDL_RenderPresent(renderer);
+          SDL_Delay(15);
+        }
+      }
+      // alloue la musique de demarrage
+      music_intro = Mix_LoadMUS("intro2.wav");
+      if (!music_intro)
+      {
+        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Erreur chargement de la musique : %s", Mix_GetError());
+      }
+      else Mix_PlayMusic(music_intro, 0);
+
+      for (int i = 130 ; i < 255 ; ++i )
+      {
+        SDL_RenderClear(renderer);
+        if(0 != SDL_SetTextureAlphaMod(texture_authors, i))
+        {
+          fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+        }
+        else
+        {
+          SDL_RenderCopy(renderer, texture_authors, NULL, NULL);
+          SDL_RenderPresent(renderer);
+          SDL_Delay(15);
+        }
+      }
+      for (int i = 255 ; i >= 0 ; --i )
+      {
+        SDL_RenderClear(renderer);  // effacer image précédente
+        if(0 != SDL_SetTextureAlphaMod(texture_authors, i))
+        {
+          fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+        }
+        else
+        {
+          SDL_RenderCopy(renderer, texture_authors, NULL, NULL);
+          SDL_RenderPresent(renderer);
+          SDL_Delay(15);
+        }
+      }
+    }
+  }
+  if(renderer) SDL_DestroyRenderer(renderer); // liberation rendu
+  if(texture_authors) SDL_DestroyTexture(texture_authors); // liberation texture
+  if (music_intro) Mix_FreeMusic(music_intro); // libération de la musique, plus besoin
+}
+
+
+
+
+int main(int argc, char ** argv) 
+{ 
+  // fenetre principale
+  SDL_Window *window = NULL ;
+
+  // textures
+  SDL_Texture * textureMenu = NULL;
+
+  // renderer
+  SDL_Renderer * rendererBackground = NULL;
+  SDL_Renderer * rendererMenu = NULL;
+
+  
+  // boolean
+  int programmeOn = 1 ; // =0 si quitter 
+  int menu = 0 ;        // 1 si on est dans le menu, 0 sinon
+
+  int statut = EXIT_FAILURE ;
+
+  // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
+  if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
+  {
+      fprintf(stderr, "Erreur SDL_Init : %s", SDL_GetError());
+      goto Quit;
+  }
+
+  // alloue la fenetre
+  window = SDL_CreateWindow("GOOBLE PROJECT - PREP'ISIMA", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, HEIGHT, WIDTH, SDL_WINDOW_SHOWN) ;
+
+  if(!window)
+  {
+      fprintf(stderr, "Erreur SDL_CreateWindow : %s", SDL_GetError());
+      goto Quit ;
+  }
+
+  // chargement carte son
+  if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) // création de la configuration de la carte son
+  {
+        SDL_Log("Erreur initialisation SDL_mixer : %s", Mix_GetError());
+        goto Quit ;
+  }
+  
+  // intro image authors + son
+  intro_authors(window);
+
+  // lancement image background pendant tout le jeu image de Thomas
+  
+  // lancement image menu la rendre transparente pour afficher image de Thomas
+  
+  menu = 1;
+  rendererMenu = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+  if(!rendererMenu)
+  {
+    fprintf(stderr, "Error SDL_CreateRenderer for rendererMenu: %s", SDL_GetError());
+    goto Quit;
+  }
+  
+  textureMenu = loadImage("menu.png", rendererMenu);
+  if(!textureMenu)
+  {
+    fprintf(stderr, "Error loadImage for textureMenu : %s", SDL_GetError());
+    goto Quit;
+  }
+   SDL_RenderClear(rendererMenu);
+   printf("-----------------\n");
+   if(0 != SDL_SetTextureAlphaMod(texture_authors, 200)) // 200 = transparence
+   {
+     fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+   }
+   else
+   {
+      SDL_RenderCopy(rendererMenu, textureMenu, NULL, NULL);
+      SDL_RenderPresent(rendererMenu);
+      SDL_Delay(500);
+   }
+  
+
+
+  while(programmeOn)
+  {
+    break;
+  }
+  
+  //menu = 0;
+
+
+
+  
+  statut = EXIT_SUCCESS;
+  
+Quit :
+  if(textureMenu) SDL_DestroyTexture(textureMenu);
+  if(window) SDL_DestroyWindow(window); // libere la fenetre
+  Mix_CloseAudio(); // liberation de la gestion musqie
+  SDL_Quit(); // libere SDL_INIT uniquement pas les images / polices...
+  return statut;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define HEIGHT 1280 // hauteur fenetre
+#define WIDTH  800 // largeur fenetre
+ 
+
+
+// fonction pour changer de couleur
+int setWindowColor(SDL_Renderer *renderer, SDL_Color color)
+{
+  if(SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a) < 0) // prepare la peinture sur la surface
+    return -1;
+  if(SDL_RenderClear(renderer) < 0) // nettoie l'ancien renderer
+    return -1;
+  return 0;
+}
+
+int main(int argc, char ** argv) 
+{ 
+  // fenetre principale
+  SDL_Window *window = NULL ;
+
+  // renderer
+  SDL_Renderer * renderer = NULL;
+
+  int statut = EXIT_FAILURE ;
+
+  // creation couleurs RGBA
+  SDL_Color orange = {255, 127, 40, 255}; // struct acces r orange.r etc.
+
+  // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
+  if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
+    {
+      fprintf(stderr, "Erreur SDL_Init : %s", SDL_GetError());
+      goto Quit;
+    }
+
+  // alloue la fenetre
+  window = SDL_CreateWindow("GOOBLE PROJECT - PREP'ISIMA", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, HEIGHT, WIDTH, SDL_WINDOW_SHOWN) ;
+
+  if(!window)
+    {
+      fprintf(stderr, "Erreur SDL_CreateWindow : %s", SDL_GetError());
+      goto Quit ;
+    }
+
+  
+  // alloue renderer
+  renderer = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED);
+
+  if(!renderer)
+  {
+    fprintf(stderr, "Erreur SDL_CreateRenderer : %s", SDL_GetError());
+    goto Quit;
+  }
+
+  
+  
+
+
+  SDL_Delay(500);
+
+  if (0 != setWindowColor(renderer, orange))
+  {
+    fprintf(stderr,"Erreur SDL_RenderClear : %s", SDL_GetError());
+    goto Quit;
+  }
+
+  SDL_RenderPresent(renderer); // MAJ de renderer
+
+  SDL_Delay(5000);
+  
+  statut = EXIT_SUCCESS;
+
+  
+			      
+Quit :
+
+  if(renderer)
+  {
+    SDL_DestroyRenderer(renderer);
+  }
+    
+  if(window)
+  {
+    SDL_DestroyWindow(window); // libere la fenetre
+  }
+
+  SDL_Quit(); // libere SDL_INIT uniquement pas les images / polices
+  return statut;
+}
+*/
+
+/*
+  // fonction pour mettre ne pleine écran, ne marche pas LINUX
+   if (0 != SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN))
+   {
+     perror("Probleme de passage pleine écran");
+   }
+
+
+   // possible de créer un renderer en même temps que la fenêtre grace a SDL_CreateWindowAndRenderer() p28
+
+
+   // fonction de colision pour tester si un point appartient à un rectangle
+   SDL_bool test(SDL_Point point, SDL_Rect rect)
+   {
+       if(point.x >= rect.x && point.x <= (rect.x + rect.w) && point.y >= rect.y && point.y <= (rect.y + rect.h))
+           return SDL_TRUE;
+       else
+           return SDL_FALSE;
+   }
+   // ou sinon
+   // savoir si un point est dans un rectangle ? SDL_PointInRect p 31
+   
+
+
+   // savoir si deux rectangles se touchent ? SDL_HasIntersection p 31 obtenir le rectangle d'intersection ? SDL_IntersectRect p 31
+
+   // dessiner point par point p 38 & 39 (tableau de point)
+ */

@@ -859,38 +859,84 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   if (music_intro) Mix_FreeMusic(music_intro); // libération de la musique, plus besoin
 }
 
-SDL_bool lancementMenu(SDL_Renderer ** renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureMenu)
+
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
 {
-  if (0 != SDL_RenderClear(* renderer))
-  {
-    printf("Error SDL_RenderClear :  %s\n", SDL_GetError());
-    return SDL_FALSE;
-  }
-  if (0 != SDL_RenderCopy(* renderer, * textureBackground, NULL, NULL))
-  {
-      fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
-      return SDL_FALSE;
-  }
+  SDL_RenderClear(renderer);
 
+  //boutons du menu
+  SDL_Point pointChoice1VS1_HG =  {160, 240};   SDL_Point pointChoiceIA_HG = {170, 430};
+  SDL_Point pointChoice1VS1_BD =  {990, 355};  SDL_Point pointChoiceIA_BD = {975, 550};
+  SDL_Point pointQuitter_HG  =    {170, 650};    SDL_Point pointSound_HG =  {1120, 0};
+  SDL_Point pointQuitter_BD  =    {1000, 780};   SDL_Point pointSound_BD =  {1280, 185};
 
-  if (0 != SDL_RenderCopy(* renderer, * textureBackground, NULL, NULL))
-  {
+  SDL_Point pointMouse = {0 , 0}; //souris du menu pour evenement
+  textureBackground = loadImage("Frames/background.jpg", renderer); // lancement image background
+
+  if(!textureBackground) 
+    fprintf(stderr,"Error SDL_RenderClear :  %s\n", SDL_GetError());
+
+  if (0 != SDL_RenderCopy(renderer, textureBackground, NULL, NULL))
     fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
-    return SDL_FALSE;
-  }
+
+
+  if (0 != SDL_RenderCopy( renderer,  textureBackground, NULL, NULL))
+    fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
 
   // lancement image menu (transparente pour afficher background) blendMod car blanc
-  if (0 != SDL_SetTextureBlendMode(* textureMenu, SDL_BLENDMODE_MOD))
-  {
+  if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD))
     fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());
-    return SDL_FALSE;
-  }
 
-  if (0 != SDL_RenderCopy(* renderer, * textureMenu, NULL, NULL))
+  if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL))
   {
     fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
-    return SDL_FALSE;
   }
-  SDL_RenderPresent(* renderer);
-  return SDL_TRUE;
+
+  SDL_RenderPresent(renderer);
+  
+  while(*p_etats == 1) // boucle principale
+  {
+    SDL_Event event;
+    while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
+    {
+      switch(event.type)
+      {
+        case SDL_QUIT : //quitter
+          *p_etats = 0;
+          break ;
+
+        case SDL_MOUSEBUTTONDOWN :  // bouton souris enfonce
+          if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
+          {
+            SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
+            if (isInRect(pointMouse , pointChoice1VS1_HG, pointChoice1VS1_BD)) // 2 joueurs en local
+            {
+              *p_etats = 2 ;
+              SDL_RenderClear(renderer);
+              printf("Lancement jeu 1VS1 \n");
+            }
+            else if(isInRect(pointMouse , pointChoiceIA_HG, pointChoiceIA_BD)) // IA min max
+            {
+              *p_etats = 2 ;
+              SDL_RenderClear(renderer);
+              printf("Lancement jeu contre IA \n");
+            }
+            else if(isInRect(pointMouse , pointSound_HG, pointSound_BD)) // choix contre IA renfocement
+            {
+              if(boolPlayMusic == 0) {boolPlayMusic = 1; Mix_ResumeMusic();}
+              else {boolPlayMusic = 0; Mix_PauseMusic();}
+              printf("Changement de music \n");
+            }
+            else if(isInRect(pointMouse , pointQuitter_HG, pointQuitter_BD)) // choix QUITTER
+            {
+              *p_etats = 0;
+              printf("Quitter \n");
+            }
+          }
+          break ;
+        default :
+          break ;
+      }  
+    }
+  }
 }

@@ -1,7 +1,7 @@
 #ifndef FONCTION_H_
 #define FONCTION_H_
 
-#define N 3                                     
+#define N 3                               
 
 /*Fonctions active:
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

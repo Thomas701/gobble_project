@@ -65,28 +65,11 @@ int main(int argc, char ** argv)
 
     // renderer
     SDL_Renderer * renderer = NULL;
-
-    // point
-    // dans l'image menu
-    SDL_Point pointChoice1VS1_HG = {160,240};
-    SDL_Point pointChoice1VS1_BD = {990, 355};
-
-    SDL_Point pointChoiceIA_HG = {170,430};
-    SDL_Point pointChoiceIA_BD = {975, 550};
-
-    SDL_Point pointQuitter_HG  = {170, 650};
-    SDL_Point pointQuitter_BD  = {1000, 780};
-
-    SDL_Point pointSound_HG = {1120,0};
-    SDL_Point pointSound_BD = {1280, 185};
-
-    // souris pour evenement
-    SDL_Point pointMouse = {0 , 0};
     
     // boolean
-    int programOn = 1 ;   // 0 si quitter 
-    int menu = 0 ;        // 1 si on est dans le menu, 0 sinon
-    int boolPlayMusic = 1 ;   // si on joue de la musique ?
+    int etatS = 1 ;        // 1 si on est dans le menu, 0 sinon
+    int * p_etatS = &etatS;
+    int boolPlayMusic = 1;   // si on joue de la musique ?
 
     // musiques
     Mix_Music * mainMusic = NULL;
@@ -151,93 +134,8 @@ int main(int argc, char ** argv)
         boolPlayMusic = 0;
     }
 
-    menu = 1 ;
-
-    if (!lancementMenu(renderer, textureBackground, textureMenu))
-    {
-        fprintf(stderr, "Error un lancementMenu : %s \n", SDL_GetError());
-        goto Quit ;
-    }
-
-    while(programOn) // boucle principale
-    {
-        SDL_Event event;
-        while(programOn && SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
-        {
-            switch(event.type)
-            {
-                case SDL_QUIT :                       // utilisateur veut quitter
-                    goto Quit ;
-                break ;
-
-                case SDL_KEYDOWN :                   // utilisateur a taper une touche
-                if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // echape pour afficher ou quitter le menu
-                {
-                    if(menu == 0) // cas ou on a pas de menu
-                    {
-                        menu = 1;// on met de bool a 1
-                        lancementMenu(renderer, textureBackground, textureMenu);
-                    }
-                    else  // cas ou on a un menu et on veut continuer de jouer
-                    {
-                        menu = 0; // on met le bool a 0 pour stopper
-                        SDL_RenderClear(renderer);
-                        SDL_RenderPresent(renderer);
-                        printf("Retour au jeu\n");
-                    }
-                }
-                break;
-                
-                case SDL_MOUSEBUTTONDOWN :           // bouton souris enfonce
-                    if(menu)                         // on se trouve dans le menu
-                    {
-                        if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
-                        {
-                            SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
-                            if (isInRect(pointMouse , pointChoice1VS1_HG, pointChoice1VS1_BD)) // choix 2 joueurs en local
-                            {
-                                menu = 0 ;
-                                SDL_RenderClear(renderer);
-                                SDL_RenderPresent(renderer);
-                                printf("Lancement jeu 1VS1 \n");
-                            }
-                            else if(isInRect(pointMouse , pointChoiceIA_HG, pointChoiceIA_BD)) // choix 2 joueurs en local
-                            {
-                                menu = 0;
-                                SDL_RenderClear(renderer);
-                                SDL_RenderPresent(renderer);
-                                printf("Lancement jeu contre IA \n");
-                            }
-                            else if(isInRect(pointMouse , pointSound_HG, pointSound_BD)) // choix contre IA
-                            {
-                                if(boolPlayMusic == 0) // cas ou on a pas de musique
-                                {
-                                    boolPlayMusic = 1;// on met de bool a 1
-                                    Mix_ResumeMusic();
-                                }
-                                else                  // cas ou on a de la musique et on veut l'arreter
-                                {
-                                    boolPlayMusic = 0; // on met le bool a 0 pour stopper
-                                    Mix_PauseMusic();
-                                }
-                            }
-                            else if(isInRect(pointMouse , pointQuitter_HG, pointQuitter_BD)) // choix QUITTER
-                            {
-                                goto Quit;
-                            }
-                        }
-                    }
-                break ;
-
-                default :
-                break ;
-            }  
-        }
-      }
-
-      statut = EXIT_SUCCESS;
-
-
+    lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
+    statut = EXIT_SUCCESS;
 
   /*goto*/
   Quit :
@@ -262,3 +160,24 @@ int main(int argc, char ** argv)
       return statut;
   }
 }
+
+/*
+        case SDL_KEYDOWN :                   // utilisateur a taper une touche
+          if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // echape pour afficher ou quitter le menu
+          {
+            if(menu == 0) // cas ou on a pas de menu
+            {
+              menu = 1;// on met de bool a 1
+              lancementMenu(renderer, textureBackground, textureMenu);
+            }
+            else  // cas ou on a un menu et on veut continuer de jouer
+            {
+              menu = 0; // on met le bool a 0 pour stopper
+              SDL_RenderClear(renderer);
+              SDL_RenderPresent(renderer);
+              printf("Retour au jeu\n");
+            }
+          }
+          break;
+
+*/

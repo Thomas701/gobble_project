@@ -902,15 +902,7 @@ SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rect
 SDL_bool lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL_Texture * textureMenu)
 {
     SDL_RenderClear(renderer);
-
-    // lancement image background
-    textureBackground = loadImage("Frames/background.jpg", renderer);
-    if(!textureBackground)
-    {
-        fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
-        return SDL_FALSE;
-    }
-
+    
     if (0 != SDL_RenderCopy(renderer, textureBackground, NULL, NULL))
     {
         fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());

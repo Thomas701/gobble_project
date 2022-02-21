@@ -10,8 +10,8 @@
 #define WIDTH  800 // largeur fenetre
 
 
-/*
-SDL_Texture * afficheMapVideSDL(char ** map2D, )
+
+/*SDL_Texture * afficheMapVideSDL(char ** map2D, )
 {
 
 }*/
@@ -180,14 +180,24 @@ int main(int argc, char ** argv)
                     case SDL_KEYDOWN :                   // utilisateur a taper une touche
                         if(event.type == SDL_KEYDOWN)
                         {
-                            if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // echape pour afficher menu
+                            if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // echape pour afficher ou quitter le menu
                             {
-                                menu = 1 ;
-                                lancementMenu(renderer, textureBackground, textureMenu);
+                                if(menu == 0) // cas ou on a pas de menu
+                                {
+                                    menu = 1;// on met de bool a 1
+                                    lancementMenu(renderer, textureBackground, textureMenu);
+                                }
+                                else                  // cas ou on a un menu et on veut continuer de jouer
+                                {
+                                    menu = 0; // on met le bool a 0 pour stopper
+                                    SDL_RenderClear(renderer);
+                                    SDL_RenderPresent(renderer);
+                                    printf("Retour au jeu\n");
+                                }
                             }
                         }
                     break;
-        
+                    
                     case SDL_MOUSEBUTTONDOWN :           // bouton souris enfonce
                         if(menu)                         // on se trouve dans le menu
                         {

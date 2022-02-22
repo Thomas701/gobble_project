@@ -140,6 +140,20 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c) // c =
  }
 }
 
+
+void loadAndPlayMainMusic(Mix_Music ** mainMusic)
+{
+  // initialisation de la musique
+  * mainMusic = Mix_LoadMUS("Music/mainMusic.mp3");
+  Mix_VolumeMusic(MIX_MAX_VOLUME/8);
+  if(!* mainMusic)
+    fprintf(stderr, "Error for load mainMusic : %s \n",SDL_GetError());
+  
+  // play music
+  if(0 != Mix_PlayMusic(* mainMusic, -1))
+    fprintf(stderr, "Error in Mix_PlayMusic %s\n", SDL_GetError());
+}
+
 /*Fonctions Vérifications :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -504,8 +518,8 @@ SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer)
   return texture;
 }
 
-/*Fonctions initialisation de maps :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*Fonctions initialisation  :
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void initMap(char *** map) 
 {
@@ -542,6 +556,123 @@ void  initMap2D(char ** map2D, char *** map3D)
     }
   }
 }
+
+
+
+/* return -1 si erreur 0 sinon*/
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture ** textureBackground, SDL_Texture ** textureMapVide,SDL_Surface ** icones, SDL_Renderer ** renderer)
+{
+  // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
+  if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
+  {
+    fprintf(stderr, "Erreur SDL_Init : %s\n", SDL_GetError());
+    return -1;
+  }
+    
+  // alloue la fenetre
+  * window = SDL_CreateWindow("GOOBLE PROJECT - PREP'ISIMA", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
+  if(!* window)
+  {
+    fprintf(stderr, "Erreur SDL_CreateWindow : %s\n", SDL_GetError());
+    return -1 ;
+  }
+
+  // initialisation renderer
+  * renderer = SDL_CreateRenderer(* window, -1, SDL_RENDERER_ACCELERATED);
+  if(!*renderer)
+  {
+    fprintf(stderr, "Error SDL_CreateRenderer for mainRenderer: %s\n", SDL_GetError());
+    return -1;
+  }
+  
+  // chargement de l'icones
+  * icones = IMG_Load("Frames/icones.png");
+  if (!* icones)
+    SDL_Log("Erreur chargement icones IMG_Load : %s\n", Mix_GetError());
+  else
+    SDL_SetWindowIcon(* window, * icones);
+
+  // chargement carte son
+  if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) // création de la configuration de la carte son
+  {
+    SDL_Log("Erreur initialisation SDL_mixer : %s\n", Mix_GetError());
+    return -1 ;
+  }
+
+  // init texture background
+  * textureBackground = loadImage("Frames/background.jpg", * renderer);
+  if(!* textureBackground)
+  {
+    fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  // init texture menu
+  * textureMenu = loadImage("Frames/menu.jpg", * renderer);
+  if(!* textureMenu)
+  {
+    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  // init texture map vide
+  * textureMapVide = loadImage("Frames/map.png", * renderer);
+  if(!* textureMapVide)
+  {
+    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
+    return -1;
+  }
+  return 0;
+}
+
+
+/*return 0 si ok, -1 sinon*/
+int loadPiont(SDL_Renderer ** renderer, SDL_Texture ** texturePiont1R, SDL_Texture ** texturePiont2R, SDL_Texture ** texturePiont3R, SDL_Texture ** texturePiont1B, SDL_Texture ** texturePiont2B, SDL_Texture ** texturePiont3B)
+{
+  * texturePiont1R = loadImage("Frames/1R.png", * renderer);
+  if(!* texturePiont1R)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont1R : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  * texturePiont2R = loadImage("Frames/2R.png", * renderer);
+  if(!* texturePiont2R)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont2R : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  * texturePiont3R = loadImage("Frames/3R.png", * renderer);
+  if(!* texturePiont3R)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont3R : %s\n", SDL_GetError());
+    return -1;
+  }
+
+    * texturePiont1B = loadImage("Frames/1B.png", * renderer);
+  if(!* texturePiont1B)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont1B : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  * texturePiont2B = loadImage("Frames/2B.png", * renderer);
+  if(!* texturePiont2B)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont2B : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  * texturePiont3B = loadImage("Frames/3B.png", * renderer);
+  if(!* texturePiont3B)
+  {
+    fprintf(stderr, "Error loadPiont for texturePiont2B : %s\n", SDL_GetError());
+    return -1;
+  }
+  return 0;
+}
+
 
 /*Fonctions print pour afficher les maps & piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -939,4 +1070,73 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL
       }  
     }
   }
+}
+
+
+
+/*---------------------------------------------------*/
+
+
+/* -1 si erreur , 0 sinon*/
+int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
+{
+  SDL_Rect positionMap ; // contient la posiiton de la map
+  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
+  {
+    fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  
+  // centrer position
+  positionMap.x = (WIDTH - positionMap.w) / 2 ;
+  positionMap.y = (HEIGHT- positionMap.h) / 2 ;
+ 
+  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
+  {
+    fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+
+
+  if (0 !=  SDL_RenderCopy(renderer, textureMapVide, NULL, &positionMap))
+  {
+    fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  return 0;
+}
+
+
+/* return 0 if succes, -1 else */
+int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture * texturePiont1R, SDL_Texture * texturePiont2R, SDL_Texture * texturePiont3R,  SDL_Texture * texturePiont1B, SDL_Texture * texturePiont2B, SDL_Texture * texturePiont3B) // texturemapVide pour connaitre la taille
+{
+  SDL_Rect positionMap ;
+  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
+  {
+    fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  
+  positionMap.x = (WIDTH - positionMap.w) / 2 ;
+  positionMap.y = (HEIGHT- positionMap.h) / 2 ;
+
+  // placement pile joueur 1
+  SDL_Rect positionPiontPileJ1 ;
+  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionPiontPileJ1.w, &positionPiontPileJ1.h))
+  {
+    fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  
+  positionPiontPileJ1.x = positionMap.x / 2 ; // car commence à 0 en abcsisse
+  positionPiontPileJ1.y = 60 ;                // attention en dur, c'est le centre de la case numero 0
+
+  if (0 !=  SDL_RenderCopy(renderer, texturePiont3R, NULL, &positionPiontPileJ1))
+  {
+    fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  SDL_RenderPresent(renderer);
+  SDL_Delay(5000);
+  return 0;
 }

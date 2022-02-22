@@ -15,83 +15,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define HEIGHT 800 // hauteur fenetre
+#define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
 
-#define HEIGHT 1280 // hauteur fenetre
-#define WIDTH  800 // largeur fenetre
 
-/* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture ** textureBackground, SDL_Surface ** icones, SDL_Renderer ** renderer)
+/*
+int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Point * pointDep, SDL_Point * pointArr)
 {
-  // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
-  if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
+  int incrX = (pointDep.x < pointArr.x) ? 1 : -1 ;
+  int incrY = (pointDep.y < pointArr.y) ? 1 : -1  ;
+  while(pointDep.x != pointArr.x && pointDep.y != pointArr.y)
   {
-    fprintf(stderr, "Erreur SDL_Init : %s\n", SDL_GetError());
-    return -1;
+    pointDep.x += incrX ;
+    pointDep.y += incrY ;    
   }
-    
-  // alloue la fenetre
-  * window = SDL_CreateWindow("GOOBLE PROJECT - PREP'ISIMA", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, HEIGHT, WIDTH, SDL_WINDOW_SHOWN) ;
-  if(!* window)
-  {
-    fprintf(stderr, "Erreur SDL_CreateWindow : %s\n", SDL_GetError());
-    return -1 ;
-  }
-
-  // initialisation renderer
-  * renderer = SDL_CreateRenderer(* window, -1, SDL_RENDERER_ACCELERATED);
-  if(!*renderer)
-  {
-    fprintf(stderr, "Error SDL_CreateRenderer for mainRenderer: %s\n", SDL_GetError());
-    return -1;
-  }
-  
-  // chargement de l'icones
-  * icones = IMG_Load("Frames/icones.png");
-  if (!* icones)
-    SDL_Log("Erreur chargement icones IMG_Load : %s\n", Mix_GetError());
-  else
-    SDL_SetWindowIcon(* window, * icones);
-
-  // chargement carte son
-  if (Mix_OpenAudio(96000, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) < 0) // création de la configuration de la carte son
-  {
-    SDL_Log("Erreur initialisation SDL_mixer : %s\n", Mix_GetError());
-    return -1 ;
-  }
-
-  // init texture background
-  * textureBackground = loadImage("Frames/background.jpg", * renderer);
-  if(!* textureBackground)
-  {
-    fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
-    return -1;
-  }
-
-  // init texture menu
-  * textureMenu = loadImage("Frames/menuBis.jpg", * renderer);
-  if(!* textureMenu)
-  {
-    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
-    return -1;
-  }
-  return 0;
 }
-
-
-void loadAndPlayMainMusic(Mix_Music ** mainMusic)
-{
-  // initialisation de la musique
-  * mainMusic = Mix_LoadMUS("Music/mainMusic.mp3");
-  Mix_VolumeMusic(MIX_MAX_VOLUME/8);
-  if(!* mainMusic)
-    fprintf(stderr, "Error for load mainMusic : %s \n",SDL_GetError());
-  
-  // play music
-  if(0 != Mix_PlayMusic(* mainMusic, -1))
-    fprintf(stderr, "Error in Mix_PlayMusic %s\n", SDL_GetError());
-}
-
+*/
 
 
 int main(int argc, char ** argv) 
@@ -135,6 +75,14 @@ int main(int argc, char ** argv)
     // textures
     SDL_Texture * textureMenu = NULL;
     SDL_Texture * textureBackground = NULL;
+    SDL_Texture * textureMapVide = NULL;
+    // textures Pionts
+    SDL_Texture * texturePiont1R = NULL;
+    SDL_Texture * texturePiont2R = NULL;
+    SDL_Texture * texturePiont3R = NULL;
+    SDL_Texture * texturePiont1B = NULL;
+    SDL_Texture * texturePiont2B = NULL;
+    SDL_Texture * texturePiont3B = NULL;
 
     // renderer
     SDL_Renderer * renderer = NULL;
@@ -152,10 +100,17 @@ int main(int argc, char ** argv)
 
     int statut = EXIT_FAILURE ;
     
-    // chargement SDL / fenetre / renderer / texture
-    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &icones, &renderer))
+    // chargement SDL / fenetre / renderer / textureMenu et background
+    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &textureMapVide,&icones, &renderer))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
+       goto Quit;
+    }
+
+    // texture piont
+    if (0 != loadPiont(&renderer, &texturePiont1R, &texturePiont2R, &texturePiont3R, &texturePiont1B, &texturePiont2B, &texturePiont3B))
+    {
+       fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
        goto Quit;
     }
 
@@ -164,6 +119,12 @@ int main(int argc, char ** argv)
 
     // lancement musique
     loadAndPlayMainMusic(&mainMusic);
+
+    // affiche map vide
+    printMapEmptySDL(textureMapVide, renderer);
+
+    // affiche piles joueurs
+    affichePileSDL(renderer, textureMapVide, texturePiont1R, texturePiont2R, texturePiont3R, texturePiont1B, texturePiont2B, texturePiont3B);
     
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
@@ -180,7 +141,14 @@ Quit :
     // textures
     if(textureMenu) SDL_DestroyTexture(textureMenu);
     if(textureBackground) SDL_DestroyTexture(textureBackground);
-
+    if(textureMapVide) SDL_DestroyTexture(textureMapVide);
+    if(texturePiont1R) SDL_DestroyTexture(texturePiont1R);
+    if(texturePiont2R) SDL_DestroyTexture(texturePiont2R);
+    if(texturePiont3R) SDL_DestroyTexture(texturePiont3R);
+    if(texturePiont1B) SDL_DestroyTexture(texturePiont1B);
+    if(texturePiont2B) SDL_DestroyTexture(texturePiont2B);
+    if(texturePiont3B) SDL_DestroyTexture(texturePiont3B);
+    
     // renderer
     if (renderer) SDL_DestroyRenderer(renderer);
 

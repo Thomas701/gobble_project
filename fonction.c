@@ -1122,16 +1122,16 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
 
   // placement pile joueur 1
   SDL_Rect positionPiontPileJ1 ;
-  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionPiontPileJ1.w, &positionPiontPileJ1.h))
+  if (0 != SDL_QueryTexture(texturePiont2R, NULL, NULL, &positionPiontPileJ1.w, &positionPiontPileJ1.h))
   {
     fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
     return -1;
   }
   
   positionPiontPileJ1.x = positionMap.x / 2 ; // car commence à 0 en abcsisse
-  positionPiontPileJ1.y = 60 ;                // attention en dur, c'est le centre de la case numero 0
+  positionPiontPileJ1.y = 60 + positionMap.y ;                // attention en dur, c'est le centre de la case numero 0 en y
 
-  if (0 !=  SDL_RenderCopy(renderer, texturePiont3R, NULL, &positionPiontPileJ1))
+  if (0 !=  SDL_RenderCopy(renderer, texturePiont2R, NULL, &positionPiontPileJ1))
   {
     fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
     return -1;

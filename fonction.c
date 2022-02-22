@@ -1176,9 +1176,6 @@ int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
   return 0;
 }
 
-
-
-
 /* return 0 if succes, -1 else */
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture * texturePiont1R, SDL_Texture * texturePiont2R, SDL_Texture * texturePiont3R,  SDL_Texture * texturePiont1B, SDL_Texture * texturePiont2B, SDL_Texture * texturePiont3B, char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
 {
@@ -1191,13 +1188,12 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
     return -1;
   }
  
+ //Position
   positionMap.x = (WIDTH - positionMap.w) / 2 ;
   positionMap.y = (HEIGHT- positionMap.h) / 2 ;
-
   // placement pile joueur 1 bleu
   SDL_Rect positionPiontPile1J1 ;
   SDL_Rect positionPiontPile2J1 ;
-
   // placement pile joueur 2 rouge
   SDL_Rect positionPiontPile1J2 ;
   SDL_Rect positionPiontPile2J2 ;
@@ -1208,11 +1204,11 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
     {
       if(i == 0)
       {
-	 if (0 != SDL_QueryTexture(texturePiont1B, NULL, NULL, &positionPiontPile1J1.w, &positionPiontPile1J1.h))
-	 {
-	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
-	   return -1;
-	 }
+	      if (0 != SDL_QueryTexture(texturePiont1B, NULL, NULL, &positionPiontPile1J1.w, &positionPiontPile1J1.h))
+	      {
+          fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+          return -1;
+	      }
   
 	 positionPiontPile1J1.x = positionMap.x/2 - positionPiontPile1J1.w/2 ;
 	 positionPiontPile1J1.y = 160 + positionMap.y - positionPiontPile1J1.h/2 ;  

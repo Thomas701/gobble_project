@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #define HEIGHT 800 // hauteur fenetre
 #define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
@@ -46,7 +47,6 @@ int main(int argc, char ** argv)
     initMap2D(map2D, map3D);
     int tour = 0;
     char c;
-        
     while (!check_End_Game(map3D))
     {
       c = (tour % 2 == 0) ? 'b' : 'n';
@@ -69,6 +69,7 @@ int main(int argc, char ** argv)
   }
   else // lancement interface graphique
   {
+    srand(time(NULL));
     // fenetre principale
     SDL_Window * window = NULL ;
     

@@ -894,6 +894,75 @@ char **  readFile2D(char  * nameFile)
   return map2D;
 }
 
+void writeFilePile(char ** pile1, char ** pile2)
+{
+  FILE * pileFile = NULL;
+  pileFile = fopen("pile.txt", "w+");
+  if(!pileFile) {
+    perror("Opening Problem in writeFilePile()");
+    exit(EXIT_FAILURE);
+  }
+  for(int i = 0; i < N-1; i++) {
+    for(int j = 0; j < N; j++) {
+        fputc(pile1[i][j], pileFile);
+    }
+    fputc('\n', pileFile);
+  }
+  fputc('\n', pileFile);
+
+  for(int i = 0; i < N-1; i++) {
+    for(int j = 0; j < N; j++) {
+        fputc(pile2[i][j], pileFile);
+    }
+    fputc('\n', pileFile);
+  }
+  fclose(pileFile);
+}
+
+void readFilePile(char * nameFile, char ** pile1, char ** pile2)
+{
+  FILE * pileFile = NULL;
+  pileFile = fopen(nameFile, "r");
+  if (!pileFile)
+  {
+    perror("Opening Problem in readFilePile()");
+    exit(EXIT_FAILURE);
+  }
+  char  charActu = ' ';
+  int i = 0 ; int j = 0 ; int count = 0; int tour = 0;
+  while (charActu != EOF)
+  {
+    charActu = fgetc(pileFile);
+    if (charActu != '\n' && tour == 0)
+    {
+      printf("pile1, c=%c,i=%d, j=%d\n", charActu, i, j);
+      pile1[i][j] = charActu;
+      j++;
+      count = 0;
+    }
+    else if (charActu != '\n' && tour == 1 && i < N-1)
+    {
+      printf("pile2, c=%c,i=%d, j=%d\n", charActu, i, j);
+      pile2[i][j] = charActu;
+      j++;
+      count = 0;
+    }
+    else
+    {
+      count++;
+      i++;
+      j = 0;
+    }
+    if (count == 2)
+    {
+      i = 0;
+      j = 0;
+      printf("BOU\n");
+      tour++;
+    }
+  }
+  fclose(pileFile);
+}
 
 /*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -924,8 +993,11 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   SDL_Texture * texture_authors = NULL; // contient la texture qui va acceuilir l'image authors [texture]
   Mix_Music * music_intro = NULL;   // [musique]
 
-  
-  texture_authors = loadImage("Frames/authors.png", *renderer);
+  int r = rand() % 2;
+  if (r == 0)
+    texture_authors = loadImage("Frames/authors.png", *renderer);
+  else
+    texture_authors = loadImage("Frames/authors1.png", *renderer);
 
   if(!texture_authors)
   {

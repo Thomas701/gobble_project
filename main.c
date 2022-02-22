@@ -50,16 +50,12 @@ int main(int argc, char ** argv)
     while (!check_End_Game(map3D))
     {
       c = (tour % 2 == 0) ? 'b' : 'n';
-      if (c == 'b')
-	gameOption(pileJ1, map3D, map2D, c);
-      else
-	gameOption(pileJ2, map3D, map2D, c);
+      if (c == 'b') gameOption(pileJ1, map3D, map2D, c);
+      else gameOption(pileJ2, map3D, map2D, c);
       tour++;
     }
-    if (count_pion(map3D, N, 'b'))
-      printf("Le joueur 1 a gagne!\n");
-    else
-      printf("Le joueur 2 a gagne!\n");
+    if (count_pion(map3D, N, 'b')) printf("Le joueur 1 a gagne!\n");
+    else printf("Le joueur 2 a gagne!\n");
     freeMap(map3D);
     freeMap2D(map2D);
     freeStack(pileJ1);
@@ -77,13 +73,8 @@ int main(int argc, char ** argv)
     SDL_Texture * textureMenu = NULL;
     SDL_Texture * textureBackground = NULL;
     SDL_Texture * textureMapVide = NULL;
-    // textures Pionts
-    SDL_Texture * texturePiont1R = NULL;
-    SDL_Texture * texturePiont2R = NULL;
-    SDL_Texture * texturePiont3R = NULL;
-    SDL_Texture * texturePiont1B = NULL;
-    SDL_Texture * texturePiont2B = NULL;
-    SDL_Texture * texturePiont3B = NULL;
+
+    SDL_Texture ** textureTableauPiont = NULL;
 
     // renderer
     SDL_Renderer * renderer = NULL;
@@ -109,12 +100,11 @@ int main(int argc, char ** argv)
     }
 
     // texture piont
-    if (0 != loadPiont(&renderer, &texturePiont1R, &texturePiont2R, &texturePiont3R, &texturePiont1B, &texturePiont2B, &texturePiont3B))
+    if (0 != loadPiont(& renderer, &textureTableauPiont))
     {
        fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
        goto Quit;
     }
-
     // intro image authors + son
     intro_authors(&window, &renderer);
 
@@ -124,9 +114,16 @@ int main(int argc, char ** argv)
     // affiche map vide
     printMapEmptySDL(textureMapVide, renderer);
 
+    char ** pileJ1 = createStack('b');
+    char ** pileJ2 = createStack('n');
+
+    pileJ1[1][2] = '0';
+    pileJ1[1][1] = '0';
+
     // affiche piles joueurs
-    //affichePileSDL(renderer, textureMapVide, texturePiont1R, texturePiont2R, texturePiont3R, texturePiont1B, texturePiont2B, texturePiont3B, pileJ1, pileJ2);
-    
+    affichePileSDL(renderer, textureMapVide ,textureTableauPiont, pileJ1, pileJ2);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(5000);
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
 
@@ -142,13 +139,15 @@ Quit :
     // textures
     if(textureMenu) SDL_DestroyTexture(textureMenu);
     if(textureBackground) SDL_DestroyTexture(textureBackground);
-    if(textureMapVide) SDL_DestroyTexture(textureMapVide);
-    if(texturePiont1R) SDL_DestroyTexture(texturePiont1R);
-    if(texturePiont2R) SDL_DestroyTexture(texturePiont2R);
-    if(texturePiont3R) SDL_DestroyTexture(texturePiont3R);
-    if(texturePiont1B) SDL_DestroyTexture(texturePiont1B);
-    if(texturePiont2B) SDL_DestroyTexture(texturePiont2B);
-    if(texturePiont3B) SDL_DestroyTexture(texturePiont3B);
+    
+    if(textureTableauPiont)
+    {
+      for(int i=0; i<6; ++i) // nombres d'images de piont
+      {
+        SDL_DestroyTexture(textureTableauPiont[i]);
+      }
+      free(textureTableauPiont);
+    }
     
     // renderer
     if (renderer) SDL_DestroyRenderer(renderer);

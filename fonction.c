@@ -1072,8 +1072,6 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL
   }
 }
 
-
-
 /*---------------------------------------------------*/
 
 
@@ -1107,34 +1105,275 @@ int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
 }
 
 
+
+
 /* return 0 if succes, -1 else */
-int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture * texturePiont1R, SDL_Texture * texturePiont2R, SDL_Texture * texturePiont3R,  SDL_Texture * texturePiont1B, SDL_Texture * texturePiont2B, SDL_Texture * texturePiont3B) // texturemapVide pour connaitre la taille
+int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture * texturePiont1R, SDL_Texture * texturePiont2R, SDL_Texture * texturePiont3R,  SDL_Texture * texturePiont1B, SDL_Texture * texturePiont2B, SDL_Texture * texturePiont3B, char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
 {
+
+  // recuperation dimmension + abscisse / ord map
   SDL_Rect positionMap ;
   if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
   {
     fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
     return -1;
   }
-  
+ 
   positionMap.x = (WIDTH - positionMap.w) / 2 ;
   positionMap.y = (HEIGHT- positionMap.h) / 2 ;
 
-  // placement pile joueur 1
-  SDL_Rect positionPiontPileJ1 ;
-  if (0 != SDL_QueryTexture(texturePiont2R, NULL, NULL, &positionPiontPileJ1.w, &positionPiontPileJ1.h))
-  {
-    fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
-    return -1;
-  }
-  
-  positionPiontPileJ1.x = positionMap.x / 2 ; // car commence à 0 en abcsisse
-  positionPiontPileJ1.y = 60 + positionMap.y ;                // attention en dur, c'est le centre de la case numero 0 en y
+  // placement pile joueur 1 bleu
+  SDL_Rect positionPiontPile1J1 ;
+  SDL_Rect positionPiontPile2J1 ;
 
-  if (0 !=  SDL_RenderCopy(renderer, texturePiont2R, NULL, &positionPiontPileJ1))
+  // placement pile joueur 2 rouge
+  SDL_Rect positionPiontPile1J2 ;
+  SDL_Rect positionPiontPile2J2 ;
+
+  for(int i = 0; i < N; ++i) // lecture premiere pile joueur 1
   {
-    fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
-    return -1;
+    if(stackArrayJ1[0][i] != '0')
+    {
+      if(i == 0)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont1B, NULL, NULL, &positionPiontPile1J1.w, &positionPiontPile1J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile1J1.x = positionMap.x/2 - positionPiontPile1J1.w/2 ;
+	 positionPiontPile1J1.y = 160 + positionMap.y - positionPiontPile1J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont1B, NULL, &positionPiontPile1J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else if(i==1)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont2B, NULL, NULL, &positionPiontPile1J1.w, &positionPiontPile1J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile1J1.x = positionMap.x/2 - positionPiontPile1J1.w/2 ;
+	 positionPiontPile1J1.y = 160 + positionMap.y - positionPiontPile1J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont2B, NULL, &positionPiontPile1J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else
+      {
+	 if (0 != SDL_QueryTexture(texturePiont3B, NULL, NULL, &positionPiontPile1J1.w, &positionPiontPile1J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile1J1.x = positionMap.x/2 - positionPiontPile1J1.w/2 ;
+	 positionPiontPile1J1.y = 160 + positionMap.y - positionPiontPile1J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont3B, NULL, &positionPiontPile1J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }	
+      }
+    }
+    else
+    {
+      i = N;
+    }
+  }
+
+  for(int i = 0; i < N; ++i) // lecture deuxieme pile joueur 1
+  {
+    if(stackArrayJ1[1][i] != '0')
+    {
+      if(i == 0)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont1B, NULL, NULL, &positionPiontPile2J1.w, &positionPiontPile2J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J1.x = positionMap.x/2 - positionPiontPile2J1.w/2 ;
+	 positionPiontPile2J1.y = 330 + positionMap.y - positionPiontPile2J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont1B, NULL, &positionPiontPile2J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else if(i==1)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont2B, NULL, NULL, &positionPiontPile2J1.w, &positionPiontPile2J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J1.x = positionMap.x/2 - positionPiontPile2J1.w/2 ;
+	 positionPiontPile2J1.y = 330 + positionMap.y - positionPiontPile2J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont2B, NULL, &positionPiontPile2J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else
+      {
+	 if (0 != SDL_QueryTexture(texturePiont3B, NULL, NULL, &positionPiontPile2J1.w, &positionPiontPile2J1.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J1.x = positionMap.x/2 - positionPiontPile2J1.w/2 ;
+	 positionPiontPile2J1.y = 330 + positionMap.y - positionPiontPile2J1.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont3B, NULL, &positionPiontPile2J1))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }	
+      }
+    }
+    else
+    {
+      i = N;
+    }
+  }
+
+    for(int i = 0; i < N; ++i) // lecture premiere pile joueur 2
+  {
+    if(stackArrayJ2[0][i] != '0')
+    {
+      if(i == 0)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont1R, NULL, NULL, &positionPiontPile1J2.w, &positionPiontPile1J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+	 positionPiontPile1J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile1J2.w/2 ;
+	 positionPiontPile1J2.y = 160 + positionMap.y - positionPiontPile1J2.h/2 ;
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont1R, NULL, &positionPiontPile1J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else if(i==1)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont2R, NULL, NULL, &positionPiontPile1J2.w, &positionPiontPile1J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile1J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile1J2.w/2 ;
+	 positionPiontPile1J2.y = 160 + positionMap.y - positionPiontPile1J2.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont2R, NULL, &positionPiontPile1J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else
+      {
+	 if (0 != SDL_QueryTexture(texturePiont3R, NULL, NULL, &positionPiontPile1J2.w, &positionPiontPile1J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+	 positionPiontPile1J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile1J2.w/2 ;
+	 positionPiontPile1J2.y = 160 + positionMap.y - positionPiontPile1J2.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont3R, NULL, &positionPiontPile1J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }	
+      }
+    }
+    else
+    {
+      i = N;
+    }
+  }
+    
+  for(int i = 0; i < N; ++i) // lecture deuxieme pile joueur 2
+  {
+    if(stackArrayJ2[1][i] != '0')
+    {
+      if(i == 0)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont1R, NULL, NULL, &positionPiontPile2J2.w, &positionPiontPile2J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile2J2.w/2 ;
+	 positionPiontPile2J2.y = 330 + positionMap.y - positionPiontPile2J2.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont1R, NULL, &positionPiontPile2J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else if(i==1)
+      {
+	 if (0 != SDL_QueryTexture(texturePiont2R, NULL, NULL, &positionPiontPile2J2.w, &positionPiontPile2J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile2J2.w/2 ;
+	 positionPiontPile2J2.y = 330 + positionMap.y - positionPiontPile2J2.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont2R, NULL, &positionPiontPile2J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+      }
+      else
+      {
+	 if (0 != SDL_QueryTexture(texturePiont3R, NULL, NULL, &positionPiontPile2J2.w, &positionPiontPile2J2.h))
+	 {
+	   fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }
+  
+	 positionPiontPile2J2.x = (positionMap.x + positionMap.w + WIDTH)/2 - positionPiontPile2J2.w/2 ;
+	 positionPiontPile2J2.y = 330 + positionMap.y - positionPiontPile2J2.h/2 ;  
+  
+	 if (0 !=  SDL_RenderCopy(renderer, texturePiont3R, NULL, &positionPiontPile2J2))
+	 {
+	   fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	   return -1;
+	 }	
+      }
+    }
+    else
+    {
+      i = N;
+    }
   }
   SDL_RenderPresent(renderer);
   SDL_Delay(5000);

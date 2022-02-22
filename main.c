@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #define HEIGHT 800 // hauteur fenetre
 #define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
@@ -46,7 +47,6 @@ int main(int argc, char ** argv)
     initMap2D(map2D, map3D);
     int tour = 0;
     char c;
-        
     while (!check_End_Game(map3D))
     {
       c = (tour % 2 == 0) ? 'b' : 'n';
@@ -69,6 +69,7 @@ int main(int argc, char ** argv)
   }
   else // lancement interface graphique
   {
+    srand(time(NULL));
     // fenetre principale
     SDL_Window * window = NULL ;
     
@@ -115,30 +116,16 @@ int main(int argc, char ** argv)
     }
 
     // intro image authors + son
-    //intro_authors(&window, &renderer);
+    intro_authors(&window, &renderer);
 
     // lancement musique
-    //loadAndPlayMainMusic(&mainMusic);
+    loadAndPlayMainMusic(&mainMusic);
 
     // affiche map vide
     printMapEmptySDL(textureMapVide, renderer);
 
-    
-    char ** pileJ1 = createStack('b');
-    char ** pileJ2 = createStack('n');
-
-    pileJ1[0][2] = '0';
-
-    pileJ1[1][2] = '0';
-    pileJ1[1][1] = '0';
-
-
-    pileJ2[1][2] = '0';
-    pileJ2[1][1] = '0';
-    pileJ2[1][0] = '0';
-    
     // affiche piles joueurs
-    affichePileSDL(renderer, textureMapVide, texturePiont1R, texturePiont2R, texturePiont3R, texturePiont1B, texturePiont2B, texturePiont3B, pileJ1, pileJ2);
+    //affichePileSDL(renderer, textureMapVide, texturePiont1R, texturePiont2R, texturePiont3R, texturePiont1B, texturePiont2B, texturePiont3B, pileJ1, pileJ2);
     
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);

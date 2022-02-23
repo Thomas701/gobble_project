@@ -1159,7 +1159,7 @@ int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
   }
   // centrer position
   positionMap.x = (WIDTH - positionMap.w) / 2 ;
-  positionMap.y = (HEIGHT- positionMap.h) / 2 ;
+  positionMap.y = (HEIGHT- positionMap.h) / 2 + 100;
  
   if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
   {
@@ -1186,7 +1186,7 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
     return -1;
   }
   positionMap.x = (WIDTH - positionMap.w) / 2 ;
-  positionMap.y = (HEIGHT- positionMap.h) / 2 ;
+  positionMap.y = (HEIGHT- positionMap.h) / 2 + 100 ;
 
   // placement pile joueur 1 bleu
   SDL_Rect positionPiontPile1J1 ;
@@ -1257,6 +1257,55 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
     {
       fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
       return -1;
+    }
+  }
+  return 0;
+}
+
+/* return 0 if succes, -1 else *, la map contient des '1', '2', '3' & 'a', 'b', 'c' */
+int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, char **  map2D)
+{
+  SDL_Rect positionMap ; // contient la posiiton de la map
+  if (0 != SDL_QueryTexture(textureMapVide, NULL, NULL, &positionMap.w, &positionMap.h))
+  {
+    fprintf(stderr, "Error SDL_QueryTexture in printMapEmptySDL : %s \n", SDL_GetError());
+    return -1;
+  }
+  // centrer position
+  positionMap.x = (WIDTH - positionMap.w) / 2 ;
+  positionMap.y = (HEIGHT- positionMap.h) / 2 + 100;
+
+  SDL_Rect positionPiontCurrent ;
+  int x , y;                // position de la case que l'on parcourt
+  int indicePiont;          // contient l'indice du piont à placer
+
+  for(int i = 0 ; i < N*N ; i++)
+  {
+    x = i / 3 ; y = i % 3 ;
+    if(map2D[x][y] != '0')
+    {
+      if(map2D[x][y] >= '1' && map2D[x][y] <= '3') // cas piont
+      {
+	indicePiont = map2D[x][y] - 48 - 1 ; // -1 car tableauTexture
+      }
+      else
+      {
+	indicePiont = map2D[x][y] - 96 - 1 + 3; // si a alors 1 , b alors 2 + 2 pour le tableau de texture
+      }
+
+      if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h))
+      {
+	fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	return -1;
+      }
+      positionPiontCurrent.x = 84 + y * 166 + positionMap.x - positionPiontCurrent.w/2;
+      positionPiontCurrent.y = 84 + x * 166 + positionMap.y - positionPiontCurrent.h/2;
+     
+      if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))
+      {
+	fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+	return -1;
+      }
     }
   }
   return 0;

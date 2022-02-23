@@ -105,6 +105,7 @@ int main(int argc, char ** argv)
        fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
        goto Quit;
     }
+
     // intro image authors + son
     intro_authors(&window, &renderer);
 
@@ -122,8 +123,18 @@ int main(int argc, char ** argv)
 
     // affiche piles joueurs
     affichePileSDL(renderer, textureMapVide ,textureTableauPiont, pileJ1, pileJ2);
+    
+    char ** map2D = createMap2D();
+    map2D[0][0] = 'a'; map2D[0][1] = '1'; map2D[0][2] = 'c';
+    map2D[1][0] = '2'; map2D[1][1] = 'b'; map2D[1][2] = '0';
+    map2D[2][0] = '3'; map2D[2][1] = 'a'; map2D[2][2] = '0';
+
+    affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, map2D);
+
+
     SDL_RenderPresent(renderer);
-    SDL_Delay(5000);
+    SDL_Delay(500);
+
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
 

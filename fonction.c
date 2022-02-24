@@ -1083,10 +1083,6 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL
   if (0 != SDL_RenderCopy(renderer, textureBackground, NULL, NULL))
     fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
 
-
-  if (0 != SDL_RenderCopy( renderer,  textureBackground, NULL, NULL))
-    fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
-
   // lancement image menu (transparente pour afficher background) blendMod car blanc
   if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD))
     fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());
@@ -1185,16 +1181,6 @@ int createPiont(point *** pTableauDePoint)
 }
 
 
-
-
-
-
-
-
-
-
-
-
 /* -1 si erreur , 0 sinon*/
 int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
 {
@@ -1223,8 +1209,11 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
        fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
        return -1;
     }
-    positionPiontCurr.x = tableauDePoint[sizePiontMaxPile1J1]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[sizePiontMaxPile1J1]->y - 2*positionPiontCurr.h/3 ;
+    positionPiontCurr.x = tableauDePoint[9]->x - positionPiontCurr.w/2   ;
+    positionPiontCurr.y = tableauDePoint[9]->y - 2*positionPiontCurr.h/3 ;
+
+    positionPiontCurr.w *= 0.83;
+    positionPiontCurr.h *= 0.83;
 
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J1], NULL, &positionPiontCurr))
     {
@@ -1240,8 +1229,8 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
       return -1;
     }
-    positionPiontCurr.x = tableauDePoint[sizePiontMaxPile2J1]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[sizePiontMaxPile2J1]->y - 2*positionPiontCurr.h/3 ;  
+    positionPiontCurr.x = tableauDePoint[10]->x - positionPiontCurr.w/2   ;
+    positionPiontCurr.y = tableauDePoint[10]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J1], NULL, &positionPiontCurr))
     {
       fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
@@ -1255,8 +1244,10 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
       return -1;
     }
-    positionPiontCurr.x = tableauDePoint[sizePiontMaxPile1J2]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[sizePiontMaxPile1J2]->y - 2*positionPiontCurr.h/3 ;  
+    positionPiontCurr.w *= 0.83;
+    positionPiontCurr.h *= 0.83;
+    positionPiontCurr.x = tableauDePoint[11]->x - positionPiontCurr.w/2   ;
+    positionPiontCurr.y = tableauDePoint[1]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J2], NULL, &positionPiontCurr))
     {
       fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
@@ -1270,8 +1261,8 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
       return -1;
     }
-    positionPiontCurr.x = tableauDePoint[sizePiontMaxPile2J2]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[sizePiontMaxPile2J2]->y - 2*positionPiontCurr.h/3 ;  
+    positionPiontCurr.x = tableauDePoint[12]->x - positionPiontCurr.w/2   ;
+    positionPiontCurr.y = tableauDePoint[12]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J2], NULL, &positionPiontCurr))
     {
       fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
@@ -1288,34 +1279,40 @@ int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVid
   int x , y;                // position de la case que l'on parcourt
   int indicePiont;          // contient l'indice du piont à placer
 
+
   for(int i = 0 ; i < N*N ; i++)
   {
     x = i / 3 ; y = i % 3 ;
+    printf("%c\n",map2D[x][y]);
     if(map2D[x][y] != '0')
     {
       if(map2D[x][y] >= '1' && map2D[x][y] <= '3') // cas piont
         indicePiont = map2D[x][y] - 48 - 1 ; // -1 car tableauTexture
       else
 	       indicePiont = map2D[x][y] - 96 - 1 + 3; // si a alors 1 , b alors 2 + 2 pour le tableau de texture
-
+      printf("indicePiont %d\n", indicePiont);
       if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h))
       {
 	       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
 	       return -1;
       }
-      if(0 == i)
+      if(0 == x)
       {
-        positionPiontCurrent.w *= 0.90;
-        positionPiontCurrent.h *= 0.90;
+        positionPiontCurrent.w *= 0.77;
+        positionPiontCurrent.h *= 0.77;
       }
-      else if(1 == i)
+      else if(1 == x)
       {
         positionPiontCurrent.w *= 0.86;
         positionPiontCurrent.h *= 0.86;
       }
       positionPiontCurrent.x =  tableauDePoint[indicePiont]->x - positionPiontCurrent.w/2;
-      positionPiontCurrent.y =  tableauDePoint[indicePiont]->y - 2*positionPiontCurrent.h/3; // ou 3 test ?
-     
+      if(indicePiont != 2 && indicePiont != 5)
+        positionPiontCurrent.y =  tableauDePoint[indicePiont]->y - 2*positionPiontCurrent.h/3; // ou 3 test ?
+      else
+        positionPiontCurrent.y =  tableauDePoint[indicePiont]->y - 4.5*positionPiontCurrent.h/6;
+      
+      //printf("i : %d, positionPiontCurrent.x : %d positionPiontCurrent.y : %d positionPiontCurrent.h %d , positionPiontCurrent.w %d\n\n",i ,positionPiontCurrent.x, positionPiontCurrent.y, positionPiontCurrent.h, positionPiontCurrent.w);
       if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))
       {
         fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());

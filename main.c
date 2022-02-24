@@ -34,6 +34,10 @@ int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Po
 }
 */
 
+/*return 0 if success else -1*/
+
+
+
 
 int main(int argc, char ** argv) 
 {
@@ -76,6 +80,12 @@ int main(int argc, char ** argv)
 
     SDL_Texture ** textureTableauPiont = NULL;
 
+    // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
+    // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
+    point ** tableauDePoint = NULL;
+    if( 0!= createPiont(&tableauDePoint))
+      goto Quit;
+
     // renderer
     SDL_Renderer * renderer = NULL;
     
@@ -113,6 +123,7 @@ int main(int argc, char ** argv)
     loadAndPlayMainMusic(&mainMusic);
 
     // affiche map vide
+    
     printMapEmptySDL(textureMapVide, renderer);
 
     char ** pileJ1 = createStack('b');
@@ -122,18 +133,18 @@ int main(int argc, char ** argv)
     pileJ1[1][1] = '0';
 
     // affiche piles joueurs
-    affichePileSDL(renderer, textureMapVide ,textureTableauPiont, pileJ1, pileJ2);
+    affichePileSDL(renderer, textureMapVide ,textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
     
     char ** map2D = createMap2D();
-    map2D[0][0] = 'a'; map2D[0][1] = '1'; map2D[0][2] = 'c';
-    map2D[1][0] = '2'; map2D[1][1] = 'b'; map2D[1][2] = '0';
-    map2D[2][0] = '3'; map2D[2][1] = 'a'; map2D[2][2] = '0';
+    map2D[0][0] = '0'; map2D[0][1] = '1'; map2D[0][2] = '3';
+    map2D[1][0] = '2'; map2D[1][1] = 'b'; map2D[1][2] = 'a';
+    map2D[2][0] = '3'; map2D[2][1] = 'a'; map2D[2][2] = '3';
 
-    affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, map2D);
+    affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, tableauDePoint,map2D);
 
 
     SDL_RenderPresent(renderer);
-    SDL_Delay(500);
+    SDL_Delay(500000);
 
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
@@ -160,6 +171,15 @@ Quit :
       free(textureTableauPiont);
     }
     
+    if(tableauDePoint)
+    {
+      for(int i=0; i<13; ++i) // nombres d'images de piont
+      {
+        free(tableauDePoint[i]);
+      }
+      free(tableauDePoint);
+    }
+
     // renderer
     if (renderer) SDL_DestroyRenderer(renderer);
 

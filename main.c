@@ -20,7 +20,6 @@
 #define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
 
-
 /*
 int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Point * pointDep, SDL_Point * pointArr)
 {
@@ -75,13 +74,9 @@ int main(int argc, char ** argv)
     SDL_Texture *  textureMapVide = NULL;
     SDL_Texture ** textureTableauOptionMenu = NULL;
     SDL_Texture ** textureTableauPiont = NULL;
-
     // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
     // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
     point ** tableauDePoint = NULL;
-    if( 0!= createPoint(&tableauDePoint))
-      goto Quit;
-
     // renderer
     SDL_Renderer * renderer = NULL;
     
@@ -90,16 +85,12 @@ int main(int argc, char ** argv)
     int * p_etatS = &etatS;
     int boolPlayMusic = 1;   // si on joue de la musique ?
 
-    // musiques
-    Mix_Music * mainMusic = NULL;
-
-    // icones fenetres 
-    SDL_Surface * icones = NULL;
-
+    Mix_Music * mainMusic = NULL;     // musiques
+    SDL_Surface * icones = NULL;      // icones fenetres 
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &tableauDePoint))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
@@ -117,16 +108,10 @@ int main(int argc, char ** argv)
     statut = EXIT_SUCCESS;
 
 Quit :
-    // musiques
-    if(mainMusic) Mix_FreeMusic(mainMusic);
-
-    //surfaces
-    if (icones) SDL_FreeSurface(icones);
-
-    // textures
-    if(textureMenu) SDL_DestroyTexture(textureMenu);
-    if(textureMapVide) SDL_DestroyTexture(textureMapVide);
-    
+    if(mainMusic) Mix_FreeMusic(mainMusic); // musiques
+    if (icones) SDL_FreeSurface(icones); //surfaces
+    if(textureMapVide) SDL_DestroyTexture(textureMapVide);  
+    /*-----FREE TEXTURE-----*/
     if(textureTableauPiont)
     {
       for(int i=0; i<6; ++i) // nombres d'images de piont
@@ -148,12 +133,15 @@ Quit :
       free(tableauDePoint);
     }
 
-    // renderer
-    if (renderer) SDL_DestroyRenderer(renderer);
-
-    // fenetre
+    if(textureTableauOptionMenu)
+    {
+      for(int i = 0; i < 5; i++) // nombres d'images de piont
+        SDL_DestroyTexture(textureTableauOptionMenu[i]);
+      free(textureTableauOptionMenu);
+    }
+    /*-----END TEXTURE-----*/
+    if (renderer) SDL_DestroyRenderer(renderer);  // renderer
     if(window) SDL_DestroyWindow(window); // libere la fenetre
-
     Mix_CloseAudio(); // liberation de la gestion musqie
     SDL_Quit(); // libere SDL_INIT uniquement pas les images / polices...
     return statut;

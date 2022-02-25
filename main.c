@@ -36,9 +36,6 @@ int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Po
 
 /*return 0 if success else -1*/
 
-
-
-
 int main(int argc, char ** argv) 
 {
   if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ) // lancement console
@@ -75,8 +72,9 @@ int main(int argc, char ** argv)
     
     // textures
     SDL_Texture * textureMenu = NULL;
-    SDL_Texture * textureBackground = NULL;
-    SDL_Texture * textureMapVide = NULL;
+    SDL_Texture ** textureBackground = NULL;
+    SDL_Texture * textureMapVideB = NULL;
+    SDL_Texture * textureMapVideR = NULL;
 
     SDL_Texture ** textureTableauPiont = NULL;
 
@@ -103,7 +101,7 @@ int main(int argc, char ** argv)
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &textureMapVide,&icones, &renderer))
+    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &textureMapVideB, &textureMapVideR, &icones, &renderer))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
@@ -117,34 +115,10 @@ int main(int argc, char ** argv)
     }
 
     // intro image authors + son
-    //intro_authors(&window, &renderer);
+    intro_authors(&window, &renderer);
 
     // lancement musique
-    //loadAndPlayMainMusic(&mainMusic);
-
-    // affiche map vide
-    
-    printMapEmptySDL(textureMapVide, renderer);
-
-    char ** pileJ1 = createStack('b');
-    char ** pileJ2 = createStack('n');
-
-    pileJ1[1][2] = '0';
-    pileJ1[1][1] = '0';
-
-    // affiche piles joueurs
-    affichePileSDL(renderer, textureMapVide ,textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
-    
-    char ** map2D = createMap2D();
-    map2D[0][0] = '3'; map2D[0][1] = '2'; map2D[0][2] = '1';
-    map2D[1][0] = '3'; map2D[1][1] = '2'; map2D[1][2] = '1';
-    map2D[2][0] = '3'; map2D[2][1] = '2'; map2D[2][2] = '1';
-
-    affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, tableauDePoint,map2D);
-
-
-    SDL_RenderPresent(renderer);
-    SDL_Delay(500000);
+    loadAndPlayMainMusic(&mainMusic);
 
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
@@ -160,23 +134,27 @@ Quit :
 
     // textures
     if(textureMenu) SDL_DestroyTexture(textureMenu);
-    if(textureBackground) SDL_DestroyTexture(textureBackground);
+    if(textureMapVideB) SDL_DestroyTexture(textureMapVideB);
+    if(textureMapVideR) SDL_DestroyTexture(textureMapVideR);
     
     if(textureTableauPiont)
     {
       for(int i=0; i<6; ++i) // nombres d'images de piont
-      {
         SDL_DestroyTexture(textureTableauPiont[i]);
-      }
       free(textureTableauPiont);
+    }
+
+    if(textureBackground)
+    {
+      for(int i = 0; i < 400; i++) // nombres d'images de piont
+        SDL_DestroyTexture(textureBackground[i]);
+      free(textureBackground);
     }
     
     if(tableauDePoint)
     {
       for(int i=0; i<13; ++i) // nombres d'images de piont
-      {
         free(tableauDePoint[i]);
-      }
       free(tableauDePoint);
     }
 

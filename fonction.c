@@ -518,6 +518,38 @@ SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer)
   return texture;
 }
 
+int createPiont(point *** pTableauDePoint)
+{
+  point ** tableauDePoint = (point ** ) malloc(sizeof(point *) * 13);
+  for(int i = 0 ; i < 13 ; ++i)
+  {
+    tableauDePoint[i] = malloc(sizeof(point) * 1);
+    if(!tableauDePoint[i])
+    {
+      perror("Error allocation memory in createPiont for tableauDePoint[i] \n");
+      for(int j = 0 ; j < i ; ++j)
+        free(tableauDePoint[j]);
+      free(tableauDePoint);
+      return -1;
+    }
+  }
+  tableauDePoint[ 0]->x = 502 ;  tableauDePoint[ 0]->y = 404 ;
+  tableauDePoint[ 1]->x = 658 ;  tableauDePoint[ 1]->y = 405 ;
+  tableauDePoint[ 2]->x = 807 ;  tableauDePoint[ 2]->y = 406 ;
+  tableauDePoint[ 3]->x = 486 ;  tableauDePoint[ 3]->y = 517 ;
+  tableauDePoint[ 4]->x = 664 ;  tableauDePoint[ 4]->y = 519 ;
+  tableauDePoint[ 5]->x = 828 ;  tableauDePoint[ 5]->y = 517 ;
+  tableauDePoint[ 6]->x = 465 ;  tableauDePoint[ 6]->y = 655 ;
+  tableauDePoint[ 7]->x = 664 ;  tableauDePoint[ 7]->y = 649 ;
+  tableauDePoint[ 8]->x = 854 ;  tableauDePoint[ 8]->y = 652 ;
+  tableauDePoint[ 9]->x = 267 ;  tableauDePoint[ 9]->y = 423 ;
+  tableauDePoint[10]->x = 222 ;  tableauDePoint[10]->y = 610 ;
+  tableauDePoint[11]->x = 1032;  tableauDePoint[11]->y = 424 ;
+  tableauDePoint[12]->x = 1069;  tableauDePoint[12]->y = 618 ;
+  * pTableauDePoint = tableauDePoint;
+  return 0;
+}
+
 /*Fonctions initialisation  :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -557,10 +589,8 @@ void  initMap2D(char ** map2D, char *** map3D)
   }
 }
 
-
-
 /* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture ** textureBackground, SDL_Texture ** textureMapVide,SDL_Surface ** icones, SDL_Renderer ** renderer)
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVideB, SDL_Texture ** textureMapVideR ,SDL_Surface ** icones, SDL_Renderer ** renderer)
 {
   // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
   if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
@@ -600,8 +630,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, S
   }
 
   // init texture background
-  * textureBackground = loadImage("Frames/background.jpg", * renderer);
-  if(!* textureBackground)
+  if(loadBackgroundMenu(renderer, textureBackground) != 0)
   {
     fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
     return -1;
@@ -616,8 +645,15 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, S
   }
 
   // init texture map vide
-  * textureMapVide = loadImage("Frames/map.png", * renderer);
-  if(!* textureMapVide)
+  * textureMapVideB = loadImage("Frames/map.png", * renderer);
+  if(!* textureMapVideB)
+  {
+    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
+    return -1;
+  }
+
+  * textureMapVideR = loadImage("Frames/map.png", * renderer); // attention modifier pour plus tard
+  if(!* textureMapVideR)
   {
     fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
     return -1;
@@ -625,9 +661,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, S
   return 0;
 }
 
-
-/*return 0 si ok, -1 sinon*/
-int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont)
+int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont)/*return 0 si ok, -1 sinon*/
 {
   SDL_Texture ** textureTableauPiont = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*6);
 
@@ -675,6 +709,22 @@ int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont)
   return 0;
 }
 
+int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauBack)
+{
+  SDL_Texture ** textureTableauBack = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*400);
+
+  if (! textureTableauBack) {fprintf(stderr, "Erreur allocation memory in loadBackgroundMenu\n"); return -1;}
+  for (int i = 0; i < 400; i++)
+  {
+    char nom[30];
+    sprintf(nom, "Frames/background2/p (%d).png", i+1);
+    textureTableauBack[i] = loadImage(nom, * renderer);
+    if(!textureTableauBack[i]) { fprintf(stderr, "Error loadPiont for loadBackgroundMenu : %s\n", SDL_GetError()); return -1; }
+  }
+  * pTextureTableauBack = textureTableauBack;
+  return 0;
+}
+
 /*Fonctions print pour afficher les maps & piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -714,6 +764,17 @@ void printStacks(char ** stacksArray)
       printf(" %c |", stacksArray[i][j]);
     printf("\n");
   }
+}
+
+/* -1 si erreur , 0 sinon*/
+int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
+{
+  if (0 !=  SDL_RenderCopy(renderer, textureMapVide, NULL, NULL)) 
+    { 
+      fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
+      return -1; 
+    }
+  return 0;
 }
 
 /*Fonctions free pour libérer la mémoire :
@@ -958,7 +1019,6 @@ void readFilePile(char * nameFile, char ** pile1, char ** pile2)
     {
       i = 0;
       j = 0;
-      printf("BOU\n");
       tour++;
     }
   }
@@ -994,7 +1054,7 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   SDL_Texture * texture_authors = NULL; // contient la texture qui va acceuilir l'image authors [texture]
   Mix_Music * music_intro = NULL;   // [musique]
 
-  int r = rand() % 2;
+  int r = rand() % 10;
   if (r == 0)
     texture_authors = loadImage("Frames/authors.png", *renderer);
   else
@@ -1064,7 +1124,7 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
 }
 
 
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
 {
   SDL_RenderClear(renderer);
 
@@ -1073,30 +1133,20 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL
   SDL_Point pointChoice1VS1_BD =  {990, 355};  SDL_Point pointChoiceIA_BD = {975, 550};
   SDL_Point pointQuitter_HG  =    {170, 650};    SDL_Point pointSound_HG =  {1120, 0};
   SDL_Point pointQuitter_BD  =    {1000, 780};   SDL_Point pointSound_BD =  {1280, 185};
-
   SDL_Point pointMouse = {0 , 0}; //souris du menu pour evenement
-  textureBackground = loadImage("Frames/background.jpg", renderer); // lancement image background
 
-  if(!textureBackground) 
-    fprintf(stderr,"Error SDL_RenderClear :  %s\n", SDL_GetError());
-
-  if (0 != SDL_RenderCopy(renderer, textureBackground, NULL, NULL))
-    fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s\n", SDL_GetError());
-
-  // lancement image menu (transparente pour afficher background) blendMod car blanc
-  if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD))
-    fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());
-
-  if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL))
-  {
-    fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
-  }
-
-  SDL_RenderPresent(renderer);
+  int incrImg = 0; // numero image menu (background)
   
   while(*p_etats == 1) // boucle principale
   {
     SDL_Event event;
+    SDL_RenderClear(renderer);
+    if (0 != SDL_RenderCopy(renderer, textureBackground[incrImg%400], NULL, NULL)) {fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s, i = %d, et img = %p \n", SDL_GetError(), incrImg%400 , textureBackground[incrImg%400]);}
+    if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD)) {fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());}
+    if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL)) { fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());}
+    incrImg++;
+    SDL_RenderPresent(renderer);
+    SDL_Delay(50);
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
     {
       switch(event.type)
@@ -1141,57 +1191,6 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture * textureBackground, SDL
   }
 }
 
-/*---------------------------------------------------*/
-struct point
-{
-  int x, y;
-};
-typedef struct point point;
-
-int createPiont(point *** pTableauDePoint)
-{
-  point ** tableauDePoint = (point ** ) malloc(sizeof(point *) * 13);
-  for(int i = 0 ; i < 13 ; ++i)
-  {
-    tableauDePoint[i] = malloc(sizeof(point) * 1);
-    if(!tableauDePoint[i])
-    {
-      perror("Error allocation memory in createPiont for tableauDePoint[i] \n");
-      for(int j = 0 ; j < i ; ++j)
-        free(tableauDePoint[j]);
-      free(tableauDePoint);
-      return -1;
-    }
-  }
-  tableauDePoint[ 0]->x = 502 ;  tableauDePoint[ 0]->y = 404 ;
-  tableauDePoint[ 1]->x = 658 ;  tableauDePoint[ 1]->y = 405 ;
-  tableauDePoint[ 2]->x = 807 ;  tableauDePoint[ 2]->y = 406 ;
-  tableauDePoint[ 3]->x = 486 ;  tableauDePoint[ 3]->y = 517 ;
-  tableauDePoint[ 4]->x = 664 ;  tableauDePoint[ 4]->y = 519 ;
-  tableauDePoint[ 5]->x = 828 ;  tableauDePoint[ 5]->y = 517 ;
-  tableauDePoint[ 6]->x = 465 ;  tableauDePoint[ 6]->y = 655 ;
-  tableauDePoint[ 7]->x = 664 ;  tableauDePoint[ 7]->y = 649 ;
-  tableauDePoint[ 8]->x = 854 ;  tableauDePoint[ 8]->y = 652 ;
-  tableauDePoint[ 9]->x = 267 ;  tableauDePoint[ 9]->y = 423 ;
-  tableauDePoint[10]->x = 222 ;  tableauDePoint[10]->y = 610 ;
-  tableauDePoint[11]->x = 1032;  tableauDePoint[11]->y = 424 ;
-  tableauDePoint[12]->x = 1069;  tableauDePoint[12]->y = 618 ;
-  * pTableauDePoint = tableauDePoint;
-  return 0;
-}
-
-
-/* -1 si erreur , 0 sinon*/
-int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)
-{
-  if (0 !=  SDL_RenderCopy(renderer, textureMapVide, NULL, NULL))
-  {
-    fprintf(stderr, "Error SDL_RenderCopy in printMapEmptySDL : %s \n", SDL_GetError());
-    return -1;
-  }
-  return 0;
-}
-
 
 /* return 0 if succes, -1 else */
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
@@ -1201,7 +1200,7 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
   int sizePiontMaxPile2J1 = sizePiontMaxStack(stackArrayJ1, 1) ;
   
   int sizePiontMaxPile1J2 = sizePiontMaxStack(stackArrayJ2, 0) + 3;
-  int sizePiontMaxPile2J2 = sizePiontMaxStack(stackArrayJ2, 1) + 3; // -1 car commence à 1 , + 3 dans textureTableauPiont
+  int sizePiontMaxPile2J2 = sizePiontMaxStack(stackArrayJ2, 1) + 3; // -1 car commence Ã  1 , + 3 dans textureTableauPiont
   if (sizePiontMaxPile1J1 > 0)
   {
     if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile1J1], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
@@ -1244,6 +1243,7 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
       return -1;
     }
+
     positionPiontCurr.w *= 0.79;
     positionPiontCurr.h *= 0.79;
     positionPiontCurr.x = tableauDePoint[11]->x - positionPiontCurr.w/2   ;
@@ -1273,7 +1273,7 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
 }
 
 /* return 0 if succes, -1 else *, la map contient des '1', '2', '3' & 'a', 'b', 'c' */
-int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char **  map2D)
+int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char **  map2D)
 {
   SDL_Rect positionPiontCurrent ;
   int x , y;                // position de la case que l'on parcourt
@@ -1283,14 +1283,12 @@ int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVid
   for(int i = 0 ; i < N*N ; i++)
   {
     x = i / 3 ; y = i % 3 ;
-    printf("x : %d y : %d map : %c\n",x, y, map2D[x][y]);
     if(map2D[x][y] != '0')
     {
       if(map2D[x][y] >= '1' && map2D[x][y] <= '3') // cas piont
         indicePiont = map2D[x][y] - 48 - 1 ; // -1 car tableauTexture
       else
 	       indicePiont = map2D[x][y] - 96 - 1 + 3; // si a alors 1 , b alors 2 + 2 pour le tableau de texture
-      printf("indicePiont %d\n", indicePiont);
       if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h))
       {
 	       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
@@ -1312,7 +1310,6 @@ int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVid
       else
         positionPiontCurrent.y =  tableauDePoint[i]->y - 4.5*positionPiontCurrent.h/6;
       
-      //printf("i : %d, positionPiontCurrent.x : %d positionPiontCurrent.y : %d positionPiontCurrent.h %d , positionPiontCurrent.w %d\n\n",i ,positionPiontCurrent.x, positionPiontCurrent.y, positionPiontCurrent.h, positionPiontCurrent.w);
       if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))
       {
         fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());

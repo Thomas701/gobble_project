@@ -325,6 +325,44 @@ int check_End_Game(char *** map)
   return 0;                                                                     /* partie non-terminée */
 }
 
+int check_End_Game_graphique(char *** map)
+{
+  char ** map_Temporaire = createMap2D();
+  initMap2D(map_Temporaire, map);
+  int count_L  = 0;
+  int count_C  = 0;
+  int count_DD = 0;
+  int count_DG = 0;
+  int number = 0;
+
+  /* Vérification si il y a une ligne, colonne ou diagonale complété */
+  for (int i = 0; i < N; i++)
+  {
+    for (int j = 0; j < N-1; j++)
+    {
+      if (map_Temporaire[i][j] == map_Temporaire[i][j+1] && map_Temporaire[i][j] != '0') {count_L++;}
+      if (map_Temporaire[j][i] == map_Temporaire[j+1][i] && map_Temporaire[j][i] != '0') {count_C++;}
+      if (map_Temporaire[j][j] == map_Temporaire[j+1][j+1] && map_Temporaire[j][j] != '0') {count_DD++;}
+      if (map_Temporaire[N-1-j][j] == map_Temporaire[N-1-(j+1)][j+1] && map_Temporaire[N-1-j][j] != '0') {count_DG++;}
+      number++;
+    }
+    if (count_C == N-1 || count_L == N-1 || count_DD == N-1 || count_DG == N-1) /* partie terminée */
+    {
+      freeMap2D(map_Temporaire);
+      if (count_L == N-1)
+        return (i == 0) ? 1 : (i == 1) ? 2 : 3;
+      if (count_C == N-1)
+        return (i == 0) ? 4 : (i == 1) ? 5 : 6;
+      return 1;
+    }
+    else
+    {
+      count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
+    }
+  }
+  freeMap2D(map_Temporaire);
+  return 0;                                                                     /* partie non-terminée */
+}
 
 /*return 1 si on a au moins une pile ayant une taille max de piont de 1
   patant de l'hypothèse que les piles sont non vide appelle dans canPlayNewPiont
@@ -1111,7 +1149,6 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   if (texture_authors) SDL_DestroyTexture(texture_authors); // liberation texture
   if (music_intro) Mix_FreeMusic(music_intro); // libération de la musique, plus besoin
 }
-
 
 void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
 {

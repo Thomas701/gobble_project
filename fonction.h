@@ -27,6 +27,7 @@ int canMoove(char *** map, int posDeb, int posEnd); // Le pion peut-il bouger?
 int canMooveThisPiont(char *** map, char ** map2D, int posDeb, char c); // Le pion a au moin une possibilité de bouger
 int count_pion(char *** map, int nbre, char c); //Y'a t-il un alignement de nbre pion de type "c" sur la map?
 int check_End_Game(char *** map); // vérifie la fin de partie
+int check_End_Game_graphique(char *** map); // renvoie le numéro de ligne , colonne, diagonale gagnante
 int sizeMaxPiont(char ** stackArray); // vérifie si il y a au moins un piont de taille > 1
 int canPlayNewPiont(char **  stackArray, char ** map2D); // S'il peut jouer un nouveau piont dans sa pile
 int canPlayStack(int sizePiont, char *** map); // vérifie si il y a au moins un coup possible selon l'index

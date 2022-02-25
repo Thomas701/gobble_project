@@ -43,14 +43,16 @@ char *** createMap();
 char ** createMap2D();
 SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer);
 int createPiont(point *** pTableauDePoint);
+
 /*Fonctions initialisation de maps :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void initMap(char *** map); // initialise la map 3D
 void  initMap2D(char ** map2D, char *** map3D); // initialise la map 2D
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide,SDL_Surface ** icones, SDL_Renderer ** renderer); //initialise le début du programme graphique
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont); //charge les pionts dans un tableau de pionts
 int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauBack); //charge les images background du menu dans un tableau
+int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont);
 
 /*Fonctions print pour afficher les maps & piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

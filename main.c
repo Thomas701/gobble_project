@@ -71,9 +71,9 @@ int main(int argc, char ** argv)
     SDL_Window * window = NULL ;
     
     // textures
-    SDL_Texture * textureMenu = NULL;
     SDL_Texture ** textureBackground = NULL;
-    SDL_Texture * textureMapVide = NULL;
+    SDL_Texture *  textureMapVide = NULL;
+    SDL_Texture ** textureTableauOptionMenu = NULL;
 
     SDL_Texture ** textureTableauPiont = NULL;
 
@@ -100,16 +100,9 @@ int main(int argc, char ** argv)
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &textureMapVide,&icones, &renderer))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
-       goto Quit;
-    }
-
-    // texture piont
-    if (0 != loadPiont(& renderer, &textureTableauPiont))
-    {
-       fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
        goto Quit;
     }
 
@@ -118,30 +111,6 @@ int main(int argc, char ** argv)
 
     // lancement musique
     loadAndPlayMainMusic(&mainMusic);
-
-    // affiche map vide
-    
-    /*printMapEmptySDL(textureMapVide, renderer);
-
-    char ** pileJ1 = createStack('b');
-    char ** pileJ2 = createStack('n');
-
-    pileJ1[1][2] = '0';
-    pileJ1[1][1] = '0';
-
-    // affiche piles joueurs
-    affichePileSDL(renderer, textureMapVide ,textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
-    
-    char ** map2D = createMap2D();
-    map2D[0][0] = '0'; map2D[0][1] = '1'; map2D[0][2] = '3';
-    map2D[1][0] = '2'; map2D[1][1] = 'b'; map2D[1][2] = 'a';
-    map2D[2][0] = '3'; map2D[2][1] = 'a'; map2D[2][2] = '3';
-
-    affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, tableauDePoint,map2D);
-
-
-    SDL_RenderPresent(renderer);
-    SDL_Delay(500000);*/
 
     // lancementMenu
     lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
@@ -157,6 +126,7 @@ Quit :
 
     // textures
     if(textureMenu) SDL_DestroyTexture(textureMenu);
+    if(textureMapVide) SDL_DestroyTexture(textureMapVide);
     
     if(textureTableauPiont)
     {

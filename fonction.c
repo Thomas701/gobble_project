@@ -351,9 +351,12 @@ int check_End_Game_graphique(char *** map)
       freeMap2D(map_Temporaire);
       if (count_L == N-1)
         return (i == 0) ? 1 : (i == 1) ? 2 : 3;
-      if (count_C == N-1)
+      else if (count_C == N-1)
         return (i == 0) ? 4 : (i == 1) ? 5 : 6;
-      return 1;
+      else if (count_DD == N-1)
+        return 7;
+      else
+        return 8;
     }
     else
     {
@@ -556,7 +559,7 @@ SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer)
   return texture;
 }
 
-int createPiont(point *** pTableauDePoint)
+int createPoint(point *** pTableauDePoint)
 {
   point ** tableauDePoint = (point ** ) malloc(sizeof(point *) * 13);
   for(int i = 0 ; i < 13 ; ++i)

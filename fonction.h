@@ -42,7 +42,7 @@ char ** createStack(char c);
 char *** createMap();
 char ** createMap2D();
 SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer);
-int createPiont(point *** pTableauDePoint);
+int createPoint(point *** pTableauDePoint);
 
 /*Fonctions initialisation de maps :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

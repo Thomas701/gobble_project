@@ -74,13 +74,12 @@ int main(int argc, char ** argv)
     SDL_Texture ** textureBackground = NULL;
     SDL_Texture *  textureMapVide = NULL;
     SDL_Texture ** textureTableauOptionMenu = NULL;
-
     SDL_Texture ** textureTableauPiont = NULL;
 
     // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
     // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
     point ** tableauDePoint = NULL;
-    if( 0!= createPiont(&tableauDePoint))
+    if( 0!= createPoint(&tableauDePoint))
       goto Quit;
 
     // renderer
@@ -113,7 +112,7 @@ int main(int argc, char ** argv)
     loadAndPlayMainMusic(&mainMusic);
 
     // lancementMenu
-    lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
+    //lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
 
     statut = EXIT_SUCCESS;
 

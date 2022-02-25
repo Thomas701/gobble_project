@@ -71,10 +71,9 @@ int main(int argc, char ** argv)
     SDL_Window * window = NULL ;
     
     // textures
-    SDL_Texture * textureMenu = NULL;
     SDL_Texture ** textureBackground = NULL;
-    SDL_Texture * textureMapVideB = NULL;
-    SDL_Texture * textureMapVideR = NULL;
+    SDL_Texture *  textureMapVide = NULL;
+    SDL_Texture ** textureTableauOptionMenu = NULL;
 
     SDL_Texture ** textureTableauPiont = NULL;
 
@@ -101,16 +100,9 @@ int main(int argc, char ** argv)
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureMenu, &textureBackground, &textureMapVideB, &textureMapVideR, &icones, &renderer))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
-       goto Quit;
-    }
-
-    // texture piont
-    if (0 != loadPiont(& renderer, &textureTableauPiont))
-    {
-       fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
        goto Quit;
     }
 
@@ -134,8 +126,7 @@ Quit :
 
     // textures
     if(textureMenu) SDL_DestroyTexture(textureMenu);
-    if(textureMapVideB) SDL_DestroyTexture(textureMapVideB);
-    if(textureMapVideR) SDL_DestroyTexture(textureMapVideR);
+    if(textureMapVide) SDL_DestroyTexture(textureMapVide);
     
     if(textureTableauPiont)
     {

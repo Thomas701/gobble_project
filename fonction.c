@@ -589,8 +589,31 @@ void  initMap2D(char ** map2D, char *** map3D)
   }
 }
 
+int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu)
+{
+  SDL_Texture ** textureTableauOptionMenu = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*5);
+  if (! textureTableauOptionMenu)
+  {
+    fprintf(stderr, "Erreur allocation memory in textureTableauOptionMenu\n"); 
+    return -1;
+  }
+  for (int i = 0; i < 5; i++)
+  {
+    char nom[30];
+    sprintf(nom, "Frames/option%d.png", i+1);
+
+    textureTableauOptionMenu[i] = loadImage(nom, * renderer);
+    if(!textureTableauOptionMenu[i]) { 
+      fprintf(stderr, "Error loadTextureOptionMenu for textureTableauOptionMenu : %s\n", SDL_GetError()); 
+      return -1; 
+    }
+  }
+  * ptextureTableauOptionMenu = textureTableauOptionMenu;
+  return 0;
+}
+
 /* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVideB, SDL_Texture ** textureMapVideR ,SDL_Surface ** icones, SDL_Renderer ** renderer)
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont)
 {
   // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
   if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
@@ -635,28 +658,25 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture ** textureMenu, S
     fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
     return -1;
   }
-
-  // init texture menu
-  * textureMenu = loadImage("Frames/menu.jpg", * renderer);
-  if(!* textureMenu)
-  {
-    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
-    return -1;
-  }
-
+  
   // init texture map vide
-  * textureMapVideB = loadImage("Frames/map.png", * renderer);
-  if(!* textureMapVideB)
+  * textureMapVide = loadImage("Frames/map.png", * renderer);
+  if(!*textureMapVide)
   {
     fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
     return -1;
   }
 
-  * textureMapVideR = loadImage("Frames/map.png", * renderer); // attention modifier pour plus tard
-  if(!* textureMapVideR)
+  if (0 != loadTextureOptionMenu(renderer, ptextureTableauPiont))
   {
-    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
+    fprintf(stderr, "Error loadTextureOptionMenu for ptextureTableauOptionMenu : %s\n", SDL_GetError());
     return -1;
+  }
+
+  if (0 != loadPiont(renderer, ptextureTableauPiont))
+  {
+    fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
+    return 1;
   }
   return 0;
 }

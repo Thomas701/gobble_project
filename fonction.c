@@ -710,7 +710,7 @@ int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableau
   for (int i = 0; i < 400; i++)
   {
     char nom[30];
-    sprintf(nom, "Frames/background/p (%d).png", i+1);
+    sprintf(nom, "Frames/background2/p (%d).png", i+1);
     textureTableauBack[i] = loadImage(nom, * renderer);
     if(!textureTableauBack[i]) { fprintf(stderr, "Error loadPiont for loadBackgroundMenu : %s\n", SDL_GetError()); return -1; }
   }

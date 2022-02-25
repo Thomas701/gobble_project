@@ -518,7 +518,7 @@ SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer)
   return texture;
 }
 
-int createPiont(point *** pTableauDePoint)
+int createPoint(point *** pTableauDePoint)
 {
   point ** tableauDePoint = (point ** ) malloc(sizeof(point *) * 13);
   for(int i = 0 ; i < 13 ; ++i)
@@ -526,7 +526,7 @@ int createPiont(point *** pTableauDePoint)
     tableauDePoint[i] = malloc(sizeof(point) * 1);
     if(!tableauDePoint[i])
     {
-      perror("Error allocation memory in createPiont for tableauDePoint[i] \n");
+      perror("Error allocation memory in createPoint for tableauDePoint[i] \n");
       for(int j = 0 ; j < i ; ++j)
         free(tableauDePoint[j]);
       free(tableauDePoint);
@@ -613,7 +613,7 @@ int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTabl
 }
 
 /* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont)
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont,point *** pTableauDePoint)
 {
   // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
   if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
@@ -658,7 +658,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
     fprintf(stderr, "Error loadImage for textureBackground : %s\n", SDL_GetError());
     return -1;
   }
-  
+
   // init texture map vide
   * textureMapVide = loadImage("Frames/map.png", * renderer);
   if(!*textureMapVide)
@@ -667,15 +667,20 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
     return -1;
   }
 
-  if (0 != loadTextureOptionMenu(renderer, ptextureTableauPiont))
+  if (0 != loadTextureOptionMenu(renderer, ptextureTableauOptionMenu))
   {
     fprintf(stderr, "Error loadTextureOptionMenu for ptextureTableauOptionMenu : %s\n", SDL_GetError());
     return -1;
   }
 
-  if (0 != loadPiont(renderer, ptextureTableauPiont))
+  if (0 != loadPiont(renderer, pTextureTableauPiont))
   {
     fprintf(stderr, "Error in loadPiont : %s \n",SDL_GetError());
+    return 1;
+  }
+  if(0 != createPoint(pTableauDePoint))
+  {
+    fprintf(stderr, "Error in createPoint : %s \n",SDL_GetError());
     return 1;
   }
   return 0;

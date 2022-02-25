@@ -80,8 +80,6 @@ int main(int argc, char ** argv)
     // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
     // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
     point ** tableauDePoint = NULL;
-    if( 0!= createPiont(&tableauDePoint))
-      goto Quit;
 
     // renderer
     SDL_Renderer * renderer = NULL;
@@ -100,7 +98,7 @@ int main(int argc, char ** argv)
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &tableauDePoint))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;

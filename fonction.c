@@ -1212,8 +1212,8 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
     positionPiontCurr.x = tableauDePoint[9]->x - positionPiontCurr.w/2   ;
     positionPiontCurr.y = tableauDePoint[9]->y - 2*positionPiontCurr.h/3 ;
 
-    positionPiontCurr.w *= 0.83;
-    positionPiontCurr.h *= 0.83;
+    positionPiontCurr.w *= 0.79;
+    positionPiontCurr.h *= 0.79;
 
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J1], NULL, &positionPiontCurr))
     {
@@ -1244,8 +1244,8 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Te
       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
       return -1;
     }
-    positionPiontCurr.w *= 0.83;
-    positionPiontCurr.h *= 0.83;
+    positionPiontCurr.w *= 0.79;
+    positionPiontCurr.h *= 0.79;
     positionPiontCurr.x = tableauDePoint[11]->x - positionPiontCurr.w/2   ;
     positionPiontCurr.y = tableauDePoint[1]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J2], NULL, &positionPiontCurr))
@@ -1283,7 +1283,7 @@ int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVid
   for(int i = 0 ; i < N*N ; i++)
   {
     x = i / 3 ; y = i % 3 ;
-    printf("%c\n",map2D[x][y]);
+    printf("x : %d y : %d map : %c\n",x, y, map2D[x][y]);
     if(map2D[x][y] != '0')
     {
       if(map2D[x][y] >= '1' && map2D[x][y] <= '3') // cas piont
@@ -1306,11 +1306,11 @@ int  affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVid
         positionPiontCurrent.w *= 0.86;
         positionPiontCurrent.h *= 0.86;
       }
-      positionPiontCurrent.x =  tableauDePoint[indicePiont]->x - positionPiontCurrent.w/2;
+      positionPiontCurrent.x =  tableauDePoint[i]->x - positionPiontCurrent.w/2;
       if(indicePiont != 2 && indicePiont != 5)
-        positionPiontCurrent.y =  tableauDePoint[indicePiont]->y - 2*positionPiontCurrent.h/3; // ou 3 test ?
+        positionPiontCurrent.y =  tableauDePoint[i]->y - 2*positionPiontCurrent.h/3; // ou 3 test ?
       else
-        positionPiontCurrent.y =  tableauDePoint[indicePiont]->y - 4.5*positionPiontCurrent.h/6;
+        positionPiontCurrent.y =  tableauDePoint[i]->y - 4.5*positionPiontCurrent.h/6;
       
       //printf("i : %d, positionPiontCurrent.x : %d positionPiontCurrent.y : %d positionPiontCurrent.h %d , positionPiontCurrent.w %d\n\n",i ,positionPiontCurrent.x, positionPiontCurrent.y, positionPiontCurrent.h, positionPiontCurrent.w);
       if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))

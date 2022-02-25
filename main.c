@@ -136,9 +136,9 @@ int main(int argc, char ** argv)
     affichePileSDL(renderer, textureMapVide ,textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
     
     char ** map2D = createMap2D();
-    map2D[0][0] = '0'; map2D[0][1] = '0'; map2D[0][2] = '0';
-    map2D[1][0] = '2'; map2D[1][1] = 'b'; map2D[1][2] = 'a';
-    map2D[2][0] = '3'; map2D[2][1] = 'a'; map2D[2][2] = '3';
+    map2D[0][0] = '3'; map2D[0][1] = '2'; map2D[0][2] = '1';
+    map2D[1][0] = '3'; map2D[1][1] = '2'; map2D[1][2] = '1';
+    map2D[2][0] = '3'; map2D[2][1] = '2'; map2D[2][2] = '1';
 
     affichePiontSurPlateau(renderer, textureMapVide, textureTableauPiont, tableauDePoint,map2D);
 

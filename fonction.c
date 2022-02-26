@@ -140,15 +140,16 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c) // c =
  }
 }
 
-void gameOptionGraphique(SDL_Renderer ** renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, char c, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont) // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, char c, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont) // c = 'b' or 'n' joueur qui choisie
 {
   int selection = 0;
   int imageIndexP = -1; // indique l'indexe de l'image qui a été selectionnée
   int imageIndexS = -1;
   SDL_Event event;
   SDL_Point pointMouse;
+  int sizePiontMax ;
 
-  while(*p_etats == 2) // boucle principale
+  while(2 == *p_etats) // boucle principale
   {
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
     {
@@ -161,33 +162,44 @@ void gameOptionGraphique(SDL_Renderer ** renderer, SDL_Texture *  textureMapVide
           if (selection == 0)
             imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c);
           else
-            imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1, pileJ2, c);
+          {
+            if(c == 'b')
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1);
+            else
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2);
+          }
 
-          if (selection = 1 && imageIndexS == -1)
+          if (selection == 1 && imageIndexS == -1)
             selection = 0;
           else if (selection == 0 && imageIndexP != -1)
             selection = 1;
-          else if (selection = 1 && imageIndexS != -1)
+          else if (selection == 1 && imageIndexS != -1)
           {
             if (imageIndexP > 8)
             {
-              char ** stackArray = (c == 'b') ? pileJ1 : pileJ2 ;
               int numStack = (imageIndexP == 9 || imageIndexP == 11) ? 0 : 1 ;
-              int sizePiontMax = sizePiontMaxStack(stackArray, numStack);
-              mooveSinceStack(map3D, stackArray, numStack, sizePiontMax, imageIndexS, c);
+              if(c == 'b')
+              {
+                sizePiont = sizePiontMaxStack(pileJ1, numStack);
+                mooveSinceStack(map3D, pileJ1, numStack, sizePiontMax, imageIndexS, c);
+              }
+              else
+              {
+                sizePiont = sizePiontMaxStack(pileJ, numStack);
+                mooveSinceStack(map3D, pileJ2, numStack, sizePiontMax, imageIndexS, c);
+              }
             }
             else
               moove(map3D, imageIndexP, imageIndexS);
             initMap2D(map2D, map3D);
           }
-          else
-            continue;
         }
       }
-      SDL_RenderClear(*renderer);
-      printMapEmptySDL(textureMapVide, *renderer);
-      affichePiontSurPlateau(*renderer, textureTableauPiont, tableauDePoint, map3D);
-      SDL_RenderPresent(*renderer);
+      SDL_RenderClear(renderer);
+      printMapEmptySDL(textureMapVide,crenderer);
+      affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
+      affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D);
+      SDL_RenderPresent(renderer);
     }
   }
 }
@@ -493,15 +505,17 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c)
 {
   int index = getIndex(pointMouse, tableauCase);
-  int sizePiont;
+  int sizePiont; int numStack;
+  if (index > 8)
+    numStack = (index == 9 || index == 11 )? 0: 1;
   if(index != -1)
   {
     // cas des piles
     if(c == 'b' && (9 == index || 10 == index)) 
     {
-      if (isEmptyStack(pileJ1, index-9))
+      if (isEmptyStack(pileJ1, numStack))
         return -1;
-      sizePiont = sizePiontMaxStack(pileJ1, index - 9) ;
+      sizePiont = sizePiontMaxStack(pileJ1, numStack) ;
       if(canPlayStack(sizePiont, map3D))
       {
         return index;
@@ -510,29 +524,31 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
     }
     else if(c == 'n' && (11 == index || 12 == index))
     {
-      if (isEmptyStack(pileJ1, index-11))
+      if (isEmptyStack(pileJ1, numStack))
         return -1;
-      sizePiont = sizePiontMaxStack(pileJ2, index-11);
+      sizePiont = sizePiontMaxStack(pileJ2, numStack);
       if(canPlayStack(sizePiont, map3D))
       {
         return index;
       }
       return -1;
     }
-
     // cas des pionts sur la map
-    if (0 == canMooveThisPiont(map3D, map2D, index, c))
-      return -1;
     else
-      return index;
+    {
+      if (canMooveThisPiont(map3D, map2D, index, c))
+        return index;
+      return -1;
+    }
   }
-  return index;
+  return -1; // cas index == -1
 }
 
-int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pileJ1, char ** pileJ2, char c)
+
+/*arrivée pas le droit de poser sur une pile*/
+int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile)
 {
   int index = getIndex(pointMouse, tableauCase);
-  char ** stackArray = (c == 'b') ? pileJ1 : pileJ2 ;
 
   if (index == -1 || index > 8)
     return -1;
@@ -541,7 +557,7 @@ int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char
     if (imageIndexP > 8)
     {
       int numStack = (imageIndexP == 9 || imageIndexP == 11) ? 0 : 1 ;
-      int sizePiontMax = sizePiontMaxStack(stackArray, numStack);
+      int sizePiontMax = sizePiontMaxStack(pile, numStack);
       if (canPutPiont(map3D, sizePiontMax, index))
         return index;
       else
@@ -1484,7 +1500,7 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   }
 }
 
-void lancementJeu(SDL_Renderer ** renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
 {
     int tour = 0;
     char c;
@@ -1499,7 +1515,7 @@ void lancementJeu(SDL_Renderer ** renderer, SDL_Texture *  textureMapVide, point
 }
 
 /* return 0 if succes, -1 else */
-int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
+int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
 {
   SDL_Rect positionPiontCurr;
   int sizePiontMaxPile1J1 = sizePiontMaxStack(stackArrayJ1, 0) ;

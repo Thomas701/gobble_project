@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #define HEIGHT 800 // hauteur fenetre
 #define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
@@ -32,6 +33,7 @@ int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Po
   }
 }
 */
+
 
 /*return 0 if success else -1*/
 
@@ -96,7 +98,7 @@ int main(int argc, char ** argv)
       if (etatS == 1)
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2)
-        lancementJeu(&renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu,tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
+        lancementJeu(renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
       else
         return 0;
     }

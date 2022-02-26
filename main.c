@@ -37,14 +37,15 @@ int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Po
 
 int main(int argc, char ** argv) 
 {
+  char ** pileJ1 = createStack('b');
+  char ** pileJ2 = createStack('n');
+  char *** map3D = createMap();
+  char ** map2D = createMap2D();
+  initMap(map3D);
+  initMap2D(map2D, map3D);
+  int statut = EXIT_FAILURE ;
   if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ) // lancement console
   {
-    char ** pileJ1 = createStack('b');
-    char ** pileJ2 = createStack('n');
-    char *** map3D = createMap();
-    char ** map2D = createMap2D();
-    initMap(map3D);
-    initMap2D(map2D, map3D);
     int tour = 0;
     char c;
     while (!check_End_Game(map3D))
@@ -56,12 +57,7 @@ int main(int argc, char ** argv)
     }
     if (count_pion(map3D, N, 'b')) printf("Le joueur 1 a gagne!\n");
     else printf("Le joueur 2 a gagne!\n");
-    freeMap(map3D);
-    freeMap2D(map2D);
-    freeStack(pileJ1);
-    freeStack(pileJ2);
-      
-    return EXIT_SUCCESS;
+    statut = EXIT_SUCCESS;
   }
   else // lancement interface graphique
   {
@@ -74,37 +70,36 @@ int main(int argc, char ** argv)
     SDL_Texture *  textureMapVide = NULL;
     SDL_Texture ** textureTableauOptionMenu = NULL;
     SDL_Texture ** textureTableauPiont = NULL;
-    // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
-    // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
-    point ** tableauDePoint = NULL;
-    // renderer
-    SDL_Renderer * renderer = NULL;
-    
-    // boolean
+    SDL_Texture ** textureTableauWin = NULL;
+    SDL_Rect ** tableauCase = NULL;
+    point ** tableauDePoint = NULL; // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
+    SDL_Renderer * renderer = NULL; // renderer
+    Mix_Music * mainMusic = NULL;     // musiques
+    SDL_Surface * icones = NULL;      // icones fenetres 
+
+    // boolean 
     int etatS = 1 ;        // 1 si on est dans le menu, 0 sinon
     int * p_etatS = &etatS;
     int boolPlayMusic = 1;   // si on joue de la musique ?
 
-    Mix_Music * mainMusic = NULL;     // musiques
-    SDL_Surface * icones = NULL;      // icones fenetres 
-    int statut = EXIT_FAILURE ;
-    
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &tableauDePoint))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase, &mainMusic))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
     }
 
-    // intro image authors + son
-    intro_authors(&window, &renderer);
-
-    // lancement musique
-    loadAndPlayMainMusic(&mainMusic);
-
-    // lancementMenu
-    lancementMenu(renderer, textureBackground, p_etatS, boolPlayMusic);
-
+    intro_authors(&window, &renderer); // intro image authors + son 
+    while (etatS)
+    {
+      if (etatS == 1)
+        lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
+      else if (etatS == 2)
+        lancementJeu(renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, map3D, map2D, pileJ1, pileJ2);
+      else
+        return 0;
+    }
+    
     statut = EXIT_SUCCESS;
 
 Quit :
@@ -139,13 +134,23 @@ Quit :
         SDL_DestroyTexture(textureTableauOptionMenu[i]);
       free(textureTableauOptionMenu);
     }
+    if(textureTableauWin)
+    {
+      for(int i = 0; i < 8; i++) // nombres d'images de piont
+        SDL_DestroyTexture(textureTableauWin[i]);
+      free(textureTableauWin);
+    }
     /*-----END TEXTURE-----*/
     if (renderer) SDL_DestroyRenderer(renderer);  // renderer
     if(window) SDL_DestroyWindow(window); // libere la fenetre
     Mix_CloseAudio(); // liberation de la gestion musqie
     SDL_Quit(); // libere SDL_INIT uniquement pas les images / polices...
-    return statut;
   }
+    freeMap(map3D);
+    freeMap2D(map2D);
+    freeStack(pileJ1);
+    freeStack(pileJ2);
+    return statut;
 }
 
 

@@ -26,8 +26,7 @@ int isEmptyCase(char ** map2D); // la map est vide?
 int canMoove(char *** map, int posDeb, int posEnd); // Le pion peut-il bouger?
 int canMooveThisPiont(char *** map, char ** map2D, int posDeb, char c); // Le pion a au moin une possibilité de bouger
 int count_pion(char *** map, int nbre, char c); //Y'a t-il un alignement de nbre pion de type "c" sur la map?
-int check_End_Game(char *** map); // vérifie la fin de partie
-int check_End_Game_graphique(char *** map); // renvoie le numéro de ligne , colonne, diagonale gagnante
+int check_End_Game(char *** map); // vérifie la fin de partie et renvoie la ligne correspondante
 int sizeMaxPiont(char ** stackArray); // vérifie si il y a au moins un piont de taille > 1
 int canPlayNewPiont(char **  stackArray, char ** map2D); // S'il peut jouer un nouveau piont dans sa pile
 int canPlayStack(int sizePiont, char *** map); // vérifie si il y a au moins un coup possible selon l'index
@@ -49,9 +48,10 @@ int createPoint(point *** pTableauDePoint);
 
 void initMap(char *** map); // initialise la map 3D
 void  initMap2D(char ** map2D, char *** map3D); // initialise la map 2D
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont, point *** pTableauDePoint);
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont, SDL_Texture *** pTextureTableauWin ,point *** pTableauDePoint, SDL_Rect *** tableauCase, Mix_Music ** mainMusic);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont); //charge les pionts dans un tableau de pionts
 int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauBack); //charge les images background du menu dans un tableau
+int loadTextureWin(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauWin);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont);
 int createPoint(point *** pTableauDePoint);
 
@@ -93,7 +93,8 @@ void errorInCreate2D();
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer); //creer le fondu initial
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic,    SDL_Texture ** textureTableauOptionMenu, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2);
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2); // affiche les piles en interfaces graphiques
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char **  map2D); //affiche les pion sur le plateau de jeu
 #endif

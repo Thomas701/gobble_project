@@ -457,6 +457,12 @@ SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rect
   return SDL_FALSE;
 }
 
+SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
+{
+  if(point.x >= rect.x && point.x <= (rect.x + rect.w) && point.y >= rect.y && point.y <= (rect.y + rect.h))
+    return SDL_TRUE;
+  return SDL_FALSE;
+}
 /*Fonctions création de maps, piles, images :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -654,7 +660,7 @@ int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTabl
 }
 
 /* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont,point *** pTableauDePoint)
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont, SDL_Texture *** pTextureTableauWin, point *** pTableauDePoint)
 {
   // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
   if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
@@ -724,6 +730,11 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
     fprintf(stderr, "Error in createPoint : %s \n",SDL_GetError());
     return 1;
   }
+  if(0 != loadTextureWin(renderer, pTextureTableauWin))
+  {
+    fprintf(stderr, "Error in loadTextureWin : %s \n",SDL_GetError());
+    return 1;
+  }
   return 0;
 }
 
@@ -788,6 +799,22 @@ int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableau
     if(!textureTableauBack[i]) { fprintf(stderr, "Error loadPiont for loadBackgroundMenu : %s\n", SDL_GetError()); return -1; }
   }
   * pTextureTableauBack = textureTableauBack;
+  return 0;
+}
+
+int loadTextureWin(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauWin)
+{
+  SDL_Texture ** TextureTableauWin = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*8);
+
+  if (! TextureTableauWin) {fprintf(stderr, "Erreur allocation memory in loadTextureWin\n"); return -1;}
+  for (int i = 0; i < 8; i++)
+  {
+    char nom[30];
+    sprintf(nom, "Frames/win%d.png", i+1);
+    TextureTableauWin[i] = loadImage(nom, * renderer);
+    if(!TextureTableauWin[i]) { fprintf(stderr, "Error loadTextureWin for TextureTableauWin : %s\n", SDL_GetError()); return -1; }
+  }
+  * pTextureTableauWin = TextureTableauWin;
   return 0;
 }
 
@@ -1189,16 +1216,30 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   if (music_intro) Mix_FreeMusic(music_intro); // libération de la musique, plus besoin
 }
 
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic)
 {
   SDL_RenderClear(renderer);
 
+
+
   //boutons du menu
-  SDL_Point pointChoice1VS1_HG =  {160, 240};   SDL_Point pointChoiceIA_HG = {170, 430};
-  SDL_Point pointChoice1VS1_BD =  {990, 355};  SDL_Point pointChoiceIA_BD = {975, 550};
-  SDL_Point pointQuitter_HG  =    {170, 650};    SDL_Point pointSound_HG =  {1120, 0};
-  SDL_Point pointQuitter_BD  =    {1000, 780};   SDL_Point pointSound_BD =  {1280, 185};
-  SDL_Point pointMouse = {0 , 0}; //souris du menu pour evenement
+  SDL_Rect tableauRectOption[4];
+
+  for(int i=0; i<3; ++i)
+  {
+    SDL_QueryTexture(textureTableauOptionMenu[i], NULL, NULL, &tableauRectOption[i].w, &tableauRectOption[i].h);
+    tableauRectOption[i].x = WIDTH /2 - tableauRectOption[i].w / 2; 
+  }
+  
+  SDL_QueryTexture(textureTableauOptionMenu[3], NULL, NULL, &tableauRectOption[3].w, &tableauRectOption[3].h);
+  tableauRectOption[3].x = WIDTH /2 - tableauRectOption[3].w / 2; 
+  tableauRectOption[0].y = 318; tableauRectOption[1].y  = 488; tableauRectOption[2].y = 650; 
+  tableauRectOption[3].x = WIDTH - tableauRectOption[3].w;     tableauRectOption[3].y = 0;
+
+
+  printf("Sound x : %d y %d , w %d , h %d\n", tableauRectOption[3].x , tableauRectOption[3].y, tableauRectOption[3].w, tableauRectOption[3].h);
+
+  SDL_Point pointMouse; //souris du menu pour evenement
 
   int incrImg = 0; // numero image menu (background)
   
@@ -1206,14 +1247,56 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   {
     SDL_Event event;
     SDL_RenderClear(renderer);
+    SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
+
     if (0 != SDL_RenderCopy(renderer, textureBackground[incrImg%400], NULL, NULL)) {fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s, i = %d, et img = %p \n", SDL_GetError(), incrImg%400 , textureBackground[incrImg%400]);}
-    if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD)) {fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());}
-    if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL)) { fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());}
+    
+    for(int i=0; i<3; ++i)
+    {
+      if(isInRectangle(pointMouse, tableauRectOption[i]))
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 255);
+        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+      else
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 150);
+        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+    }
+    if(isInRectangle(pointMouse, tableauRectOption[3]))
+    {
+      if(boolPlayMusic)
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[3], 255);
+        if (0 != SDL_RenderCopy(renderer,  textureTableauOptionMenu[3], NULL, &tableauRectOption[3])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+      else
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[4], 255);
+        if (0 != SDL_RenderCopy(renderer,  textureTableauOptionMenu[4], NULL, &tableauRectOption[3])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+    }
+    else
+    {
+      if(boolPlayMusic)
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[3], 100);
+        if (0 != SDL_RenderCopy(renderer,  textureTableauOptionMenu[3], NULL, &tableauRectOption[3])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+      else
+      {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[4], 100);
+        if (0 != SDL_RenderCopy(renderer,  textureTableauOptionMenu[4], NULL, &tableauRectOption[3])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+    }
+
     incrImg++;
     SDL_RenderPresent(renderer);
     SDL_Delay(50);
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
     {
+      SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
       switch(event.type)
       {
         case SDL_QUIT : //quitter
@@ -1223,26 +1306,33 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
         case SDL_MOUSEBUTTONDOWN :  // bouton souris enfonce
           if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
           {
-            SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
-            if (isInRect(pointMouse , pointChoice1VS1_HG, pointChoice1VS1_BD)) // 2 joueurs en local
+            if (isInRectangle(pointMouse , tableauRectOption[0])) // 2 joueurs en local
             {
               *p_etats = 2 ;
               SDL_RenderClear(renderer);
               printf("Lancement jeu 1VS1 \n");
             }
-            else if(isInRect(pointMouse , pointChoiceIA_HG, pointChoiceIA_BD)) // IA min max
+            else if(isInRectangle(pointMouse , tableauRectOption[1])) // IA min max
             {
               *p_etats = 2 ;
               SDL_RenderClear(renderer);
               printf("Lancement jeu contre IA \n");
             }
-            else if(isInRect(pointMouse , pointSound_HG, pointSound_BD)) // choix contre IA renfocement
+            else if(isInRectangle(pointMouse , tableauRectOption[3])) // sond
             {
-              if(boolPlayMusic == 0) {boolPlayMusic = 1; Mix_ResumeMusic();}
-              else {boolPlayMusic = 0; Mix_PauseMusic();}
+              if(boolPlayMusic == 0) 
+              {
+                boolPlayMusic = 1; 
+                Mix_ResumeMusic();
+              }
+              else 
+              {
+                boolPlayMusic = 0; 
+                Mix_PauseMusic();
+              }
               printf("Changement de music \n");
             }
-            else if(isInRect(pointMouse , pointQuitter_HG, pointQuitter_BD)) // choix QUITTER
+            else if(isInRectangle(pointMouse , tableauRectOption[2])) // choix QUITTER
             {
               *p_etats = 0;
               printf("Quitter \n");

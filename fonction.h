@@ -49,9 +49,10 @@ int createPoint(point *** pTableauDePoint);
 
 void initMap(char *** map); // initialise la map 3D
 void  initMap2D(char ** map2D, char *** map3D); // initialise la map 2D
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont, point *** pTableauDePoint);
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** ptextureTableauPiont, SDL_Texture *** pTextureTableauWin ,point *** pTableauDePoint);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont); //charge les pionts dans un tableau de pionts
 int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauBack); //charge les images background du menu dans un tableau
+int loadTextureWin(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauWin);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont);
 int createPoint(point *** pTableauDePoint);
 
@@ -93,7 +94,7 @@ void errorInCreate2D();
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer); //creer le fondu initial
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2); // affiche les piles en interfaces graphiques
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char **  map2D); //affiche les pion sur le plateau de jeu
 #endif

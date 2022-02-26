@@ -74,6 +74,7 @@ int main(int argc, char ** argv)
     SDL_Texture *  textureMapVide = NULL;
     SDL_Texture ** textureTableauOptionMenu = NULL;
     SDL_Texture ** textureTableauPiont = NULL;
+    SDL_Texture ** textureTableauWin = NULL;
     // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 
     // 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
     point ** tableauDePoint = NULL;
@@ -90,7 +91,7 @@ int main(int argc, char ** argv)
     int statut = EXIT_FAILURE ;
     
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &tableauDePoint))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
@@ -103,7 +104,7 @@ int main(int argc, char ** argv)
     loadAndPlayMainMusic(&mainMusic);
 
     // lancementMenu
-    //lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
+    lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic);
 
     statut = EXIT_SUCCESS;
 
@@ -138,6 +139,12 @@ Quit :
       for(int i = 0; i < 5; i++) // nombres d'images de piont
         SDL_DestroyTexture(textureTableauOptionMenu[i]);
       free(textureTableauOptionMenu);
+    }
+    if(textureTableauWin)
+    {
+      for(int i = 0; i < 8; i++) // nombres d'images de piont
+        SDL_DestroyTexture(textureTableauWin[i]);
+      free(textureTableauWin);
     }
     /*-----END TEXTURE-----*/
     if (renderer) SDL_DestroyRenderer(renderer);  // renderer

@@ -83,19 +83,20 @@ int main(int argc, char ** argv)
     int boolPlayMusic = 1;   // si on joue de la musique ?
 
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase, &mainMusic))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
     }
 
     intro_authors(&window, &renderer); // intro image authors + son 
+    loadAndPlayMainMusic(&mainMusic);
     while (etatS)
     {
       if (etatS == 1)
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2)
-        lancementJeu(renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, map3D, map2D, pileJ1, pileJ2);
+        lancementJeu(&renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu,tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
       else
         return 0;
     }

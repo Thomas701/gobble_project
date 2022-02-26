@@ -1189,7 +1189,7 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   if (music_intro) Mix_FreeMusic(music_intro); // libération de la musique, plus besoin
 }
 
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic)
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, int * p_etats, int boolPlayMusic)
 {
   SDL_RenderClear(renderer);
 
@@ -1207,8 +1207,8 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
     SDL_Event event;
     SDL_RenderClear(renderer);
     if (0 != SDL_RenderCopy(renderer, textureBackground[incrImg%400], NULL, NULL)) {fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s, i = %d, et img = %p \n", SDL_GetError(), incrImg%400 , textureBackground[incrImg%400]);}
-    if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD)) {fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());}
-    if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL)) { fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());}
+    //if (0 != SDL_SetTextureBlendMode( textureMenu, SDL_BLENDMODE_MOD)) {fprintf(stderr, "transparence textureMenu impossible : %s\n", SDL_GetError());}
+    //if (0 != SDL_RenderCopy( renderer,  textureMenu, NULL, NULL)) { fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());}
     incrImg++;
     SDL_RenderPresent(renderer);
     SDL_Delay(50);

@@ -93,7 +93,7 @@ void errorInCreate2D();
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer); //creer le fondu initial
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture * textureMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2); // affiche les piles en interfaces graphiques
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture * textureMapVide, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char **  map2D); //affiche les pion sur le plateau de jeu
 #endif

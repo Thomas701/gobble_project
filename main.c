@@ -103,7 +103,7 @@ int main(int argc, char ** argv)
     loadAndPlayMainMusic(&mainMusic);
 
     // lancementMenu
-    //lancementMenu(renderer, textureBackground, textureMenu, p_etatS, boolPlayMusic);
+    lancementMenu(renderer, textureBackground, p_etatS, boolPlayMusic);
 
     statut = EXIT_SUCCESS;
 

@@ -780,7 +780,7 @@ void initMap(char *** map)
   }
 }
 
-void  initMap2D(char ** map2D, char *** map3D)
+void initMap2D(char ** map2D, char *** map3D)
 {
   for(int i=0; i < N; i++)
   {
@@ -801,6 +801,15 @@ void  initMap2D(char ** map2D, char *** map3D)
         }
       }
     }
+  }
+}
+
+void initPile(char ** pile, char c)
+{
+  for (int i = 0; i < N-1; i++)
+  {
+    for (int j = 0; j < N; j++)
+      pile[i][j] = c;
   }
 }
 
@@ -1631,7 +1640,7 @@ int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTablea
   SDL_Rect positionPiontCurrent ;
   int x , y;                // position de la case que l'on parcourt
   int indicePiont;          // contient l'indice du piont à placer
-  
+
   for(int i = 0 ; i < N*N ; i++)
   {
     x = i / 3 ; y = i % 3 ;

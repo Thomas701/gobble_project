@@ -1630,7 +1630,8 @@ int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTablea
 
   SDL_Rect positionPiontCurrent ;
   int x , y;                // position de la case que l'on parcourt
-  int indicePiont;          // contient l'indice du piont Ã  placer
+  int indicePiont;          // contient l'indice du piont à placer
+  
   for(int i = 0 ; i < N*N ; i++)
   {
     x = i / 3 ; y = i % 3 ;

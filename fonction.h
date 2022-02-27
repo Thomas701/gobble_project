@@ -55,7 +55,7 @@ int createCase(SDL_Rect *** pTableauCase);
 
 void initMap(char *** map); // initialise la map 3D
 void  initMap2D(char ** map2D, char *** map3D); // initialise la map 2D
-void initPile(char ** pile, char c);
+void initPile(char ** pile, char c); // remplie une pile
 int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu);
 int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont, SDL_Texture *** pTextureTableauWin, point *** pTableauDePoint, SDL_Rect *** pTableauCase);
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont); //charge les pionts dans un tableau de pionts

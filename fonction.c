@@ -153,9 +153,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
   while(2 == *p_etats) // boucle principale
   {
     if (check_End_Game(map3D))
-    {
       *p_etats = 1;
-    }
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
     {
       switch(event.type)
@@ -165,15 +163,18 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
         {
           SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
           if (selection == 0)
+          {
             imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c);
+          }
           else
           {
             if(c == 'b')
+            {
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1);
+            }
             else
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2);
           }
-
           if (selection == 1 && imageIndexS == -1)
             selection = 0;
           else if (selection == 0 && imageIndexP != -1)
@@ -537,7 +538,7 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
     }
     else if(c == 'n' && (11 == index || 12 == index))
     {
-      if (isEmptyStack(pileJ1, numStack))
+      if (isEmptyStack(pileJ2, numStack))
         return -1;
       sizePiont = sizePiontMaxStack(pileJ2, numStack);
       if(canPlayStack(sizePiont, map3D))
@@ -547,12 +548,14 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
       return -1;
     }
     // cas des pionts sur la map
-    else
+    else if (index >= 0 && index < 9)
     {
       if (canMooveThisPiont(map3D, map2D, index, c))
         return index;
       return -1;
     }
+    else
+      return -1; // cas ou il clique sur la pile adversaire
   }
   return -1; // cas index == -1
 }
@@ -1486,7 +1489,6 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
             {
               *p_etats = 2 ;
               SDL_RenderClear(renderer);
-              printf("Lancement jeu 1VS1 \n");
             }
             else if(isInRectangle(pointMouse , tableauRectOption[1])) // IA min max
             {
@@ -1506,12 +1508,10 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
                 boolPlayMusic = 0; 
                 Mix_PauseMusic();
               }
-              printf("Changement de music \n");
             }
             else if(isInRectangle(pointMouse , tableauRectOption[2])) // choix QUITTER
             {
               *p_etats = 0;
-              printf("Quitter \n");
             }
           }
           break ;
@@ -1529,22 +1529,40 @@ void lancementJeu(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point 
       printf("Le joueur 1 a gagne!\n");
     else 
       printf("Le joueur 2 a gagne!\n");
+    initMap(map3D);
+    initMap2D(map2D, map3D);
+    initPile(pileJ1,'b');
+    initPile(pileJ2,'n');
 }
 
+/*return -1 if stack is empty else 0, 1 or 2*/
+int sizePiontInStack(char ** stackArray, int numStack)
+{
+  int sizePiont = -1 ;
+  for(int i = N-1 ; i >= 0 ; i--)
+  {
+    if (stackArray[numStack][i] != '0')
+    {
+      sizePiont = i; 
+      i = -1; // sortie de boucle
+    }
+  }
+  return sizePiont ;
+}
 /* return 0 if succes, -1 else */
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
 {
   SDL_Rect positionPiontCurr;
-  int sizePiontMaxPile1J1 = sizePiontMaxStack(stackArrayJ1, 0) ;
-  int sizePiontMaxPile2J1 = sizePiontMaxStack(stackArrayJ1, 1) ;
+  int sizePiontMaxPile1J1 = sizePiontInStack(stackArrayJ1, 0) ;
+  int sizePiontMaxPile2J1 = sizePiontInStack(stackArrayJ1, 1) ;
+  int sizePiontMaxPile1J2 = sizePiontInStack(stackArrayJ2, 0) + 3 ;
+  int sizePiontMaxPile2J2 = sizePiontInStack(stackArrayJ2, 1) + 3 ;
   
-  int sizePiontMaxPile1J2 = sizePiontMaxStack(stackArrayJ2, 0) + 3;
-  int sizePiontMaxPile2J2 = sizePiontMaxStack(stackArrayJ2, 1) + 3; // -1 car commence Ã  1 , + 3 dans textureTableauPiont
-  if (sizePiontMaxPile1J1 > 0)
+  if (sizePiontMaxPile1J1 != -1)
   {
     if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile1J1], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
     {
-       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 1: %s \n", SDL_GetError());
        return -1;
     }
     positionPiontCurr.x = tableauDePoint[9]->x - positionPiontCurr.w/2   ;
@@ -1555,7 +1573,7 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
 
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J1], NULL, &positionPiontCurr))
     {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 2: %s \n", SDL_GetError());
       return -1;
     }
 
@@ -1564,14 +1582,14 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
   {
     if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile2J1], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
     {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 3: %s \n", SDL_GetError());
       return -1;
     }
     positionPiontCurr.x = tableauDePoint[10]->x - positionPiontCurr.w/2   ;
     positionPiontCurr.y = tableauDePoint[10]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J1], NULL, &positionPiontCurr))
     {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 4: %s \n", SDL_GetError());
       return -1;
     }
   }
@@ -1579,17 +1597,17 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
   {
     if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile1J2], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
     {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 5: %s \n", SDL_GetError());
       return -1;
     }
 
     positionPiontCurr.w *= 0.79;
     positionPiontCurr.h *= 0.79;
     positionPiontCurr.x = tableauDePoint[11]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[1]->y - 2*positionPiontCurr.h/3 ;  
+    positionPiontCurr.y = tableauDePoint[11]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J2], NULL, &positionPiontCurr))
     {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 6: %s \n", SDL_GetError());
       return -1;
     }
   }
@@ -1597,19 +1615,25 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
   {
     if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile2J2], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
     {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 7: %s \n", SDL_GetError());
       return -1;
     }
     positionPiontCurr.x = tableauDePoint[12]->x - positionPiontCurr.w/2   ;
     positionPiontCurr.y = tableauDePoint[12]->y - 2*positionPiontCurr.h/3 ;  
     if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J2], NULL, &positionPiontCurr))
     {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 8: %s \n", SDL_GetError());
       return -1;
     }
   }
   return 0;
 }
+
+
+
+
+
+
 
 /* return 0 if succes, -1 else *, la map contient des '1', '2', '3' & 'a', 'b', 'c' */
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char ***  map3D)
@@ -1646,14 +1670,33 @@ int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTablea
     x = i / 3 ; y = i % 3 ;
     if(map2D[x][y] != '0')
     {
-
-      if(map2D[x][y] >= '1' && map2D[x][y] <= '3') // cas piont '1' = 0 , '2' = 1, '3' = 2 , 'a' = 3, 'b' = 4, 'c' = 5
-        indicePiont = map2D[x][y] - 1 - 48;
-      else
-	      indicePiont =  map2D[x][y]; // si a alors 1 , b alors 2 + 2 pour le tableau de texture
+      switch(map2D[x][y]) 
+      {
+        case '1' :
+          indicePiont = 0;
+          break;
+        case '2' :
+          indicePiont = 1;
+          break;
+        case '3' :
+          indicePiont = 2;
+          break;
+        case 'a' :
+          indicePiont = 3;
+          break;
+        case 'b' :
+          indicePiont = 4;
+          break;
+        case 'c' :
+          indicePiont = 5;
+          break;
+        default :
+          printf("error in affichePiontSurPlateau switch \n");
+          break;
+      }
       if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h))
       {
-	       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL : %s \n", SDL_GetError());
+	       fprintf(stderr, "Error SDL_QueryTexture in affichePiontSurPlateau 1 : %s \n", SDL_GetError());
 	       return -1;
       }
       if(0 == x)
@@ -1674,7 +1717,7 @@ int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTablea
       
       if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))
       {
-        fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL : %s \n", SDL_GetError());
+        fprintf(stderr, "Error SDL_RenderCopy in affichePiontSurPlateau 2 : %s \n", SDL_GetError());
 	      return -1;
       }
     }

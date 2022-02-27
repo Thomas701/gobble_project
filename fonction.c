@@ -162,25 +162,19 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
         if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
         {
           SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
-          printf("TEst 0 selection %d \n", selection);
           if (selection == 0)
           {
-            printf("------------\n");
             imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c);
-            printf("TEST 1 c : %c\n", c);
           }
           else
           {
             if(c == 'b')
             {
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1);
-              printf("TEST 2 c : %c\n", c);
             }
             else
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2);
-            printf("TEST 4\n");
           }
-          printf("c : %c , imageIndexP : %d , imageIndexS : %d selection : %d\n", c, imageIndexP, imageIndexS, selection);
           if (selection == 1 && imageIndexS == -1)
             selection = 0;
           else if (selection == 0 && imageIndexP != -1)
@@ -196,7 +190,6 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
                 mooveSinceStack(map3D, pileJ1, numStack, sizePiontMax, imageIndexS, c);
                 c = (c == 'b') ? 'n' : 'b';
                 selection = 0;
-                printf("TEST 5\n");
               }
               else
               {
@@ -216,10 +209,6 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
           }
         }
       }
-      printf("-----\n");
-      printStacks(pileJ1);
-      printf("-----\n");
-      printStacks(pileJ2);
       SDL_RenderClear(renderer);
       printMapEmptySDL(textureMapVide, renderer);
       affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
@@ -530,7 +519,6 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c)
 {
   int index = getIndex(pointMouse, tableauCase);
-  printf("c : %c, index : %d\n",c, index);
   int sizePiont; int numStack;
   if (index > 8)
     numStack = (index == 9 || index == 11 )? 0: 1;
@@ -539,7 +527,6 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
     // cas des piles
     if(c == 'b' && (9 == index || 10 == index)) 
     {
-      printf("211111111\n");
       if (isEmptyStack(pileJ1, numStack))
         return -1;
       sizePiont = sizePiontMaxStack(pileJ1, numStack) ;
@@ -551,8 +538,7 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
     }
     else if(c == 'n' && (11 == index || 12 == index))
     {
-      printf("222222\n");
-      if (isEmptyStack(pileJ1, numStack))
+      if (isEmptyStack(pileJ2, numStack))
         return -1;
       sizePiont = sizePiontMaxStack(pileJ2, numStack);
       if(canPlayStack(sizePiont, map3D))
@@ -1503,7 +1489,6 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
             {
               *p_etats = 2 ;
               SDL_RenderClear(renderer);
-              printf("Lancement jeu 1VS1 \n");
             }
             else if(isInRectangle(pointMouse , tableauRectOption[1])) // IA min max
             {
@@ -1523,12 +1508,10 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
                 boolPlayMusic = 0; 
                 Mix_PauseMusic();
               }
-              printf("Changement de music \n");
             }
             else if(isInRectangle(pointMouse , tableauRectOption[2])) // choix QUITTER
             {
               *p_etats = 0;
-              printf("Quitter \n");
             }
           }
           break ;

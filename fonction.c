@@ -850,7 +850,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
   }
     
   // alloue la fenetre
-  * window = SDL_CreateWindow("GOOBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
+  * window = SDL_CreateWindow("GOBBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
   if(!* window)
   {
     fprintf(stderr, "Erreur SDL_CreateWindow : %s\n", SDL_GetError());

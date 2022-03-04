@@ -105,7 +105,7 @@ int main(int argc, char ** argv)
        goto Quit;
     }
 
-    intro_authors(&window, &renderer); // intro image authors + son 
+    //intro_authors(&window, &renderer); // intro image authors + son 
     loadAndPlayMainMusic(&mainMusic);
     while (etatS)
     {

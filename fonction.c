@@ -882,7 +882,7 @@ int createCase(SDL_Rect *** pTableauCase)
   tableauCase[ 2]->x = 738 ; tableauCase[ 2]->y = 358 ;
   tableauCase[ 3]->w = 171 ; tableauCase[ 3]->h = 106 ;
   tableauCase[ 3]->x = 392 ; tableauCase[ 3]->y = 462 ;
-  tableauCase[ 4]->w = 159 ; tableauCase[ 4]->h = 107 ;
+  tableauCase[ 4]->w = 159 ; tableauCase[ 4]->h = 2 ;  // 107
   tableauCase[ 4]->x = 579 ; tableauCase[ 4]->y = 461 ;
   tableauCase[ 5]->w = 152 ; tableauCase[ 5]->h = 107 ;
   tableauCase[ 5]->x = 751 ; tableauCase[ 5]->y = 461 ;
@@ -986,7 +986,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
   }
     
   // alloue la fenetre
-  * window = SDL_CreateWindow("GOOBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
+  * window = SDL_CreateWindow("GOBBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
   if(!* window)
   {
     fprintf(stderr, "Erreur SDL_CreateWindow : %s\n", SDL_GetError());
@@ -1474,7 +1474,7 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
   SDL_Texture * texture_authors = NULL; // contient la texture qui va acceuilir l'image authors [texture]
   Mix_Music * music_intro = NULL;   // [musique]
 
-  int r = rand() % 10;
+  int r = rand() % 1;
   if (r == 0)
     texture_authors = loadImage("Frames/authors.png", *renderer);
   else
@@ -1666,18 +1666,18 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
 
 void lancementJeu(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
 {
-    printf("SALUT111!\n");
-    SDL_Delay(1000);
-    gameOptionGraphique(renderer, textureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
-    if (count_pion(map3D, N, 'b')) 
-      printf("Le joueur 1 a gagne!\n");
-    else 
-      printf("Le joueur 2 a gagne!\n");
+  SDL_Delay(1000);
 
-    initMap(map3D);
-    initMap2D(map2D, map3D);
-    initPile(pileJ1,'b');
-    initPile(pileJ2,'n');
+  gameOptionGraphique(renderer, textureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
+  if (count_pion(map3D, N, 'b')) 
+    printf("Le joueur 1 a gagne!\n");
+  else 
+    printf("Le joueur 2 a gagne!\n");
+
+  initMap(map3D);
+  initMap2D(map2D, map3D);
+  initPile(pileJ1,'b');
+  initPile(pileJ2,'n');
 }
 
 /*return -1 if stack is empty else 0, 1 or 2*/

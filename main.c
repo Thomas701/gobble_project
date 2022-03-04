@@ -46,15 +46,29 @@ int main(int argc, char ** argv)
   initMap(map3D);
   initMap2D(map2D, map3D);
   int statut = EXIT_FAILURE ;
+  int deplacement = -1;
+
+  printf("Voulez-vous restreindre les déplacements à une distance de 1?\n[0] Non\n[1] Oui\n");
+  scanf(" %d", &deplacement);
+
+  while (deplacement != 0 && deplacement != 1)
+  {
+    printf("Resultat invalide");
+    printf("Voulez-vous restreindre les déplacements à une distance de 1?\n[0] Non\n[1] Oui\n");
+    scanf(" %d", &deplacement);
+    vider_buffer();
+  }
+
   if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ) // lancement console
   {
     int tour = 0;
     char c;
+    
     while (!check_End_Game(map3D))
     {
       c = (tour % 2 == 0) ? 'b' : 'n';
-      if (c == 'b') gameOption(pileJ1, map3D, map2D, c);
-      else gameOption(pileJ2, map3D, map2D, c);
+      if (c == 'b') gameOption(pileJ1, map3D, map2D, c, deplacement);
+      else gameOption(pileJ2, map3D, map2D, c, deplacement);
       tour++;
     }
     if (count_pion(map3D, N, 'b')) printf("Le joueur 1 a gagne!\n");

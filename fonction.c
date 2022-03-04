@@ -140,7 +140,7 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c) // c =
  }
 }
 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont) // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont) // c = 'b' or 'n' joueur qui choisie
 {
   int selection = 0;
   int imageIndexP = -1; // indique l'indexe de l'image qui a été selectionnée
@@ -210,9 +210,15 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture *  textureMapVide,
         }
       }
       SDL_RenderClear(renderer);
-      printMapEmptySDL(textureMapVide, renderer);
+      if(c == 'b')
+        printMapEmptySDL(tableauTextureMapVide[1], renderer);
+      else if (c == 'n')
+        printMapEmptySDL(tableauTextureMapVide[2], renderer);
       affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
       affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D);
+  
+      SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+     
       SDL_RenderPresent(renderer);
     }
   }
@@ -840,7 +846,7 @@ int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTabl
 }
 
 /* return -1 si erreur 0 sinon*/
-int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture ** textureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont, SDL_Texture *** pTextureTableauWin, point *** pTableauDePoint, SDL_Rect *** pTableauCase)
+int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackground, SDL_Texture *** ptableauTextureMapVide, SDL_Surface ** icones, SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu, SDL_Texture *** pTextureTableauPiont, SDL_Texture *** pTextureTableauWin, point *** pTableauDePoint, SDL_Rect *** pTableauCase)
 {
   // initialise le systeme gestion de rendu, d'évenements , audio et temps + test
   if (0 != SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_TIMER))
@@ -850,7 +856,7 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
   }
     
   // alloue la fenetre
-  * window = SDL_CreateWindow("GOOBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
+  * window = SDL_CreateWindow("GOBBLE GAME - PREP'ISIMA 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN) ;
   if(!* window)
   {
     fprintf(stderr, "Erreur SDL_CreateWindow : %s\n", SDL_GetError());
@@ -887,10 +893,9 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
   }
 
   // init texture map vide
-  * textureMapVide = loadImage("Frames/map.png", * renderer);
-  if(!*textureMapVide)
+  if(0 != loadTextureTableauMap(renderer, ptableauTextureMapVide))
   {
-    fprintf(stderr, "Error loadImage for textureMenu : %s\n", SDL_GetError());
+    fprintf(stderr, "Error loadTextureTableauMap for ptableauTextureMapVide : %s\n", SDL_GetError());
     return -1;
   }
 
@@ -920,6 +925,23 @@ int initialiseDebutProgramme(SDL_Window ** window, SDL_Texture *** textureBackgr
     fprintf(stderr, "Error in loadTextureWin : %s \n",SDL_GetError());
     return 1;
   }
+  return 0;
+}
+
+int loadTextureTableauMap(SDL_Renderer ** renderer, SDL_Texture *** ptableauTextureMapVide)
+{
+  SDL_Texture ** tableauTextureMapVide = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*3); 
+  // 0 map vert, 1 map bleau, 2 map rouge
+  if(!tableauTextureMapVide) { fprintf(stderr, "Error malloc in loadTextureTableauMap for tableauTextureMapVide\n"); return -1; }
+
+  for (int i = 0; i < 3; i++) // il n'y a que 3 images map a charger
+  {
+    char nom[30];
+    sprintf(nom, "Frames/map%d.png", i+1);
+    tableauTextureMapVide[i] = loadImage(nom, * renderer);
+    if(!tableauTextureMapVide[i]) { fprintf(stderr, "Error loadTextureTableauMap for tableauTextureMapVide : %s\n", SDL_GetError()); return -1; }
+  }
+  * ptableauTextureMapVide = tableauTextureMapVide;
   return 0;
 }
 
@@ -1522,9 +1544,9 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   }
 }
 
-void lancementJeu(SDL_Renderer * renderer, SDL_Texture *  textureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
 {
-    gameOptionGraphique(renderer, textureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
+    gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
     if (count_pion(map3D, N, 'b')) 
       printf("Le joueur 1 a gagne!\n");
     else 

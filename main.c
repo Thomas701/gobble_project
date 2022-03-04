@@ -69,7 +69,7 @@ int main(int argc, char ** argv)
     
     // textures
     SDL_Texture ** textureBackground = NULL;
-    SDL_Texture *  textureMapVide = NULL;
+    SDL_Texture **  tableauTextureMapVide = NULL; // 0 map avec gobble en vert , 1 en bleu et 2 en rouge
     SDL_Texture ** textureTableauOptionMenu = NULL;
     SDL_Texture ** textureTableauPiont = NULL;
     SDL_Texture ** textureTableauWin = NULL;
@@ -85,7 +85,7 @@ int main(int argc, char ** argv)
     int boolPlayMusic = 1;   // si on joue de la musique ?
 
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &textureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
@@ -98,7 +98,7 @@ int main(int argc, char ** argv)
       if (etatS == 1)
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2)
-        lancementJeu(renderer, textureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
+        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
       else
         return 0;
     }
@@ -108,7 +108,7 @@ int main(int argc, char ** argv)
 Quit :
     if(mainMusic) Mix_FreeMusic(mainMusic); // musiques
     if (icones) SDL_FreeSurface(icones); //surfaces
-    if(textureMapVide) SDL_DestroyTexture(textureMapVide);  
+    
     /*-----FREE TEXTURE-----*/
     if(textureTableauPiont)
     {
@@ -117,6 +117,12 @@ Quit :
       free(textureTableauPiont);
     }
 
+    if(tableauTextureMapVide)
+    {
+      for(int i=0; i<3; ++i) // free 3 map
+        SDL_DestroyTexture(tableauTextureMapVide[i]);
+      free(tableauTextureMapVide);
+    }
     if(textureBackground)
     {
       for(int i = 0; i < 400; i++) // nombres d'images de piont

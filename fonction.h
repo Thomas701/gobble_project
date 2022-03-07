@@ -44,7 +44,7 @@ SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rect
 SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect);
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c);
 int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile);
-int canEffectDeplacementWithDistance(char *** map3D, int posDeb, char c); //verifie si on peut deplacer un pion dans une map
+int canEffectDeplacementWithDistance(char *** map3D, char c); //verifie si on peut deplacer un pion dans une map
 
 /*Fonctions création de maps et piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/

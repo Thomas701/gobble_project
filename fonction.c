@@ -62,11 +62,13 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
   answer = (isStackFull(stackArray) || !existPiontInMap(map2D, c)) ? 1 : 0;
   if (canPlayNewPiont(stackArray, map2D) && !isStackFull(stackArray) && existPiontInMap(map2D, c) && (deplacement == 0 || (canEffectDeplacementWithDistance(map3D, c) && deplacement == 1)))
   {
+      printf("Print1\n");
       printMap2D(map2D);
       printMap3dDebug(map3D);
       printf("Que souhaitez-vous faire ? \n[1] Jouer un nouveau pion ? (de votre pile)  \n[2] Deplacer un pion se trouvant sur la map  \n");
       scanf(" %d", &answer);
       vider_buffer();
+      printf("Selection: %d, deplacement: %d, fonction: %d", answer, deplacement, canEffectDeplacementWithDistance(map3D, c));
       while (answer != 1 &&  answer != 2)
       {
         printf("Je n'ai pas compris !  \n\nQue voulez-vous faire ? \n[1] Jouer un nouveau pion ? (de votre pile)  \n[2] Deplacer un pion se trouvant sur la map  \n");
@@ -74,12 +76,12 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
         vider_buffer();
       }
   }
-  
-  if (answer == 2 || answer == 0) // cas ou il a choisi l'option 2 ou cas ou il a seulement l'option 2 possible
+  if (answer == 2 || answer == 0 && (deplacement == 0 || canEffectDeplacementWithDistance(map3D, c))) // cas ou il a choisi l'option 2 ou cas ou il a seulement l'option 2 possible
   {
     int debPiont = 0 ;
     int endPiont = 0 ;
 
+    printf("Print2\n");
     printMap2D(map2D);
     printMap3dDebug(map3D);
     printf("Quel pion voulez-vous deplacer ? \n");
@@ -136,12 +138,13 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
       initMap2D(map2D, map3D);
     }
   }
-  
   else // cas ou il joue un nouveau piont et il peut le jouer cad il existe une pile ou il peut mettre un piont sur le plateau
   {
+    printf("ELSE\n");
     int numPion ;
     int numStack ;
     int endPiont ;
+    printf("Print3\n");
     printMap2D(map2D);
     printMap3dDebug(map3D);
     printf("Voici vos piles : \n");
@@ -159,11 +162,13 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
     scanf(" %d",&numPion);
     while(numPion < 0 || numPion > N-1 || !existPiontInStack(stackArray, numStack, numPion) || !canPlayStack(numPion, map3D))
     {
+      //printf("f1: %d & f2: %d\n", !existPiontInStack(stackArray, numStack, numPion), !canPlayStack(numPion, map3D));
       printf("Vous ne pouvez rien faire avec ce pion! \nVeuillez saisir un nouveau pion dans cette pile.\n");
-      scanf(" %d", &numStack);
+      scanf(" %d", &numPion);
       vider_buffer();
     }
 
+    printf("Print4\n");
     printMap2D(map2D);
     printMap3dDebug(map3D);
     printf("A quelle place voulez vous jouez le pion numero %d ? \n", numPion);
@@ -230,7 +235,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
                 mooveSinceStack(map3D, pileJ1, numStack, sizePiontMax, imageIndexS, c);
                 c = (c == 'b') ? 'n' : 'b';
                 selection = 0;
-                if (!count_pion(map3D, N, 'b') && !count_pion(map3D, N, 'b'))
+                if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
                 {
                   printf("Problème");
                   *p_etats = 1;
@@ -242,7 +247,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
                 mooveSinceStack(map3D, pileJ2, numStack, sizePiontMax, imageIndexS, c);
                 c = (c == 'b') ? 'n' : 'b';
                 selection = 0;
-                if (!count_pion(map3D, N, 'b') && !count_pion(map3D, N, 'b'))
+                if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
                 {
                   printf("Problème");
                   *p_etats = 1;
@@ -254,7 +259,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
               moove(map3D, imageIndexP, imageIndexS);
               c = (c == 'b') ? 'n' : 'b';
               selection = 0;
-              if (!count_pion(map3D, N, 'b') && !count_pion(map3D, N, 'b'))
+              if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
               {
                 printf("Problème");
                 *p_etats = 1;
@@ -453,36 +458,37 @@ int canMooveThisPiontDistance(char *** map, int posDeb, char c) // Le pion peut-
   else
   {
     i = maximum(0, x-1); iEnd = minimum(x+1, N-1);
-    j = maximum(0, y-1); jEnd = minimum(y+1, N-1);
-    printf("COMPTE RENDU:\n i=%d, iEnd=%d, j=%d, jEnd= %d, x=%d, y=%d\n",i, iEnd, j, jEnd, x, y);
-    
+    //printf("COMPTE RENDU:\n i=%d, iEnd=%d, j=%d, jEnd= %d, x=%d, y=%d\n",i, iEnd, j, jEnd, x, y);
     for (; i <= iEnd; i++)
     {
+      j = maximum(0, y-1); jEnd = minimum(y+1, N-1);
       for (; j <= jEnd; j++)
       {
         max = -1; // gros nombre!
         for (int k = 0; k < N ; k++)
         {
-          printf("[2]k=%d, i= %d & j= %d & x= %d & y = %d ET %c\n", k, i, j, x, y, map[i][j][k]);
+          //printf("[2]k=%d, i= %d & j= %d & x= %d & y = %d ET %c\n", k, i, j, x, y, map[i][j][k]);
           if (map[i][j][k] != '0')
           {
             max = k;
-            printf("[2]i= %d & j= %d & max= %d & count = %d\n", i, j, max, count);
-            k = N + 1; //Pour stopper la boucle
+            //printf("[2]i= %d & j= %d & k= %d & max= %d & count = %d\n", i, j, k,max, count);
+            break; //Pour stopper la boucle
           }
         }
         if (max < count)
+        {
+          //printf("ALERTE MAX < COUNT\n");
           return 1;
+        }
       }
     }
+    //printf("NE RETOURNERA FINALEMENT RIEN\n");
     return 0;
   }
 }
 
-int count_pion(char *** map, int nbre, char c) //Y'a t-il un alignement de nbre pion de type "c" sur la map?
+int count_pion(char ** map_Temporaire, int nbre, char c) //Y'a t-il un alignement de nbre pion de type "c" sur la map?
 {
-  char ** map_Temporaire = createMap2D();
-  initMap2D(map_Temporaire, map);
   int count_L  = 0; int count_C  = 0; 
   int count_DD = 0; int count_DG = 0; 
 
@@ -498,7 +504,6 @@ int count_pion(char *** map, int nbre, char c) //Y'a t-il un alignement de nbre 
     }
     if (count_C == nbre || count_L == nbre || count_DD == nbre || count_DG == nbre) /* partie terminée */
     {
-      freeMap2D(map_Temporaire);
       return 1;
     }
     else
@@ -506,14 +511,11 @@ int count_pion(char *** map, int nbre, char c) //Y'a t-il un alignement de nbre 
       count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
     }
   }
-  freeMap2D(map_Temporaire);
-  return 0; /* partie non-terminée */
+  return 0;
 }
 
-int check_End_Game(char *** map)
+int check_End_Game(char ** map_Temporaire)
 {
-  char ** map_Temporaire = createMap2D();
-  initMap2D(map_Temporaire, map);
   int count_L  = 0;
   int count_C  = 0;
   int count_DD = 0;
@@ -531,7 +533,6 @@ int check_End_Game(char *** map)
     }
     if (count_C == N-1 || count_L == N-1 || count_DD == N-1 || count_DG == N-1) /* partie terminée */
     {
-      freeMap2D(map_Temporaire);
       if (count_L == N-1)
         return (i == 0) ? 1 : (i == 1) ? 2 : 3;
       else if (count_C == N-1)
@@ -546,7 +547,6 @@ int check_End_Game(char *** map)
       count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;
     }
   }
-  freeMap2D(map_Temporaire);
   return 0;                                                                     /* partie non-terminée */
 }
 
@@ -560,10 +560,10 @@ int sizeMaxPiont(char ** stackArray)
     for(int j = N-1 ; j >= 1 ; j--)
     {
       if('0' != stackArray[i][j]) 
-        return 0;
+        return 1;
     }
   }
-  return 1;
+  return 0;
 }
 
 int canPlayNewPiont(char **  stackArray, char ** map2D)
@@ -579,14 +579,13 @@ int canPlayNewPiont(char **  stackArray, char ** map2D)
   else
   {
     if(sizeMaxPiont(stackArray)) 
-      return 0;
-
-    else 
       return 1;
+    else 
+      return 0;
   }
 }
 
-int canPlayStack(int sizePiont, char *** map)
+int canPlayStack(int sizePiont, char *** map) //pardon petite fonction... <3
 {
   int possible;
   for(int i = 0 ; i < N ; i++)
@@ -596,13 +595,14 @@ int canPlayStack(int sizePiont, char *** map)
       possible = 1 ;
       for(int k = N-1 ; k >= sizePiont; k--)
       {
-    if (map[i][j][k] != '0')
+        if (map[i][j][k] != '0')
         {
-      possible = 0 ;
-      k = -1;
-    }
+          possible = 0 ;
+          break;
+        }
       }
-      if(1 == possible) return 1; 
+      if (1 == possible)
+        return 1; 
     }
   }
   return 0;
@@ -729,10 +729,10 @@ int canEffectDeplacementWithDistance(char *** map3D, char c)
       for(int j = 0;j < N; j++)
       {
         posDeb = (i * N) + j;
-        printf("POSDEP: %d ET i=%d, j=%d, PAR CONSEQUENT AV COMPTE RENDU:\n", posDeb, i, j);
+        //printf("POSDEP: %d ET i=%d, j=%d, PAR CONSEQUENT AV COMPTE RENDU:\n", posDeb, i, j);
         if (canMooveThisPiontDistance(map3D, posDeb, c))
         {
-          printf("BOUGEABLE!\n");
+          //printf("BOUGEABLE!\n");
           return 1;
         }
       }
@@ -1679,9 +1679,9 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
 void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
 {
     gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
-    if(count_pion(map3D, N, 'b') && count_pion(map3D, N, 'n'))
+    if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
       printf("EGALITE");
-    else if (count_pion(map3D, N, 'b')) 
+    else if (count_pion(map2D, N, 'b')) 
       printf("Le joueur 1 a gagne!\n");
     else 
       printf("Le joueur 2 a gagne!\n");

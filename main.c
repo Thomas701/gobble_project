@@ -64,15 +64,20 @@ int main(int argc, char ** argv)
     int tour = 0;
     char c;
     
-    while (!check_End_Game(map3D))
+    while (!check_End_Game(map2D))
     {
       c = (tour % 2 == 0) ? 'b' : 'n';
       if (c == 'b') gameOption(pileJ1, map3D, map2D, c, deplacement);
       else gameOption(pileJ2, map3D, map2D, c, deplacement);
       tour++;
     }
-    if (count_pion(map3D, N, 'b')) printf("Le joueur 1 a gagne!\n");
-    else printf("Le joueur 2 a gagne!\n");
+    if (count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
+      printf("Egalite!\n");
+    else if (count_pion(map2D, N, 'b')) 
+      printf("Le joueur 1 a gagne!\n");
+    else 
+      printf("Le joueur 2 a gagne!\n");
+    printMap3dDebug(map3D);
     statut = EXIT_SUCCESS;
   }
   else // lancement interface graphique

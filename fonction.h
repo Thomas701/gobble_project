@@ -16,7 +16,7 @@ int sizePiontMaxStack(char ** stackArray, int numStack); // retourne la taille d
 void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePiont ,int endPiont, char c); //place un pion sur la map depuis une pile
 int moove(char *** map, int posDeb, int posEnd); // déplace un pion présent sur la map
 void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int deplacement); // Fonction principale du jeu
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont); // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance); // c = 'b' or 'n' joueur qui choisie
 void loadAndPlayMainMusic(Mix_Music ** mainMusic);
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase);
 
@@ -43,7 +43,7 @@ int isStackFull(char ** pile1); //vérifie si la pile est pleine
 SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rectangleBasDroit); // pour favoir si le point est à l'interieur d'un rectangle
 SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect);
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c);
-int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile);
+int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance); //vérifie si étant donné un index de départ, le joueur peut jouer sur l'index d'arrivé sélectionné
 int canEffectDeplacementWithDistance(char *** map3D, char c); //verifie si on peut deplacer un pion dans une map
 
 /*Fonctions création de maps et piles :
@@ -108,7 +108,7 @@ void errorInCreate2D();
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer); //creer le fondu initial
 void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu
-void lancementJeu(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2);
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance);
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2); // texturemapVide pour connaitre la taille
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char ***  map3D); //affiche les pion sur le plateau de jeu
 #endif

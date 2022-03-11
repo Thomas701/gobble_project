@@ -185,7 +185,7 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
  }
 }
 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont) // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance) // c = 'b' or 'n' joueur qui choisie
 {
   int selection = 0;
   int imageIndexP = -1; // indique l'indexe de l'image qui a été selectionnée
@@ -215,10 +215,10 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
           {
             if(c == 'b')
             {
-              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1);
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1, distance);
             }
             else
-              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2);
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2, distance);
           }
           if (selection == 1 && imageIndexS == -1)
             selection = 0;
@@ -297,7 +297,7 @@ void loadAndPlayMainMusic(Mix_Music ** mainMusic)
 
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase)
 {
-  for(int i = 0 ; i < 13 ; ++i)
+  for(int i = 0 ; i < (N * N + N*2) ; ++i)
   {
     if(isInRectangle(pointMouse, *tableauCase[i]))
       return i;
@@ -693,9 +693,13 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
 
 
 /*arrivée pas le droit de poser sur une pile*/
-int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile)
+int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance)
 {
   int index = getIndex(pointMouse, tableauCase);
+  int x1 = (imageIndexP - imageIndexP % N) / N;
+  int y1 = imageIndexP % N;
+  int x2 = (index - index % N) / N;
+  int y2 = index % N;
 
   if (index == -1 || index > 8)
     return -1;
@@ -703,8 +707,7 @@ int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char
   {
     if (imageIndexP > 8)
     {
-      int numStack = (imageIndexP == 9 || imageIndexP == 11) ? 0 : 1 ;
-      int sizePiontMax = sizePiontMaxStack(pile, numStack);
+      int sizePiontMax = (imageIndexP == 9 || imageIndexP == 12) ? 2 : (imageIndexP == 10 || imageIndexP == 13) ? 1 : 0 ;
       if (canPutPiont(map3D, sizePiontMax, index))
         return index;
       else
@@ -712,7 +715,7 @@ int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char
     }
     else
     {
-      if (canMoove(map3D, imageIndexP, index))
+      if (canMoove(map3D, imageIndexP, index) && (maximum(abs(x1-x2), abs(y1-y2)) <= 1 || distance == 0))
         return index;
       else
         return -1;
@@ -1676,9 +1679,9 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   }
 }
 
-void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
 {
-    gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont);
+    gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont, distance);
     if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
       printf("EGALITE");
     else if (count_pion(map2D, N, 'b')) 

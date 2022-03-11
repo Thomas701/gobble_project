@@ -117,7 +117,7 @@ int main(int argc, char ** argv)
       if (etatS == 1)
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2)
-        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2);
+        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2, deplacement);
       else
         return 0;
     }

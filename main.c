@@ -151,9 +151,16 @@ Quit :
     
     if(tableauDePoint)
     {
-      for(int i=0; i<15; ++i) // nombres d'images de piont
+      for(int i=0; i < ((N*N) + (N*2)); ++i) // nombres d'images de piont
         free(tableauDePoint[i]);
       free(tableauDePoint);
+    }
+
+    if(tableauCase)
+    {
+      for(int i=0; i < ((N*N) + (N*2)); ++i) // nombres d'images de piont
+        free(tableauCase[i]);
+      free(tableauCase);
     }
 
     if(textureTableauOptionMenu)

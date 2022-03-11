@@ -194,7 +194,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   SDL_Event event;
   SDL_Point pointMouse;
   int sizePiontMax ;
-  printf("SALUT2\n");
+
   while(2 == *p_etats) // boucle principale
   {
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
@@ -204,52 +204,78 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
         case SDL_MOUSEBUTTONDOWN:
         if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
         {
+          printf("JOUEUR: %c\n", c);
           SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
           if (selection == 0)
           {
-            printf("SALUT5");
+            printf("Select: 0\n");
             imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c);
-            printf("SALUT6");
           }
           else
           {
+            printf("Select: 1\n");
             if(c == 'b')
             {
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1, distance);
+              printf("point d'arrivé: %d\n", imageIndexS);
             }
             else
+            {
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2, distance);
+              printf("point d'arrivé: %d\n", imageIndexS);
+            }
           }
+          printf("Selection: p:%d & s:%d & select:%d\n", imageIndexP, imageIndexS, selection);
           if (selection == 1 && imageIndexS == -1)
+          {
+            printf("Select good & preSelect not good, so select=0\n");
             selection = 0;
+          }
           else if (selection == 0 && imageIndexP != -1)
+          {
+            printf("Select not good & preSelect good\n so select=1\n");
             selection = 1;
+          }
           else if (selection == 1 && imageIndexS != -1)
           {
+            printf("Select good & preSelect: good\n");
             if (imageIndexP > 8)
             {
-              int numStack = (imageIndexP == 9 || imageIndexP == 11) ? 0 : 1 ;
               if(c == 'b')
               {
-                sizePiontMax = sizePiontMaxStack(pileJ1, numStack);
-                mooveSinceStack(map3D, pileJ1, numStack, sizePiontMax, imageIndexS, c);
+                for (int i = 0; i < N-1; i++)
+                {
+                  if (pileJ1[i][(N-1) - (imageIndexP % N)] != '0')
+                  {
+                    mooveSinceStack(map3D, pileJ1, i, (N-1) - (imageIndexP % N), imageIndexS, c);
+                    break;
+                  }
+                }
+                initMap2D(map2D, map3D);
                 c = (c == 'b') ? 'n' : 'b';
                 selection = 0;
-                if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
+                if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
                 {
-                  printf("Problème");
+                  printf("fin partie: b:%d & n:%d\n", count_pion(map2D, N, 'b'), count_pion(map2D, N, 'n'));
                   *p_etats = 1;
                 }
               }
               else
               {
-                sizePiontMax = sizePiontMaxStack(pileJ2, numStack);
-                mooveSinceStack(map3D, pileJ2, numStack, sizePiontMax, imageIndexS, c);
+                for (int i = 0; i < N-1; i++)
+                {
+                  if (pileJ2[i][(N-1) - (imageIndexP % N)] != '0')
+                  {
+                    mooveSinceStack(map3D, pileJ2, i, (N-1) - (imageIndexP % N), imageIndexS, c);
+                    break;
+                  }
+                }
+                initMap2D(map2D, map3D);
                 c = (c == 'b') ? 'n' : 'b';
                 selection = 0;
-                if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
+                if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
                 {
-                  printf("Problème");
+                  printf("fin partie: b:%d & n:%d\n", count_pion(map2D, N, 'b'), count_pion(map2D, N, 'n'));
                   *p_etats = 1;
                 }
               }
@@ -257,15 +283,23 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
             else
             {
               moove(map3D, imageIndexP, imageIndexS);
+              initMap2D(map2D, map3D);
               c = (c == 'b') ? 'n' : 'b';
               selection = 0;
-              if (!count_pion(map2D, N, 'b') && !count_pion(map2D, N, 'b'))
+              if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
               {
-                printf("Problème");
+                printf("fin partie: b:%d & n:%d\n", count_pion(map2D, N, 'b'), count_pion(map2D, N, 'n'));
                 *p_etats = 1;
               }
             }
+            printf("Pile J1:\n");
+            printStacks(pileJ1);
+            printf("Pile J2:\n");
+            printStacks(pileJ2);
+            printf("initialisation:\n");
             initMap2D(map2D, map3D);
+            printf("affichage:\n");
+            printMap2D(map2D);
           }
         }
       }
@@ -297,11 +331,17 @@ void loadAndPlayMainMusic(Mix_Music ** mainMusic)
 
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase)
 {
-  for(int i = 0 ; i < (N * N + N*2) ; ++i)
+  for(int i = 0 ; i < (N * N + N*2) ; i++)
   {
     if(isInRectangle(pointMouse, *tableauCase[i]))
+    {
+      printf("Index trouvé [%d]!\n", i);
       return i;
+    }
+    else
+      printf("index non trouvé pour mouse: %d, %d & i=%d\n", pointMouse.x , pointMouse.y ,i);
   }
+  printf("return -1\n");
   return -1;
 }
 
@@ -641,7 +681,8 @@ SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rect
 }
 
 SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
-{
+{ 
+  printf("%d >= %d && %d <= %d && %d >= %d &&  %d <= %d\n", point.x, rect.x, point.x, (rect.x + rect.w), point.y, rect.y, point.y, (rect.y + rect.h));
   if(point.x >= rect.x && point.x <= (rect.x + rect.w) && point.y >= rect.y && point.y <= (rect.y + rect.h))
     return SDL_TRUE;
   return SDL_FALSE;
@@ -650,36 +691,29 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c)
 {
   int index = getIndex(pointMouse, tableauCase);
-  int sizePiont; int numStack;
-  if (index > 8)
-    numStack = (index == 9 || index == 11 )? 0: 1;
   if(index != -1)
   {
     // cas des piles
-    if(c == 'b' && (9 == index || 10 == index)) 
+    if(c == 'b' && index > (N*N)-1 && index < (N*N) + N)
     {
-      if (isEmptyStack(pileJ1, numStack))
-        return -1;
-      sizePiont = sizePiontMaxStack(pileJ1, numStack) ;
-      if(canPlayStack(sizePiont, map3D))
+      for (int i = 0; i < N-1; i++)
       {
-        return index;
+        if (pileJ1[i][(N-1)- index % N] != '0')
+          return index;
       }
-      return -1;
+      return 0;
     }
-    else if(c == 'n' && (11 == index || 12 == index))
+    else if(c == 'n' && index > (N*N) + (N-1))
     {
-      if (isEmptyStack(pileJ2, numStack))
-        return -1;
-      sizePiont = sizePiontMaxStack(pileJ2, numStack);
-      if(canPlayStack(sizePiont, map3D))
+      for (int i = 0; i < N-1; i++)
       {
-        return index;
+        if (pileJ2[i][(N-1)- index % N] != '0')
+          return index;
       }
-      return -1;
+      return 0;
     }
     // cas des pionts sur la map
-    else if (index >= 0 && index < 9)
+    else if (index >= 0 && index < (N*N))
     {
       if (canMooveThisPiont(map3D, map2D, index, c))
         return index;
@@ -700,9 +734,13 @@ int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char
   int y1 = imageIndexP % N;
   int x2 = (index - index % N) / N;
   int y2 = index % N;
+  
 
   if (index == -1 || index > 8)
+  {
+    printf("return: 0\n");
     return -1;
+  }
   else
   {
     if (imageIndexP > 8)
@@ -711,14 +749,20 @@ int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char
       if (canPutPiont(map3D, sizePiontMax, index))
         return index;
       else
+      {
+        printf("return: 1\n");
         return -1;
+      }
     }
     else
     {
       if (canMoove(map3D, imageIndexP, index) && (maximum(abs(x1-x2), abs(y1-y2)) <= 1 || distance == 0))
         return index;
       else
+      {
+        printf("return: 2\n");
         return -1;
+      }
     }
   }
 }
@@ -884,8 +928,8 @@ int createPoint(point *** pTableauDePoint)
 
 int createCase(SDL_Rect *** pTableauCase)
 {
-  SDL_Rect ** tableauCase = (SDL_Rect **) malloc(sizeof(SDL_Rect *)*13);
-  for(int i = 0 ; i < 13 ; i++)
+  SDL_Rect ** tableauCase = (SDL_Rect **) malloc(sizeof(SDL_Rect *)*((N*N) + (N*2)));
+  for(int i = 0 ; i < ((N*N) + (N*2)) ; i++)
   {
     tableauCase[i] = malloc(sizeof(SDL_Rect *) * 1);
     if(!tableauCase[i])
@@ -905,7 +949,7 @@ int createCase(SDL_Rect *** pTableauCase)
   tableauCase[ 2]->x = 738 ; tableauCase[ 2]->y = 358 ;
   tableauCase[ 3]->w = 171 ; tableauCase[ 3]->h = 106 ;
   tableauCase[ 3]->x = 392 ; tableauCase[ 3]->y = 462 ;
-  tableauCase[ 4]->w = 159 ; tableauCase[ 4]->h = 2 ;  // 107
+  tableauCase[ 4]->w = 159 ; tableauCase[ 4]->h = 108 ;  // 107
   tableauCase[ 4]->x = 579 ; tableauCase[ 4]->y = 461 ;
   tableauCase[ 5]->w = 152 ; tableauCase[ 5]->h = 107 ;
   tableauCase[ 5]->x = 751 ; tableauCase[ 5]->y = 461 ;
@@ -915,14 +959,19 @@ int createCase(SDL_Rect *** pTableauCase)
   tableauCase[ 7]->x = 571 ; tableauCase[ 7]->y = 586 ;
   tableauCase[ 8]->w = 174 ; tableauCase[ 8]->h = 129 ;
   tableauCase[ 8]->x = 765 ; tableauCase[ 8]->y = 586 ;
-  tableauCase[ 9]->w = 182 ; tableauCase[ 9]->h = 156 ;   // pile bleu fond
-  tableauCase[ 9]->x = 168 ; tableauCase[ 9]->y = 307 ;
-  tableauCase[ 10]->w = 169 ; tableauCase[ 10]->h = 184 ;  // pile bleu devant
-  tableauCase[ 10]->x = 139 ; tableauCase[ 10]->y = 497 ;
-  tableauCase[ 11]->w = 179 ; tableauCase[ 11]->h = 157 ;  // pile rouge fond
-  tableauCase[ 11]->x = 949 ; tableauCase[ 11]->y = 307 ;
-  tableauCase[ 12]->w = 188 ; tableauCase[ 12]->h = 198 ;  // pile rouge devant
-  tableauCase[ 12]->x = 982 ; tableauCase[ 12]->y = 497 ;
+  tableauCase[ 9]->w = 128 ; tableauCase[ 9]->h = 131 ;   //  bleu fond
+  tableauCase[ 9]->x = 223 ; tableauCase[ 9]->y = 293 ;
+  tableauCase[ 10]->w = 148 ; tableauCase[ 10]->h = 123 ;  //  bleu moyen
+  tableauCase[ 10]->x = 167 ; tableauCase[ 10]->y = 431 ;
+  tableauCase[ 11]->w = 143 ; tableauCase[ 11]->h = 110 ;  //  bleu devant
+  tableauCase[ 11]->x = 112 ; tableauCase[ 11]->y = 579 ;
+  tableauCase[ 12]->w = 119 ; tableauCase[ 12]->h = 129 ;  //  rouge fond
+  tableauCase[ 12]->x = 927 ; tableauCase[ 12]->y = 294 ;
+  tableauCase[ 13]->w = 117 ; tableauCase[ 13]->h = 116 ;  //  rouge moyen
+  tableauCase[ 13]->x = 987 ; tableauCase[ 13]->y = 430 ;
+  tableauCase[ 14]->w = 122 ; tableauCase[ 14]->h = 114 ;  //  rouge devant
+  tableauCase[ 14]->x = 1050 ; tableauCase[ 14]->y = 579 ;
+
   * pTableauCase = tableauCase;
   return 0;
 }
@@ -1101,9 +1150,7 @@ int loadTextureTableauMap(SDL_Renderer ** renderer, SDL_Texture *** ptableauText
 int loadPiont(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauPiont)/*return 0 si ok, -1 sinon*/
 {
     SDL_Texture ** textureTableauPiont = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*6);
-
-    if (!textureTableauPiont)
-    {
+    if (!textureTableauPiont) {
         fprintf(stderr, "Erreur allocation memory in loadPion\n");
         return -1;
     }
@@ -1762,178 +1809,49 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
   return 0;
 }
 
-
-
-
 /* return 0 if succes, -1 else *, la map contient des '1', '2', '3' & 'a', 'b', 'c' */
-int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char ***  map3D)
-{
-  char map2D [N][N];
-  int find = 0 ;
-  for(int i = 0; i < N; i++) 
-  {
-    for(int j = 0; j < N; j++) 
-    {
-      find = 0;
-      for(int k=N-1; k>=0; --k) 
-      {
-        if(!find && map3D[i][j][k] != '0') 
-        {
-          if(map3D[i][j][k] == 'b')
-            map2D[i][j] = '1'+ k ;
-          else
-           map2D[i][j] = 'a'+ k ;
-          find++;
-        }
-      }
-      if (!find)
-        map2D[i][j] = '0';
-    }
-  }
-
+int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char ***  map3D) {
   SDL_Rect positionPiontCurrent ;
   int x , y;                // position de la case que l'on parcourt
   int indicePiont;          // contient l'indice du piont à placer
-
-  for(int i = 0 ; i < N*N ; i++)
-  {
-    x = i / 3 ; y = i % 3 ;
-    if(map2D[x][y] != '0')
-    {
-      switch(map2D[x][y]) 
-      {
-        case '1' :
-          indicePiont = 0;
-          break;
-        case '2' :
-          indicePiont = 1;
-          break;
-        case '3' :
-          indicePiont = 2;
-          break;
-        case 'a' :
-          indicePiont = 3;
-          break;
-        case 'b' :
-          indicePiont = 4;
-          break;
-        case 'c' :
-          indicePiont = 5;
-          break;
-        default :
-          printf("error in affichePiontSurPlateau switch \n");
-          break;
-      }
-      if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h))
-      {
-	       fprintf(stderr, "Error SDL_QueryTexture in affichePiontSurPlateau 1 : %s \n", SDL_GetError());
-	       return -1;
-      }
-      if(0 == x)
-      {
-        positionPiontCurrent.w *= 0.77;
-        positionPiontCurrent.h *= 0.77;
-      }
-      else if(1 == x)
-      {
-        positionPiontCurrent.w *= 0.86;
-        positionPiontCurrent.h *= 0.86;
-      }
-      positionPiontCurrent.x =  tableauDePoint[i]->x - positionPiontCurrent.w/2;
-      if(indicePiont != 2 && indicePiont != 5)
-        positionPiontCurrent.y =  tableauDePoint[i]->y - 2*positionPiontCurrent.h/3; // ou 3 test ?
-      else
-        positionPiontCurrent.y =  tableauDePoint[i]->y - 4.5*positionPiontCurrent.h/6;
-      
-      if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent))
-      {
-        fprintf(stderr, "Error SDL_RenderCopy in affichePiontSurPlateau 2 : %s \n", SDL_GetError());
-	      return -1;
+  int posCase ; // position en terme de case i%3 + j
+  for (int i = 0  ; i < N ; ++i) {
+    for(int j = 0 ; j < N ; j++) {
+      for(int k=N-1; k >=0; --k) {
+        if('0' != map3D[i][j][k]) {
+          switch(map3D[i][j][k])  {
+            case 'b' : indicePiont = N-1 - k ; break;
+            case 'n' : indicePiont = 3 + N-1 - k; break;
+            default : printf("error in affichePiontSurPlateau switch map3D[i][j][k] : %c\n", map3D[i][j][k]); break;
+          }
+          if (0 != SDL_QueryTexture(textureTableauPiont[indicePiont], NULL, NULL, &positionPiontCurrent.w, &positionPiontCurrent.h)) {
+            fprintf(stderr, "Error SDL_QueryTexture in affichePiontSurPlateau 1 : %s \n", SDL_GetError());
+            return -1;
+          }
+          if(0 == i) { // case du fond zoom
+            positionPiontCurrent.w *= 0.77;
+            positionPiontCurrent.h *= 0.77;
+          }
+          else if(1 == i) {  // case milieu zoom
+            positionPiontCurrent.w *= 0.86;
+            positionPiontCurrent.h *= 0.86;
+          }
+          posCase = (i * N) + j;
+          // on centre si piont petit ou moyen
+          positionPiontCurrent.x =  tableauDePoint[posCase]->x - positionPiontCurrent.w/2;
+          // si gros oon ne centre pas
+          if(k == N-1)
+            positionPiontCurrent.y =  tableauDePoint[posCase]->y - 2*positionPiontCurrent.h/3;
+          else
+            positionPiontCurrent.y =  tableauDePoint[posCase]->y - 4.5*positionPiontCurrent.h/6;
+          if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[indicePiont], NULL, &positionPiontCurrent) ){
+            fprintf(stderr, "Error SDL_RenderCopy in affichePiontSurPlateau 2 : %s \n", SDL_GetError());
+            return -1;
+          }
+        }
+        k = -1; // pour sortir de la boucle
       }
     }
   }
   return 0;
 }
-
-
-
-/* return 0 if succes, -1 else */
-/*
-int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2) // texturemapVide pour connaitre la taille
-{
-  SDL_Rect positionPiontCurr;
-  int sizePiontMaxPile1J1 = sizePiontInStack(stackArrayJ1, 0) ;
-  int sizePiontMaxPile2J1 = sizePiontInStack(stackArrayJ1, 1) ;
-  int sizePiontMaxPile1J2 = sizePiontInStack(stackArrayJ2, 0) + 3 ;
-  int sizePiontMaxPile2J2 = sizePiontInStack(stackArrayJ2, 1) + 3 ;
-  
-  if (sizePiontMaxPile1J1 != -1)
-  {
-    if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile1J1], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
-    {
-       fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 1: %s \n", SDL_GetError());
-       return -1;
-    }
-    positionPiontCurr.x = tableauDePoint[9]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[9]->y - 2*positionPiontCurr.h/3 ;
-
-    positionPiontCurr.w *= 0.79;
-    positionPiontCurr.h *= 0.79;
-
-    if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J1], NULL, &positionPiontCurr))
-    {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 2: %s \n", SDL_GetError());
-      return -1;
-    }
-
-  }
-  if (sizePiontMaxPile2J1 != -1)
-  {
-    if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile2J1], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
-    {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 3: %s \n", SDL_GetError());
-      return -1;
-    }
-    positionPiontCurr.x = tableauDePoint[10]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[10]->y - 2*positionPiontCurr.h/3 ;  
-    if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J1], NULL, &positionPiontCurr))
-    {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 4: %s \n", SDL_GetError());
-      return -1;
-    }
-  }
-  if (sizePiontMaxPile1J2 > 2)
-  {
-    if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile1J2], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
-    {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 5: %s \n", SDL_GetError());
-      return -1;
-    }
-
-    positionPiontCurr.w *= 0.79;
-    positionPiontCurr.h *= 0.79;
-    positionPiontCurr.x = tableauDePoint[11]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[11]->y - 2*positionPiontCurr.h/3 ;  
-    if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile1J2], NULL, &positionPiontCurr))
-    {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 6: %s \n", SDL_GetError());
-      return -1;
-    }
-  }
-  if (sizePiontMaxPile2J2 > 2 )
-  {
-    if (0 != SDL_QueryTexture(textureTableauPiont[sizePiontMaxPile2J2], NULL, NULL, &positionPiontCurr.w, &positionPiontCurr.h))
-    {
-      fprintf(stderr, "Error SDL_QueryTexture in affichePileSDL 7: %s \n", SDL_GetError());
-      return -1;
-    }
-    positionPiontCurr.x = tableauDePoint[12]->x - positionPiontCurr.w/2   ;
-    positionPiontCurr.y = tableauDePoint[12]->y - 2*positionPiontCurr.h/3 ;  
-    if (0 !=  SDL_RenderCopy(renderer, textureTableauPiont[sizePiontMaxPile2J2], NULL, &positionPiontCurr))
-    {
-      fprintf(stderr, "Error SDL_RenderCopy in affichePileSDL 8: %s \n", SDL_GetError());
-      return -1;
-    }
-  }
-  return 0;
-}*/

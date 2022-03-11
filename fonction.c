@@ -193,7 +193,6 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   char c = 'b';
   SDL_Event event;
   SDL_Point pointMouse;
-  int sizePiontMax ;
 
   while(2 == *p_etats) // boucle principale
   {
@@ -1812,7 +1811,6 @@ int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, 
 /* return 0 if succes, -1 else *, la map contient des '1', '2', '3' & 'a', 'b', 'c' */
 int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableauPiont, point ** tableauDePoint ,char ***  map3D) {
   SDL_Rect positionPiontCurrent ;
-  int x , y;                // position de la case que l'on parcourt
   int indicePiont;          // contient l'indice du piont à placer
   int posCase ; // position en terme de case i%3 + j
   for (int i = 0  ; i < N ; ++i) {
@@ -1848,8 +1846,8 @@ int affichePiontSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTablea
             fprintf(stderr, "Error SDL_RenderCopy in affichePiontSurPlateau 2 : %s \n", SDL_GetError());
             return -1;
           }
+          k = -1; // pour sortir de la boucle
         }
-        k = -1; // pour sortir de la boucle
       }
     }
   }

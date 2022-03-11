@@ -239,7 +239,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
           else if (selection == 1 && imageIndexS != -1)
           {
             printf("Select good & preSelect: good\n");
-            if (imageIndexP > 8)
+            if (imageIndexP > (N*N) - 1)
             {
               if(c == 'b')
               {
@@ -972,6 +972,15 @@ int createCase(SDL_Rect *** pTableauCase)
   tableauCase[ 14]->w = 122 ; tableauCase[ 14]->h = 114 ;  //  rouge devant
   tableauCase[ 14]->x = 1050 ; tableauCase[ 14]->y = 579 ;
 
+  for (int i = 0; i < (N*N) + (N*2); i++)
+  {
+    if (tableauCase[i]->x > 2000 || tableauCase[i]->x < 0 || tableauCase[i]->y > 2000 || tableauCase[i]->y < 0 
+    || tableauCase[i]->w > 2000 || tableauCase[i]->w < 0 || tableauCase[i]->h > 2000 || tableauCase[i]->h < 0)
+    {
+      printf("ERROR INITIALISATION CASE:\n %d && %d && %d && %d\n", tableauCase[i]->x,tableauCase[i]->y, tableauCase[i]->w > 2000, tableauCase[i]->h + tableauCase[i]->y > 2000);
+    }
+  }
+  
   * pTableauCase = tableauCase;
   return 0;
 }

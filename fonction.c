@@ -1728,15 +1728,26 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   }
 }
 
-void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu,const SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
+void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu,const SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
 {
     gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont, distance);
     if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
       printf("EGALITE");
-    else if (count_pion(map2D, N, 'b')) 
+    else if (count_pion(map2D, N, 'b'))
       printf("Le joueur 1 a gagne!\n");
     else 
       printf("Le joueur 2 a gagne!\n");
+
+    // affichage vainqueur
+    SDL_RenderClear(renderer);
+    printf("--------------- chack end game : %d\n",check_End_Game(map2D));
+    printMapEmptySDL(textureTableauWin[check_End_Game(map2D)-1], renderer);
+    affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
+    affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D);
+    SDL_RenderPresent(renderer);
+    SDL_Delay(8000);
+
+    // reinitialise pour nouvelle partie
     initMap(map3D);
     initMap2D(map2D, map3D);
     initPile(pileJ1,'b');

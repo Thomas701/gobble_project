@@ -92,7 +92,9 @@ int main(int argc, char ** argv)
     SDL_Texture ** textureTableauOptionMenu = NULL;
     SDL_Texture ** textureTableauPiont = NULL;
     SDL_Texture ** textureTableauWin = NULL;
-    SDL_Rect ** tableauCase = NULL;
+    SDL_Rect ** tableauCaseTemp = NULL;
+    if(0 != createCase(&tableauCaseTemp)) {fprintf(stderr, "Error for createCase\n"); goto Quit;};
+    const SDL_Rect ** tableauCase = (const SDL_Rect **) tableauCaseTemp;
     point ** tableauDePoint = NULL; // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
     SDL_Renderer * renderer = NULL; // renderer
     Mix_Music * mainMusic = NULL;     // musiques
@@ -104,13 +106,13 @@ int main(int argc, char ** argv)
     int boolPlayMusic = 1;   // si on joue de la musique ?
 
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase))
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint))
     {
        fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
        goto Quit;
     }
 
-    //intro_authors(&window, &renderer); // intro image authors + son 
+    intro_authors(&window, &renderer); // intro image authors + son 
     loadAndPlayMainMusic(&mainMusic);
     while (etatS)
     {
@@ -156,11 +158,11 @@ Quit :
       free(tableauDePoint);
     }
 
-    if(tableauCase)
+    if(tableauCaseTemp)
     {
       for(int i=0; i < ((N*N) + (N*2)); ++i) // nombres d'images de piont
-        free(tableauCase[i]);
-      free(tableauCase);
+        free(tableauCaseTemp[i]);
+      free(tableauCaseTemp);
     }
 
     if(textureTableauOptionMenu)

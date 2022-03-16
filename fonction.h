@@ -17,12 +17,13 @@ void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePion
 int moove(char *** map, int posDeb, int posEnd); // déplace un pion présent sur la map
 void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int deplacement); // Fonction principale du jeu
 void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance); // c = 'b' or 'n' joueur qui choisie
-void loadAndPlayMainMusic(Mix_Music ** mainMusic);
+void loadAndPlayMainMusic(Mix_Music ** mainMusic, SDL_Rect ** tableauCase);
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase);
 
 /*Fonctions Vérifications :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+void debugTab(SDL_Rect ** tableauCase); // sauve moi la vie!
 int maximum(int i, int i2);
 int minimum(int i, int i2);
 int existPiontInMap(char ** map2D, char c); // Vérifie si le joueur possède au moins un piont dans la map qu'il peut déplacer
@@ -33,6 +34,7 @@ int isEmptyCase(char ** map2D); // la map contient au moins une case vide?
 int canMoove(char *** map, int posDeb, int posEnd); // Le pion peut-il bouger?
 int canMooveThisPiont(char *** map, char ** map2D, int posDeb, char c); // Le pion a au moin une possibilité de bouger
 int canMooveThisPiontDistance(char *** map, int posDeb, char c); // Le pion peut-il bouger sur une distance de 1?
+int canMooveThisPiontD(char *** map, int posDeb, char c); // ??? a changer? canMooveThisPiont v=2.0 
 int count_pion(char ** map2D, int nbre, char c); //Y'a t-il un alignement de nbre pion de type "c" sur la map?
 int check_End_Game(char ** map2D); // vérifie la fin de partie et renvoie la ligne correspondante
 int sizeMaxPiont(char ** stackArray); // vérifie si il y a au moins un piont de taille > 1
@@ -42,19 +44,21 @@ int canPutPiont(char *** map, int sizePiont, int endPiont); // vérifie si tu pe
 int isStackFull(char ** pile1); //vérifie si la pile est pleine
 SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rectangleBasDroit); // pour favoir si le point est à l'interieur d'un rectangle
 SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect);
-int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c);
+int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance);
 int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance); //vérifie si étant donné un index de départ, le joueur peut jouer sur l'index d'arrivé sélectionné
 int canEffectDeplacementWithDistance(char *** map3D, char c); //verifie si on peut deplacer un pion dans une map
 
 /*Fonctions création de maps et piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+SDL_Rect ** mallocTab();
 char ** createStack(char c);
 char *** createMap();
 char ** createMap2D();
 SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer);
 int createPoint(point *** pTableauDePoint);
 int createCase(SDL_Rect *** pTableauCase);
+void initTableauCase(SDL_Rect ** tableauCase);
 
 /*Fonctions initialisation de maps :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -81,6 +85,7 @@ int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer); // 
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void vider_buffer(void); // vide le buffer
+void freeTabCase(SDL_Rect ** tableauCase);
 void freeMap(char *** map); // libere la mémoire de la map 3D
 void freeMap2D(char ** map2D); // libere la memoire de la map 2D
 void freeStack(char ** stackArray); // libere la memoire de la pile

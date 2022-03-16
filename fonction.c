@@ -1,5 +1,6 @@
 #include "fonction.h"
 
+
 /*Fonctions active:
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -90,7 +91,7 @@ void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int de
 
     if(!deplacement)
     {
-      while(debPiont < 0 || debPiont > N*N-1 || !canMooveThisPiont(map3D, map2D, debPiont, c))
+      while(debPiont < 0 || debPiont > N*N-1 || !canMooveThisPiontD(map3D, debPiont, c))
       {
         printf("Index non valide ! \nQuel pion voulez vous deplacer ?\n");
         scanf(" %d", &debPiont);
@@ -194,6 +195,9 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   SDL_Event event;
   SDL_Point pointMouse;
 
+  printf("--->3\n");
+  debugTab(tableauCase);
+
   while(2 == *p_etats) // boucle principale
   {
     while(SDL_PollEvent(&event)) // programme continue et un nouveau evenement dans la file
@@ -208,7 +212,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
           if (selection == 0)
           {
             printf("Select: 0\n");
-            imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c);
+            imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c, distance);
           }
           else
           {
@@ -315,17 +319,27 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   }
 }
 
-void loadAndPlayMainMusic(Mix_Music ** mainMusic)
+void loadAndPlayMainMusic(Mix_Music ** mainMusic, SDL_Rect ** tableauCase)
 {
+  printf("Musique--->1\n");
+  debugTab(tableauCase);
   // initialisation de la musique
   * mainMusic = Mix_LoadMUS("Music/mainMusic.mp3");
   Mix_VolumeMusic(MIX_MAX_VOLUME/8);
   if(!* mainMusic)
     fprintf(stderr, "Error for load mainMusic : %s \n",SDL_GetError());
-  
+
+  printf("Musique--->2\n");
+  debugTab(tableauCase);
+  printf("Musique--->2.5\n");
   // play music
   if(0 != Mix_PlayMusic(* mainMusic, -1))
-    fprintf(stderr, "Error in Mix_PlayMusic %s\n", SDL_GetError());
+  {
+    printf("Error in Mix_PlayMusic: %s\n", SDL_GetError());
+  }
+  
+  printf("Musique--->3\n");
+  debugTab(tableauCase);
 }
 
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase)
@@ -346,6 +360,21 @@ int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase)
 
 /*Fonctions Vérifications :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+void debugTab(SDL_Rect ** tableauCase)
+{
+  for (int i = 0; i < (N*N) + (N*2); i++)
+  {
+    if (tableauCase[i]->x > 2000 || tableauCase[i]->x < 0 || tableauCase[i]->y > 2000 || tableauCase[i]->y < 0 
+    || tableauCase[i]->w > 2000 || tableauCase[i]->w < 0 || tableauCase[i]->h > 2000 || tableauCase[i]->h < 0)
+    {
+      printf("ERROR INITIALISATION CASE:\n %d && %d && %d && %d\n", tableauCase[i]->x,tableauCase[i]->y, tableauCase[i]->w > 2000, tableauCase[i]->h + tableauCase[i]->y > 2000);
+      free(tableauCase[i]);
+      tableauCase[i] = (SDL_Rect *) malloc(sizeof(SDL_Rect));
+      initTableauCase(tableauCase);
+    }
+  }
+}
 
 int maximum(int i, int i2) { return (i > i2) ? i : i2; }
 
@@ -431,7 +460,7 @@ int canMoove(char *** map, int posDeb, int posEnd) // Le pion peut-il bouger?
     return 0;
 }
 
-int canMooveThisPiont(char *** map, char ** map2D, int posDeb, char c) // Le pion peut-il bouger?
+int canMooveThisPiont(char *** map, char ** map2D ,int posDeb, char c) // Le pion peut-il bouger?
 {
   int x      = (posDeb - posDeb % N) / N;
   int y      = posDeb % N;
@@ -473,6 +502,53 @@ int canMooveThisPiont(char *** map, char ** map2D, int posDeb, char c) // Le pio
       }
       return 0;
     }
+  }
+}
+
+int canMooveThisPiontD(char *** map, int posDeb, char c) // Le pion peut-il bouger?
+{
+  int x      = (posDeb - posDeb % N) / N;
+  int y      = posDeb % N;
+  int count  = -1;
+  int max;
+  char piont;
+  for (int i = 0; i < N; i++)
+  {
+    if (map[x][y][i] != '0')
+    {
+      count = i;
+      piont = map[x][y][i];
+    }
+  }
+  if (piont != c)
+    return 0;
+  else
+  {
+    //printf("COMPTE RENDU:\n i=%d, iEnd=%d, j=%d, jEnd= %d, x=%d, y=%d\n",i, iEnd, j, jEnd, x, y);
+    for (int i = 0; i <= N; i++)
+    {
+      for (int j = 0; j <= N; j++)
+      {
+        max = -1; // gros nombre!
+        for (int k = 0; k < N ; k++)
+        {
+          //printf("[2]k=%d, i= %d & j= %d & x= %d & y = %d ET %c\n", k, i, j, x, y, map[i][j][k]);
+          if (map[i][j][k] != '0')
+          {
+            max = k;
+            //printf("[2]i= %d & j= %d & k= %d & max= %d & count = %d\n", i, j, k,max, count);
+            break; //Pour stopper la boucle
+          }
+        }
+        if (max < count)
+        {
+          //printf("ALERTE MAX < COUNT\n");
+          return 1;
+        }
+      }
+    }
+    //printf("NE RETOURNERA FINALEMENT RIEN\n");
+    return 0;
   }
 }
 
@@ -681,13 +757,13 @@ SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rect
 
 SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)
 { 
-  printf("%d >= %d && %d <= %d && %d >= %d &&  %d <= %d\n", point.x, rect.x, point.x, (rect.x + rect.w), point.y, rect.y, point.y, (rect.y + rect.h));
+  //printf("%d >= %d && %d <= %d && %d >= %d &&  %d <= %d ET MEME AVEC CA: %d\n", point.x, rect.x, point.x, (rect.x + rect.w), point.y, rect.y, point.y, (rect.y + rect.h));
   if(point.x >= rect.x && point.x <= (rect.x + rect.w) && point.y >= rect.y && point.y <= (rect.y + rect.h))
     return SDL_TRUE;
   return SDL_FALSE;
 }
 
-int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c)
+int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance)
 {
   int index = getIndex(pointMouse, tableauCase);
   if(index != -1)
@@ -700,7 +776,7 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
         if (pileJ1[i][(N-1)- index % N] != '0')
           return index;
       }
-      return 0;
+      return -1;
     }
     else if(c == 'n' && index > (N*N) + (N-1))
     {
@@ -709,18 +785,29 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
         if (pileJ2[i][(N-1)- index % N] != '0')
           return index;
       }
-      return 0;
+      return -1;
     }
     // cas des pionts sur la map
     else if (index >= 0 && index < (N*N))
     {
-      if (canMooveThisPiont(map3D, map2D, index, c))
-        return index;
-      return -1;
+      if (distance)
+      {
+        if (canMooveThisPiontDistance(map3D, index, c))
+          return index;
+        return -1;
+      }
+      else
+      {
+        if (canMooveThisPiontD(map3D, index, c))
+          return index;
+        return -1;
+      } 
     }
     else
+      printf("Return [1]\n");
       return -1; // cas ou il clique sur la pile adversaire
   }
+  printf("Return [2]\n");
   return -1; // cas index == -1
 }
 
@@ -789,6 +876,23 @@ int canEffectDeplacementWithDistance(char *** map3D, char c)
 
 /*Fonctions création de maps, piles, images :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+SDL_Rect ** mallocTab()
+{
+  SDL_Rect ** tableauCase = (SDL_Rect **) malloc(sizeof(SDL_Rect *)*((N*N) + (N*2)));
+
+  for(int i = 0 ; i < ((N*N) + (N*2)) ; i++)
+  {
+    tableauCase[i] = malloc(sizeof(SDL_Rect *) * 1);
+    if(!tableauCase[i])
+    {
+      perror("Error allocation memory in createCase for tableauCase[i] \n");
+      freeTabCase(tableauCase);
+      exit(-1);
+    }
+  }
+  return tableauCase;
+}
 
 char ** createStack(char c)
 {
@@ -928,6 +1032,7 @@ int createPoint(point *** pTableauDePoint)
 int createCase(SDL_Rect *** pTableauCase)
 {
   SDL_Rect ** tableauCase = (SDL_Rect **) malloc(sizeof(SDL_Rect *)*((N*N) + (N*2)));
+
   for(int i = 0 ; i < ((N*N) + (N*2)) ; i++)
   {
     tableauCase[i] = malloc(sizeof(SDL_Rect *) * 1);
@@ -970,18 +1075,45 @@ int createCase(SDL_Rect *** pTableauCase)
   tableauCase[ 13]->x = 987 ; tableauCase[ 13]->y = 430 ;
   tableauCase[ 14]->w = 122 ; tableauCase[ 14]->h = 114 ;  //  rouge devant
   tableauCase[ 14]->x = 1050 ; tableauCase[ 14]->y = 579 ;
-
-  for (int i = 0; i < (N*N) + (N*2); i++)
-  {
-    if (tableauCase[i]->x > 2000 || tableauCase[i]->x < 0 || tableauCase[i]->y > 2000 || tableauCase[i]->y < 0 
-    || tableauCase[i]->w > 2000 || tableauCase[i]->w < 0 || tableauCase[i]->h > 2000 || tableauCase[i]->h < 0)
-    {
-      printf("ERROR INITIALISATION CASE:\n %d && %d && %d && %d\n", tableauCase[i]->x,tableauCase[i]->y, tableauCase[i]->w > 2000, tableauCase[i]->h + tableauCase[i]->y > 2000);
-    }
-  }
   
+  debugTab(tableauCase);
+
   * pTableauCase = tableauCase;
   return 0;
+}
+
+void initTableauCase(SDL_Rect ** tableauCase)
+{
+  tableauCase[ 0]->w = 152 ; tableauCase[ 0]->h = 89 ;
+  tableauCase[ 0]->x = 419 ; tableauCase[ 0]->y = 359 ;
+  tableauCase[ 1]->w = 141 ; tableauCase[ 1]->h = 89 ;
+  tableauCase[ 1]->x = 585 ; tableauCase[ 1]->y = 358 ;
+  tableauCase[ 2]->w = 134 ; tableauCase[ 2]->h = 89 ;
+  tableauCase[ 2]->x = 738 ; tableauCase[ 2]->y = 358 ;
+  tableauCase[ 3]->w = 171 ; tableauCase[ 3]->h = 106 ;
+  tableauCase[ 3]->x = 392 ; tableauCase[ 3]->y = 462 ;
+  tableauCase[ 4]->w = 159 ; tableauCase[ 4]->h = 108 ;  // 107
+  tableauCase[ 4]->x = 579 ; tableauCase[ 4]->y = 461 ;
+  tableauCase[ 5]->w = 152 ; tableauCase[ 5]->h = 107 ;
+  tableauCase[ 5]->x = 751 ; tableauCase[ 5]->y = 461 ;
+  tableauCase[ 6]->w = 195 ; tableauCase[ 6]->h = 129 ;
+  tableauCase[ 6]->x = 358 ; tableauCase[ 6]->y = 587 ;
+  tableauCase[ 7]->w = 182 ; tableauCase[ 7]->h = 130 ;
+  tableauCase[ 7]->x = 571 ; tableauCase[ 7]->y = 586 ;
+  tableauCase[ 8]->w = 174 ; tableauCase[ 8]->h = 129 ;
+  tableauCase[ 8]->x = 765 ; tableauCase[ 8]->y = 586 ;
+  tableauCase[ 9]->w = 128 ; tableauCase[ 9]->h = 131 ;   //  bleu fond
+  tableauCase[ 9]->x = 223 ; tableauCase[ 9]->y = 293 ;
+  tableauCase[ 10]->w = 148 ; tableauCase[ 10]->h = 123 ;  //  bleu moyen
+  tableauCase[ 10]->x = 167 ; tableauCase[ 10]->y = 431 ;
+  tableauCase[ 11]->w = 143 ; tableauCase[ 11]->h = 110 ;  //  bleu devant
+  tableauCase[ 11]->x = 112 ; tableauCase[ 11]->y = 579 ;
+  tableauCase[ 12]->w = 119 ; tableauCase[ 12]->h = 129 ;  //  rouge fond
+  tableauCase[ 12]->x = 927 ; tableauCase[ 12]->y = 294 ;
+  tableauCase[ 13]->w = 117 ; tableauCase[ 13]->h = 116 ;  //  rouge moyen
+  tableauCase[ 13]->x = 987 ; tableauCase[ 13]->y = 430 ;
+  tableauCase[ 14]->w = 122 ; tableauCase[ 14]->h = 114 ;  //  rouge devant
+  tableauCase[ 14]->x = 1050 ; tableauCase[ 14]->y = 579 ;
 }
 
 /*Fonctions initialisation  :
@@ -1272,6 +1404,13 @@ void vider_buffer(void)
   {
     c = getchar();
   } while(c != '\n' && c != EOF);
+}
+
+void freeTabCase(SDL_Rect ** tableauCase)
+{
+  for(int j = 0 ; j < N ; j++)
+    free(tableauCase[j]);
+  free(tableauCase);
 }
 
 void freeMap(char *** map)
@@ -1615,6 +1754,7 @@ void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)
 
 void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic)
 {
+  printf("cherche crach:1\n");
   SDL_RenderClear(renderer);
   //boutons du menu
   SDL_Rect tableauRectOption[4];
@@ -1624,7 +1764,7 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
     SDL_QueryTexture(textureTableauOptionMenu[i], NULL, NULL, &tableauRectOption[i].w, &tableauRectOption[i].h);
     tableauRectOption[i].x = WIDTH /2 - tableauRectOption[i].w / 2; 
   }
-  
+  printf("cherche crach:2\n");
   SDL_QueryTexture(textureTableauOptionMenu[3], NULL, NULL, &tableauRectOption[3].w, &tableauRectOption[3].h);
   tableauRectOption[3].x = WIDTH /2 - tableauRectOption[3].w / 2; 
   tableauRectOption[0].y = 318; tableauRectOption[1].y  = 488; tableauRectOption[2].y = 650; 
@@ -1633,7 +1773,7 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
   SDL_Point pointMouse; //souris du menu pour evenement
 
   int incrImg = 0; // numero image menu (background)
-  
+  printf("cherche crach:3\n");
   while(*p_etats == 1) // boucle principale
   {
     SDL_Event event;
@@ -1736,17 +1876,30 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
 
 void lancementJeu(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPiont , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
 {
-    gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont, distance);
-    if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
-      printf("EGALITE");
-    else if (count_pion(map2D, N, 'b')) 
-      printf("Le joueur 1 a gagne!\n");
-    else 
-      printf("Le joueur 2 a gagne!\n");
-    initMap(map3D);
-    initMap2D(map2D, map3D);
-    initPile(pileJ1,'b');
-    initPile(pileJ2,'n');
+  printf("--->2\n");
+  debugTab(tableauCase);
+  
+  gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPiont, distance);
+  if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
+    printf("EGALITE");
+  else if (count_pion(map2D, N, 'b')) 
+    printf("Le joueur 1 a gagne!\n");
+  else 
+    printf("Le joueur 2 a gagne!\n");
+
+  // affichage vainqueur
+  SDL_RenderClear(renderer);
+  printf("--------------- chack end game : %d\n",check_End_Game(map2D));
+  printMapEmptySDL(textureTableauWin[check_End_Game(map2D)-1], renderer);
+  affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
+  affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D);
+  SDL_RenderPresent(renderer);
+  SDL_Delay(8000);
+
+  initMap(map3D);
+  initMap2D(map2D, map3D);
+  initPile(pileJ1,'b');
+  initPile(pileJ2,'n');
 }
 
 /*return -1 if stack is empty else 0, 1 or 2*/

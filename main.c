@@ -110,8 +110,15 @@ int main(int argc, char ** argv)
        goto Quit;
     }
 
-    //intro_authors(&window, &renderer); // intro image authors + son 
-    loadAndPlayMainMusic(&mainMusic);
+    printf("--->1\n");
+    debugTab(tableauCase);
+
+    intro_authors(&window, &renderer); // intro image authors + son 
+    loadAndPlayMainMusic(&mainMusic, tableauCase);
+
+    printf("--->1.5\n");
+    debugTab(tableauCase);
+
     while (etatS)
     {
       if (etatS == 1)

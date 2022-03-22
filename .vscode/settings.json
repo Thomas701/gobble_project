@@ -1,6 +1,10 @@
 {
     "files.associations": {
         "sdl.h": "c",
-        "sdl_image.h": "c"
+        "sdl_image.h": "c",
+        "sdl_mixer.h": "c",
+        "verification.h": "c",
+        "graphique.h": "c",
+        "fonction.h": "c"
     }
 }

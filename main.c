@@ -20,6 +20,14 @@
 #define HEIGHT 800 // hauteur fenetre
 #define WIDTH  1280 // largeur fenetre
 #include "fonction.c"
+#include "verification.c"
+#include "graphique.c"
+#include "creation.c"
+#include "print.c"
+#include "free.c"
+#include "init.c"
+#include "saveFile.c"
+#include "error.c"
 
 /*
 int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Point * pointDep, SDL_Point * pointArr)

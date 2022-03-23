@@ -1,0 +1,121 @@
+\hypertarget{main_8c}{}\doxysection{main.\+c File Reference}
+\label{main_8c}\index{main.c@{main.c}}
+
+
+Fonction principale, entrée du programme.  
+
+
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$S\+D\+L2/\+S\+D\+L\+\_\+mixer.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}headers/fonction.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_aed89bd71aee8be823e8a20ec4e093c1e}{H\+E\+I\+G\+HT}}~800
+\begin{DoxyCompactList}\small\item\em Représente la taille de la fenêtre en largeur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a241aeeb764887ae5e3de58b98f04b16d}{W\+I\+D\+TH}}~1280
+\begin{DoxyCompactList}\small\item\em Représente la taille de la fenêtre en hauteur. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a0240ac851181b84ac374872dc5434ee4}{N}}~3
+\begin{DoxyCompactList}\small\item\em Représente la taille de la grille et le nombres de cases vaut N$\ast$N. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Fonction principale, entrée du programme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fonction principale, entrée du programme. 
+
+\begin{DoxyAuthor}{Author}
+D\+U\+P\+O\+IS Thomas \& V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March, 22, 2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8c_aed89bd71aee8be823e8a20ec4e093c1e}\label{main_8c_aed89bd71aee8be823e8a20ec4e093c1e}} 
+\index{main.c@{main.c}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily \#define H\+E\+I\+G\+HT~800}
+
+
+
+Représente la taille de la fenêtre en largeur. 
+
+\mbox{\Hypertarget{main_8c_a0240ac851181b84ac374872dc5434ee4}\label{main_8c_a0240ac851181b84ac374872dc5434ee4}} 
+\index{main.c@{main.c}!N@{N}}
+\index{N@{N}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily \#define N~3}
+
+
+
+Représente la taille de la grille et le nombres de cases vaut N$\ast$N. 
+
+\mbox{\Hypertarget{main_8c_a241aeeb764887ae5e3de58b98f04b16d}\label{main_8c_a241aeeb764887ae5e3de58b98f04b16d}} 
+\index{main.c@{main.c}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily \#define W\+I\+D\+TH~1280}
+
+
+
+Représente la taille de la fenêtre en hauteur. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Fonction principale, entrée du programme. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em int} & argc \+: compte le nombre de paramètre de l\textquotesingle{}éxecutable. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ argv \+: stocke sous forme de chaine de caractères les paramètres données lors de l\textquotesingle{}éxecution.~\newline
+Par exemple \char`\"{}./main -\/c\char`\"{} ou \char`\"{}./main -\/-\/console\char`\"{} lance le jeu uniquement dans le terminal.~\newline
+Par défault, il se lance en interface graphique.~\newline
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS -\/ Arrêt {\bfseries{normal}} du programme.~\newline
+
+
+E\+X\+I\+T\+\_\+\+F\+A\+I\+L\+U\+RE -\/ Arrêt {\bfseries{anormal}} du programme (probleme provenant dans la plus cas des cas de l\textquotesingle{}initialisation de la S\+D\+L2 ou des textures).~\newline
+ 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+D\+U\+P\+O\+IS Thomas \& V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{main_8c_a3c04138a5bfe5d72780bb7e82a18e627_cgraph}
+\end{center}
+\end{figure}

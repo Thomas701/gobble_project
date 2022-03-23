@@ -1,226 +1,153 @@
-#ifdef WINDOWS
+/**
+ * \file main.c
+ * \brief Fonction principale, entrée du programme.
+ * \author DUPOIS Thomas & VILLEPREUX Thibault
+ * \date March, 22, 2022
+ * 
+ */
 
+
+#ifdef WINDOWS
+//Chemin d'accès bibliothèques SDL2 pour WINDOWS.
 #include "../include/SDL2/SDL.h"
 #include "../include/SDL2/SDL_image.h"
 #include "../include/SDL2/SDL_mixer.h"
 
 #else
-
+//Chemin d'accès bibliothèques SDL2 pour LINUX.
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
-
 #endif
 
+//Chemin d'accès bibliothèques standards pour LINUX & WINDOWS.
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
+/**
+ * \def HEIGHT 
+ * \brief Représente la taille de la fenêtre en largeur.
+ */
 #define HEIGHT 800 // hauteur fenetre
+
+/**
+ * \def WIDTH
+ * \brief Représente la taille de la fenêtre en hauteur.
+ */
 #define WIDTH  1280 // largeur fenetre
-#include "fonction.c"
-#include "verification.c"
-#include "graphique.c"
-#include "creation.c"
-#include "print.c"
-#include "free.c"
-#include "init.c"
-#include "saveFile.c"
-#include "error.c"
 
-/*
-int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Point * pointDep, SDL_Point * pointArr)
-{
-  int incrX = (pointDep.x < pointArr.x) ? 1 : -1 ;
-  int incrY = (pointDep.y < pointArr.y) ? 1 : -1  ;
-  while(pointDep.x != pointArr.x && pointDep.y != pointArr.y)
-  {
-    pointDep.x += incrX ;
-    pointDep.y += incrY ;    
-  }
-}
-*/
+/** \def N
+ * \brief Représente la taille de la grille et le nombres de cases vaut N*N.
+ */
+#define N 3
 
+//Chemin d'accès de nos headers
+#include "headers/fonction.h"
+#include "headers/creation.h"
+#include "headers/demande.h"
+#include "headers/error.h"
+#include "headers/graphique.h"
+#include "headers/init.h"
+#include "headers/print.h"
+#include "headers/saveFile.h"
+#include "headers/verification.h"
+#include "headers/free.h"
 
-/*return 0 if success else -1*/
+// inclusions des src
+#include "src/fonction.c"
+#include "src/demande.c"
+#include "src/verification.c"
+#include "src/graphique.c"
+#include "src/creation.c"
+#include "src/print.c"
+#include "src/free.c"
+#include "src/init.c"
+#include "src/saveFile.c"
+#include "src/error.c"
 
-int main(int argc, char ** argv) 
-{
-  char ** pileJ1 = createStack('b');
-  char ** pileJ2 = createStack('n');
-  char *** map3D = createMap();
-  char ** map2D = createMap2D();
-  initMap(map3D);
-  initMap2D(map2D, map3D);
-  int statut = EXIT_FAILURE ;
-  int deplacement = -1;
+/**
+ * \fn int main(int argc, char ** argv)
+ * \brief Fonction principale, entrée du programme.
+ * 
+ * \param[in] int argc : compte le nombre de paramètre de l'éxecutable.
+ * \param[in] char ** argv : stocke sous forme de chaine de caractères les paramètres données lors de l'éxecution.\n
+ * Par exemple "./main -c" ou "./main --console" lance le jeu uniquement dans le terminal.\n
+ * Par défault, il se lance en interface graphique.\n
+ * \return EXIT_SUCCESS - Arrêt **normal** du programme.\n
+ * \return EXIT_FAILURE - Arrêt **anormal** du programme (probleme provenant dans la plus cas des cas de l'initialisation de la SDL2 ou des textures).\n
+ *
+ * \author DUPOIS Thomas & VILLEPREUX Thibault
+ */
 
-  printf("Voulez-vous restreindre les déplacements à une distance de 1?\n[0] Non\n[1] Oui\n");
-  scanf(" %d", &deplacement);
+int main(int argc, char ** argv){
+  char ** pileJ1 = createStack('b'); char ** pileJ2 = createStack('n');  // pile joueur 1 & 2
+  char *** map3D = createMap();      char ** map2D = createMap2D();      // map 3D et 2D, pour stocker pion, 2D pour parcours plus rapide
+  initMap(map3D);                    initMap2D(map2D, map3D);            // remplie la map que du char '0'
+  int statut = EXIT_FAILURE ;                                            // par default jusqu'à preuve du contraire le programme n'est pas 
+                                                                         //arrivé jusqu'à la fin donc erreur
+  int deplacement = SF_demandeDeplacement();
 
-  while (deplacement != 0 && deplacement != 1)
-  {
-    printf("Resultat invalide");
-    printf("Voulez-vous restreindre les déplacements à une distance de 1?\n[0] Non\n[1] Oui\n");
-    scanf(" %d", &deplacement);
-    vider_buffer();
-  }
-
-  if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ) // lancement console
-  {
-    int tour = 0;
-    char c;
+  if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ){ // lancement console
+    int tour = 0; char c;               // tour %2 permet de connaitre le jour et c stocke la lettre du joeuur qui doit jouer
     
-    while (!check_End_Game(map2D))
-    {
-      c = (tour % 2 == 0) ? 'b' : 'n';
-      if (c == 'b') gameOption(pileJ1, map3D, map2D, c, deplacement);
-      else gameOption(pileJ2, map3D, map2D, c, deplacement);
+    while (!check_End_Game(map2D)) {   // tant que la partie n'est pas finie
+      c = (tour % 2 == 0) ? 'b' : 'n'; // on regarde c'est à quelle joueur de jouer le tour
+      if (c == 'b') gameOption(pileJ1, map3D, map2D, c, deplacement); // on appelle la fonction qui va permettre au joueur -->
+      else          gameOption(pileJ2, map3D, map2D, c, deplacement); // de jouer avec le bon numero de pile
       tour++;
     }
-    if (count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
-      printf("Egalite!\n");
-    else if (count_pion(map2D, N, 'b')) 
-      printf("Le joueur 1 a gagne!\n");
-    else 
-      printf("Le joueur 2 a gagne!\n");
+    if (count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n')) printf("Egalite!\n");             // les deux joueurs ont alignés N pions
+    else if (count_pion(map2D, N, 'b'))                         printf("Le joueur 1 a gagne!\n"); // joueur 1 a aligné N pions.
+    else                                                        printf("Le joueur 2 a gagne!\n"); // joueur 2 a aligné N pions.
     printMap3dDebug(map3D);
-    statut = EXIT_SUCCESS;
+    statut = EXIT_SUCCESS; // la partie c'est déroulé normalement et le programme va quitter sans erreur
   }
-  else // lancement interface graphique
-  {
-    srand(time(NULL));
-    // fenetre principale
-    SDL_Window * window = NULL ;
-    
-    // textures
-    SDL_Texture ** textureBackground = NULL;
-    SDL_Texture **  tableauTextureMapVide = NULL; // 0 map avec gobble en vert , 1 en bleu et 2 en rouge
-    SDL_Texture ** textureTableauOptionMenu = NULL;
-    SDL_Texture ** textureTableauPiont = NULL;
-    SDL_Texture ** textureTableauWin = NULL;
-    SDL_Rect ** tableauCase = NULL;
+  else { // lancement interface graphique
+    SDL_Window * window = NULL ; // fenetre principale, on va travailler sur uniquement une fenêtre(pas besoin de plus)
+    SDL_Renderer * renderer = NULL; // renderer principale
+
+    /********************************* ENSEMBLE DE TEXTURES *********************************/
+    SDL_Texture ** textureBackground = NULL;        // contient l'animation de fond dans menu de 400 cases
+    SDL_Texture **  tableauTextureMapVide = NULL;   // 0 map avec gobble en vert , 1 en bleu et 2 en rouge. Change selon la couleur du joueur
+    SDL_Texture ** textureTableauOptionMenu = NULL; // contient les options dans le menu 1VS1, 1VSIA, QUIT GAME and SOUND
+    SDL_Texture ** textureTableauPion = NULL;       // contient les images des pions sélectionnés et déselectionner
+    SDL_Texture ** textureTableauWin = NULL;        // tableau contenant les images de victoires et d'égalité
+    /****************************************************************************************/
+
+    SDL_Rect ** tableauCase = NULL; // contient des rect qui indique la taille et positions des cases de la map
     point ** tableauDePoint = NULL; // tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point
-    SDL_Renderer * renderer = NULL; // renderer
-    Mix_Music * mainMusic = NULL;     // musiques
-    SDL_Surface * icones = NULL;      // icones fenetres 
+    Mix_Music * mainMusic = NULL;   // musique principal Zelda Ocarina of Time remix libre de droits : https://youtu.be/AysrSoY1GdM
+    SDL_Surface * icones = NULL;    // icones fenêtres 
 
     // boolean 
-    int etatS = 1 ;        // 1 si on est dans le menu, 0 sinon
-    int * p_etatS = &etatS;
-    int boolPlayMusic = 1;   // si on joue de la musique ?
+    int etatS = 1 ;          // 1 si on est dans le menu, 0 sinon
+    int * p_etatS = &etatS;  // on manipule un pointeur
+    int boolPlayMusic = 1;   // permet de savoir si on joue de la luqisuqe (possibilité de la désactiver pendant une game)
 
     // chargement SDL / fenetre / renderer / textureMenu et background
-    if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPiont, &textureTableauWin, &tableauDePoint, &tableauCase))
-    {
-       fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError());
-       goto Quit;
-    }
+    if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPion, &textureTableauWin, &tableauDePoint, &tableauCase)) {
+       fprintf(stderr, "Error in initialiseDebutProgramme : %s \n",SDL_GetError()); 
+       goto Quit; // si erreur quitte le programme
+     }
 
-    printf("--->1\n");
-    debugTab(tableauCase);
+    intro_authors(&window, &renderer); // intro image authors + son , pas de quit si erreur
+    loadAndPlayMainMusic(&mainMusic);  // lancement musique, si plante pas de music mais pas d'arret du jeu
 
-    intro_authors(&window, &renderer); // intro image authors + son 
-    loadAndPlayMainMusic(&mainMusic, tableauCase);
-
-    printf("--->1.5\n");
-    debugTab(tableauCase);
-
-    while (etatS)
-    {
-      if (etatS == 1)
+    while (etatS) {
+      if (etatS == 1) // lancement menu
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
-      else if (etatS == 2)
-        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2, deplacement);
-      else
-        return 0;
+      else if (etatS == 2) // lancement du jeu (si choisie dans le menu)
+        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement);
+      //else // dépandera du mode de jeu
     }
-    
-    statut = EXIT_SUCCESS;
+    statut = EXIT_SUCCESS; // si on arrive ici ca veut dire que tout c'est bien passé et que l'utillisateur à voulue partir
 
 Quit :
-    if(mainMusic) Mix_FreeMusic(mainMusic); // musiques
-    if (icones) SDL_FreeSurface(icones); //surfaces
-    
-    /*-----FREE TEXTURE-----*/
-    if(textureTableauPiont)
-    {
-      for(int i=0; i<6; ++i) // nombres d'images de piont
-        SDL_DestroyTexture(textureTableauPiont[i]);
-      free(textureTableauPiont);
-    }
-
-    if(tableauTextureMapVide)
-    {
-      for(int i=0; i<3; ++i) // free 3 map
-        SDL_DestroyTexture(tableauTextureMapVide[i]);
-      free(tableauTextureMapVide);
-    }
-    if(textureBackground)
-    {
-      for(int i = 0; i < 400; i++) // nombres d'images de piont
-        SDL_DestroyTexture(textureBackground[i]);
-      free(textureBackground);
-    }
-    
-    if(tableauDePoint)
-    {
-      for(int i=0; i < ((N*N) + (N*2)); ++i) // nombres d'images de piont
-        free(tableauDePoint[i]);
-      free(tableauDePoint);
-    }
-
-    if(tableauCase)
-    {
-      for(int i=0; i < ((N*N) + (N*2)); ++i) // nombres d'images de piont
-        free(tableauCase[i]);
-      free(tableauCase);
-    }
-
-    if(textureTableauOptionMenu)
-    {
-      for(int i = 0; i < 5; i++) // nombres d'images de piont
-        SDL_DestroyTexture(textureTableauOptionMenu[i]);
-      free(textureTableauOptionMenu);
-    }
-    if(textureTableauWin)
-    {
-      for(int i = 0; i < 8; i++) // nombres d'images de piont
-        SDL_DestroyTexture(textureTableauWin[i]);
-      free(textureTableauWin);
-    }
-    /*-----END TEXTURE-----*/
-    if (renderer) SDL_DestroyRenderer(renderer);  // renderer
-    if(window) SDL_DestroyWindow(window); // libere la fenetre
-    Mix_CloseAudio(); // liberation de la gestion musqie
-    SDL_Quit(); // libere SDL_INIT uniquement pas les images / polices...
-  }
-    freeMap(map3D);
-    freeMap2D(map2D);
-    freeStack(pileJ1);
-    freeStack(pileJ2);
-    return statut;
+    freeSDL(window, renderer, mainMusic, textureTableauPion, tableauTextureMapVide, textureTableauOptionMenu, textureBackground, tableauDePoint, icones, tableauCase);
+    Mix_CloseAudio(); // liberation de la gestion musique
+    SDL_Quit();       // libere SDL_INIT uniquement pas les images / polices...
+  } // fin else (lancement programme en SDL)
+  freeBaseGame(map3D, map2D, pileJ1, pileJ2);
+  return statut;
 }
-
-
-/*
-        case SDL_KEYDOWN :                   // utilisateur a taper une touche
-          if(event.key.keysym.scancode == SDL_SCANCODE_ESCAPE) // echape pour afficher ou quitter le menu
-          {
-            if(menu == 0) // cas ou on a pas de menu
-            {
-              menu = 1;// on met de bool a 1
-              lancementMenu(renderer, textureBackground, textureMenu);
-            }
-            else  // cas ou on a un menu et on veut continuer de jouer
-            {
-              menu = 0; // on met le bool a 0 pour stopper
-              SDL_RenderClear(renderer);
-              SDL_RenderPresent(renderer);
-              printf("Retour au jeu\n");
-            }
-          }
-          break;
-
-*/

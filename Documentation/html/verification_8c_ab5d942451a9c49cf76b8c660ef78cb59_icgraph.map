@@ -1,0 +1,9 @@
+<map id="canPutPiont" name="canPutPiont">
+<area shape="rect" id="node1" title=" " alt="" coords="791,31,889,57"/>
+<area shape="rect" id="node2" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title=" " alt="" coords="577,5,650,32"/>
+<area shape="rect" id="node6" href="$demande_8c.html#aaf92b94f2f2e7ae232c57e8a44f77674" title=" " alt="" coords="484,56,743,83"/>
+<area shape="rect" id="node3" href="$fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="267,5,436,32"/>
+<area shape="rect" id="node4" href="$graphique_8c.html#aab686479b7fd26c3706babacfdac907f" title=" " alt="" coords="108,5,219,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node7" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="112,56,215,83"/>
+</map>

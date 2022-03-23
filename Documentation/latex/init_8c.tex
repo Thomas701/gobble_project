@@ -1,0 +1,433 @@
+\hypertarget{init_8c}{}\doxysection{src/init.c File Reference}
+\label{init_8c}\index{src/init.c@{src/init.c}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{init_8c_ae453f1d59909147e6dc030acd96d355e}{init\+Map}} (char $\ast$$\ast$$\ast$map)
+\item 
+void \mbox{\hyperlink{init_8c_a18877e4c5446e6b4c2f8acb1c4f2f952}{init\+Map2D}} (char $\ast$$\ast$map2D, char $\ast$$\ast$$\ast$map3D)
+\item 
+void \mbox{\hyperlink{init_8c_a80997a18a545555f09a485ad12d3ec76}{init\+Pile}} (char $\ast$$\ast$pile, char c)
+\item 
+int \mbox{\hyperlink{init_8c_a8f0b2e072f0de59baa36e4b77e15e0f3}{load\+Texture\+Option\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu)
+\item 
+int \mbox{\hyperlink{init_8c_a38c65e48c05e5d9e30fb538364775561}{initialise\+Debut\+Programme}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$texture\+Background, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Surface $\ast$$\ast$icones, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point, S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
+\item 
+int \mbox{\hyperlink{init_8c_a9b043e37d70fb76bac0a10f7c0680b82}{init\+S\+DL}} ()
+\item 
+int \mbox{\hyperlink{init_8c_a8fccbfa18a27788427166d9b14aa57f5}{init\+Windows}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window)
+\item 
+int \mbox{\hyperlink{init_8c_ac3c87711bb6c7452269c686327781f36}{init\+Renderer}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer)
+\item 
+int \mbox{\hyperlink{init_8c_a698f3bc5978c567f4a531dfb498688cf}{init\+Icon}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Surface $\ast$$\ast$icones)
+\item 
+int \mbox{\hyperlink{init_8c_a50e4145bfe6b088f7b57462e1a14b8c2}{init\+Sound}} ()
+\item 
+int \mbox{\hyperlink{init_8c_a49985b2f3fd155a291e268326a92d1e1}{init\+Backgroung}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$texture\+Background)
+\item 
+int \mbox{\hyperlink{init_8c_a40c4fce187974ed233b4981877ec62a7}{init\+Texture\+Map\+Vide}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide)
+\item 
+int \mbox{\hyperlink{init_8c_aa8806bc2cac5f7c2f85c7746aeea5b66}{init\+Texture\+Option\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu)
+\item 
+int \mbox{\hyperlink{init_8c_a27539c834eae6ab68c1da20d4baab913}{init\+Texture\+Pion}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont)
+\item 
+int \mbox{\hyperlink{init_8c_a719ba556aee1ca7bf32b5896fbc79dcd}{init\+Tableau\+De\+Point}} (\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point)
+\item 
+int \mbox{\hyperlink{init_8c_aa8d7a3f02d03919139c3b8ea2f77c738}{init\+Case}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
+\item 
+int \mbox{\hyperlink{init_8c_a88d20d3730311b467d854b9fcec7764f}{init\+Texture\+Win}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win)
+\item 
+int \mbox{\hyperlink{init_8c_a34fa94001e97c9d21c12159b7d1fc405}{load\+Texture\+Tableau\+Map}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide)
+\item 
+int \mbox{\hyperlink{init_8c_a553f198f00f43be698718fd5b15d508b}{load\+Piont}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont)
+\item 
+int \mbox{\hyperlink{init_8c_a378c028b0ddd060dd4643e04d3a1bafa}{load\+Background\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Back)
+\item 
+int \mbox{\hyperlink{init_8c_af3b494e08e48520f09b6b419652aa0ea}{load\+Texture\+Win}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win)
+\item 
+void \mbox{\hyperlink{init_8c_a2e2316cf6caa1e5d59c26dda378a6b95}{load\+And\+Play\+Main\+Music}} (Mix\+\_\+\+Music $\ast$$\ast$main\+Music)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{init_8c_a49985b2f3fd155a291e268326a92d1e1}\label{init_8c_a49985b2f3fd155a291e268326a92d1e1}} 
+\index{init.c@{init.c}!initBackgroung@{initBackgroung}}
+\index{initBackgroung@{initBackgroung}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initBackgroung()}{initBackgroung()}}
+{\footnotesize\ttfamily int init\+Backgroung (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{texture\+Background }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a49985b2f3fd155a291e268326a92d1e1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a49985b2f3fd155a291e268326a92d1e1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_aa8d7a3f02d03919139c3b8ea2f77c738}\label{init_8c_aa8d7a3f02d03919139c3b8ea2f77c738}} 
+\index{init.c@{init.c}!initCase@{initCase}}
+\index{initCase@{initCase}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initCase()}{initCase()}}
+{\footnotesize\ttfamily int init\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_aa8d7a3f02d03919139c3b8ea2f77c738_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_aa8d7a3f02d03919139c3b8ea2f77c738_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a38c65e48c05e5d9e30fb538364775561}\label{init_8c_a38c65e48c05e5d9e30fb538364775561}} 
+\index{init.c@{init.c}!initialiseDebutProgramme@{initialiseDebutProgramme}}
+\index{initialiseDebutProgramme@{initialiseDebutProgramme}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initialiseDebutProgramme()}{initialiseDebutProgramme()}}
+{\footnotesize\ttfamily int initialise\+Debut\+Programme (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{texture\+Background,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{icones,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a38c65e48c05e5d9e30fb538364775561_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{init_8c_a38c65e48c05e5d9e30fb538364775561_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a698f3bc5978c567f4a531dfb498688cf}\label{init_8c_a698f3bc5978c567f4a531dfb498688cf}} 
+\index{init.c@{init.c}!initIcon@{initIcon}}
+\index{initIcon@{initIcon}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initIcon()}{initIcon()}}
+{\footnotesize\ttfamily int init\+Icon (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{icones }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a698f3bc5978c567f4a531dfb498688cf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_ae453f1d59909147e6dc030acd96d355e}\label{init_8c_ae453f1d59909147e6dc030acd96d355e}} 
+\index{init.c@{init.c}!initMap@{initMap}}
+\index{initMap@{initMap}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initMap()}{initMap()}}
+{\footnotesize\ttfamily void init\+Map (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{init_8c_ae453f1d59909147e6dc030acd96d355e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a18877e4c5446e6b4c2f8acb1c4f2f952}\label{init_8c_a18877e4c5446e6b4c2f8acb1c4f2f952}} 
+\index{init.c@{init.c}!initMap2D@{initMap2D}}
+\index{initMap2D@{initMap2D}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initMap2D()}{initMap2D()}}
+{\footnotesize\ttfamily void init\+Map2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a18877e4c5446e6b4c2f8acb1c4f2f952_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a80997a18a545555f09a485ad12d3ec76}\label{init_8c_a80997a18a545555f09a485ad12d3ec76}} 
+\index{init.c@{init.c}!initPile@{initPile}}
+\index{initPile@{initPile}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initPile()}{initPile()}}
+{\footnotesize\ttfamily void init\+Pile (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{pile,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{init_8c_a80997a18a545555f09a485ad12d3ec76_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_ac3c87711bb6c7452269c686327781f36}\label{init_8c_ac3c87711bb6c7452269c686327781f36}} 
+\index{init.c@{init.c}!initRenderer@{initRenderer}}
+\index{initRenderer@{initRenderer}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initRenderer()}{initRenderer()}}
+{\footnotesize\ttfamily int init\+Renderer (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_ac3c87711bb6c7452269c686327781f36_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a9b043e37d70fb76bac0a10f7c0680b82}\label{init_8c_a9b043e37d70fb76bac0a10f7c0680b82}} 
+\index{init.c@{init.c}!initSDL@{initSDL}}
+\index{initSDL@{initSDL}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initSDL()}{initSDL()}}
+{\footnotesize\ttfamily int init\+S\+DL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a9b043e37d70fb76bac0a10f7c0680b82_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a50e4145bfe6b088f7b57462e1a14b8c2}\label{init_8c_a50e4145bfe6b088f7b57462e1a14b8c2}} 
+\index{init.c@{init.c}!initSound@{initSound}}
+\index{initSound@{initSound}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initSound()}{initSound()}}
+{\footnotesize\ttfamily int init\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a50e4145bfe6b088f7b57462e1a14b8c2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a719ba556aee1ca7bf32b5896fbc79dcd}\label{init_8c_a719ba556aee1ca7bf32b5896fbc79dcd}} 
+\index{init.c@{init.c}!initTableauDePoint@{initTableauDePoint}}
+\index{initTableauDePoint@{initTableauDePoint}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initTableauDePoint()}{initTableauDePoint()}}
+{\footnotesize\ttfamily int init\+Tableau\+De\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{init_8c_a719ba556aee1ca7bf32b5896fbc79dcd_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a719ba556aee1ca7bf32b5896fbc79dcd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a40c4fce187974ed233b4981877ec62a7}\label{init_8c_a40c4fce187974ed233b4981877ec62a7}} 
+\index{init.c@{init.c}!initTextureMapVide@{initTextureMapVide}}
+\index{initTextureMapVide@{initTextureMapVide}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initTextureMapVide()}{initTextureMapVide()}}
+{\footnotesize\ttfamily int init\+Texture\+Map\+Vide (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a40c4fce187974ed233b4981877ec62a7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a40c4fce187974ed233b4981877ec62a7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_aa8806bc2cac5f7c2f85c7746aeea5b66}\label{init_8c_aa8806bc2cac5f7c2f85c7746aeea5b66}} 
+\index{init.c@{init.c}!initTextureOptionMenu@{initTextureOptionMenu}}
+\index{initTextureOptionMenu@{initTextureOptionMenu}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initTextureOptionMenu()}{initTextureOptionMenu()}}
+{\footnotesize\ttfamily int init\+Texture\+Option\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_aa8806bc2cac5f7c2f85c7746aeea5b66_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_aa8806bc2cac5f7c2f85c7746aeea5b66_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a27539c834eae6ab68c1da20d4baab913}\label{init_8c_a27539c834eae6ab68c1da20d4baab913}} 
+\index{init.c@{init.c}!initTexturePion@{initTexturePion}}
+\index{initTexturePion@{initTexturePion}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initTexturePion()}{initTexturePion()}}
+{\footnotesize\ttfamily int init\+Texture\+Pion (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a27539c834eae6ab68c1da20d4baab913_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a27539c834eae6ab68c1da20d4baab913_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a88d20d3730311b467d854b9fcec7764f}\label{init_8c_a88d20d3730311b467d854b9fcec7764f}} 
+\index{init.c@{init.c}!initTextureWin@{initTextureWin}}
+\index{initTextureWin@{initTextureWin}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initTextureWin()}{initTextureWin()}}
+{\footnotesize\ttfamily int init\+Texture\+Win (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a88d20d3730311b467d854b9fcec7764f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a88d20d3730311b467d854b9fcec7764f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a8fccbfa18a27788427166d9b14aa57f5}\label{init_8c_a8fccbfa18a27788427166d9b14aa57f5}} 
+\index{init.c@{init.c}!initWindows@{initWindows}}
+\index{initWindows@{initWindows}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{initWindows()}{initWindows()}}
+{\footnotesize\ttfamily int init\+Windows (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a8fccbfa18a27788427166d9b14aa57f5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a2e2316cf6caa1e5d59c26dda378a6b95}\label{init_8c_a2e2316cf6caa1e5d59c26dda378a6b95}} 
+\index{init.c@{init.c}!loadAndPlayMainMusic@{loadAndPlayMainMusic}}
+\index{loadAndPlayMainMusic@{loadAndPlayMainMusic}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadAndPlayMainMusic()}{loadAndPlayMainMusic()}}
+{\footnotesize\ttfamily void load\+And\+Play\+Main\+Music (\begin{DoxyParamCaption}\item[{Mix\+\_\+\+Music $\ast$$\ast$}]{main\+Music }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=287pt]{init_8c_a2e2316cf6caa1e5d59c26dda378a6b95_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a378c028b0ddd060dd4643e04d3a1bafa}\label{init_8c_a378c028b0ddd060dd4643e04d3a1bafa}} 
+\index{init.c@{init.c}!loadBackgroundMenu@{loadBackgroundMenu}}
+\index{loadBackgroundMenu@{loadBackgroundMenu}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadBackgroundMenu()}{loadBackgroundMenu()}}
+{\footnotesize\ttfamily int load\+Background\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Back }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{init_8c_a378c028b0ddd060dd4643e04d3a1bafa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a378c028b0ddd060dd4643e04d3a1bafa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a553f198f00f43be698718fd5b15d508b}\label{init_8c_a553f198f00f43be698718fd5b15d508b}} 
+\index{init.c@{init.c}!loadPiont@{loadPiont}}
+\index{loadPiont@{loadPiont}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadPiont()}{loadPiont()}}
+{\footnotesize\ttfamily int load\+Piont (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{init_8c_a553f198f00f43be698718fd5b15d508b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a553f198f00f43be698718fd5b15d508b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a8f0b2e072f0de59baa36e4b77e15e0f3}\label{init_8c_a8f0b2e072f0de59baa36e4b77e15e0f3}} 
+\index{init.c@{init.c}!loadTextureOptionMenu@{loadTextureOptionMenu}}
+\index{loadTextureOptionMenu@{loadTextureOptionMenu}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadTextureOptionMenu()}{loadTextureOptionMenu()}}
+{\footnotesize\ttfamily int load\+Texture\+Option\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{init_8c_a8f0b2e072f0de59baa36e4b77e15e0f3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a8f0b2e072f0de59baa36e4b77e15e0f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_a34fa94001e97c9d21c12159b7d1fc405}\label{init_8c_a34fa94001e97c9d21c12159b7d1fc405}} 
+\index{init.c@{init.c}!loadTextureTableauMap@{loadTextureTableauMap}}
+\index{loadTextureTableauMap@{loadTextureTableauMap}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadTextureTableauMap()}{loadTextureTableauMap()}}
+{\footnotesize\ttfamily int load\+Texture\+Tableau\+Map (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{init_8c_a34fa94001e97c9d21c12159b7d1fc405_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_a34fa94001e97c9d21c12159b7d1fc405_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{init_8c_af3b494e08e48520f09b6b419652aa0ea}\label{init_8c_af3b494e08e48520f09b6b419652aa0ea}} 
+\index{init.c@{init.c}!loadTextureWin@{loadTextureWin}}
+\index{loadTextureWin@{loadTextureWin}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{loadTextureWin()}{loadTextureWin()}}
+{\footnotesize\ttfamily int load\+Texture\+Win (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{init_8c_af3b494e08e48520f09b6b419652aa0ea_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{init_8c_af3b494e08e48520f09b6b419652aa0ea_icgraph}
+\end{center}
+\end{figure}

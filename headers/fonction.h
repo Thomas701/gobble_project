@@ -1,13 +1,21 @@
+/**
+ * \file fonction.h
+ * 
+ * \brief Fichier contenant les headers des fonctions "actives" liées aux mouvement des pions.
+ * 
+ * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
+ */
+
 #ifndef FONCTION_H_
 #define FONCTION_H_
-
 
 /**
  * \struct point
  * \brief Objet représentant un point (x,y).\n
  * 
- * Avant la découverte de SDL_Point, certaines fonctions l'utilisent.\n
- * Est composé de 2 champs, un entier pour la cooredonnée x et un autre int pour le coordonné y.
+ * La structures a été créée avant la découverte de SDL_Point, donc certaines fonctions l'utilisent.\n
+ * Elle est composée de 2 champs, un entier pour la cooredonnée x et un autre int pour la coordonnée y.
  */
 typedef struct point {
   int x, y;
@@ -17,7 +25,7 @@ typedef struct point {
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /**
- * \fn void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePiont ,int endPiont, char c)
+ * \fn void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePion ,int endPion, char c)
  * \brief Permet de placer le pion sur la map. Il faut d'abord vérifier si le coup est valide.
  * 
  * \param[in] char *** map : plateau de jeu détaillé
@@ -29,7 +37,7 @@ typedef struct point {
  * 
  * \return Pas de retour (void).
  * 
- * \author DUPOIS Thomas
+ * \author DUPOIS Thomas & VILLEPREUX Thibault
  */ 
 void mooveSinceStack(char *** map, char ** stackArray, int numStack, int sizePion ,int endPion, char c);
 
@@ -48,6 +56,7 @@ void mooveSinceStack(char *** map, char ** stackArray, int numStack, int sizePio
  * \retrun 0 si déplacement non valide (canMoove) ou si erreur lors de l'insertion (n'arrive jamais).
  * 
  * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
 int moove(char *** map, int posDeb, int posEnd); // déplace un pion présent sur la map
 
@@ -63,7 +72,8 @@ int moove(char *** map, int posDeb, int posEnd); // déplace un pion présent su
  * 
  * \return Pas de retour (void).
  * 
- * \author DUPOIS Thomas & VILLEPREUX Thibault
+ * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
 void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int deplacement); // Fonction principale du jeu
 
@@ -86,14 +96,8 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
  * 
  * \return Pas de retour (void).
  * 
- * \author DUPOIS Thomas & VILLEPREUX Thibault
+ * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance); // c = 'b' or 'n' joueur qui choisie
-
-
-
-int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase);
-
-
-int sizePiontMaxStack(char ** stackArray, int numStack); // retourne la taille du pion le plus grand d'une pile
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance);
 #endif

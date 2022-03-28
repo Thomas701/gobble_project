@@ -1,9 +1,9 @@
 <map id="canSelection" name="canSelection">
-<area shape="rect" id="node1" title=" " alt="" coords="5,56,111,83"/>
-<area shape="rect" id="node2" href="$verification_8c.html#a47f22870d81d2cf14c621e685a368bb1" title=" " alt="" coords="183,5,341,32"/>
-<area shape="rect" id="node3" href="$verification_8c.html#a464dd1d21f91eb6c6114c645d69ed8c1" title=" " alt="" coords="159,56,365,83"/>
-<area shape="rect" id="node6" href="$fonction_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b" title=" " alt="" coords="223,107,301,133"/>
-<area shape="rect" id="node4" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title=" " alt="" coords="424,5,513,32"/>
-<area shape="rect" id="node5" href="$verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title=" " alt="" coords="426,56,511,83"/>
-<area shape="rect" id="node7" href="$verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title=" " alt="" coords="413,107,524,133"/>
+<area shape="rect" id="node1" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="5,56,111,83"/>
+<area shape="rect" id="node2" href="$verification_8c.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="182,5,337,32"/>
+<area shape="rect" id="node3" href="$verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="159,56,360,83"/>
+<area shape="rect" id="node6" href="$get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="220,107,299,133"/>
+<area shape="rect" id="node4" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="419,5,508,32"/>
+<area shape="rect" id="node5" href="$verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="421,56,506,83"/>
+<area shape="rect" id="node7" href="$verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="408,107,519,133"/>
 </map>

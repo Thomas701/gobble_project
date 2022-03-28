@@ -1,6 +1,6 @@
 <map id="errorInCreate3D" name="errorInCreate3D">
-<area shape="rect" id="node1" title=" " alt="" coords="284,31,411,57"/>
-<area shape="rect" id="node2" href="$creation_8c.html#a9b51ce1c5e2efbe2568452ad099fa141" title=" " alt="" coords="145,31,236,57"/>
+<area shape="rect" id="node1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu detail..." alt="" coords="284,31,411,57"/>
+<area shape="rect" id="node2" href="$creation_8c.html#a9b51ce1c5e2efbe2568452ad099fa141" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="145,31,236,57"/>
 <area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="24,5,79,32"/>
-<area shape="rect" id="node4" href="$save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title=" " alt="" coords="5,56,97,83"/>
+<area shape="rect" id="node4" href="$save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="5,56,97,83"/>
 </map>

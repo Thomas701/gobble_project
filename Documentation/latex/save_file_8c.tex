@@ -1,41 +1,73 @@
-\hypertarget{save_file_8c}{}\doxysection{src/save\+File.c File Reference}
+\hypertarget{save_file_8c}{}\doxysection{Référence du fichier src/save\+File.c}
 \label{save_file_8c}\index{src/saveFile.c@{src/saveFile.c}}
-\doxysubsection*{Functions}
+
+
+Fichier contenant les codes des fonctions permettant d\textquotesingle{}écrire et lire les maps et piles dans des fichiers. On ne les utilise pas.  
+
+
+\doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{save_file_8c_a77600fa36352855946e04ae100f8fc5c}{write\+File}} (char $\ast$$\ast$$\ast$map3D)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui écrit le plateau de jeu détaillé dans un fichier \char`\"{}map.\+txt\char`\"{}. \end{DoxyCompactList}\item 
 char $\ast$$\ast$$\ast$ \mbox{\hyperlink{save_file_8c_a96e0d8e534d3ebe4c3918c00f60d3184}{read\+File3D}} (char $\ast$name\+File)
-\item 
-char $\ast$$\ast$ \mbox{\hyperlink{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601}{read\+File2D}} (char $\ast$name\+File)
+\begin{DoxyCompactList}\small\item\em Fonction qui lit le plateau de jeu détaillé dans un fichier. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601}\label{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601}} 
+char $\ast$$\ast$ {\bfseries read\+File2D} (char $\ast$name\+File)
 \item 
 void \mbox{\hyperlink{save_file_8c_ab86fa378fb5ba4fd5b4437eae2de3e21}{write\+File\+Pile}} (char $\ast$$\ast$pile1, char $\ast$$\ast$pile2)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui écrit les piles des joueurs dans un fichier \char`\"{}pile.\+txt\char`\"{}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{save_file_8c_a7d7a1b886541ff76435419fbfb9f92ae}{read\+File\+Pile}} (char $\ast$name\+File, char $\ast$$\ast$pile1, char $\ast$$\ast$pile2)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction qui lit les piles des joueurs dans un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601}\label{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601}} 
-\index{saveFile.c@{saveFile.c}!readFile2D@{readFile2D}}
-\index{readFile2D@{readFile2D}!saveFile.c@{saveFile.c}}
-\doxysubsubsection{\texorpdfstring{readFile2D()}{readFile2D()}}
-{\footnotesize\ttfamily char$\ast$$\ast$ read\+File2D (\begin{DoxyParamCaption}\item[{char $\ast$}]{name\+File }\end{DoxyParamCaption})}
+\doxysubsection{Description détaillée}
+Fichier contenant les codes des fonctions permettant d\textquotesingle{}écrire et lire les maps et piles dans des fichiers. On ne les utilise pas. 
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{save_file_8c_a5f5e0477b7904f6d15f18edc74deb601_cgraph}
-\end{center}
-\end{figure}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
 \mbox{\Hypertarget{save_file_8c_a96e0d8e534d3ebe4c3918c00f60d3184}\label{save_file_8c_a96e0d8e534d3ebe4c3918c00f60d3184}} 
 \index{saveFile.c@{saveFile.c}!readFile3D@{readFile3D}}
 \index{readFile3D@{readFile3D}!saveFile.c@{saveFile.c}}
 \doxysubsubsection{\texorpdfstring{readFile3D()}{readFile3D()}}
 {\footnotesize\ttfamily char$\ast$$\ast$$\ast$ read\+File3D (\begin{DoxyParamCaption}\item[{char $\ast$}]{name\+File }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Fonction qui lit le plateau de jeu détaillé dans un fichier. 
+
+Fonction qui lit le plateau de jeu non détaillé dans un fichier.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ name\+File) \+: nom du fichier où lire.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char $\ast$$\ast$$\ast$ \+: retourne la map3D detaillé. Attention il y a un malloc dans cette fonction donc libérer le tableau si utilisation.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ name\+File \+: nom du fichier où lire.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char $\ast$$\ast$ \+: retourne la map2D non detaillé. Attention il y a un malloc dans cette fonction donc libérer le tableau si utilisation.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -48,15 +80,66 @@ Here is the call graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{readFilePile()}{readFilePile()}}
 {\footnotesize\ttfamily void read\+File\+Pile (\begin{DoxyParamCaption}\item[{char $\ast$}]{name\+File,  }\item[{char $\ast$$\ast$}]{pile1,  }\item[{char $\ast$$\ast$}]{pile2 }\end{DoxyParamCaption})}
 
+
+
+Fonction qui lit les piles des joueurs dans un fichier. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile1 \+: pile du joueur1 que l\textquotesingle{}on doit lire dans le fichier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile2 \+: pile du joueur2 que l\textquotesingle{}on doit lire dans le fichier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
 \mbox{\Hypertarget{save_file_8c_a77600fa36352855946e04ae100f8fc5c}\label{save_file_8c_a77600fa36352855946e04ae100f8fc5c}} 
 \index{saveFile.c@{saveFile.c}!writeFile@{writeFile}}
 \index{writeFile@{writeFile}!saveFile.c@{saveFile.c}}
 \doxysubsubsection{\texorpdfstring{writeFile()}{writeFile()}}
 {\footnotesize\ttfamily void write\+File (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
 
+
+
+Fonction qui écrit le plateau de jeu détaillé dans un fichier \char`\"{}map.\+txt\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé à ecrire dans le fichier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
 \mbox{\Hypertarget{save_file_8c_ab86fa378fb5ba4fd5b4437eae2de3e21}\label{save_file_8c_ab86fa378fb5ba4fd5b4437eae2de3e21}} 
 \index{saveFile.c@{saveFile.c}!writeFilePile@{writeFilePile}}
 \index{writeFilePile@{writeFilePile}!saveFile.c@{saveFile.c}}
 \doxysubsubsection{\texorpdfstring{writeFilePile()}{writeFilePile()}}
 {\footnotesize\ttfamily void write\+File\+Pile (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{pile1,  }\item[{char $\ast$$\ast$}]{pile2 }\end{DoxyParamCaption})}
 
+
+
+Fonction qui écrit les piles des joueurs dans un fichier \char`\"{}pile.\+txt\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ name\+File \+: nom du fichier où lire. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile1 \+: pile du joueur1 que l\textquotesingle{}on doit écrire dans le fichier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile2 \+: pile du joueur2 que l\textquotesingle{}on doit écrire dans le fichier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}

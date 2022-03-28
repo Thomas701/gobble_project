@@ -42,8 +42,19 @@
  */
 #define N 3
 
+/** \def Z3
+ * \brief Représente le zoom en interface graphique pour un pion situé sur la ligne 3 (la dernière).
+ */
+#define Z3 0.77
+
+/** \def Z2
+ * \brief Représente le zoom en interface graphique pour un pion situé sur la ligne 2 (milieu).
+ */
+#define Z2 0.86
+
 //Chemin d'accès de nos headers
 #include "headers/fonction.h"
+#include "headers/get.h"
 #include "headers/creation.h"
 #include "headers/demande.h"
 #include "headers/error.h"
@@ -56,6 +67,7 @@
 
 // inclusions des src
 #include "src/fonction.c"
+#include "src/get.c"
 #include "src/demande.c"
 #include "src/verification.c"
 #include "src/graphique.c"
@@ -79,7 +91,6 @@
  *
  * \author DUPOIS Thomas & VILLEPREUX Thibault
  */
-
 int main(int argc, char ** argv){
   char ** pileJ1 = createStack('b'); char ** pileJ2 = createStack('n');  // pile joueur 1 & 2
   char *** map3D = createMap();      char ** map2D = createMap2D();      // map 3D et 2D, pour stocker pion, 2D pour parcours plus rapide
@@ -131,14 +142,14 @@ int main(int argc, char ** argv){
        goto Quit; // si erreur quitte le programme
      }
 
-    intro_authors(&window, &renderer); // intro image authors + son , pas de quit si erreur
+    intro_authors(&renderer);          // intro image authors + son , pas de quit si erreur
     loadAndPlayMainMusic(&mainMusic);  // lancement musique, si plante pas de music mais pas d'arret du jeu
 
     while (etatS) {
       if (etatS == 1) // lancement menu
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2) // lancement du jeu (si choisie dans le menu)
-        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement);
+        lancementJeu1VS1(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement);
       //else // dépandera du mode de jeu
     }
     statut = EXIT_SUCCESS; // si on arrive ici ca veut dire que tout c'est bien passé et que l'utillisateur à voulue partir

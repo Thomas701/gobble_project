@@ -1,5 +1,5 @@
 <map id="canEffectDeplacementWithDistance" name="canEffectDeplacementWithDistance">
-<area shape="rect" id="node1" title=" " alt="" coords="259,5,457,47"/>
+<area shape="rect" id="node1" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="259,5,457,47"/>
 <area shape="rect" id="node2" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,13,211,39"/>
 <area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,13,60,39"/>
 </map>

@@ -1,14 +1,14 @@
 /**
  * \file fonction.c
  * 
- * \brief Fichier contenant les fonctions "actives" liées aux mouvement des pions.
+ * \brief Fichier contenant les code des fonctions "actives" liées aux mouvement des pions.
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
 
 /**
- * \fn void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePiont ,int endPiont, char c)
+ * \fn void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePion ,int endPion, char c)
  * \brief Permet de placer le pion sur la map. Il faut d'abord vérifier si le coup est valide.
  * 
  * \param[in] char *** map : plateau de jeu détaillé
@@ -21,6 +21,7 @@
  * \return Pas de retour (void).
  * 
  * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */
 void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePion ,int endPion, char c){ // c = 'b' or 'n'
   stackArray[numStack][sizePion] = '0';
@@ -42,6 +43,7 @@ void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePion
  * \retrun 0 si déplacement non valide (canMoove) ou si erreur lors de l'insertion (n'arrive jamais).
  * 
  * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
 int moove(char *** map, int posDeb, int posEnd) {
   if (!canMoove(map, posDeb, posEnd)) return 0; // si on ne peut pas placer le pion car déplacmeent incorrecte
@@ -71,7 +73,8 @@ int moove(char *** map, int posDeb, int posEnd) {
  * 
  * \return Pas de retour (void).
  * 
- * \author DUPOIS Thomas & VILLEPREUX Thibault
+ * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
 void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int deplacement) { // c = 'b' or 'n' joueur qui choisie
   if (c == 'b')   printf("Joueur 1, c'est a vous!\n");
@@ -79,32 +82,32 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
   int answer = 0;  int* p_answer = &answer;    //permet de savoir si il existe encore des pions dans la pile, si "non" alors on lui demande pas si il veut jouer un pion de la pile
   answer = (isStackFull(stackArray) || !existPionInMap(map2D, c)) ? 1 : 0;
   
-  if (canPlayNewPiont(stackArray, map2D) && !isStackFull(stackArray) && existPionInMap(map2D, c) // verifie les options dispo
+  if (canPlayNewPion(stackArray, map2D) && !isStackFull(stackArray) && existPionInMap(map2D, c) // verifie les options dispo
       && (deplacement == 0 || (canEffectDeplacementWithDistance(map3D, c) && deplacement == 1)))  // demande l'option jouer nouveau pion ou deplacer ancien pion 
          SGO_demandePileEtDeplacement(map3D, map2D, p_answer);
   
   if (answer == 2 || answer == 0 && (deplacement == 0 || canEffectDeplacementWithDistance(map3D, c))) {// cas ou il a choisi/obligé de prendre l'option de déplacer un pion déja jouer
-    int debPiont = 0 ; int * p_debPiont = &debPiont ; 
-    int endPiont = 0 ; int * p_endPiont = &endPiont ;
-    SGO_demandeQuelPiontDeplacer(map3D, map2D, p_debPiont);  // demande le coup qu le joueur veut faire (coord pion avant / après)
+    int debPion = 0 ; int * p_debPion = &debPion ; 
+    int endPion = 0 ; int * p_endPion = &endPion ;
+    SGO_demandeQuelPionDeplacer(map3D, map2D, p_debPion);  // demande le coup qu le joueur veut faire (coord pion avant / après)
 
-    if(!deplacement) SGO_verifEtDeplacementCaseSansLimite(map3D, c, p_debPiont, p_endPiont); // vérifie si deplacement valide, modifie le poiteur si non valide
-    else             SGO_verifEtDeplacementCaseAvecLimite(map3D, c, p_debPiont, p_endPiont); // vérifie si deplacement valide, modifie le poiteur si non valide
+    if(!deplacement) SGO_verifEtDeplacementCaseSansLimite(map3D, c, p_debPion, p_endPion); // vérifie si deplacement valide, modifie le poiteur si non valide
+    else             SGO_verifEtDeplacementCaseAvecLimite(map3D, c, p_debPion, p_endPion); // vérifie si deplacement valide, modifie le poiteur si non valide
       
-    moove(map3D, debPiont, endPiont); // deplace le pion jouer car valide
+    moove(map3D, debPion, endPion); // deplace le pion jouer car valide
     initMap2D(map2D, map3D);          // récupère l'information et l'écris dans la map 2D
   }
-  else // cas ou il joue un nouveau pion et il peut le jouer cad il existe une pile ou il peut mettre un piont sur le plateau
+  else // cas ou il joue un nouveau pion et il peut le jouer cad il existe une pile ou il peut mettre un pion sur le plateau
   {
     int numPion  ; int * p_numPion = &numPion;   // variables pour la demandes d'informations
     int numStack ; int * p_numStack = &numStack;
-    int endPiont ; int * p_endPiont = &endPiont;
+    int endPion  ; int * p_endPion = &endPion;
 
     SGO_demanderQuellePileJouer(map3D, map2D, stackArray, p_numStack);      // demande quelle pile il veut jouer
     SGO_demanderQuelPionJouer(map3D, stackArray, p_numStack, p_numPion);    // demande quel pion il veut jouer
     printMap2D(map2D); printMap3dDebug(map3D);                              // affichage pour le joueur
-    SGO_demanderQuelleCaseJouerPion(map3D, p_numPion, p_endPiont);          // demande à quelle case ou il veut mettre son pion
-    mooveSinceStack(map3D, stackArray, numStack, numPion, endPiont, c);     // deplace le pion (verifie dans la fonction si déplacement valide)
+    SGO_demanderQuelleCaseJouerPion(map3D, p_numPion, p_endPion);          // demande à quelle case ou il veut mettre son pion
+    mooveSinceStack(map3D, stackArray, numStack, numPion, endPion, c);     // deplace le pion (verifie dans la fonction si déplacement valide)
     initMap2D(map2D, map3D);                                                // récupère l'information et l'écris dans la map 2D
  }
 }
@@ -131,7 +134,8 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
  * 
  * \return Pas de retour (void).
  * 
- * \author DUPOIS Thomas & VILLEPREUX Thibault
+ * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */ 
 void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  
                          char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, 
@@ -205,52 +209,9 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       if(c == 'b')       printMapEmptySDL(tableauTextureMapVide[1], renderer);      // affiche map couleur bleu
       else if (c == 'n') printMapEmptySDL(tableauTextureMapVide[2], renderer);      // affiche map couleur rouge
       affichePileSDL(renderer, textureTableauPion, tableauDePoint, pileJ1, pileJ2);  // affiche piles des 2 joeuurs
-      affichePiontSurPlateau(renderer, textureTableauPion, tableauDePoint , map3D);  // affiche pion sur plateau
+      affichePionSurPlateau(renderer, textureTableauPion, tableauDePoint , map3D);  // affiche pion sur plateau
       if (imageIndexP != -1) affichePionSelect(renderer, tableauDePoint, textureTableauPion, map3D, imageIndexP); // si image sélectionner rajoute pion par dessus
       SDL_RenderPresent(renderer); // MAJ du renderer donc on l'affichage
     }
   }
-}
-
-
-
-
-
-int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase)
-{
-  for(int i = 0 ; i < (N * N + N*2) ; i++)
-  {
-    if(isInRectangle(pointMouse, *tableauCase[i]))
-    {
-      printf("Index trouvé [%d]!\n", i);
-      return i;
-    }
-    else
-      printf("index non trouvé pour mouse: %d, %d & i=%d\n", pointMouse.x , pointMouse.y ,i);
-  }
-  printf("return -1\n");
-  return -1;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-int sizePiontMaxStack(char ** stackArray, int numStack) {
-  int sizePiont = 0 ;
-  for(int i = N-1 ; i >= 0 ; i--) {
-    if (stackArray[numStack][i] != '0') {
-      sizePiont = i; 
-      i = -1;
-    }
-  }
-  return sizePiont ;
 }

@@ -1,30 +1,77 @@
-\hypertarget{demande_8c}{}\doxysection{src/demande.c File Reference}
+\hypertarget{demande_8c}{}\doxysection{Référence du fichier src/demande.c}
 \label{demande_8c}\index{src/demande.c@{src/demande.c}}
-\doxysubsection*{Functions}
+
+
+Fichier contenant les codes des fonctions où l\textquotesingle{}on demande à l\textquotesingle{}utilisateurs ces choix d\textquotesingle{}action au clavier. Avec vérification.~\newline
+.  
+
+
+\doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{demande_8c_a44a860f65d52c1a3b80ec05313023336}{S\+G\+O\+\_\+demande\+Pile\+Et\+Deplacement}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int $\ast$answer)
-\item 
-void \mbox{\hyperlink{demande_8c_aeeaa48b67745b15469442d257ed7a1cf}{S\+G\+O\+\_\+demande\+Quel\+Piont\+Deplacer}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int $\ast$deb\+Piont)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui demande l\textquotesingle{}action que veut effectuer le joueur. Soit jouer un nouveau pion ou deplacer un ancien pion.~\newline
+. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{demande_8c_aa510dfb386d4794394ced9e84f3a8a83}{S\+G\+O\+\_\+demande\+Quel\+Pion\+Deplacer}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int $\ast$deb\+Pion)
+\begin{DoxyCompactList}\small\item\em Fonction qui demande le pion que veut deplacer le joueur. {\bfseries{Sans vérification.}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{demande_8c_a5640432ec67cad60ba21586b562d0a51}{S\+G\+O\+\_\+demander\+Quelle\+Pile\+Jouer}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$stack\+Array, int $\ast$num\+Stack)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui demande le pion que veut deplacer le joueur. {\bfseries{Avec vérification.}}~\newline
+. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90}{S\+G\+O\+\_\+demander\+Quel\+Pion\+Jouer}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$stack\+Array, int $\ast$num\+Stack, int $\ast$num\+Pion)
-\item 
-void \mbox{\hyperlink{demande_8c_aaf92b94f2f2e7ae232c57e8a44f77674}{S\+G\+O\+\_\+demander\+Quelle\+Case\+Jouer\+Pion}} (char $\ast$$\ast$$\ast$map3D, int $\ast$num\+Pion, int $\ast$end\+Piont)
+\begin{DoxyCompactList}\small\item\em Fonction qui demande le pion que veut jouer le joueur dans sa pile. {\bfseries{Avec vérification.}}~\newline
+. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{demande_8c_a45ec250b247fc0ba12305f49be037069}\label{demande_8c_a45ec250b247fc0ba12305f49be037069}} 
+void {\bfseries S\+G\+O\+\_\+demander\+Quelle\+Case\+Jouer\+Pion} (char $\ast$$\ast$$\ast$map3D, int $\ast$num\+Pion, int $\ast$end\+Pion)
 \item 
 int \mbox{\hyperlink{demande_8c_a777a6d914d321aaada9fd7a184a415d4}{S\+F\+\_\+demande\+Deplacement}} ()
+\begin{DoxyCompactList}\small\item\em Fonction qui demande l\textquotesingle{}option du mode de jeu. Les déplacements sont restriens de 1 ou pas. {\bfseries{Avec vérification.}}~\newline
+. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f}{S\+G\+O\+\_\+verif\+Et\+Deplacement\+Case\+Avec\+Limite}} (char $\ast$$\ast$$\ast$map3D, char c, int $\ast$deb\+Pion, int $\ast$end\+Pion)
+\begin{DoxyCompactList}\small\item\em Fonction qui demande au joueur le pion qu\textquotesingle{}il veut deplacer et verifie si il existe et qu\textquotesingle{}il peut le deplacer (avec deplacement restreint de 1). Et son emplacement d\textquotesingle{}arriver (si il existe et il peut le mettre). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{demande_8c_afdfa3c6dec19e486beeb3a439af3b31d}\label{demande_8c_afdfa3c6dec19e486beeb3a439af3b31d}} 
+void {\bfseries S\+G\+O\+\_\+verif\+Et\+Deplacement\+Case\+Sans\+Limite} (char $\ast$$\ast$$\ast$map3D, char c, int $\ast$deb\+Pion, int $\ast$end\+Pion)
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
+\doxysubsection{Description détaillée}
+Fichier contenant les codes des fonctions où l\textquotesingle{}on demande à l\textquotesingle{}utilisateurs ces choix d\textquotesingle{}action au clavier. Avec vérification.~\newline
+. 
+
+S\+GO \+: sous game option car appelé dans game option. Elles sont appelées lors du lancement du jeu en console.
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
 \mbox{\Hypertarget{demande_8c_a777a6d914d321aaada9fd7a184a415d4}\label{demande_8c_a777a6d914d321aaada9fd7a184a415d4}} 
 \index{demande.c@{demande.c}!SF\_demandeDeplacement@{SF\_demandeDeplacement}}
 \index{SF\_demandeDeplacement@{SF\_demandeDeplacement}!demande.c@{demande.c}}
 \doxysubsubsection{\texorpdfstring{SF\_demandeDeplacement()}{SF\_demandeDeplacement()}}
 {\footnotesize\ttfamily int S\+F\+\_\+demande\+Deplacement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Fonction qui demande l\textquotesingle{}option du mode de jeu. Les déplacements sont restriens de 1 ou pas. {\bfseries{Avec vérification.}}~\newline
+. 
+
+Vérification \+: option valide, 1 ou 0.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: Pas de paramètre.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Return 0 si déplacement non restreint sinon 1 (restreint de connexité 1).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -32,7 +79,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=336pt]{demande_8c_a777a6d914d321aaada9fd7a184a415d4_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -46,7 +93,31 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{SGO\_demandePileEtDeplacement()}{SGO\_demandePileEtDeplacement()}}
 {\footnotesize\ttfamily void S\+G\+O\+\_\+demande\+Pile\+Et\+Deplacement (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int $\ast$}]{answer }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Fonction qui demande l\textquotesingle{}action que veut effectuer le joueur. Soit jouer un nouveau pion ou deplacer un ancien pion.~\newline
+. 
+
+Vérification \+: option valide (saisie 1 ou 2, {\bfseries{ne vérifie pas si on peut faire cette action}}).
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ answer \+: contient la réponse de l\textquotesingle{}utilisateur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction car réponse enregistré dans {\bfseries{answer}}.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -54,7 +125,7 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{demande_8c_a44a860f65d52c1a3b80ec05313023336_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -62,48 +133,45 @@ Here is the caller graph for this function\+:
 \includegraphics[width=350pt]{demande_8c_a44a860f65d52c1a3b80ec05313023336_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{demande_8c_aeeaa48b67745b15469442d257ed7a1cf}\label{demande_8c_aeeaa48b67745b15469442d257ed7a1cf}} 
-\index{demande.c@{demande.c}!SGO\_demandeQuelPiontDeplacer@{SGO\_demandeQuelPiontDeplacer}}
-\index{SGO\_demandeQuelPiontDeplacer@{SGO\_demandeQuelPiontDeplacer}!demande.c@{demande.c}}
-\doxysubsubsection{\texorpdfstring{SGO\_demandeQuelPiontDeplacer()}{SGO\_demandeQuelPiontDeplacer()}}
-{\footnotesize\ttfamily void S\+G\+O\+\_\+demande\+Quel\+Piont\+Deplacer (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int $\ast$}]{deb\+Piont }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{demande_8c_aa510dfb386d4794394ced9e84f3a8a83}\label{demande_8c_aa510dfb386d4794394ced9e84f3a8a83}} 
+\index{demande.c@{demande.c}!SGO\_demandeQuelPionDeplacer@{SGO\_demandeQuelPionDeplacer}}
+\index{SGO\_demandeQuelPionDeplacer@{SGO\_demandeQuelPionDeplacer}!demande.c@{demande.c}}
+\doxysubsubsection{\texorpdfstring{SGO\_demandeQuelPionDeplacer()}{SGO\_demandeQuelPionDeplacer()}}
+{\footnotesize\ttfamily void S\+G\+O\+\_\+demande\+Quel\+Pion\+Deplacer (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int $\ast$}]{deb\+Pion }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{demande_8c_aeeaa48b67745b15469442d257ed7a1cf_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{demande_8c_aeeaa48b67745b15469442d257ed7a1cf_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{demande_8c_aaf92b94f2f2e7ae232c57e8a44f77674}\label{demande_8c_aaf92b94f2f2e7ae232c57e8a44f77674}} 
-\index{demande.c@{demande.c}!SGO\_demanderQuelleCaseJouerPion@{SGO\_demanderQuelleCaseJouerPion}}
-\index{SGO\_demanderQuelleCaseJouerPion@{SGO\_demanderQuelleCaseJouerPion}!demande.c@{demande.c}}
-\doxysubsubsection{\texorpdfstring{SGO\_demanderQuelleCaseJouerPion()}{SGO\_demanderQuelleCaseJouerPion()}}
-{\footnotesize\ttfamily void S\+G\+O\+\_\+demander\+Quelle\+Case\+Jouer\+Pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int $\ast$}]{num\+Pion,  }\item[{int $\ast$}]{end\+Piont }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+Fonction qui demande le pion que veut deplacer le joueur. {\bfseries{Sans vérification.}} 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ deb\+Pion \+: contient la réponse de l\textquotesingle{}utilisateur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction car réponse enregistré dans {\bfseries{deb\+Pion}}.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{demande_8c_aaf92b94f2f2e7ae232c57e8a44f77674_cgraph}
+\includegraphics[width=350pt]{demande_8c_aa510dfb386d4794394ced9e84f3a8a83_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{demande_8c_aaf92b94f2f2e7ae232c57e8a44f77674_icgraph}
+\includegraphics[width=350pt]{demande_8c_aa510dfb386d4794394ced9e84f3a8a83_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{demande_8c_a5640432ec67cad60ba21586b562d0a51}\label{demande_8c_a5640432ec67cad60ba21586b562d0a51}} 
@@ -112,20 +180,38 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{SGO\_demanderQuellePileJouer()}{SGO\_demanderQuellePileJouer()}}
 {\footnotesize\ttfamily void S\+G\+O\+\_\+demander\+Quelle\+Pile\+Jouer (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{stack\+Array,  }\item[{int $\ast$}]{num\+Stack }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Fonction qui demande le pion que veut deplacer le joueur. {\bfseries{Avec vérification.}}~\newline
+. 
+
+Vérification \+: indice invalide, la pile demandé ne contient aucun pion, on ne peut pas jouer de pion de cette pile sur le plateau
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: contient les piles du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ num\+Stack \+: contient la réponse de l\textquotesingle{}utilisateur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction car réponse enregistré dans {\bfseries{num\+Stack}}.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{demande_8c_a5640432ec67cad60ba21586b562d0a51_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{demande_8c_a5640432ec67cad60ba21586b562d0a51_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90}\label{demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90}} 
@@ -134,7 +220,33 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{SGO\_demanderQuelPionJouer()}{SGO\_demanderQuelPionJouer()}}
 {\footnotesize\ttfamily void S\+G\+O\+\_\+demander\+Quel\+Pion\+Jouer (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{stack\+Array,  }\item[{int $\ast$}]{num\+Stack,  }\item[{int $\ast$}]{num\+Pion }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
+
+
+Fonction qui demande le pion que veut jouer le joueur dans sa pile. {\bfseries{Avec vérification.}}~\newline
+. 
+
+Vérification \+: indice invalide, le pion existe et on peut le déplacer.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: contient les piles du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ num\+Stack \+: contient le numéro de pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ num\+Pion \+: contient la réponse de l\textquotesingle{}utilisateur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction car réponse enregistré dans {\bfseries{num\+Pion}}.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -142,11 +254,40 @@ Here is the call graph for this function\+:
 \includegraphics[width=350pt]{demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
+\mbox{\Hypertarget{demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f}\label{demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f}} 
+\index{demande.c@{demande.c}!SGO\_verifEtDeplacementCaseAvecLimite@{SGO\_verifEtDeplacementCaseAvecLimite}}
+\index{SGO\_verifEtDeplacementCaseAvecLimite@{SGO\_verifEtDeplacementCaseAvecLimite}!demande.c@{demande.c}}
+\doxysubsubsection{\texorpdfstring{SGO\_verifEtDeplacementCaseAvecLimite()}{SGO\_verifEtDeplacementCaseAvecLimite()}}
+{\footnotesize\ttfamily void S\+G\+O\+\_\+verif\+Et\+Deplacement\+Case\+Avec\+Limite (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char}]{c,  }\item[{int $\ast$}]{deb\+Pion,  }\item[{int $\ast$}]{end\+Pion }\end{DoxyParamCaption})}
+
+
+
+Fonction qui demande au joueur le pion qu\textquotesingle{}il veut deplacer et verifie si il existe et qu\textquotesingle{}il peut le deplacer (avec deplacement restreint de 1). Et son emplacement d\textquotesingle{}arriver (si il existe et il peut le mettre). 
+
+Fonction qui demande au joueur le pion qu\textquotesingle{}il veut deplacer et verifie si il existe et qu\textquotesingle{}il peut le deplacer (sans restriction de déplacement). Et son emplacement d\textquotesingle{}arriver (si il existe et il peut le mettre).
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ deb\+Pion \+: contient la réponse de l\textquotesingle{}utilisateur pour le pion de départ. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ end\+Pion \+: contient la réponse de l\textquotesingle{}utilisateur pour le pion d\textquotesingle{}arriver.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Return 0 si déplacement non restreint sinon 1 (restreint de connexité 1).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_icgraph}
+\includegraphics[width=350pt]{demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f_cgraph}
 \end{center}
 \end{figure}

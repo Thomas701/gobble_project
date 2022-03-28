@@ -1,126 +1,102 @@
-\hypertarget{init_8h}{}\doxysection{headers/init.h File Reference}
+\hypertarget{init_8h}{}\doxysection{Référence du fichier headers/init.h}
 \label{init_8h}\index{headers/init.h@{headers/init.h}}
-\doxysubsection*{Functions}
+
+
+Fichier contenant les headers des fonctions permettant l\textquotesingle{}initialisation de nos structures de données commes les piles, plateaux, tableaux, textures.  
+
+
+\doxysubsection*{Fonctions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{init_8h_ae453f1d59909147e6dc030acd96d355e}{init\+Map}} (char $\ast$$\ast$$\ast$map)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (\textquotesingle{}0\textquotesingle{}). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952}{init\+Map2D}} (char $\ast$$\ast$map2D, char $\ast$$\ast$$\ast$map3D)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D.~\newline
+. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{init_8h_a80997a18a545555f09a485ad12d3ec76}{init\+Pile}} (char $\ast$$\ast$pile, char c)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n). \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{init_8h_a8f0b2e072f0de59baa36e4b77e15e0f3}{load\+Texture\+Option\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu)
+\begin{DoxyCompactList}\small\item\em Fonction qui charge les images des options menu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{init_8h_ac0e5ba316b9b150fa998cc4075ae5672}{initialise\+Debut\+Programme}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$texture\+Background, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Surface $\ast$$\ast$icones, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Pion, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point, S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise toutes la partie S\+DL images + audio. Et qui initialise les tableaux de texture (pions, maps) et le tableau de point et de case. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{init_8h_a34fa94001e97c9d21c12159b7d1fc405}{load\+Texture\+Tableau\+Map}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide)
 \item 
-int \mbox{\hyperlink{init_8h_a38c65e48c05e5d9e30fb538364775561}{initialise\+Debut\+Programme}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$texture\+Background, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Surface $\ast$$\ast$icones, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point, S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
-\item 
-int \mbox{\hyperlink{init_8h_a9b043e37d70fb76bac0a10f7c0680b82}{init\+S\+DL}} ()
-\item 
-int \mbox{\hyperlink{init_8h_a8fccbfa18a27788427166d9b14aa57f5}{init\+Windows}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window)
-\item 
-int \mbox{\hyperlink{init_8h_ac3c87711bb6c7452269c686327781f36}{init\+Renderer}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer)
-\item 
-int \mbox{\hyperlink{init_8h_a698f3bc5978c567f4a531dfb498688cf}{init\+Icon}} (S\+D\+L\+\_\+\+Window $\ast$$\ast$window, S\+D\+L\+\_\+\+Surface $\ast$$\ast$icones)
-\item 
-int \mbox{\hyperlink{init_8h_a50e4145bfe6b088f7b57462e1a14b8c2}{init\+Sound}} ()
-\item 
-int \mbox{\hyperlink{init_8h_a49985b2f3fd155a291e268326a92d1e1}{init\+Backgroung}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$texture\+Background)
-\item 
-int \mbox{\hyperlink{init_8h_a40c4fce187974ed233b4981877ec62a7}{init\+Texture\+Map\+Vide}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide)
-\item 
-int \mbox{\hyperlink{init_8h_aa8806bc2cac5f7c2f85c7746aeea5b66}{init\+Texture\+Option\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptexture\+Tableau\+Option\+Menu)
-\item 
-int \mbox{\hyperlink{init_8h_a27539c834eae6ab68c1da20d4baab913}{init\+Texture\+Pion}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont)
-\item 
-int \mbox{\hyperlink{init_8h_a719ba556aee1ca7bf32b5896fbc79dcd}{init\+Tableau\+De\+Point}} (\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point)
-\item 
-int \mbox{\hyperlink{init_8h_aa8d7a3f02d03919139c3b8ea2f77c738}{init\+Case}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
-\item 
-int \mbox{\hyperlink{init_8h_a88d20d3730311b467d854b9fcec7764f}{init\+Texture\+Win}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win)
-\item 
-int \mbox{\hyperlink{init_8h_a553f198f00f43be698718fd5b15d508b}{load\+Piont}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Piont)
+int \mbox{\hyperlink{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6}{load\+Pion}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Pion)
 \item 
 int \mbox{\hyperlink{init_8h_a378c028b0ddd060dd4643e04d3a1bafa}{load\+Background\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Back)
 \item 
 int \mbox{\hyperlink{init_8h_af3b494e08e48520f09b6b419652aa0ea}{load\+Texture\+Win}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$p\+Texture\+Tableau\+Win)
-\item 
-int \mbox{\hyperlink{init_8h_a34fa94001e97c9d21c12159b7d1fc405}{load\+Texture\+Tableau\+Map}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$ptableau\+Texture\+Map\+Vide)
-\item 
+\begin{DoxyCompactList}\small\item\em Fonction qui charge les images des lignes coloré (en cas de victoire ou égalité). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{init_8h_a2e2316cf6caa1e5d59c26dda378a6b95}{load\+And\+Play\+Main\+Music}} (Mix\+\_\+\+Music $\ast$$\ast$main\+Music)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction qui charge et joue la musique principale. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_afe5f6e3ea4af8ec2a19d93ad95d8bf27}{init\+Tableau\+Case}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case)
+\begin{DoxyCompactList}\small\item\em Fonction qui initialise (attention ne créée pas) toutes les cases/surfaces en 3$\ast$3. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{init_8h_a49985b2f3fd155a291e268326a92d1e1}\label{init_8h_a49985b2f3fd155a291e268326a92d1e1}} 
-\index{init.h@{init.h}!initBackgroung@{initBackgroung}}
-\index{initBackgroung@{initBackgroung}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initBackgroung()}{initBackgroung()}}
-{\footnotesize\ttfamily int init\+Backgroung (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{texture\+Background }\end{DoxyParamCaption})}
+\doxysubsection{Description détaillée}
+Fichier contenant les headers des fonctions permettant l\textquotesingle{}initialisation de nos structures de données commes les piles, plateaux, tableaux, textures. 
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a49985b2f3fd155a291e268326a92d1e1_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a49985b2f3fd155a291e268326a92d1e1_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_aa8d7a3f02d03919139c3b8ea2f77c738}\label{init_8h_aa8d7a3f02d03919139c3b8ea2f77c738}} 
-\index{init.h@{init.h}!initCase@{initCase}}
-\index{initCase@{initCase}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initCase()}{initCase()}}
-{\footnotesize\ttfamily int init\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_aa8d7a3f02d03919139c3b8ea2f77c738_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_aa8d7a3f02d03919139c3b8ea2f77c738_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a38c65e48c05e5d9e30fb538364775561}\label{init_8h_a38c65e48c05e5d9e30fb538364775561}} 
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{init_8h_ac0e5ba316b9b150fa998cc4075ae5672}\label{init_8h_ac0e5ba316b9b150fa998cc4075ae5672}} 
 \index{init.h@{init.h}!initialiseDebutProgramme@{initialiseDebutProgramme}}
 \index{initialiseDebutProgramme@{initialiseDebutProgramme}!init.h@{init.h}}
 \doxysubsubsection{\texorpdfstring{initialiseDebutProgramme()}{initialiseDebutProgramme()}}
-{\footnotesize\ttfamily int initialise\+Debut\+Programme (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{texture\+Background,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{icones,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int initialise\+Debut\+Programme (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{texture\+Background,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{icones,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Pion,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Fonction qui initialise toutes la partie S\+DL images + audio. Et qui initialise les tableaux de texture (pions, maps) et le tableau de point et de case. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Window} & $\ast$$\ast$ window \+: fenêtre principale de notre jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ texture\+Background \+: contient les images d\textquotesingle{}animations du menu (celle des 400 images). \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ ptableau\+Texture\+Map\+Vide \+: contient les images des maps vide (vert / bleu / rouge). \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Surface} & $\ast$$\ast$ icones \+: contient l\textquotesingle{}image de l\textquotesingle{}icone du programme. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ ptexture\+Tableau\+Option\+Menu \+: contient les textures des options du menu principale . \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Pion \+: contient les textures des pions normals et sélectionnés. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Win \+: contient les textures des map où les lignes sont colorés (en cas de victoire où égalité). \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$$\ast$ p\+Tableau\+De\+Point \+: contient les points des cases du plateau et piles. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$$\ast$ p\+Tableau\+Case \+: contient les surfaces des cases du plateau et piles.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne 0 si bien passé, sinon -\/1. La gestion pour quitter le programme ne se fait pas ici car il faut libérer proprement la mémoire.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{init_8h_a38c65e48c05e5d9e30fb538364775561_cgraph}
+\includegraphics[width=350pt]{init_8h_ac0e5ba316b9b150fa998cc4075ae5672_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{init_8h_a38c65e48c05e5d9e30fb538364775561_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a698f3bc5978c567f4a531dfb498688cf}\label{init_8h_a698f3bc5978c567f4a531dfb498688cf}} 
-\index{init.h@{init.h}!initIcon@{initIcon}}
-\index{initIcon@{initIcon}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initIcon()}{initIcon()}}
-{\footnotesize\ttfamily int init\+Icon (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Surface $\ast$$\ast$}]{icones }\end{DoxyParamCaption})}
-
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a698f3bc5978c567f4a531dfb498688cf_icgraph}
+\includegraphics[width=302pt]{init_8h_ac0e5ba316b9b150fa998cc4075ae5672_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{init_8h_ae453f1d59909147e6dc030acd96d355e}\label{init_8h_ae453f1d59909147e6dc030acd96d355e}} 
@@ -129,12 +105,27 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{initMap()}{initMap()}}
 {\footnotesize\ttfamily void init\+Map (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+
+
+Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (\textquotesingle{}0\textquotesingle{}). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: Contient le plateau de jeu que l\textquotesingle{}on va modifier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=329pt]{init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph}
+\includegraphics[width=350pt]{init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952}\label{init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952}} 
@@ -143,7 +134,27 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{initMap2D()}{initMap2D()}}
 {\footnotesize\ttfamily void init\+Map2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+
+
+Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D.~\newline
+. 
+
+Elle effectue un premier parcours pour mettre toutes les cases à \textquotesingle{}0\textquotesingle{} puis parcours la map3D et si pion rencontré, elle l\textquotesingle{}écrit dans la map 2D.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: Contient le plateau de jeu non detaillé ou l\textquotesingle{}on va mettre les valeurs de map3D. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: Contient le plateau de jeu detaillé que l\textquotesingle{}on va copier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -157,164 +168,58 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{initPile()}{initPile()}}
 {\footnotesize\ttfamily void init\+Pile (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{pile,  }\item[{char}]{c }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+
+
+Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: contient les piles du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=326pt]{init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph}
+\includegraphics[width=350pt]{init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{init_8h_ac3c87711bb6c7452269c686327781f36}\label{init_8h_ac3c87711bb6c7452269c686327781f36}} 
-\index{init.h@{init.h}!initRenderer@{initRenderer}}
-\index{initRenderer@{initRenderer}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initRenderer()}{initRenderer()}}
-{\footnotesize\ttfamily int init\+Renderer (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{init_8h_afe5f6e3ea4af8ec2a19d93ad95d8bf27}\label{init_8h_afe5f6e3ea4af8ec2a19d93ad95d8bf27}} 
+\index{init.h@{init.h}!initTableauCase@{initTableauCase}}
+\index{initTableauCase@{initTableauCase}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{initTableauCase()}{initTableauCase()}}
+{\footnotesize\ttfamily void init\+Tableau\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_ac3c87711bb6c7452269c686327781f36_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a9b043e37d70fb76bac0a10f7c0680b82}\label{init_8h_a9b043e37d70fb76bac0a10f7c0680b82}} 
-\index{init.h@{init.h}!initSDL@{initSDL}}
-\index{initSDL@{initSDL}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initSDL()}{initSDL()}}
-{\footnotesize\ttfamily int init\+S\+DL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a9b043e37d70fb76bac0a10f7c0680b82_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a50e4145bfe6b088f7b57462e1a14b8c2}\label{init_8h_a50e4145bfe6b088f7b57462e1a14b8c2}} 
-\index{init.h@{init.h}!initSound@{initSound}}
-\index{initSound@{initSound}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initSound()}{initSound()}}
-{\footnotesize\ttfamily int init\+Sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a50e4145bfe6b088f7b57462e1a14b8c2_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a719ba556aee1ca7bf32b5896fbc79dcd}\label{init_8h_a719ba556aee1ca7bf32b5896fbc79dcd}} 
-\index{init.h@{init.h}!initTableauDePoint@{initTableauDePoint}}
-\index{initTableauDePoint@{initTableauDePoint}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initTableauDePoint()}{initTableauDePoint()}}
-{\footnotesize\ttfamily int init\+Tableau\+De\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point }\end{DoxyParamCaption})}
+Fonction qui initialise (attention ne créée pas) toutes les cases/surfaces en 3$\ast$3. 
 
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=296pt]{init_8h_a719ba556aee1ca7bf32b5896fbc79dcd_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a719ba556aee1ca7bf32b5896fbc79dcd_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a40c4fce187974ed233b4981877ec62a7}\label{init_8h_a40c4fce187974ed233b4981877ec62a7}} 
-\index{init.h@{init.h}!initTextureMapVide@{initTextureMapVide}}
-\index{initTextureMapVide@{initTextureMapVide}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initTextureMapVide()}{initTextureMapVide()}}
-{\footnotesize\ttfamily int init\+Texture\+Map\+Vide (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: contient les surfaces (x/y et weidth/height) des cases du plateau et des piles en 3$\ast$3.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de type de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{init_8h_a40c4fce187974ed233b4981877ec62a7_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a40c4fce187974ed233b4981877ec62a7_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_aa8806bc2cac5f7c2f85c7746aeea5b66}\label{init_8h_aa8806bc2cac5f7c2f85c7746aeea5b66}} 
-\index{init.h@{init.h}!initTextureOptionMenu@{initTextureOptionMenu}}
-\index{initTextureOptionMenu@{initTextureOptionMenu}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initTextureOptionMenu()}{initTextureOptionMenu()}}
-{\footnotesize\ttfamily int init\+Texture\+Option\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu }\end{DoxyParamCaption})}
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_aa8806bc2cac5f7c2f85c7746aeea5b66_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_aa8806bc2cac5f7c2f85c7746aeea5b66_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a27539c834eae6ab68c1da20d4baab913}\label{init_8h_a27539c834eae6ab68c1da20d4baab913}} 
-\index{init.h@{init.h}!initTexturePion@{initTexturePion}}
-\index{initTexturePion@{initTexturePion}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initTexturePion()}{initTexturePion()}}
-{\footnotesize\ttfamily int init\+Texture\+Pion (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont }\end{DoxyParamCaption})}
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a27539c834eae6ab68c1da20d4baab913_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a27539c834eae6ab68c1da20d4baab913_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a88d20d3730311b467d854b9fcec7764f}\label{init_8h_a88d20d3730311b467d854b9fcec7764f}} 
-\index{init.h@{init.h}!initTextureWin@{initTextureWin}}
-\index{initTextureWin@{initTextureWin}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initTextureWin()}{initTextureWin()}}
-{\footnotesize\ttfamily int init\+Texture\+Win (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win }\end{DoxyParamCaption})}
-
-Here is the call graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a88d20d3730311b467d854b9fcec7764f_cgraph}
-\end{center}
-\end{figure}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a88d20d3730311b467d854b9fcec7764f_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{init_8h_a8fccbfa18a27788427166d9b14aa57f5}\label{init_8h_a8fccbfa18a27788427166d9b14aa57f5}} 
-\index{init.h@{init.h}!initWindows@{initWindows}}
-\index{initWindows@{initWindows}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{initWindows()}{initWindows()}}
-{\footnotesize\ttfamily int init\+Windows (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Window $\ast$$\ast$}]{window }\end{DoxyParamCaption})}
-
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{init_8h_a8fccbfa18a27788427166d9b14aa57f5_icgraph}
+\includegraphics[width=273pt]{init_8h_afe5f6e3ea4af8ec2a19d93ad95d8bf27_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{init_8h_a2e2316cf6caa1e5d59c26dda378a6b95}\label{init_8h_a2e2316cf6caa1e5d59c26dda378a6b95}} 
@@ -323,7 +228,22 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{loadAndPlayMainMusic()}{loadAndPlayMainMusic()}}
 {\footnotesize\ttfamily void load\+And\+Play\+Main\+Music (\begin{DoxyParamCaption}\item[{Mix\+\_\+\+Music $\ast$$\ast$}]{main\+Music }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
+
+
+Fonction qui charge et joue la musique principale. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em Mix\+\_\+\+Music} & $\ast$$\ast$ main\+Music \+: contient la musique principale du jeu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de type de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -337,38 +257,72 @@ Here is the caller graph for this function\+:
 \doxysubsubsection{\texorpdfstring{loadBackgroundMenu()}{loadBackgroundMenu()}}
 {\footnotesize\ttfamily int load\+Background\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Back }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+\textbackslash{}bref Fonction qui charge les 400 images de l\textquotesingle{}animation du menu.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Back \+: pointeur sur tableau qui va contenir les 400 images de l\textquotesingle{}animation du menu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=306pt]{init_8h_a378c028b0ddd060dd4643e04d3a1bafa_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{init_8h_a378c028b0ddd060dd4643e04d3a1bafa_icgraph}
 \end{center}
 \end{figure}
-\mbox{\Hypertarget{init_8h_a553f198f00f43be698718fd5b15d508b}\label{init_8h_a553f198f00f43be698718fd5b15d508b}} 
-\index{init.h@{init.h}!loadPiont@{loadPiont}}
-\index{loadPiont@{loadPiont}!init.h@{init.h}}
-\doxysubsubsection{\texorpdfstring{loadPiont()}{loadPiont()}}
-{\footnotesize\ttfamily int load\+Piont (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Piont }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6}\label{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6}} 
+\index{init.h@{init.h}!loadPion@{loadPion}}
+\index{loadPion@{loadPion}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{loadPion()}{loadPion()}}
+{\footnotesize\ttfamily int load\+Pion (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Pion }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+\textbackslash{}bref Fonction qui charge les images des pions normals et sélectionnés.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Pion \+: pointeur sur tableau qui va contenir les images des pions normals et sélectionnés.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=246pt]{init_8h_a553f198f00f43be698718fd5b15d508b_cgraph}
+\includegraphics[width=243pt]{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{init_8h_a553f198f00f43be698718fd5b15d508b_icgraph}
+\includegraphics[width=350pt]{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{init_8h_a8f0b2e072f0de59baa36e4b77e15e0f3}\label{init_8h_a8f0b2e072f0de59baa36e4b77e15e0f3}} 
@@ -377,14 +331,33 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{loadTextureOptionMenu()}{loadTextureOptionMenu()}}
 {\footnotesize\ttfamily int load\+Texture\+Option\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptexture\+Tableau\+Option\+Menu }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Fonction qui charge les images des options menu. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ ptexture\+Tableau\+Option\+Menu \+: pointeur sur tableau qui va contenir les images des options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=317pt]{init_8h_a8f0b2e072f0de59baa36e4b77e15e0f3_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -397,14 +370,31 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{loadTextureTableauMap()}{loadTextureTableauMap()}}
 {\footnotesize\ttfamily int load\+Texture\+Tableau\+Map (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{ptableau\+Texture\+Map\+Vide }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+\textbackslash{}bref Fonction qui charge les images des map vides (vert/rouge/bleu).
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ ptableau\+Texture\+Map\+Vide \+: pointeur sur tableau qui va contenir les images des map vides (vert/rouge/bleu).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=316pt]{init_8h_a34fa94001e97c9d21c12159b7d1fc405_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -417,14 +407,33 @@ Here is the caller graph for this function\+:\nopagebreak
 \doxysubsubsection{\texorpdfstring{loadTextureWin()}{loadTextureWin()}}
 {\footnotesize\ttfamily int load\+Texture\+Win (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$$\ast$}]{p\+Texture\+Tableau\+Win }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+
+
+Fonction qui charge les images des lignes coloré (en cas de victoire ou égalité). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Win \+: pointeur sur tableau qui va contenir les images des lignes coloré (en cas de victoire ou égalité).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=276pt]{init_8h_af3b494e08e48520f09b6b419652aa0ea_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

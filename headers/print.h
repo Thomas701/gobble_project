@@ -1,12 +1,51 @@
+/**
+ * \file print.h
+ * 
+ * \brief Fichier contenant les headers des fonctions permettant d'afficher dans le terminal le plateau et les piles.
+ * 
+ * \author VILLEPREUX Thibault
+ */
+
 #ifndef PRINT_H_
 #define PRINT_H_
 
-/*Fonctions print pour afficher les maps & piles :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/**
+ * \fn void printMap3dDebug(char *** map)
+ * 
+ * \brief Fonction qui affiche dans le terminal le plateau de jeu détaillé.
+ * 
+ * \param[in] char *** map : plateau de jeu détaillé à afficher.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author VILLEPREUX Thibault
+ */
+void printMap3dDebug(char *** map);
 
-void printMap3dDebug(char *** map); // affiche la map 3D
-void printMap2D(char ** map2D); // affiche la map 2D
-void printStacks(char ** stacksArray); // affiche les piles
-int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer); // affiche la map vide
+/**
+ * \fn void printMap2D(char ** map2D)
+ * 
+ * \brief Fonction qui affiche dans le terminal le plateau de jeu non détaillé.
+ * 
+ * \param[in] char ** map2D : plateau de jeu non détaillé à afficher.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author VILLEPREUX Thibault
+ */
+void printMap2D(char ** map2D);
+
+/**
+ * \fn void printStacks(char ** stacksArray)
+ * 
+ * \brief Fonction qui affiche dans le terminal les piles du joueur.
+ * 
+ * \param[in] char ** map2D : piles du joueur à afficher.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author VILLEPREUX Thibault
+ */
+void printStacks(char ** stacksArray);
 
 #endif

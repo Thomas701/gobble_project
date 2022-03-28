@@ -1,0 +1,4 @@
+<map id="moove" name="moove">
+<area shape="rect" id="node1" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node2" href="$verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="120,5,209,32"/>
+</map>

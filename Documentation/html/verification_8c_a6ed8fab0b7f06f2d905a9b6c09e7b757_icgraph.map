@@ -1,0 +1,4 @@
+<map id="existPionInStack" name="existPionInStack">
+<area shape="rect" id="node1" title="Fonction qui regarde si il existe un pion d&#39;une certaine taille sur la pile d&#39;un joueur." alt="" coords="268,5,399,32"/>
+<area shape="rect" id="node2" href="$demande_8c.html#a695efdbb9b1d84b147ab28b2c50bfc90" title="Fonction qui demande le pion que veut jouer le joueur dans sa pile. Avec vérification...." alt="" coords="5,5,220,32"/>
+</map>

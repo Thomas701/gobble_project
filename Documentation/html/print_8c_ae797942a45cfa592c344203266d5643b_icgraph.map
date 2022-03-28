@@ -1,0 +1,4 @@
+<map id="printStacks" name="printStacks">
+<area shape="rect" id="node1" title="Fonction qui affiche dans le terminal les piles du joueur." alt="" coords="276,5,371,32"/>
+<area shape="rect" id="node2" href="$demande_8c.html#a5640432ec67cad60ba21586b562d0a51" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="5,5,228,32"/>
+</map>

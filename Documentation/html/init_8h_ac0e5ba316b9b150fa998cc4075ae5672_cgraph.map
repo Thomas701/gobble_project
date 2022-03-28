@@ -1,0 +1,11 @@
+<map id="initialiseDebutProgramme" name="initialiseDebutProgramme">
+<area shape="rect" id="node1" title="Fonction qui initialise toutes la partie SDL images + audio. Et qui initialise les tableaux de textur..." alt="" coords="5,157,199,184"/>
+<area shape="rect" id="node2" href="$creation_8h.html#a87abc94f181625506129b8ef818a4e07" title="Permet de créer dynamiquement le tableau de case pour l&#39;interface graphique. &#160;." alt="" coords="288,5,383,32"/>
+<area shape="rect" id="node3" href="$creation_8h.html#a5a0290e0b47cef7c164116f8532a881b" title="Permet de créer dynamiquement le tableau de point pour l&#39;interface graphique. &#160;." alt="" coords="287,56,383,83"/>
+<area shape="rect" id="node4" href="$init_8c.html#a378c028b0ddd060dd4643e04d3a1bafa" title=" " alt="" coords="254,107,417,133"/>
+<area shape="rect" id="node6" href="$init_8c.html#ae50fd7713aca8e86439c8a2aadbab5d6" title=" " alt="" coords="296,157,375,184"/>
+<area shape="rect" id="node7" href="$init_8c.html#a8f0b2e072f0de59baa36e4b77e15e0f3" title="Fonction qui charge les images des options menu." alt="" coords="247,208,424,235"/>
+<area shape="rect" id="node8" href="$init_8c.html#a34fa94001e97c9d21c12159b7d1fc405" title=" " alt="" coords="247,259,423,285"/>
+<area shape="rect" id="node9" href="$init_8c.html#af3b494e08e48520f09b6b419652aa0ea" title="Fonction qui charge les images des lignes coloré (en cas de victoire ou égalité)." alt="" coords="274,309,397,336"/>
+<area shape="rect" id="node5" href="$graphique_8h.html#a425d4d813f3802ec428153b07f0d4e04" title="Fonction qui va permmetre de transformer une image (n&#39;importe quel format valide) en texture." alt="" coords="472,208,563,235"/>
+</map>

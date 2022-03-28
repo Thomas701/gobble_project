@@ -1,0 +1,5 @@
+<map id="initPile" name="initPile">
+<area shape="rect" id="node1" title="Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n)." alt="" coords="300,5,367,32"/>
+<area shape="rect" id="node2" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>

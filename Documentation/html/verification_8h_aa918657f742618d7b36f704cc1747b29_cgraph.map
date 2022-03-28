@@ -1,0 +1,8 @@
+<map id="canPlay" name="canPlay">
+<area shape="rect" id="node1" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="5,81,79,108"/>
+<area shape="rect" id="node2" href="$verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="129,5,219,32"/>
+<area shape="rect" id="node3" href="$verification_8c.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="127,56,221,83"/>
+<area shape="rect" id="node4" href="$get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="135,107,213,133"/>
+<area shape="rect" id="node6" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="129,157,219,184"/>
+<area shape="rect" id="node5" href="$verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="269,107,380,133"/>
+</map>

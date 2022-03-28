@@ -1,0 +1,4 @@
+<map id="createMap2D" name="createMap2D">
+<area shape="rect" id="node1" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="5,5,115,32"/>
+<area shape="rect" id="node2" href="$error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="163,5,289,32"/>
+</map>

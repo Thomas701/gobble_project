@@ -1,0 +1,4 @@
+<map id="createStack" name="createStack">
+<area shape="rect" id="node1" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node2" href="$error_8h.html#add54b3f9a5b45d93571c73272f821b86" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création d&#39;une pile)." alt="" coords="152,5,284,32"/>
+</map>

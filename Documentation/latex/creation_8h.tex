@@ -1,0 +1,249 @@
+\hypertarget{creation_8h}{}\doxysection{Référence du fichier headers/creation.h}
+\label{creation_8h}\index{headers/creation.h@{headers/creation.h}}
+
+
+Fichier contenant les headers des fonctions permettant la créations des piles, plateau, tableau de cases et de coordonées des cases.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Rect $\ast$$\ast$ \mbox{\hyperlink{creation_8h_ac38a0ffda9c09fcfc702edf74b0237dd}{malloc\+Tab}} ()
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement le tableau de case pour l\textquotesingle{}interface graphique. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{creation_8h_a3e7bd7161b38fea3af60f6f4ffa89486}{create\+Stack}} (char c)
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement les piles de départ d\textquotesingle{}un joueur avec le caractère c (initialisation + declaration). \end{DoxyCompactList}\item 
+char $\ast$$\ast$$\ast$ \mbox{\hyperlink{creation_8h_a56566517a2b19fa1c8871e21df713816}{create\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement {\bfseries{le plateau de jeu détaillé}}. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{creation_8h_a3340c609d18569433fce6b4b7bd176c8}{create\+Map2D}} ()
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement {\bfseries{le plateau de jeu non détaillé}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{creation_8h_a5a0290e0b47cef7c164116f8532a881b}{create\+Point}} (\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$p\+Tableau\+De\+Point)
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement le tableau de point pour l\textquotesingle{}interface graphique. ~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{creation_8h_a87abc94f181625506129b8ef818a4e07}{create\+Case}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$p\+Tableau\+Case)
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement le tableau de case pour l\textquotesingle{}interface graphique. ~\newline
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les headers des fonctions permettant la créations des piles, plateau, tableau de cases et de coordonées des cases. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{creation_8h_a87abc94f181625506129b8ef818a4e07}\label{creation_8h_a87abc94f181625506129b8ef818a4e07}} 
+\index{creation.h@{creation.h}!createCase@{createCase}}
+\index{createCase@{createCase}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{createCase()}{createCase()}}
+{\footnotesize\ttfamily int create\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$$\ast$}]{p\+Tableau\+Case }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement le tableau de case pour l\textquotesingle{}interface graphique. ~\newline
+. 
+
+Chaque case du tableau est un pointeur vers un case de la map.~\newline
+ 
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$$\ast$ p\+Tableau\+Case \+: Prend un pointeur vers un tableau de case car va modifier les coordonées de ce dernier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne entier pour savoir si tout c\textquotesingle{}est bien passé. -\/1 si erreur, 0 sinon
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{creation_8h_a87abc94f181625506129b8ef818a4e07_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{creation_8h_a56566517a2b19fa1c8871e21df713816}\label{creation_8h_a56566517a2b19fa1c8871e21df713816}} 
+\index{creation.h@{creation.h}!createMap@{createMap}}
+\index{createMap@{createMap}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{createMap()}{createMap()}}
+{\footnotesize\ttfamily char $\ast$$\ast$$\ast$ create\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement {\bfseries{le plateau de jeu détaillé}}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: Ne prend aucun paramètre.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char $\ast$$\ast$$\ast$ \+: Retourne un tableau 3D de char, chaque case sera un caractère du joueur. 
+
+N\+U\+LL \+: {\bfseries{Impossible}} car le programme se ferme avant (avec message d\textquotesingle{}erreur car indispensable pour jouer).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{creation_8h_a56566517a2b19fa1c8871e21df713816_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{creation_8h_a56566517a2b19fa1c8871e21df713816_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{creation_8h_a3340c609d18569433fce6b4b7bd176c8}\label{creation_8h_a3340c609d18569433fce6b4b7bd176c8}} 
+\index{creation.h@{creation.h}!createMap2D@{createMap2D}}
+\index{createMap2D@{createMap2D}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{createMap2D()}{createMap2D()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ create\+Map2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement {\bfseries{le plateau de jeu non détaillé}}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: Ne prend aucun paramètre.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char $\ast$$\ast$ \+: Retourne un tableau 2D de char, chaque case sera un caractère du joueur. 
+
+N\+U\+LL \+: {\bfseries{Impossible}} car le programme se ferme avant (avec message d\textquotesingle{}erreur car indispensable pour jouer).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{creation_8h_a3340c609d18569433fce6b4b7bd176c8_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{creation_8h_a3340c609d18569433fce6b4b7bd176c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{creation_8h_a5a0290e0b47cef7c164116f8532a881b}\label{creation_8h_a5a0290e0b47cef7c164116f8532a881b}} 
+\index{creation.h@{creation.h}!createPoint@{createPoint}}
+\index{createPoint@{createPoint}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{createPoint()}{createPoint()}}
+{\footnotesize\ttfamily int create\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$$\ast$}]{p\+Tableau\+De\+Point }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement le tableau de point pour l\textquotesingle{}interface graphique. ~\newline
+. 
+
+Chaque case est un pointeur vers un point. Une structure de données créer avant la connaissance de S\+D\+L\+\_\+\+Point.~\newline
+ 
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$$\ast$ p\+Tableau\+De\+Point \+: Prend un pointeur vers un tableau de point car va modifier les coordonées de ce dernier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne entier pour savoir si tout c\textquotesingle{}est bien passé. -\/1 si erreur, 0 sinon
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{creation_8h_a5a0290e0b47cef7c164116f8532a881b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{creation_8h_a3e7bd7161b38fea3af60f6f4ffa89486}\label{creation_8h_a3e7bd7161b38fea3af60f6f4ffa89486}} 
+\index{creation.h@{creation.h}!createStack@{createStack}}
+\index{createStack@{createStack}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{createStack()}{createStack()}}
+{\footnotesize\ttfamily char $\ast$$\ast$ create\+Stack (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement les piles de départ d\textquotesingle{}un joueur avec le caractère c (initialisation + declaration). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & c \+: Caractère que l\textquotesingle{}on mets dans la pile créer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char $\ast$$\ast$ \+: Retourne un tableau 2D de char, chaque case est un caractère permettant d\textquotesingle{}identifier un joueur pendant une partie. 
+
+N\+U\+LL \+: {\bfseries{Impossible}} car le programme se ferme avant (avec message d\textquotesingle{}erreur car indispensable pour jouer).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{creation_8h_a3e7bd7161b38fea3af60f6f4ffa89486_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{creation_8h_a3e7bd7161b38fea3af60f6f4ffa89486_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{creation_8h_ac38a0ffda9c09fcfc702edf74b0237dd}\label{creation_8h_ac38a0ffda9c09fcfc702edf74b0237dd}} 
+\index{creation.h@{creation.h}!mallocTab@{mallocTab}}
+\index{mallocTab@{mallocTab}!creation.h@{creation.h}}
+\doxysubsubsection{\texorpdfstring{mallocTab()}{mallocTab()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect $\ast$$\ast$ malloc\+Tab (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement le tableau de case pour l\textquotesingle{}interface graphique. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: Ne prend aucun paramètre.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+\+R\+E\+CT $\ast$$\ast$ \+: Retourne un tableau de case, chaque case est un pointeur vers une surface.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{creation_8h_ac38a0ffda9c09fcfc702edf74b0237dd_cgraph}
+\end{center}
+\end{figure}

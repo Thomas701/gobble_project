@@ -1,0 +1,4 @@
+<map id="SF_demandeDeplacement" name="SF_demandeDeplacement">
+<area shape="rect" id="node1" title="Fonction qui demande l&#39;option du mode de jeu. Les déplacements sont restriens de 1 ou pas...." alt="" coords="5,5,199,32"/>
+<area shape="rect" id="node2" href="$free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="247,5,347,32"/>
+</map>

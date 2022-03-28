@@ -1,0 +1,6 @@
+<map id="SGO_demandeQuelPionDeplacer" name="SGO_demandeQuelPionDeplacer">
+<area shape="rect" id="node1" title="Fonction qui demande le pion que veut deplacer le joueur. Sans vérification." alt="" coords="5,56,240,83"/>
+<area shape="rect" id="node2" href="$print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="308,5,407,32"/>
+<area shape="rect" id="node3" href="$print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="288,56,427,83"/>
+<area shape="rect" id="node4" href="$free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="307,107,407,133"/>
+</map>

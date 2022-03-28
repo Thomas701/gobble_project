@@ -519,3 +519,55 @@ int canEffectDeplacementWithDistance(char *** map3D, char c)
   }
   return 0;
 }
+
+int getSizePionOnCase(char *** map3D, int i, int j)
+{
+  int size = -1;
+  for (int k = N-1; k >= 0; k--)
+  {
+    if(map3D[i][j][k] != '0')
+      size = k;
+  }
+  return size;
+}
+
+int getSizePionOnCase2(char *** map3D, int index)
+{
+  int i = (index - index % N) / N;
+  int j = index % N;
+  int size = -1;
+  for (int k = N-1; k >= 0; k--)
+  {
+    if(map3D[i][j][k] != '0')
+    {
+      size = k;
+      break;
+    }
+  }
+  return size;
+}
+
+char getCaractereOnCase(char *** map3D, int index)
+{
+  int i = (index - index % N) / N;
+  int j = index % N;
+  for (int k = N-1; k >= 0; k--)
+  {
+    if(map3D[i][j][k] != '0')
+      return map3D[i][j][k];
+  }
+  return '0';
+}
+
+int getIndexPionWhoAreEat(char *** map3D, int index)
+{
+  int size = getSizePionOnCase2(map3D, index);
+  printf("SIZE = %d pour index = %d\n", size, index);
+  if (size == -1)
+    return -1;
+  else
+  {
+    char c = getCaractereOnCase(map3D, index);
+    return (c == 'b') ? (N-1) - size : ((N-1) - size) + N;
+  }
+}

@@ -28,5 +28,9 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect);
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance);
 int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance); //vérifie si étant donné un index de départ, le joueur peut jouer sur l'index d'arrivé sélectionné
 int canEffectDeplacementWithDistance(char *** map3D, char c); //verifie si on peut deplacer un pion dans une map
+int getSizePionOnCase(char *** map3D, int i, int j); // retourne la taille d'un piont dans une case (0, 1 ou 2) à l'aide des indices.
+int getSizePionOnCase2(char *** map3D, int index);  // retourne la taille d'un piont dans une case (0, 1 ou 2) à l'aide de l'index.
+char getCaractereOnCase(char *** map3D, int index); // retourne le caractère d'une case
+int getIndexPionWhoAreEat(char *** map3D, int index); // retourne l'index du pion mangé (-1 s'il n'y a pas de pion mangé)
 
 #endif

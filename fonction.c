@@ -218,12 +218,12 @@ void SGO_demanderQuelleCaseJouerPion(char *** map3D, int * numPion, int * endPio
   }
 }
 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance) // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance, char * c) // c = 'b' or 'n' joueur qui choisie
 {
   int selection = 0;
   int imageIndexP = -1; // indique l'indexe de l'image qui a été selectionnée
   int imageIndexS = -1;
-  char c = 'b';
+  int eatingPion; // -1 si aucun pion n'est mange, ou = indexDansLeTableau du pion mange
   SDL_Event event;
   SDL_Point pointMouse;
 
@@ -236,20 +236,37 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
     {
       switch(event.type)
       {
+        case SDL_QUIT : //quitter
+          *p_etats = 0;
+        break ;
+
+        case SDL_KEYDOWN :
+          switch(event.key.keysym.sym)
+          { //switch touches
+            case SDLK_ESCAPE : //si echap
+              printf("Ouiii\n");
+              *p_etats = 3;
+              printf("Ouiii 2\n");
+              break;
+            default:
+              break;
+          }
+        break;
+
         case SDL_MOUSEBUTTONDOWN:
         if (event.button.button == SDL_BUTTON_LEFT) // bouton souris gauche
         {
-          printf("JOUEUR: %c\n", c);
+          printf("JOUEUR: %c\n", *c);
           SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
           if (selection == 0)
           {
             printf("Select: 0\n");
-            imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, c, distance);
+            imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, *c, distance);
           }
           else
           {
             printf("Select: 1\n");
-            if(c == 'b')
+            if(*c == 'b')
             {
               imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1, distance);
               printf("point d'arrivé: %d\n", imageIndexS);
@@ -276,18 +293,21 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
             printf("Select good & preSelect: good\n");
             if (imageIndexP > (N*N) - 1)
             {
-              if(c == 'b')
+              if(*c == 'b')
               {
                 for (int i = 0; i < N-1; i++)
                 {
                   if (pileJ1[i][(N-1) - (imageIndexP % N)] != '0')
                   {
-                    mooveSinceStack(map3D, pileJ1, i, (N-1) - (imageIndexP % N), imageIndexS, c);
+                    eatingPion = getIndexPionWhoAreEat(map3D, imageIndexS);
+                    printf("LE EATING PION 1 = %d\n", eatingPion);
+                    mooveSinceStack(map3D, pileJ1, i, (N-1) - (imageIndexP % N), imageIndexS, *c);
                     break;
                   }
                 }
                 initMap2D(map2D, map3D);
-                c = (c == 'b') ? 'n' : 'b';
+                transition(renderer, textureTableauPiont, tableauDePoint, map3D, imageIndexP, imageIndexS, tableauTextureMapVide, *c, pileJ1, pileJ2, eatingPion);
+                *c = (*c == 'b') ? 'n' : 'b';
                 selection = 0;
                 if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
                 {
@@ -301,12 +321,15 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
                 {
                   if (pileJ2[i][(N-1) - (imageIndexP % N)] != '0')
                   {
-                    mooveSinceStack(map3D, pileJ2, i, (N-1) - (imageIndexP % N), imageIndexS, c);
+                    eatingPion = getIndexPionWhoAreEat(map3D, imageIndexS);
+                    printf("LE EATING PION 2 = %d\n", eatingPion);
+                    mooveSinceStack(map3D, pileJ2, i, (N-1) - (imageIndexP % N), imageIndexS, *c);
                     break;
                   }
                 }
                 initMap2D(map2D, map3D);
-                c = (c == 'b') ? 'n' : 'b';
+                transition(renderer, textureTableauPiont, tableauDePoint, map3D, imageIndexP, imageIndexS, tableauTextureMapVide, *c, pileJ1, pileJ2, eatingPion);
+                *c = (*c == 'b') ? 'n' : 'b';
                 selection = 0;
                 if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
                 {
@@ -317,9 +340,12 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
             }
             else
             {
+              eatingPion = getIndexPionWhoAreEat(map3D, imageIndexS);
+              printf("LE EATING PION 3 = %d\n", eatingPion);
               moove(map3D, imageIndexP, imageIndexS);
               initMap2D(map2D, map3D);
-              c = (c == 'b') ? 'n' : 'b';
+              transition(renderer, textureTableauPiont, tableauDePoint, map3D, imageIndexP, imageIndexS, tableauTextureMapVide, *c, pileJ1, pileJ2, eatingPion);
+              *c = (*c == 'b') ? 'n' : 'b';
               selection = 0;
               if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
               {
@@ -341,13 +367,13 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       }
       SDL_RenderClear(renderer);
 
-      if(c == 'b')
+      if(*c == 'b')
         printMapEmptySDL(tableauTextureMapVide[1], renderer);
-      else if (c == 'n')
+      else if (*c == 'n')
         printMapEmptySDL(tableauTextureMapVide[2], renderer);
       affichePileSDL(renderer, textureTableauPiont, tableauDePoint, pileJ1, pileJ2);
-      affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D);
-      if (imageIndexP != -1)
+      affichePiontSurPlateau(renderer, textureTableauPiont, tableauDePoint, map3D, -1);
+      if (imageIndexP != -1 && selection == 1)
         affichePionSelect(renderer, tableauDePoint, textureTableauPiont, map3D, imageIndexP);
       SDL_RenderPresent(renderer);
     }

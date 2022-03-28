@@ -161,7 +161,7 @@ int createCase(SDL_Rect *** pTableauCase)
 
   for(int i = 0 ; i < ((N*N) + (N*2)) ; i++)
   {
-    tableauCase[i] = malloc(sizeof(SDL_Rect *) * 1);
+    tableauCase[i] = malloc(sizeof(SDL_Rect) * 1);
     if(!tableauCase[i])
     {
       perror("Error allocation memory in createCase for tableauCase[i] \n");

@@ -5,6 +5,7 @@
         "sdl_mixer.h": "c",
         "verification.h": "c",
         "graphique.h": "c",
-        "fonction.h": "c"
+        "fonction.h": "c",
+        "cstdlib": "c"
     }
 }

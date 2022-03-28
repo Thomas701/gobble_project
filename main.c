@@ -29,20 +29,6 @@
 #include "saveFile.c"
 #include "error.c"
 
-/*
-int deplacementPiont(SDL_Texture * texturePiont, SDL_Renderer * renderer, SDL_Point * pointDep, SDL_Point * pointArr)
-{
-  int incrX = (pointDep.x < pointArr.x) ? 1 : -1 ;
-  int incrY = (pointDep.y < pointArr.y) ? 1 : -1  ;
-  while(pointDep.x != pointArr.x && pointDep.y != pointArr.y)
-  {
-    pointDep.x += incrX ;
-    pointDep.y += incrY ;    
-  }
-}
-*/
-
-
 /*return 0 if success else -1*/
 
 int main(int argc, char ** argv) 
@@ -93,6 +79,8 @@ int main(int argc, char ** argv)
     srand(time(NULL));
     // fenetre principale
     SDL_Window * window = NULL ;
+    char c = 'b';
+    char * p_c = &c;
     
     // textures
     SDL_Texture ** textureBackground = NULL;
@@ -121,7 +109,7 @@ int main(int argc, char ** argv)
     printf("--->1\n");
     debugTab(tableauCase);
 
-    intro_authors(&window, &renderer); // intro image authors + son 
+    //intro_authors(&window, &renderer); // intro image authors + son 
     loadAndPlayMainMusic(&mainMusic, tableauCase);
 
     printf("--->1.5\n");
@@ -132,7 +120,11 @@ int main(int argc, char ** argv)
       if (etatS == 1)
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
       else if (etatS == 2)
-        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2, deplacement);
+        lancementJeu(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPiont, map3D, map2D, pileJ1, pileJ2, deplacement, p_c);
+      else if (etatS == 3)
+      {
+        pause(renderer, textureTableauOptionMenu, p_etatS, boolPlayMusic, tableauTextureMapVide, textureTableauPiont, tableauDePoint, map3D);
+      }
       else
         return 0;
     }

@@ -16,7 +16,7 @@ int sizePiontMaxStack(char ** stackArray, int numStack); // retourne la taille d
 void mooveSinceStack(char *** map, char ** stackArray, int numStack,int sizePiont ,int endPiont, char c); //place un pion sur la map depuis une pile
 int moove(char *** map, int posDeb, int posEnd); // déplace un pion présent sur la map
 void gameOption(char ** stackArray, char *** map3D,char ** map2D, char c, int deplacement); // Fonction principale du jeu
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance); // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPiont, int distance, char * c); // c = 'b' or 'n' joueur qui choisie
 void SGO_demandePileEtDeplacement(char *** map3D, char ** map2D, int * answer); //Demande à l'utilisateur s'il souhaite déplacer ou jouer un nouveau piont tout en exerçant les vérifications adéquates
 void SGO_demandeQuelPiontDeplacer(char *** map3D, char ** map2D, int * debPiont); //Demande à l'utilisateur quel piont souhaite-t-il déplacer?
 void SGO_verifEtDeplacementCaseSansLimite(char *** map3D, char c, int * debPiont, int * endPiont); // exerce les verification sur le piont selectionne + la case d'arriver sans restriction de distance

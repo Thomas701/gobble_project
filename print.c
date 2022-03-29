@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions print pour afficher les maps & piles :
+/*Fonctions print pour afficher les maps & piles  :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void printMap3dDebug(char *** map)

@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions free pour libérer la mémoire :
+/*Fonctions free pour libérer la mémoire  :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void vider_buffer(void)

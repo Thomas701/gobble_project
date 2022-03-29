@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions Graphique :
+/*Fonctions Graphiques :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer)

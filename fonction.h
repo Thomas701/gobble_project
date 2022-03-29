@@ -9,7 +9,7 @@ struct point
 };
 typedef struct point point;
 
-/*Fonctions active:
+/*Fonctions active :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 int sizePiontMaxStack(char ** stackArray, int numStack); // retourne la taille du pion le plus grand d'une pile

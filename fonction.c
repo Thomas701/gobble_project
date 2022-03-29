@@ -8,7 +8,7 @@
 #include "saveFile.h"
 #include "error.h"
 
-/*Fonctions active:
+/*Fonctions active :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*return la taille du piont le plus grand d'une pile*/

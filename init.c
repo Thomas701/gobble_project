@@ -1,7 +1,7 @@
 #include "fonction.h"
 
 /*Fonctions initialisation  :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 void initMap(char *** map) 
 {

@@ -1,7 +1,7 @@
 #include "fonction.h"
 
 /*Fonctions Vérifications :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 void debugTab(SDL_Rect ** tableauCase)
 {

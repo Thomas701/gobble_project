@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions lecture/ecriture fichiers :
+/*Fonctions lecture/ecriture fichiers  :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /* blanc : 1, 2, 3 | noir : a, b, c */

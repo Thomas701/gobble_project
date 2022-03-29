@@ -1,7 +1,7 @@
 #ifndef FREE_H_
 #define FREE_H_
 
-/*Fonctions free pour libérer la mémoire :
+/*Fonctions free pour libérer la mémoire : 
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void vider_buffer(void); // vide le buffer

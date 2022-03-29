@@ -1,7 +1,7 @@
 #ifndef SAVEFILE_H_
 #define SAVEFILE_H_
 
-/*Fonctions lecture/ecriture fichiers :
+/*Fonctions lecture/ecriture fichiers  :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /*--[ATTENTION AU MALLOC BORDEL!!!]--*/ /* return map2D Attention malloc ici, il faut libérer char ** */ 

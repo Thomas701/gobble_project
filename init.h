@@ -2,7 +2,7 @@
 #define INIT_H_
 
 /*Fonctions initialisation de maps :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 void initMap(char *** map); // initialise la map 3D
 void initMap2D(char ** map2D, char *** map3D); // initialise la map 2D

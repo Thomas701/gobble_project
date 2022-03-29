@@ -1,7 +1,7 @@
 #ifndef CREATION_H_
 #define CREATION_H_
 
-/*Fonctions création de maps et piles  :
+/*Fonctions création de maps et piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 SDL_Rect ** mallocTab();

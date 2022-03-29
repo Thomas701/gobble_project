@@ -29,8 +29,7 @@
 #include "saveFile.c"
 #include "error.c"
 
-/* ça peut le faire */
-/*return 0 if success else -1 */
+/*return 0 if success else -1*/
 
 int main(int argc, char ** argv) 
 {

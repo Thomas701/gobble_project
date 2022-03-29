@@ -2,7 +2,7 @@
 #define VERIFICATION_H_
 
 /*Fonctions Vérifications :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void debugTab(SDL_Rect ** tableauCase); // sauve moi la vie!
 int maximum(int i, int i2);

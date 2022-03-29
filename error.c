@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions d'erreur pour eviter la répétition  :
+/*Fonctions d'erreur pour eviter la répétition :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void errorInCreatePile() 

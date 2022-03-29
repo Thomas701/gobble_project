@@ -1,6 +1,6 @@
 #include "fonction.h"
 
-/*Fonctions création de maps, piles, images  :
+/*Fonctions création de maps, piles, images :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 SDL_Rect ** mallocTab()

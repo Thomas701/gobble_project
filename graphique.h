@@ -2,7 +2,7 @@
 #define GRAPHIQUE_H_
 
 /*Fonctions graphique :
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void intro_authors(SDL_Window ** window, SDL_Renderer ** renderer); //creer le fondu initial
 void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic); //lance le menu principale du jeu

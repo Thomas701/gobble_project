@@ -1,7 +1,7 @@
 #ifndef PRINT_H_
 #define PRINT_H_
 
-/*Fonctions print pour afficher les maps & piles  :
+/*Fonctions print pour afficher les maps & piles :
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void printMap3dDebug(char *** map); // affiche la map 3D

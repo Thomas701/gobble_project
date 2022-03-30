@@ -580,7 +580,6 @@ int affichePionOnCase(SDL_Renderer * renderer,  SDL_Texture ** textureTableauPio
 
 void pause(SDL_Renderer * renderer, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint ,char ***  map3D)
 {
-  printf("0\n");
   SDL_RenderClear(renderer);
   SDL_Rect tableauRectOption[6];
 
@@ -595,7 +594,6 @@ void pause(SDL_Renderer * renderer, SDL_Texture ** textureTableauOptionMenu, int
   tableauRectOption[3].x = WIDTH - tableauRectOption[3].w; tableauRectOption[3].y = 0; //button sound
 
   SDL_Point pointMouse; //souris du menu pour evenement
-  printf("2\n");
   while(*p_etats == 3) // boucle principale
   {
     SDL_Event event;
@@ -603,12 +601,10 @@ void pause(SDL_Renderer * renderer, SDL_Texture ** textureTableauOptionMenu, int
     SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
     printMapEmptySDL(tableauTextureMapVide[0], renderer);
     affichePionSurPlateau(renderer, textureTableauPion, tableauDePoint, map3D, -1);
-    printf("3\n");
     if (0 !=  SDL_RenderCopy(renderer, textureTableauOptionMenu[6], NULL, NULL)) 
     { 
       fprintf(stderr, "Error SDL_RenderCopy in pause : %s \n", SDL_GetError());
     }
-    printf("4\n");
     for(int i = 2; i < 6; i = i+3) // boucle sur "resume" and "quit"
     {
       if(isInRectangle(pointMouse, tableauRectOption[i]))
@@ -622,7 +618,6 @@ void pause(SDL_Renderer * renderer, SDL_Texture ** textureTableauOptionMenu, int
         if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for pause: %s\n", SDL_GetError());
       }
     }
-    printf("5\n");
     if(isInRectangle(pointMouse, tableauRectOption[3]))
     {
       if(boolPlayMusic)

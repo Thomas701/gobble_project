@@ -537,6 +537,7 @@ int transition(SDL_Renderer * renderer,  SDL_Texture ** textureTableauPiont, poi
     y1 += yDelta;
     SDL_Delay(10);
   }
+  return 1;
 }
 
 int affichePionOnCase(SDL_Renderer * renderer,  SDL_Texture ** textureTableauPiont, point ** tableauDePoint, int index, int indicePion)

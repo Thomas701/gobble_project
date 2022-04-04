@@ -110,6 +110,12 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
     SGO_demanderQuelleCaseJouerPion(map3D, p_numPion, p_endPion);          // demande à quelle case ou il veut mettre son pion
     mooveSinceStack(map3D, stackArray, numStack, numPion, endPion, c);     // deplace le pion (verifie dans la fonction si déplacement valide)
     initMap2D(map2D, map3D);                                                // récupère l'information et l'écris dans la map 2D
+
+
+    printf("********************* appel à minimax \n");
+    SDL_Point coupAJouer = bestCoup(map3D, 99, c, stackArray, stackArray);
+    printf("REPONsE : X = %d Y = %d \n\n", coupAJouer.x , coupAJouer.y);
+    printf("********************* appel fini minimax \n");
  }
 }
 

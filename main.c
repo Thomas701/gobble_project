@@ -64,8 +64,10 @@
 #include "headers/saveFile.h"
 #include "headers/verification.h"
 #include "headers/free.h"
+#include "headers/minimax.h"
 
 // inclusions des src
+
 #include "src/fonction.c"
 #include "src/get.c"
 #include "src/demande.c"
@@ -77,6 +79,7 @@
 #include "src/init.c"
 #include "src/saveFile.c"
 #include "src/error.c"
+#include "src/minimax.c"
 
 /**
  * \fn int main(int argc, char ** argv)

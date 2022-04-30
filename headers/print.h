@@ -18,7 +18,7 @@
  * 
  * \return void : Pas de retour pour la fonction.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 void printMap3dDebug(char *** map);
 
@@ -47,5 +47,32 @@ void printMap2D(char ** map2D);
  * \author VILLEPREUX Thibault
  */
 void printStacks(char ** stacksArray);
+
+/**
+ * \fn void printIAParametre(int ** tab)
+ * 
+ * \brief Fonction qui affiche dans le terminal le tableau de paramètre de l'IA
+ * 
+ * \param[in] int ** tab : tableau de paramètre
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void printIAParametre(int ** tab);
+
+/**
+ * \fn void printIAResult(int * tab, int nbreIA) 
+ * 
+ * \brief Fonction qui affiche les resultats des IA
+ * 
+ * \param[in] int ** tab : tableau de resultat d'ia
+ * \param[in] int nbreIA : Le nombre d'IA
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void printIAResult(int * tab, int nbreIA);
 
 #endif

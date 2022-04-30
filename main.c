@@ -24,6 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 /**
  * \def HEIGHT 
@@ -64,6 +65,8 @@
 #include "headers/saveFile.h"
 #include "headers/verification.h"
 #include "headers/free.h"
+#include "headers/liste.h"
+#include "headers/ia.h"
 
 // inclusions des src
 #include "src/fonction.c"
@@ -77,6 +80,8 @@
 #include "src/init.c"
 #include "src/saveFile.c"
 #include "src/error.c"
+#include "src/liste.c"
+#include "src/ia.c"
 
 /**
  * \fn int main(int argc, char ** argv)
@@ -92,6 +97,7 @@
  * \author DUPOIS Thomas & VILLEPREUX Thibault
  */
 int main(int argc, char ** argv){
+  srand(time(NULL));
   char ** pileJ1 = createStack('b'); char ** pileJ2 = createStack('n');  // pile joueur 1 & 2
   char *** map3D = createMap();      char ** map2D = createMap2D();      // map 3D et 2D, pour stocker pion, 2D pour parcours plus rapide
   initMap(map3D);                    initMap2D(map2D, map3D);            // remplie la map que du char '0'
@@ -134,9 +140,11 @@ int main(int argc, char ** argv){
     // boolean 
     int etatS = 1 ;          // 1 si on est dans le menu, 0 sinon
     int * p_etatS = &etatS;  // on manipule un pointeur
-    int boolPlayMusic = 1;   // permet de savoir si on joue de la luqisuqe (possibilité de la désactiver pendant une game)
-    char c = 'b';            // variable definissant le joueur qui commence à joeur
+    int boolPlayMusic = 1;   // permet de savoir si on joue de la musique (possibilité de la désactiver pendant une game)
+    char c = 'b';            // variable definissant le joueur qui commence à joueur
     char * p_c = &c;         // pointeur sur la variable qui définit quel joueur joue
+    int ia = 0;              // variable correspondant à l'ia
+    int * p_ia = &ia;        // pointeur sur la variable ia
 
     // chargement SDL / fenetre / renderer / textureMenu et background
     if (0 != initialiseDebutProgramme(&window, &textureBackground, &tableauTextureMapVide, &icones, &renderer, &textureTableauOptionMenu, &textureTableauPion, &textureTableauWin, &tableauDePoint, &tableauCase)) {
@@ -144,23 +152,26 @@ int main(int argc, char ** argv){
        goto Quit; // si erreur quitte le programme
      }
 
-    intro_authors(&renderer);          // intro image authors + son , pas de quit si erreur
+    //intro_authors(&renderer);          // intro image authors + son , pas de quit si erreur
     loadAndPlayMainMusic(&mainMusic);  // lancement musique, si plante pas de music mais pas d'arret du jeu
 
-    while (etatS) {
+    while (etatS)
+    {
       if (etatS == 1) // lancement menu
-        lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic); // lancementMenu
+        lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic, p_ia); // lancementMenu
       else if (etatS == 2) // lancement du jeu (si choisie dans le menu)
-        lancementJeu1VS1(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c);
-      else if (etatS == 3)
+        lancementJeu1VS1(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);
+      else if (etatS == 3) // menu pause
         pause(renderer, textureTableauOptionMenu, p_etatS, boolPlayMusic, tableauTextureMapVide, textureTableauPion, tableauDePoint, map3D);
+      else if (etatS == 4) // entrainement IA
+        IAGame(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);
       else
         return 0;
     }
     statut = EXIT_SUCCESS; // si on arrive ici ca veut dire que tout c'est bien passé et que l'utillisateur à voulue partir
 
 Quit :
-    freeSDL(window, renderer, mainMusic, textureTableauPion, tableauTextureMapVide, textureTableauOptionMenu, textureBackground, tableauDePoint, icones, tableauCase);
+    freeSDL(window, renderer, mainMusic, textureTableauPion, tableauTextureMapVide, textureTableauOptionMenu, textureBackground, tableauDePoint, icones, tableauCase, textureTableauWin);
     Mix_CloseAudio(); // liberation de la gestion musique
     SDL_Quit();       // libere SDL_INIT uniquement pas les images / polices...
   } // fin else (lancement programme en SDL)

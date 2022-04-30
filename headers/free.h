@@ -76,7 +76,46 @@ void freeMap2D(char ** map2D);
 void freeStack(char ** stackArray);
 
 /**
- * \fn void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase)
+ * \fn void freeTableOfCoups(char ** tab)
+ * 
+ * \brief Fonction permettant de free les tableaux de coups
+ * 
+ * \param[in] char ** tab : tableau de coups à free.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableOfCoups(int ** tab);
+
+/**
+ * \fn void freeTableOfCoups(char * tab)
+ * 
+ * \brief Fonction permettant de free les tableaux de résultats
+ * 
+ * \param[in] char * tab : tableau de coups à free.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableResult(char * tab);
+
+/**
+ * \fn void freeTableIA(int ** tab, int nbre) 
+ * 
+ * \brief Fonction permettant de free les tableaux d'IA
+ * 
+ * \param[in] char ** tab : tableau d'ia
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableIA(int ** tab, int nbre) ;
+
+/**
+ * \fn void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase, SDL_Texture ** textureTableauWin)
  * 
  * \brief Fonction permettant de free les textures, misiques, rendu, fenêtre de la SDL.
  * 
@@ -90,10 +129,11 @@ void freeStack(char ** stackArray);
  * \param[in] point ** tableauDePoint : tableau des points à free.
  * \param[in] SDL_Surface * icones : logo du programme à free.
  * \param[in] SDL_Rect ** tableauCase : tableau des cases à free.
+ * \param[in] SDL_Texture ** textureTableauWin : tableau de texture des images de win
  * 
  * \return void : Pas de retour pour la fonction.
  * 
  * \author VILLEPREUX Thibault
  */
-void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase);
+void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase, SDL_Texture ** textureTableauWin);
 #endif

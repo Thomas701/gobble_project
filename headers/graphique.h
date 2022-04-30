@@ -37,7 +37,7 @@ SDL_Texture * loadImage(const char * path, SDL_Renderer *renderer);
 void intro_authors(SDL_Renderer ** renderer);
 
 /**
- * \fn void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic)
+ * \fn void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic, int * ia)
  * \brief Fonction qui gère lorsque le joueur se trouve dans le menu principale.\n
  * 
  * Il peut lancer une partie 1VS1, 1VSIA, quitter le jeu (autre que par la croix rouge) ou couper et rejouer le son.
@@ -47,13 +47,14 @@ void intro_authors(SDL_Renderer ** renderer);
  * \param[in] SDL_Texture ** textureTableauOptionMenu :  Tableau de texture des images des options menu (1VS1, 1VSIA, SOUN , QUIT GAME)
  * \param[in] int * p_etats : pointeur permettant de connaître l'état du programme (en game, en pause)
  * \param[in] int boolPlayMusic : permet de savoir si on joue de la musique ou pas.
+ * \param[in] int * ia : pointeur sur l'ia (permet de définir s'il y'aura une ia ou pas)
  * 
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic);
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic, int * ia);
 
 /**
  * \fn void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
@@ -73,13 +74,14 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
  * \param[in] char ** pileJ2 : contient la pile du joueur 2.
  * \param[in] int deplacement : option de jeu avec deplacement restreins ou non .
+ * \param[in] int * ia : pointeur sur l'ia
  *
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c);
+void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia);
 
 /**
  * \fn int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPion, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2)
@@ -93,7 +95,7 @@ void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapV
  *
  * \return int : Retourne 0 si succès et sinon -1.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int affichePileSDL(SDL_Renderer * renderer, SDL_Texture ** textureTableauPion, point ** tableauDePoint,char ** stackArrayJ1, char ** stackArrayJ2);
 
@@ -128,7 +130,7 @@ int affichePionSurPlateau(SDL_Renderer * renderer, SDL_Texture ** textureTableau
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-int affichePionSelect(SDL_Renderer * renderer, point ** tableauDePoint, SDL_Texture ** textureTableauPion, char *** map3D,int index);
+int affichePionSelect(SDL_Renderer * renderer, point ** tableauDePoint, SDL_Texture ** textureTableauPion, char *** map3D, int index);
 
 /**
  * \fn int printMapEmptySDL(SDL_Texture * textureMapVide, SDL_Renderer * renderer)

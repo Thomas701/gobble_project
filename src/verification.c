@@ -98,13 +98,13 @@ int isEmptyStack(char ** stack, int num) {
 }
 
 /**
- * \fn int int isEmptyStacks(char ** stack)
+ * \fn int int isEmptyStack(char ** stack)
  * 
  * \brief Fonction qui regarde si la pile du joueur est vide.
  * 
  * \param[in] char ** stack : pile du joueur.
  * 
- * \return int : retourne 0 si elle est vide sinon 1.
+ * \return int : retourne 1 si elle est vide sinon 0.
  * 
  * \author VILLEPREUX Thibault
  */
@@ -132,6 +132,35 @@ int isEmptyCase(char ** map2D) {
    for(int i = 0; i < N; i++) {
      for(int j = 0 ; j < N ; j++) {
        if('0' == map2D[i][j]) return 1;
+     }
+   }
+   return 0;
+ }
+
+ /**
+ * \fn int int isEmptyStacks(char ** stack)
+ * 
+ * \brief Fonction qui regarde si il existe une case du plateau vide.
+ * 
+ * \param[in] char ** map2D : plateau de jeu non detaillé.
+ * 
+ * \return int : retourne 1 si il existe une case vide sinon 0.
+ * 
+ * \author DUPOIS Thomas
+ */
+int isEmptyCase2(char *** map3D) {
+   for(int i = 0; i < N; i++) {
+     for(int j = 0 ; j < N ; j++) {
+       for (int k = 0; k < N; k++)
+       {
+          if ('0' != map3D[i][j][k])
+          {
+            j++;
+            break;
+          }
+          if('0' == map3D[i][j][k] && k == 2) 
+            return 1;
+       }
      }
    }
    return 0;

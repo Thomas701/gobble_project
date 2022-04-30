@@ -141,6 +141,7 @@ int loadBackgroundMenu(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableau
  * 
  * \return int : Retourne -1 si erreur, sinon 0
  * 
+ * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
 int loadTextureWin(SDL_Renderer ** renderer, SDL_Texture *** pTextureTableauWin);

@@ -7,7 +7,7 @@
  * \author VILLEPREUX Thibault
  */
 
- #ifndef VERIFICATION_H_
+#ifndef VERIFICATION_H_
 #define VERIFICATION_H_
 
 /**
@@ -49,7 +49,7 @@ int minimum(int i, int i2);
  * 
  * \return int : retourne 1 si il existe un pion visible c sinon 0.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int existPionInMap(char ** map2D, char c) ;
 
@@ -90,14 +90,14 @@ int isEmptyStack(char ** stack, int num) ;
  * 
  * \param[in] char ** stack : pile du joueur.
  * 
- * \return int : retourne 0 si elle est vide sinon 1.
+ * \return int : retourne 1 si elle est vide sinon 0.
  * 
  * \author VILLEPREUX Thibault
  */
 int isEmptyStacks(char ** stack);
 
 /**
- * \fn int int isEmptyStacks(char ** stack)
+ * \fn int int isEmptyCase(char ** map2D)
  * 
  * \brief Fonction qui regarde si il existe une case du plateau vide.
  * 
@@ -105,6 +105,7 @@ int isEmptyStacks(char ** stack);
  * 
  * \return int : retourne 1 si il existe une case vide sinon 0.
  * 
+ * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
 int isEmptyCase(char ** map2D) ;
@@ -136,7 +137,7 @@ int canMoove(char *** map, int posDeb, int posEnd) ;
  * 
  * \return int : retourne 1 si le déplacement est possible sinon 0.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int canMooveThisPion(char *** map, char ** map2D, int posDeb, char c) ;
 
@@ -220,7 +221,7 @@ int check_End_Game(char ** map) ;
  * 
  * \return int : retourne 1 si on a au moins une pile ayant une taille max de pion de 1 ou plus sinon 0.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int sizeMaxPion(char ** stackArray);
 
@@ -236,7 +237,7 @@ int sizeMaxPion(char ** stackArray);
  * 
  * \return int : retourne 1 si c'est possible et 0 sinon.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int canPlayNewPion(char **  stackArray, char ** map2D) ;
 
@@ -280,7 +281,7 @@ int canPutPion(char *** map, int sizePion, int endPion) ;
  * 
  * \return int : retourne 1 si la pile est pleine et 0 sinon.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int isStackFull(char ** pile) ;
 
@@ -333,7 +334,7 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect) ;
  * 
  * \return int : retourne l'indice si valide et sinon -1.
  * 
- * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */
 int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance);
 

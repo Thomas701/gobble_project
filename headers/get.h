@@ -20,7 +20,7 @@
  * 
  * \return int :retourne l'indice si pion.
  * 
- * \author VILLEPREUX Thibault
+ * \author DUPOIS Thomas
  */
 int getIndex(SDL_Point pointMouse, SDL_Rect ** tableauCase);
 
@@ -52,9 +52,75 @@ int sizePionMaxStack(char ** stackArray, int numStack);
  */
 int sizePionInStack(char ** stackArray, int numStack) ;
 
-int getSizePionOnCase(char *** map3D, int i, int j); // retourne la taille d'un piont dans une case (0, 1 ou 2) à l'aide des indices.
-int getSizePionOnCase2(char *** map3D, int index);  // retourne la taille d'un piont dans une case (0, 1 ou 2) à l'aide de l'index.
-char getCaractereOnCase(char *** map3D, int index); // retourne le caractère d'une case
-int getIndexPionWhoAreEat(char *** map3D, int index); // retourne l'index du pion mangé (-1 s'il n'y a pas de pion mangé)
+/**
+ * \fn int getSizePionOnCase(char *** map3D, int i, int j)
+ * 
+ * \brief Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion
+ * 
+ * \param[in] char ** map3D : map du jeu
+ * \param[in] int i : coordonné x
+ * \param[in] int j : coordonné y
+ * 
+ * \return int : renvoie la taille du pion sur la case demandé (-1) si pas de pion
+ * 
+ * \author DUPOIS Thomas
+ */
+int getSizePionOnCase(char *** map3D, int i, int j);
+
+/**
+ * \fn int getSizePionOnCase2(char *** map3D, int index)
+ * 
+ * \brief Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion
+ * 
+ * \param[in] char ** map3D : map du jeu
+ * \param[in] int index : index de la map
+ * 
+ * \return int : renvoie la taille du pion sur la case demandé (-1) si pas de pion
+ * 
+ * \author DUPOIS Thomas
+ */
+int getSizePionOnCase2(char *** map3D, int index);
+
+/**
+ * \fn char getCaractereOnCase(char *** map3D, int index)
+ * 
+ * \brief Fonction qui renvoie le caractère du pion sur la case demandé ('0') si pas de pion
+ * 
+ * \param[in] char ** map3D : map du jeu
+ * \param[in] int index : index de la map
+ * 
+ * \return char : renvoie le caractère du pion sur la case demandé ('0') si pas de pion
+ * 
+ * \author DUPOIS Thomas
+ */
+char getCaractereOnCase(char *** map3D, int index);
+
+/**
+ * \fn int getIndexPionWhoAreEat(char *** map3D, int index)
+ * 
+ * \brief Fonction qui renvoie la taille du pion mangé (-1) si aucun pion n'est mangé
+ * 
+ * \param[in] char ** map3D : map du jeu
+ * \param[in] int index : index de la map
+ * 
+ * \return int : renvoie la taille du pion mangé (-1) si aucun pion n'est mangé
+ * 
+ * \author DUPOIS Thomas
+ */
+int getIndexPionWhoAreEat(char *** map3D, int index);
+
+/**
+ * \fn int getMaxOnTable(int * tab, int size)
+ * 
+ * \brief Fonction qui renvoie le nombre maximum dans le tableau
+ * 
+ * \param[in] char ** map3D : map du jeu
+ * \param[in] int size : taille du tableau
+ * 
+ * \return int : renvoie le nombre maximum dans le tableau
+ * 
+ * \author DUPOIS Thomas
+ */
+int getMaxOnTable(int * tab, int size);
 
 #endif

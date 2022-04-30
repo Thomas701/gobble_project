@@ -104,7 +104,7 @@ void intro_authors(SDL_Renderer ** renderer) {
 
 
 /**
- * \fn void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic)
+ * \fn void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic, int * ia)
  * \brief Fonction qui gère lorsque le joueur se trouve dans le menu principale.\n
  * 
  * Il peut lancer une partie 1VS1, 1VSIA, quitter le jeu (autre que par la croix rouge) ou couper et rejouer le son.
@@ -114,43 +114,100 @@ void intro_authors(SDL_Renderer ** renderer) {
  * \param[in] SDL_Texture ** textureTableauOptionMenu :  Tableau de texture des images des options menu (1VS1, 1VSIA, SOUN , QUIT GAME)
  * \param[in] int * p_etats : pointeur permettant de connaître l'état du programme (en game, en pause)
  * \param[in] int boolPlayMusic : permet de savoir si on joue de la musique ou pas.
+ * \param[in] int * ia : pointeur sur l'ia (permet de définir s'il y'aura une ia ou pas)
  * 
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic){
+void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SDL_Texture ** textureTableauOptionMenu, int * p_etats, int boolPlayMusic, int * ia){
   SDL_RenderClear(renderer);
-  SDL_Rect tableauRectOption[4]; //boutons du menu
+  SDL_Rect tableauRectOption[9]; //boutons du menu
 
   for(int i = 0; i < 3; i++) { // initialise les coord des options du menu
     SDL_QueryTexture(textureTableauOptionMenu[i], NULL, NULL, &tableauRectOption[i].w, &tableauRectOption[i].h);
+    tableauRectOption[i].x = WIDTH /2 - tableauRectOption[i].w / 2;
+  }
+  for(int i = 4; i < 9; i++) { // initialise les coord des options du menu
+    SDL_QueryTexture(textureTableauOptionMenu[i+3], NULL, NULL, &tableauRectOption[i].w, &tableauRectOption[i].h);
     tableauRectOption[i].x = WIDTH /2 - tableauRectOption[i].w / 2; 
   }
   // cas particulier pour l'image du sond, ne dépend pas des 3 centraux donc pas alignés avec eux
   SDL_QueryTexture(textureTableauOptionMenu[3], NULL, NULL, &tableauRectOption[3].w, &tableauRectOption[3].h);
-  tableauRectOption[3].x = WIDTH /2 - tableauRectOption[3].w / 2; 
-  tableauRectOption[0].y = 318; tableauRectOption[1].y  = 488; tableauRectOption[2].y = 650; 
-  tableauRectOption[3].x = WIDTH - tableauRectOption[3].w;     tableauRectOption[3].y = 0;
+  //tableauRectOption[3].x = WIDTH /2 - tableauRectOption[3].w / 2; 
+
+  tableauRectOption[0].y = 318; tableauRectOption[1].y  = 488; tableauRectOption[2].y = 650;  // jouer 1 vs 1, jouer 1 vs ia, quitter
+  tableauRectOption[4].y = 318; tableauRectOption[5].y  = 488; tableauRectOption[6].y = 318; tableauRectOption[7].y = 488; // min-max, alpha beta, i start, ia start
+  tableauRectOption[8].y = 148; // IA training
+  tableauRectOption[3].x = WIDTH - tableauRectOption[3].w;     tableauRectOption[3].y = 0;    // bouton de sond
 
   SDL_Point pointMouse; //souris du menu pour evenement
   int incrImg = 0; // numero image menu (background)
+  int menu = 0; // correspond à l'étape du menu ([0]ia -> [1]min-max -> [2]qui commence?)
   while(*p_etats == 1) { // boucle principale
     SDL_Event event; SDL_RenderClear(renderer);
     SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
 
     // charge la prochaine image de background, animation
     if (0 != SDL_RenderCopy(renderer, textureBackground[incrImg%400], NULL, NULL)) {fprintf(stderr, "Error SDL_RenderCopy for textureBackground : %s, i = %d, et img = %p \n", SDL_GetError(), incrImg%400 , textureBackground[incrImg%400]);}
-    
-    for(int i=0; i<3; ++i) { // affiche les option menu centraux en trasparent si souris dessus
-      if(isInRectangle(pointMouse, tableauRectOption[i])) {
-        SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 255);
-        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+    if (menu == 0)
+    {
+      for(int i=0; i < 2; ++i) 
+      { // affiche les option menu centraux en trasparent si souris dessus
+        if(isInRectangle(pointMouse, tableauRectOption[i])) {
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 255);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
+        else { // affiche les option menu centraux en non trasparent si souris pas dessus
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 150);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
+      }
+    }
+    /* BOUTON QUITTER */
+    if(isInRectangle(pointMouse, tableauRectOption[2])) {
+      SDL_SetTextureAlphaMod(textureTableauOptionMenu[2], 255);
+      if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[2], NULL, &tableauRectOption[2])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+    }
+    else { // affiche les option menu centraux en non trasparent si souris pas dessus
+      SDL_SetTextureAlphaMod(textureTableauOptionMenu[2], 150);
+      if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[2], NULL, &tableauRectOption[2])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+    }
+    if (menu == 1)
+    {
+      for(int i = 4; i < 6; i++) 
+      { // affiche les option menu centraux en trasparent si souris dessus
+        if(isInRectangle(pointMouse, tableauRectOption[i])) {
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i+3], 255);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i+3], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
+        else { // affiche les option menu centraux en non trasparent si souris pas dessus
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i+3], 150);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i+3], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
+      }     
+      if(isInRectangle(pointMouse, tableauRectOption[8])) {
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[11], 255);
+        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[11], NULL, &tableauRectOption[8])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
       }
       else { // affiche les option menu centraux en non trasparent si souris pas dessus
-        SDL_SetTextureAlphaMod(textureTableauOptionMenu[i], 150);
-        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        SDL_SetTextureAlphaMod(textureTableauOptionMenu[11], 150);
+        if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[11], NULL, &tableauRectOption[8])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+      }
+    }
+    if (menu == 2)
+    {
+      for(int i = 6; i < 8; i++) 
+      { // affiche les option menu centraux en trasparent si souris dessus
+        if(isInRectangle(pointMouse, tableauRectOption[i])) {
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i+3], 255);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i+3], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
+        else { // affiche les option menu centraux en non trasparent si souris pas dessus
+          SDL_SetTextureAlphaMod(textureTableauOptionMenu[i+3], 150);
+          if (0 != SDL_RenderCopy( renderer,  textureTableauOptionMenu[i+3], NULL, &tableauRectOption[i])) fprintf(stderr, "Error SDL_RenderCopy for textureMenu : %s\n", SDL_GetError());
+        }
       }
     }
     if(isInRectangle(pointMouse, tableauRectOption[3])) { // gere le cas de l'affichage bouton sond (transparence)
@@ -188,11 +245,51 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
         case SDL_MOUSEBUTTONDOWN :  // bouton souris enfonce
           if (event.button.button == SDL_BUTTON_LEFT) { // bouton souris gauche
             if (isInRectangle(pointMouse , tableauRectOption[0])) {// 2 joueurs en local
-              *p_etats = 2 ;
+              if (menu == 0)
+              {
+                printf("Pas d'ia");
+                *ia = 0;
+                *p_etats = 2 ;
+              }
+              if (menu == 1)
+              {
+                printf("ia = 1");
+                *ia = 1;
+              }
+              if (menu == 2)
+              {
+                *p_etats = 2;
+              } 
+              menu = (menu == 0) ? 1 : 2;
               SDL_RenderClear(renderer);
             }
+            else if(isInRectangle(pointMouse , tableauRectOption[8])) {
+              if(menu == 1)
+              {
+                *p_etats = 4;
+              }
+            }
             else if(isInRectangle(pointMouse , tableauRectOption[1])) {// IA min max
-              *p_etats = 3 ;
+              if (menu == 1)
+              {
+                printf("ia = 3");
+                *ia = 3;
+              }
+              if (menu == 2)
+              {
+                if (*ia == 3)
+                {
+                  printf("ia = 4");
+                  *ia = 4;
+                }
+                else if (*ia == 1)
+                {
+                  printf("ia = 2");
+                  *ia = 2; 
+                }
+                *p_etats = 2 ;
+              }
+              menu = (menu == 0) ? 1 : 2;
               SDL_RenderClear(renderer);
               printf("Lancement jeu contre IA \n");
             }
@@ -207,7 +304,9 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
               }
             }
             else if(isInRectangle(pointMouse , tableauRectOption[2])) { // choix QUITTER
-              *p_etats = 0;
+              if (menu == 0)
+                *p_etats = 0;
+              menu = (menu == 2) ? 1 : 0;
             }
           }
           break ;
@@ -219,7 +318,7 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
 }
 
 /**
- * \fn void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance)
+ * \fn void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
  * \brief Fonction qui lance la partie Homme VS Homme.
  * 
  * Elle appelle gameOptionGraphique qui joue la partie et ensuite elle affiche le vainquer et réinitialise plateau et pile pour prochaine partie.
@@ -236,22 +335,35 @@ void lancementMenu(SDL_Renderer * renderer, SDL_Texture ** textureBackground, SD
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
  * \param[in] char ** pileJ2 : contient la pile du joueur 2.
  * \param[in] int deplacement : option de jeu avec deplacement restreins ou non .
+ * \param[in] int * ia : pointeur sur l'ia
  *
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c){
+void lancementJeu1VS1(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
+{
   // fonction qui lance partie et quitte quand partie finie
-  gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPion, distance, c);
+  gameOptionGraphique(renderer, tableauTextureMapVide, tableauDePoint, tableauCase, pileJ1, pileJ2, map3D, map2D, p_etatS, boolPlayMusic, textureTableauOptionMenu, textureTableauPion, distance, c, ia);
   
   if(count_pion(map2D, N, 'b') && count_pion(map2D, N, 'n'))
+  {
     printf("EGALITE");
-  else if (count_pion(map2D, N, 'b')) 
+    *c = 'b';
+  }
+  else if (count_pion(map2D, N, 'b'))
+  {
     printf("Le joueur 1 a gagne!\n");
-  else 
+    *c = 'b';
+  }
+  else if (count_pion(map2D, N, 'n'))
+  {
     printf("Le joueur 2 a gagne!\n");
+    *c = 'b';
+  }
+  else
+    printf("La partie a été interrompu\n");
 
   // affichage vainqueur
   SDL_RenderClear(renderer);
@@ -550,16 +662,15 @@ int affichePionOnCase(SDL_Renderer * renderer,  SDL_Texture ** textureTableauPio
   }
 
   /* zoom */
-  printf("INDEX ZOOM: %d\n", index);
   if(index >= 0 && index < 3) 
   {
-    printf("Petit zoom\n");
+    //printf("Petit zoom\n");
     positionPiontCurrent.w *= 0.77;
     positionPiontCurrent.h *= 0.77;
   }
-  else if(index > 2 && index < 6) 
+  else if(index > 2 && index < 6)
   { 
-    printf("Moyen zoom\n");
+    //printf("Moyen zoom\n");
     positionPiontCurrent.w *= 0.86; 
     positionPiontCurrent.h *= 0.86;
     }

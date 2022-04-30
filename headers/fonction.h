@@ -79,7 +79,7 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
 
 
 /**
- * \fn void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance)
+ * \fn void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia)
  * \brief Fonction principale qui demande à un joueur son action et qui l'éxécute sur la map.
  * 
  * \param[in] SDL_Renderer * renderer : renderer principale, sur lequel ou on colle les images du plateau / pions...
@@ -92,12 +92,116 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
  * \param[in] char **  map2D : plateau de jeu non-detaillé
  * \param[in] int * p_etats  : état de la partie, victoire / menu / entrain de jouer
  * \param[in] SDL_Texture ** textureTableauPion : contient les images de pions
- * \param[in] int deplacement    : Mode de jeu, pas de restriction de voisin deplacement = 0, sinon deplacement = 1
+ * \param[in] int deplacement : Mode de jeu, pas de restriction de voisin deplacement = 0, sinon deplacement = 1
+ * \param[in] char * c : représente le joueur
+ * \param[in] int * ia : pointeur sur ia
  * 
  * \return Pas de retour (void).
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */ 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPion, int distance, char * c); // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia); // c = 'b' or 'n' joueur qui choisie
+
+/**
+ * \fn void SGOG_PILE(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int imageIndexP, int imageIndexS, int eatingPion, char * c)
+ * \brief Fonction permettant de déplacer un pion depuis une pile
+ * 
+ * \param[in] SDL_Renderer * renderer : renderer principale, sur lequel ou on colle les images du plateau / pions...
+ * \param[in] SDL_Texture ** tableauTextureMapVide : pour afficher la map vide avec couleur (couleur pour indiquer le tour du joueur)
+ * \param[in] SDL_Texture ** textureTableauPion : contient les images de pions
+ * \param[in] point ** tableauDePoint : contient les coordonnées des cases su plateau + pile
+ * \param[in] char ** pileJ1 : contient les spiles du joueur 1
+ * \param[in] char ** pileJ2 : contient les spiles du joueur 2
+ * \param[in] char *** map3D : plateau de jeu detaillé
+ * \param[in] char **  map2D : plateau de jeu non-detaillé
+ * \param[in] int imageIndexP : index de la case de départ
+ * \param[in] int imageIndexS : index de la case de d'arrivé
+ * \param[in] int eatingPion : index du pion mangé (-1 si aucun pion mangé)
+ * \param[in] char * c  : caractère représentant le joueur qui joue
+ * 
+ * \return Pas de retour (void).
+ * 
+ * \author DUPOIS Thomas
+ */ 
+void SGOG_PILE(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint,
+char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int imageIndexP, int imageIndexS, int eatingPion, char * c);
+
+
+/**
+ * \fn void SGOG_IA(char *** map3D, char ** map2D, char * c, char ** pileJ1, char ** pileJ2, int alphaBeta, int * p_etats, int prof, SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, int * tabParam )
+ * \brief Fonction permettant à l'intelligence artificielle de jouer
+ * 
+ * \param[in] char *** map3D : plateau de jeu detaillé
+ * \param[in] char **  map2D : plateau de jeu non-detaillé
+ * \param[in] char *  c : caractère de l'ia qui joue
+ * \param[in] char ** pileJ1 : contient les spiles du joueur 1
+ * \param[in] char ** pileJ2 : contient les spiles du joueur 2
+ * \param[in] int alphaBeta : boolean si le alphaBeta est utilisé
+ * \param[in] int * p_etats  : état de la partie, victoire / menu / entrain de jouer
+ * \param[in] int prof : la profondeur de recherche dans l'arbre
+ * \param[in] SDL_Renderer * renderer : renderer principale, sur lequel ou on colle les images du plateau / pions...
+ * \param[in] SDL_Texture ** tableauTextureMapVide : pour afficher la map vide avec couleur (couleur pour indiquer le tour du joueur)
+ * \param[in] SDL_Texture ** textureTableauPion : contient les images de pions
+ * \param[in] point ** tableauDePoint : contient les coordonnées des cases su plateau + pile
+ * \param[in] int * tabParam : tableau de paramètres de l'ia
+ * 
+ * \return Pas de retour (void).
+ * 
+ * \author DUPOIS Thomas
+ */ 
+void SGOG_IA(char *** map3D, char ** map2D, char * c, char ** pileJ1, char ** pileJ2, int alphaBeta, int * p_etats, int prof,
+ SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, int * tabParam);
+
+/**
+ * \fn void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
+ * \brief Fonction qui lance la partie Homme VS Homme.
+ * 
+ * Elle entraine l'intelligence artificielle
+ *  
+ * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
+ * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
+ * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
+ * \param[in] SDL_Texture ** textureTableauWin : tableau de texture, contient les images de victoires avec lignes gagnantes éclairées.
+ * \param[in] int * p_etatS : pointeur permettant de connaître l'état du programme (en game, en pause)
+ * \param[in] SDL_Rect ** tableauCase : tableau de case / surface pour gérer l'affichage des pions et leurs sélections.
+ * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
+ * \param[in] char *** map3D : contient la map du jeu détaillé.
+ * \param[in] char **  map2D : contient la map du jeu non détaillé.
+ * \param[in] char ** pileJ1 : contient la pile du joueur 1.
+ * \param[in] char ** pileJ2 : contient la pile du joueur 2.
+ * \param[in] int deplacement : option de jeu avec deplacement restreins ou non .
+ * \param[in] int * ia : pointeur sur l'ia
+ *
+ * \return void : Pas de valeur de retour.
+ * 
+ * \author DUPOIS Thomas
+ */
+void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia);
+
+/**
+ * \fn void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
+ * \brief Fonction qui lance la partie IA VS IA
+ * 
+ * Elle entraine l'intelligence artificielle
+ *  
+ * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
+ * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
+ * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
+ * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
+ * \param[in] char *** map3D : contient la map du jeu détaillé.
+ * \param[in] char **  map2D : contient la map du jeu non détaillé.
+ * \param[in] char ** pileJ1 : contient la pile du joueur 1.
+ * \param[in] char ** pileJ2 : contient la pile du joueur 2.
+ * \param[in] int i : ia1
+ * \param[in] int j : ia2
+ * \param[in] int ** tabIA : contient l'ensemble des ias (tableaux de paramètre)
+ * \param[in] int * tabResult : contient les resultats
+ *
+ * \return void : Pas de valeur de retour.
+ * 
+ * \author DUPOIS Thomas
+ */
+void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult);
+
 #endif

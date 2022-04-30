@@ -93,7 +93,7 @@ void freeMap2D(char ** map2D) {
  * 
  * \brief Fonction permettant de free les piles d'un joueur.
  * 
- * \param[in] har ** stackArray : pile du joueur à free.
+ * \param[in] char ** stackArray : pile du joueur à free.
  * 
  * \return void : Pas de retour pour la fonction.
  * 
@@ -106,8 +106,70 @@ void freeStack(char ** stackArray) {
     free(stackArray) ;
   }
 }
+
 /**
- * \fn void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase)
+ * \fn void freeTableOfCoups(char ** tab)
+ * 
+ * \brief Fonction permettant de free les tableaux de coups
+ * 
+ * \param[in] char ** tab : tableau de coups à free.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableOfCoups(int ** tab) 
+{
+  if(tab) 
+  {
+    for(int i = 0; i < 2; i++)
+      free(tab[i]) ;
+    free(tab) ;
+  }
+}
+
+/**
+ * \fn void freeTableOfCoups(char * tab)
+ * 
+ * \brief Fonction permettant de free les tableaux de résultats
+ * 
+ * \param[in] char * tab : tableau de coups à free.
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableResult(char * tab) 
+{
+  if(tab) 
+  {
+    free(tab);
+  }
+}
+
+/**
+ * \fn void freeTableIA(int ** tab, int nbre) 
+ * 
+ * \brief Fonction permettant de free les tableaux d'IA
+ * 
+ * \param[in] char ** tab : tableau d'ia
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void freeTableIA(int ** tab, int nbre) 
+{
+  if(tab) 
+  {
+    for(int i = 0; i < nbre; i++)
+      free(tab[i]) ;
+    free(tab) ;
+  }
+}
+
+/**
+ * \fn void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase, SDL_Texture ** textureTableauWin)
  * 
  * \brief Fonction permettant de free les textures, misiques, rendu, fenêtre de la SDL.
  * 
@@ -121,12 +183,16 @@ void freeStack(char ** stackArray) {
  * \param[in] point ** tableauDePoint : tableau des points à free.
  * \param[in] SDL_Surface * icones : logo du programme à free.
  * \param[in] SDL_Rect ** tableauCase : tableau des cases à free.
+ * \param[in] SDL_Texture ** textureTableauWin : tableau de texture des images de win
  * 
  * \return void : Pas de retour pour la fonction.
  * 
+ * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide, SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase){
+void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide,
+SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase, SDL_Texture ** textureTableauWin)
+{
   if(mainMusic) Mix_FreeMusic(mainMusic); // free musique principale
 
   /************************** FREE TEXTURE **************************/
@@ -135,6 +201,13 @@ void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic
       SDL_DestroyTexture(textureTableauPion[i]);
     free(textureTableauPion);
   }
+
+  if(textureTableauWin) {
+    for(int i = 0; i < 11; i++) // nombres d'images de pion
+      SDL_DestroyTexture(textureTableauPion[i]);
+    free(textureTableauPion);
+  }
+
   if(tableauTextureMapVide) {
     for(int i=0; i<3; ++i) // free 3 map : 1 map vert, 1 map rouge quand joueur rouge joue et 1 map bleu quand joueur bleu joue
       SDL_DestroyTexture(tableauTextureMapVide[i]);
@@ -146,7 +219,7 @@ void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic
     free(textureBackground);
   }
   if(textureTableauOptionMenu) {
-    for(int i = 0; i < 5; i++)                  // nombres options menus
+    for(int i = 0; i < 11; i++)                  // nombres options menus
       SDL_DestroyTexture(textureTableauOptionMenu[i]);
     free(textureTableauOptionMenu);
   }

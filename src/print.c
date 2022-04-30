@@ -69,3 +69,43 @@ void printStacks(char ** stacksArray) {
     printf("\n");
   }
 }
+
+/**
+ * \fn void printIAParametre(int ** tab)
+ * 
+ * \brief Fonction qui affiche dans le terminal le tableau de paramètre de l'IA
+ * 
+ * \param[in] int ** tab : tableau de paramètre
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void printIAParametre(int ** tab) 
+{
+  for(int i = 0; i < 10; i++) {
+    for(int j = 0; j < 10; j++)
+       printf("%d ", tab[i][j]);
+    printf("\n");
+  }
+  printf("\n");
+}
+
+/**
+ * \fn void printIAResult(int * tab, int nbreIA) 
+ * 
+ * \brief Fonction qui affiche les resultats des IA
+ * 
+ * \param[in] int ** tab : tableau de resultat d'ia
+ * \param[in] int nbreIA : Le nombre d'IA
+ * 
+ * \return void : Pas de retour pour la fonction.
+ * 
+ * \author DUPOIS Thomas
+ */
+void printIAResult(int * tab, int nbreIA) 
+{
+  for(int i = 0; i < nbreIA; i++)
+    printf("%d ", tab[i]);
+  printf("\n");
+}

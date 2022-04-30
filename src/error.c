@@ -50,3 +50,18 @@ void errorInCreate2D() {
     perror("ERROR ALLOCATION MEMORY in createMap2D\n");
     exit(EXIT_FAILURE);
 }
+
+/**
+ * \fn void errorInCreateTabOfCoups() 
+ * \brief Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups).
+ * 
+ * \param[in] void : Ne prend aucun paramètre.
+ * 
+ * \return void: aucun retour.
+ * 
+ * \author DUPOIS Thomas
+ */
+void errorInCreateTabOfCoups() {
+    perror("ERROR ALLOCATION MEMORY in createTabOfCoups\n");
+    exit(EXIT_FAILURE);
+}

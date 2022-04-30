@@ -94,12 +94,12 @@ void initPile(char ** pile, char c) {
  * \author VILLEPREUX Thibault
  */
 int loadTextureOptionMenu(SDL_Renderer ** renderer, SDL_Texture *** ptextureTableauOptionMenu) {
-  SDL_Texture ** textureTableauOptionMenu = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*7); // alloue le tableau de texture
+  SDL_Texture ** textureTableauOptionMenu = (SDL_Texture **) malloc(sizeof(SDL_Texture *)*12); // alloue le tableau de texture
   if (! textureTableauOptionMenu) { // si erreur return -1 (permet par la suite de quitter le programme)
     fprintf(stderr, "Erreur allocation memory in textureTableauOptionMenu\n"); 
     return -1;
   }
-  for (int i = 0; i < 7; i++) { // seulement 5 options dans le menu principal
+  for (int i = 0; i < 12; i++) { // seulement 12 options dans le menu principal
     char nom[30];
     sprintf(nom, "Frames/option%d.png", i+1); // sinon on charge les images dans le tableau
     textureTableauOptionMenu[i] = loadImage(nom, * renderer);

@@ -69,6 +69,7 @@
 #include "headers/ia.h"
 
 // inclusions des src
+
 #include "src/fonction.c"
 #include "src/get.c"
 #include "src/demande.c"
@@ -82,6 +83,7 @@
 #include "src/error.c"
 #include "src/liste.c"
 #include "src/ia.c"
+
 
 /**
  * \fn int main(int argc, char ** argv)

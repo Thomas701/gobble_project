@@ -207,7 +207,7 @@ void debugTab(SDL_Rect ** tableauCase) ;
  * 
  * \param[in] SDL_Rect ** tableauCase : tableau de cases
  * 
- * \return int : retourne 1 si pas de victoire sinon retourn un nombre >  0, qui représente un identifiant de la ligne afin de réaliser un affichage en SDL.
+ * \return int : retourne 0 si pas de victoire sinon retourn un nombre >  0, qui représente un identifiant de la ligne afin de réaliser un affichage en SDL.
  * 
  * \author DUPOIS Thomas
  */

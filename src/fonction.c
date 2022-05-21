@@ -151,14 +151,18 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   // = 2 -> IA MIN-MAX QUI COMMENCE
   // = 3 -> IA ALPHA-BETA QUI NE COMMENCE PAS
   // = 4 -> IA ALPHA-BETA QUI COMMENCE
-  int prof = (*ia == 1 || *ia == 2) ? 2 : 3;
+  int prof = (*ia == 1 || *ia == 2) ? 2 : 4;
   int alphaBeta = (*ia == 1 || *ia == 2) ? 0 : 1;
 
   while(2 == *p_etats){ // boucle principale
     while(SDL_PollEvent(&event)){ // programme continue et un nouveau evenement dans la file
       if (((*ia == 2 || *ia == 4) && *c == 'b') || ((*ia == 1 || *ia == 3) && *c == 'n'))
       {
-        int * tabParam = generateTab(-2,-5,3,3,-3,-5,-2,0,3,1);
+        //int * tabParam = generateTab(-7,1,3,0,5,0,-1,2,1,0);
+        int * tabParam = generateTab(0,3,3,-2,4,1,3,-1,-2,-3); // INFERNAL CHAMPION
+        //int * tabParam = generateTab(0,0,0,0,0,0,0,0,0,0);
+        //                            0,1,2,3,4,5, 6,7,8,9
+        //                            g   g     g    g
         SGOG_IA(map3D, map2D, c, pileJ1, pileJ2, alphaBeta, p_etats, prof, renderer, tableauTextureMapVide, textureTableauPion, tableauDePoint, tabParam);
       }
 
@@ -334,7 +338,7 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
 {
   int champion = 0; int gc = 0; int tgc =0;
   int nbreIA = 10; int min = -5; int max = 5; int bestIA;
-  for (int tour = 0; tour < 150; tour++)
+  for (int tour = 0; tour < 250; tour++)
   {  
     printf("-------------------------------\n");
     printf("TOUR: %d\n", tour);

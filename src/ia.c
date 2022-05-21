@@ -321,8 +321,27 @@ int * play(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char c
         index++;
     }
     //afficheListe(l);
+    /* --- SELECTION MEILLEUR COUP PARMIS LES CHOIX HESITANTS --- */
+    liste * l2 = createListe();
+    max = -999;
     if (size(l) > 1)
-        bestCoup = get(l, rand()%(size(l)));
+    {
+        for (int i = 0; i < size(l); i++)
+        {
+            calcul = evaluation(tableauParam, map3D, map2D, tab, get(l, i), c);
+            if (calcul > max)
+            {
+                clear(l2);
+                add(l2, get(l, i));
+                max = calcul;
+                bestCoup = get(l, i);
+            }
+            else if (max == calcul)
+                add(l2, get(l, i));
+        }
+        bestCoup = get(l2, rand()%(size(l2)));
+    }
+    
     //printf("size = %d, bestCoup = %d\n", size(l), bestCoup);
     eatingPion = getIndexPionWhoAreEat(map3D, tab[1][bestCoup]);
     //printf("Eating pion = %d\n", eatingPion);
@@ -332,6 +351,8 @@ int * play(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char c
     // free la liste
     clear(l);
     free(l);
+    clear(l2);
+    free(l2);
     return tabResult;
 }
 
@@ -386,31 +407,37 @@ void allFree(char *** map3D, char ** map2D, char ** stacks, char ** stacksOp, in
 int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int ** tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int * tableauParam)
 {
     if (prof == -1)
-    {
         return evaluation(tableauParam, map3D, map2D, tabOfCoups, index, c);
-        //return 0;
-    }
-
+    /* ----- */
     char ** stacks; char ** stacksOp;
-    int iaOp = (ia == 1) ? 0 : 1;
-    char cOp = (c == 'b') ? 'n' : 'b';
+    int iaOp = (ia == 1) ? 0 : 1;       // IA OPPOSE
+    char cOp = (c == 'b') ? 'n' : 'b';  // PION OPPOSE
     int choix = (c == 'b') ? 1 : 0;                                 // boolean qui sert seulement à savoir si stack = pileJ1 ou stack = pileJ2
-    stacks = (c == 'b') ? copyStack(pileJ1) : copyStack(pileJ2);
-    stacksOp = (c == 'b') ? copyStack(pileJ2) : copyStack(pileJ1);
+    stacks = (c == 'b') ? copyStack(pileJ1) : copyStack(pileJ2);    // si pion bleu: stacks = j1
+    stacksOp = (c == 'b') ? copyStack(pileJ2) : copyStack(pileJ1);  // si pion rouge stacks == j2
     char *** newMap3D = copyMap3D(map3D);
     char ** newMap2D = copyMap2D(map2D);
-
-    placePionByIa(tabOfCoups, index, newMap3D, stacks, c);
-    initMap2D(newMap2D, newMap3D);
-
+    /* ---- */
+    placePionByIa(tabOfCoups, index, newMap3D, stacks, c);  // jouer le pion en question
+    initMap2D(newMap2D, newMap3D);                          // mettre à jour la map
+    /* ---- */
+    if (count_pion(newMap2D, N, cOp)) // gagner, perdu?
+    {
+        freeMap(newMap3D);
+        freeMap2D(newMap2D);
+        freeStack(stacks);
+        freeStack(stacksOp);
+        return (ia == 1) ? -100-prof : 100+prof ;
+    }
     if (count_pion(newMap2D, N, c)) // gagner, perdu?
     {
         freeMap(newMap3D);
         freeMap2D(newMap2D);
         freeStack(stacks);
         freeStack(stacksOp);
-        return (ia == 1) ? 100 : -100 ;
+        return (ia == 1) ? 100+prof : -100-prof;
     }
+    // ----------------------------------------------------
     else
     {
         int max = -999999; int min = 999999;
@@ -427,22 +454,22 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
             {
                 mem = prediction(prof-1, newMap3D, newMap2D, stacks, stacksOp, tab, indexTab, iaOp, cOp, alphaBeta, alpha, beta, tableauParam);
                 add(l, mem);
-                if (ia == 1)
+                if (ia == 1 && mem > alpha)
                     alpha = mem;
-                else
+                else if (ia == 0 && mem < beta)
                     beta = mem;
-                if ((alphaBeta && ia == 1 && mem > beta) || (alphaBeta && ia == 0 && mem < alpha))
+                if (alpha > beta && alphaBeta)
                     continuer = 0;
             }
             else
             {
                 mem = prediction(prof-1, newMap3D, newMap2D, stacksOp, stacks, tab, indexTab, iaOp, cOp, alphaBeta, alpha, beta, tableauParam);
                 add(l, mem);
-                if (ia == 1)
+                if (ia == 1 && mem > alpha)
                     alpha = mem;
-                else
+                else if (ia == 0 && mem < beta)
                     beta = mem;
-                if ((alphaBeta && ia == 1 && mem > beta) || (alphaBeta && ia == 0 && mem < alpha))
+                if (alpha > beta && alphaBeta)
                     continuer = 0;
             }
             indexTab++;
@@ -465,16 +492,16 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 
 // ----------------- Evalutation de la grille ---------------------- //
 // Liste des paramètres 
-// [0]deplacer un pion 5  
-// [1]placer un pion 2  
-// [2]manger un pion (difference = 1) -3  
-// [3]manger un pion (difference = 2) 2  
-// [4]case d'arrivé au centre 5  
-// [5]case d'arrivé coin 4  
-// [6]case d'arrivé middle -2 
-// [7]jouer un gros 0 
-// [8]jouer un moyen 4 
-// [9]jouer un petit 4  
+// <- [0]deplacer un pion 
+// <- [1]placer un pion 
+// <- [2]manger un pion (difference = 1)  
+// <- [3]manger un pion (difference = 2)  
+// <- [4]case d'arrivé au centre  
+// <- [5]case d'arrivé coin  
+// <- [6]case d'arrivé middle  
+// <- [7]jouer un gros 
+// <- [8]jouer un moyen 
+// <- [9]jouer un petit   
 
 /**
  * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
@@ -494,35 +521,35 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
 {
     int result = 0;
-
+    //placer un pion (déplacement depuis une pile)
     if(tabOfCoups[0][index] > 8)
         result += tabParam[1];
-
+    //deplacer un pion (déplacement depuis une case de la map)
     if(tabOfCoups[0][index] < 9)
         result += tabParam[0];
-
+    //deplacer un pion sur le centrer
     if(tabOfCoups[1][index] == 4)
         result += tabParam[4];
-
+    //deplacer un pion sur un coin
     if(tabOfCoups[1][index] == 0 || tabOfCoups[1][index] == 2 || tabOfCoups[1][index] == 6 || tabOfCoups[1][index] == 8)
         result += tabParam[5];
-
+    //deplacer un pion sur une case middle
     if(tabOfCoups[1][index] == 1 || tabOfCoups[1][index] == 3 || tabOfCoups[1][index] == 5 || tabOfCoups[1][index] == 7)
         result += tabParam[6];
-
+    //jouer un gros pion
     if (( tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 0) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 2))
         result += tabParam[7];
-
+    //jouer un pion de taille moyenne
     if ((tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 1) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 1))
         result += tabParam[8];
-
+    //jouer un pion de petite taille
     if ((tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 2) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 0))
         result += tabParam[9];
-
+    //manger un pion avec une différence de 1
     if ((tabOfCoups[0][index] > 8 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && (N-1) - tabOfCoups[0][index]%3 - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1)
     || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && getSizePionOnCase2(map3D, tabOfCoups[0][index]) - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1))
         result += tabParam[2];
-
+    //manger un pion avec une différence de 2
     if ((tabOfCoups[0][index] > 8 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && (N-1) - tabOfCoups[0][index]%3 - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2)
     || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && getSizePionOnCase2(map3D, tabOfCoups[0][index]) - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2))
         result += tabParam[3];

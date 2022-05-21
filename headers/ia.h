@@ -206,6 +206,19 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c);
 
 /**
+ * \fn int number_pion_gobe(char *** map3D, char c)
+ * \brief compte le nombre de pions gobés par le joueur
+ *  
+ * \param[in] char *** map3D : map 3D
+ * \param[in] char c : piont du joueur
+ * 
+ * \return int : retourne le nombre de pions gobés par le joueur
+ * 
+ * \author DUPOIS Thomas
+ */
+int number_pion_gobe(char *** map3D, char c);
+
+/**
  * \fn int countDiff(char ** map2D, char c)
  * \brief compte la différence entre le nombre de pion du joueur et le nombre de pion de l'adversaire posé sur la grille
  *  
@@ -232,7 +245,7 @@ int countDiff(char ** map2D, char c);
 int rdm (int i, int j);
 
 /**
- * \fn int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9)
+ * \fn int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21)
  * \brief retourne un tableau contenant les notes des paramètres de l'IA.
  *  
  * \param[in] int i1 : paramètre ia: deplacer un pion
@@ -245,12 +258,24 @@ int rdm (int i, int j);
  * \param[in] int i8 : paramètre ia: jouer un gros
  * \param[in] int i9 : paramètre ia: jouer un moyen
  * \param[in] int i10 : paramètre ia: jouer un petit
+ * \param[in] int i11 : paramètre ia: case depart centre
+ * \param[in] int i12 : paramètre ia: case depart coin
+ * \param[in] int i13 : paramètre ia: case depart middle
+ * \param[in] int i14 : paramètre ia: manger moyen
+ * \param[in] int i15 : paramètre ia: manger petit
+ * \param[in] int i16 : paramètre ia: nbre pion > nbre pion adverse
+ * \param[in] int i17 : paramètre ia: nbre pion = nbre pion adverse
+ * \param[in] int i18 : paramètre ia: nbre pion < nbre pion advser
+ * \param[in] int i19 : paramètre ia: nbre pion gobé > nbre pion gobé adverse
+ * \param[in] int i20 : paramètre ia: nbre pion gobé < nbre pion gobé adverse
+ * \param[in] int i21 : paramètre ia: alignement 2 pions
  * 
  * \return int : retourne le tableau contenant les paramètre de l'ia
  * 
  * \author DUPOIS Thomas
  */
-int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10);
+int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
+int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21);
 
 /**
  * \fn void writeChampion(int * tabParam, char nom[20])

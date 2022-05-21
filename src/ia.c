@@ -501,7 +501,18 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 // <- [6]case d'arrivé middle  
 // <- [7]jouer un gros 
 // <- [8]jouer un moyen 
-// <- [9]jouer un petit   
+// <- [9]jouer un petit
+// <- [10]case de départ au centre  
+// <- [11]case de départ coin  
+// <- [12]case de départ middle
+// <- [13]manger un moyen
+// <- [14]manger un petit
+// <- [15] nbre pion > nbre pion adversaire
+// <- [16] nbre pion = nbre pion adversaire
+// <- [17] nbre pion < nbre pion adversaire
+// <- [18] nbre de pion gobé > nbre de pion gobé adversaire
+// <- [19] nbre de pion gobé < nbre de pion gobé adversaire
+// <- [20] aligne 2 gobblets
 
 /**
  * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
@@ -553,8 +564,73 @@ int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups,
     if ((tabOfCoups[0][index] > 8 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && (N-1) - tabOfCoups[0][index]%3 - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2)
     || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && getSizePionOnCase2(map3D, tabOfCoups[0][index]) - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2))
         result += tabParam[3];
-
+    //case de départ au centre  
+    if (tabOfCoups[0][index] == 4)
+        result += tabParam[10];
+    //case de départ coin
+    if(tabOfCoups[0][index] == 0 || tabOfCoups[0][index] == 2 || tabOfCoups[0][index] == 6 || tabOfCoups[0][index] == 8)
+        result += tabParam[11];
+    //case de départ middle
+    if(tabOfCoups[0][index] == 1 || tabOfCoups[0][index] == 3 || tabOfCoups[0][index] == 5 || tabOfCoups[0][index] == 7)
+        result += tabParam[12];
+    //manger un moyen adverse
+    if (getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c)
+        result += tabParam[13];
+    //manger un petit adverse
+    if (getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 0 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c)
+        result += tabParam[14];
+    // nombre de pion > nombre de pion adverse
+    if (countDiff(map2D, c) > countDiff(map2D, ((c == 'b') ? 'n': 'b')))
+        result += tabParam[15];
+    // nombre de pion == nombre de pion adverse
+    if (countDiff(map2D, c) == countDiff(map2D, ((c == 'b') ? 'n': 'b')))
+        result += tabParam[16];
+    // nombre de pion < nombre de pion adverse
+    if (countDiff(map2D, c) < countDiff(map2D, ((c == 'b') ? 'n': 'b')))
+        result += tabParam[17];
+    //nbre de pion gobé > nbre de pion gobé adversaire
+    if (number_pion_gobe(map3D, c) > number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
+        result += tabParam[18];
+    //nbre de pion gobé < nbre de pion gobé adversaire
+    if (number_pion_gobe(map3D, c) < number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
+        result += tabParam[19];
+    //alignement de 2 pions
+    if (count_pion(map2D, N-1, c))
+        result += tabParam[20];
     return result;
+}
+
+/**
+ * \fn int number_pion_gobe(char *** map3D, char c)
+ * \brief compte le nombre de pions gobés par le joueur
+ *  
+ * \param[in] char *** map3D : map 3D
+ * \param[in] char c : piont du joueur
+ * 
+ * \return int : retourne le nombre de pions gobés par le joueur
+ * 
+ * \author DUPOIS Thomas
+ */
+int number_pion_gobe(char *** map3D, char c)
+{
+    int a;
+    int count = 0;
+    char cOp = (c == 'b') ? 'n': 'b';
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            a = 0;
+            for(int k = 0; k < N; k++)
+            {
+                if (a && map3D[i][j][k] == c)
+                    count++;
+                if (map3D[i][j][k] != c)
+                    a = 1;
+            }
+        }
+    }
+    return count;
 }
 
 /**
@@ -597,7 +673,7 @@ int rdm (int i, int j)
 }
 
 /**
- * \fn int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9)
+ * \fn int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21)
  * \brief retourne un tableau contenant les notes des paramètres de l'IA.
  *  
  * \param[in] int i1 : paramètre ia: deplacer un pion
@@ -610,17 +686,32 @@ int rdm (int i, int j)
  * \param[in] int i8 : paramètre ia: jouer un gros
  * \param[in] int i9 : paramètre ia: jouer un moyen
  * \param[in] int i10 : paramètre ia: jouer un petit
+ * \param[in] int i11 : paramètre ia: case depart centre
+ * \param[in] int i12 : paramètre ia: case depart coin
+ * \param[in] int i13 : paramètre ia: case depart middle
+ * \param[in] int i14 : paramètre ia: manger moyen
+ * \param[in] int i15 : paramètre ia: manger petit
+ * \param[in] int i16 : paramètre ia: nbre pion > nbre pion adverse
+ * \param[in] int i17 : paramètre ia: nbre pion = nbre pion adverse
+ * \param[in] int i18 : paramètre ia: nbre pion < nbre pion advser
+ * \param[in] int i19 : paramètre ia: nbre pion gobé > nbre pion gobé adverse
+ * \param[in] int i20 : paramètre ia: nbre pion gobé < nbre pion gobé adverse
+ * \param[in] int i21 : paramètre ia: alignement 2 pions
  * 
  * \return int : retourne le tableau contenant les paramètre de l'ia
  * 
  * \author DUPOIS Thomas
  */
-int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10)
+int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
+int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21)
 {
-    int * tab = (int*) malloc(sizeof(int)*10);
+    int * tab = (int*) malloc(sizeof(int)*21);
     tab[0] = i1; tab[1] = i2; tab[2] = i3; tab[3] = i4;
     tab[4] = i5; tab[5] = i6; tab[6] = i7; tab[7] = i8;
-    tab[8] = i9, tab[9] = i10;
+    tab[8] = i9, tab[9] = i10; tab[10] = i11; tab[11] = i12;
+    tab[12] = i13; tab[13] = i14; tab[14] = i15; tab[15] = i16;
+    tab[16] = i17; tab[17] = i18; tab[18] = i19; tab[19] = i20;
+    tab[20] = i21; 
     return tab;
 }
 
@@ -645,7 +736,7 @@ void writeChampion(int * tabParam, char nom[20])
     printf("->%s\n", nbre);
     if (fichier != NULL)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 21; i++)
         {   
             itoa(tabParam[i], nbre, 10);
             fputs(nbre, fichier);
@@ -696,18 +787,26 @@ int nbreChampion(char nom[20])
  */
 void readChampion(int ** tabIA, char nom[20])
 {
+    printf("1er\n");
     FILE *f;
     f = fopen(nom,"r");   
-    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10;
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
     int i = 0;
+    printf("2eme\n");
     char *file_contents = malloc(30);
+    printf("3eme\n");
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
         //printf("> %s\n", file_contents);
-        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10);
+        printf("5eme\n");
+        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
+        printf("TEST continue i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
         tabIA[i][5] = i6; tabIA[i][6] = i7; tabIA[i][7] = i8; tabIA[i][8] = i9; tabIA[i][9] = i10;
+        tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14; tabIA[i][14] = i15;
+        tabIA[i][15] = i16; tabIA[i][16] = i17; tabIA[i][17] = i18; tabIA[i][18] = i19; tabIA[i][19] = i20;
+        tabIA[i][20] = i21;
         i++;
     }
     free(file_contents);

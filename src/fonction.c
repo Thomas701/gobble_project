@@ -159,7 +159,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       if (((*ia == 2 || *ia == 4) && *c == 'b') || ((*ia == 1 || *ia == 3) && *c == 'n'))
       {
         //int * tabParam = generateTab(-7,1,3,0,5,0,-1,2,1,0);
-        int * tabParam = generateTab(0,3,3,-2,4,1,3,-1,-2,-3); // INFERNAL CHAMPION
+        int * tabParam = generateTab(0,3,3,-2,4,1,3,-1,-2,-3,0,0,0,0,0,0,0,0,0,0,0); // INFERNAL CHAMPION
         //int * tabParam = generateTab(0,0,0,0,0,0,0,0,0,0);
         //                            0,1,2,3,4,5, 6,7,8,9
         //                            g   g     g    g
@@ -338,20 +338,23 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
 {
   int champion = 0; int gc = 0; int tgc =0;
   int nbreIA = 10; int min = -5; int max = 5; int bestIA;
+  int * tabResult = (int*) malloc(sizeof(int)*nbreIA);
   for (int tour = 0; tour < 250; tour++)
   {  
     printf("-------------------------------\n");
     printf("TOUR: %d\n", tour);
     int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
-    int * tabResult = (int*) malloc(sizeof(int)*nbreIA);
+    printf("TEST 1\n");
     if (nbreChampion("champion.txt") == 10 || nbreChampion("grandChampion.txt") == 10 || nbreChampion("tresGrandChampion.txt") == 10)
     {
+      printf("TEST 2 CHAMPION 10\n");
       for (int i = 0; i < nbreIA; i++)
       {
-        int * tab = (int*) malloc(sizeof(int)*10);
+        int * tab = (int*) malloc(sizeof(int)*21);
         tabIA[i] = tab;
         tabResult[i] = 0;
       }
+      printf("TEST 3 CHAMPION 10\n");
       if (nbreChampion("tresGrandChampion.txt") == 10)
       {
         readChampion(tabIA, "tresGrandChampion.txt");
@@ -366,16 +369,21 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
       }
       else if (nbreChampion("champion.txt") == 10)
       {
+        printf("TEST 4 CHAMPION 10\n");
         readChampion(tabIA, "champion.txt");
+        printf("TEST 5 CHAMPION 10\n");
         champion = 1;
         clearFile("champion.txt");
+        printf("TEST 6 CHAMPION 10\n");
       }
     }
     else
     {
       for (int i = 0; i < nbreIA; i++)
       {
-        tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max));
+        tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
+        rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
+        rdm(min,max),rdm(min,max),rdm(min,max));
         tabResult[i] = 0;
       }
     }
@@ -401,10 +409,10 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
     champion = 0;
     gc = 0;
     tgc = 0;
-    free(tabResult);
     freeTableIA(tabIA, nbreIA);
   }
   *p_etatS = 0;
+  free(tabResult);
 }
 
 /**

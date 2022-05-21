@@ -1,5 +1,5 @@
 <map id="check_End_Game" name="check_End_Game">
 <area shape="rect" id="node1" title="Fonction qui nous informe en cas de victoire du joueur et nous donne l&#39;identifiant de la ligne corres..." alt="" coords="300,31,437,57"/>
-<area shape="rect" id="node2" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
+<area shape="rect" id="node2" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
 <area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
 </map>

@@ -1,7 +1,7 @@
 /**
- * \file verification.h
+ * \file ia.h
  * 
- * \brief Fichier contenant les headers des fonctions permettant de vérifier si un déplacement / insertion de nouveau pion est valide.
+ * \brier Fichier contenant les code des fonctions concernant l'intelligence artificielle
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault

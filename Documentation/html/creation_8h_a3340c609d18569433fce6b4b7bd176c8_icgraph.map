@@ -1,4 +1,13 @@
 <map id="createMap2D" name="createMap2D">
-<area shape="rect" id="node1" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="108,5,217,32"/>
-<area shape="rect" id="node2" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node1" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="1031,107,1140,133"/>
+<area shape="rect" id="node2" href="$ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd" title="Permet de copier la map 2D." alt="" coords="884,56,983,83"/>
+<area shape="rect" id="node8" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node11" href="$save_file_8c.html#a5f5e0477b7904f6d15f18edc74deb601" title=" " alt="" coords="887,157,979,184"/>
+<area shape="rect" id="node3" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" id="node4" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,56,701,83"/>
+<area shape="rect" id="node5" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" id="node6" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" id="node7" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" id="node10" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
 </map>

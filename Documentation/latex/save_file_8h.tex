@@ -12,8 +12,7 @@ void \mbox{\hyperlink{save_file_8h_a77600fa36352855946e04ae100f8fc5c}{write\+Fil
 \begin{DoxyCompactList}\small\item\em Fonction qui écrit le plateau de jeu détaillé dans un fichier \char`\"{}map.\+txt\char`\"{}. \end{DoxyCompactList}\item 
 char $\ast$$\ast$$\ast$ \mbox{\hyperlink{save_file_8h_a6e914b42a5cbc2f6d02488bd19775e78}{read\+File3D}} (char $\ast$name\+File)
 \begin{DoxyCompactList}\small\item\em Fonction qui lit le plateau de jeu détaillé dans un fichier. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601}\label{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601}} 
-char $\ast$$\ast$ {\bfseries read\+File2D} (char $\ast$name\+File)
+char $\ast$$\ast$ \mbox{\hyperlink{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601}{read\+File2D}} (char $\ast$name\+File)
 \item 
 void \mbox{\hyperlink{save_file_8h_ab86fa378fb5ba4fd5b4437eae2de3e21}{write\+File\+Pile}} (char $\ast$$\ast$pile1, char $\ast$$\ast$pile2)
 \begin{DoxyCompactList}\small\item\em Fonction qui écrit les piles des joueurs dans un fichier \char`\"{}pile.\+txt\char`\"{}. \end{DoxyCompactList}\item 
@@ -32,6 +31,23 @@ V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601}\label{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601}} 
+\index{saveFile.h@{saveFile.h}!readFile2D@{readFile2D}}
+\index{readFile2D@{readFile2D}!saveFile.h@{saveFile.h}}
+\doxysubsubsection{\texorpdfstring{readFile2D()}{readFile2D()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ read\+File2D (\begin{DoxyParamCaption}\item[{char $\ast$}]{name\+File }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 107 du fichier save\+File.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{save_file_8h_a5f5e0477b7904f6d15f18edc74deb601_cgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{save_file_8h_a6e914b42a5cbc2f6d02488bd19775e78}\label{save_file_8h_a6e914b42a5cbc2f6d02488bd19775e78}} 
 \index{saveFile.h@{saveFile.h}!readFile3D@{readFile3D}}
 \index{readFile3D@{readFile3D}!saveFile.h@{saveFile.h}}
@@ -66,8 +82,11 @@ char $\ast$$\ast$ \+: retourne la map2D non detaillé. Attention il y a un mallo
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 57 du fichier save\+File.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -97,6 +116,10 @@ void \+: Pas de retour pour la fonction.
 \begin{DoxyAuthor}{Auteur}
 D\+U\+P\+O\+IS Thomas 
 \end{DoxyAuthor}
+
+
+Définition à la ligne 191 du fichier save\+File.\+c.
+
 \mbox{\Hypertarget{save_file_8h_a77600fa36352855946e04ae100f8fc5c}\label{save_file_8h_a77600fa36352855946e04ae100f8fc5c}} 
 \index{saveFile.h@{saveFile.h}!writeFile@{writeFile}}
 \index{writeFile@{writeFile}!saveFile.h@{saveFile.h}}
@@ -118,6 +141,10 @@ void \+: Pas de retour pour la fonction.
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
+
+
+Définition à la ligne 21 du fichier save\+File.\+c.
+
 \mbox{\Hypertarget{save_file_8h_ab86fa378fb5ba4fd5b4437eae2de3e21}\label{save_file_8h_ab86fa378fb5ba4fd5b4437eae2de3e21}} 
 \index{saveFile.h@{saveFile.h}!writeFilePile@{writeFilePile}}
 \index{writeFilePile@{writeFilePile}!saveFile.h@{saveFile.h}}
@@ -143,3 +170,7 @@ void \+: Pas de retour pour la fonction.
 \begin{DoxyAuthor}{Auteur}
 D\+U\+P\+O\+IS Thomas 
 \end{DoxyAuthor}
+
+
+Définition à la ligne 155 du fichier save\+File.\+c.
+

@@ -13,7 +13,17 @@ int \mbox{\hyperlink{get_8h_aad7afd925ca39d6ad75730fbe2d7e61b}{get\+Index}} (S\+
 int \mbox{\hyperlink{get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5}{size\+Pion\+Max\+Stack}} (char $\ast$$\ast$stack\+Array, int num\+Stack)
 \begin{DoxyCompactList}\small\item\em Fonction qui regarde la taille maximum d\textquotesingle{}un pion d\textquotesingle{}une pile. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{get_8h_a94dc5bdb09065d2c7dfaa760a576eaab}{size\+Pion\+In\+Stack}} (char $\ast$$\ast$stack\+Array, int num\+Stack)
-\begin{DoxyCompactList}\small\item\em Fonction qui regarde la taille d\textquotesingle{}un pion d\textquotesingle{}une pile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde la taille d\textquotesingle{}un pion d\textquotesingle{}une pile. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{get_8h_ac92c46153a227bf06803230d7afaddc8}{get\+Size\+Pion\+On\+Case}} (char $\ast$$\ast$$\ast$map3D, int i, int j)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie la taille du pion sur la case demandé (-\/1) si pas de pion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{get_8h_a6e7679f3603a07fd45f96a6e4722bc12}{get\+Size\+Pion\+On\+Case2}} (char $\ast$$\ast$$\ast$map3D, int index)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie la taille du pion sur la case demandé (-\/1) si pas de pion. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{get_8h_a1b54240324a48af54eade306deec53d5}{get\+Caractere\+On\+Case}} (char $\ast$$\ast$$\ast$map3D, int index)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie le caractère du pion sur la case demandé (\textquotesingle{}0\textquotesingle{}) si pas de pion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{get_8h_a8f4e6def7d13bd59a436414701691b2f}{get\+Index\+Pion\+Who\+Are\+Eat}} (char $\ast$$\ast$$\ast$map3D, int index)
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie la taille du pion mangé (-\/1) si aucun pion n\textquotesingle{}est mangé \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{get_8h_aa2769987739618d5cfad74960e45e217}{get\+Max\+On\+Table}} (int $\ast$tab, int \mbox{\hyperlink{liste_8c_ae68f291c9fe0120bd2de4c9a4b242950}{size}})
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie le nombre maximum dans le tableau. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Description détaillée}
@@ -27,6 +37,40 @@ V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
 
 
 \doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{get_8h_a1b54240324a48af54eade306deec53d5}\label{get_8h_a1b54240324a48af54eade306deec53d5}} 
+\index{get.h@{get.h}!getCaractereOnCase@{getCaractereOnCase}}
+\index{getCaractereOnCase@{getCaractereOnCase}!get.h@{get.h}}
+\doxysubsubsection{\texorpdfstring{getCaractereOnCase()}{getCaractereOnCase()}}
+{\footnotesize\ttfamily char get\+Caractere\+On\+Case (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie le caractère du pion sur la case demandé (\textquotesingle{}0\textquotesingle{}) si pas de pion. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map3D \+: map du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & index \+: index de la map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+char \+: renvoie le caractère du pion sur la case demandé (\textquotesingle{}0\textquotesingle{}) si pas de pion
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 139 du fichier get.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{get_8h_a1b54240324a48af54eade306deec53d5_icgraph}
+\end{center}
+\end{figure}
 \mbox{\Hypertarget{get_8h_aad7afd925ca39d6ad75730fbe2d7e61b}\label{get_8h_aad7afd925ca39d6ad75730fbe2d7e61b}} 
 \index{get.h@{get.h}!getIndex@{getIndex}}
 \index{getIndex@{getIndex}!get.h@{get.h}}
@@ -48,22 +92,196 @@ Fonction qui regarde si il y a un clique sur une case plateau ou pile.
 int \+:retourne l\textquotesingle{}indice si pion.
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point\+Mouse \+: point de la souris où l\textquotesingle{}utilisateur à cliquer. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau contenant les surfaces des cases.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+:retourne l\textquotesingle{}indice si pion.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 22 du fichier get.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=258pt]{get_8h_aad7afd925ca39d6ad75730fbe2d7e61b_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{get_8h_aad7afd925ca39d6ad75730fbe2d7e61b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{get_8h_a8f4e6def7d13bd59a436414701691b2f}\label{get_8h_a8f4e6def7d13bd59a436414701691b2f}} 
+\index{get.h@{get.h}!getIndexPionWhoAreEat@{getIndexPionWhoAreEat}}
+\index{getIndexPionWhoAreEat@{getIndexPionWhoAreEat}!get.h@{get.h}}
+\doxysubsubsection{\texorpdfstring{getIndexPionWhoAreEat()}{getIndexPionWhoAreEat()}}
+{\footnotesize\ttfamily int get\+Index\+Pion\+Who\+Are\+Eat (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie la taille du pion mangé (-\/1) si aucun pion n\textquotesingle{}est mangé 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map3D \+: map du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & index \+: index de la map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: renvoie la taille du pion mangé (-\/1) si aucun pion n\textquotesingle{}est mangé
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 163 du fichier get.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{get_8h_a8f4e6def7d13bd59a436414701691b2f_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{get_8h_a8f4e6def7d13bd59a436414701691b2f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{get_8h_aa2769987739618d5cfad74960e45e217}\label{get_8h_aa2769987739618d5cfad74960e45e217}} 
+\index{get.h@{get.h}!getMaxOnTable@{getMaxOnTable}}
+\index{getMaxOnTable@{getMaxOnTable}!get.h@{get.h}}
+\doxysubsubsection{\texorpdfstring{getMaxOnTable()}{getMaxOnTable()}}
+{\footnotesize\ttfamily int get\+Max\+On\+Table (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie le nombre maximum dans le tableau. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map3D \+: map du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & size \+: taille du tableau\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: renvoie le nombre maximum dans le tableau
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 188 du fichier get.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=244pt]{get_8h_aa2769987739618d5cfad74960e45e217_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{get_8h_aa2769987739618d5cfad74960e45e217_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{get_8h_ac92c46153a227bf06803230d7afaddc8}\label{get_8h_ac92c46153a227bf06803230d7afaddc8}} 
+\index{get.h@{get.h}!getSizePionOnCase@{getSizePionOnCase}}
+\index{getSizePionOnCase@{getSizePionOnCase}!get.h@{get.h}}
+\doxysubsubsection{\texorpdfstring{getSizePionOnCase()}{getSizePionOnCase()}}
+{\footnotesize\ttfamily int get\+Size\+Pion\+On\+Case (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie la taille du pion sur la case demandé (-\/1) si pas de pion. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map3D \+: map du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & i \+: coordonné x \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & j \+: coordonné y\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: renvoie la taille du pion sur la case demandé (-\/1) si pas de pion
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 88 du fichier get.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{get_8h_ac92c46153a227bf06803230d7afaddc8_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{get_8h_a6e7679f3603a07fd45f96a6e4722bc12}\label{get_8h_a6e7679f3603a07fd45f96a6e4722bc12}} 
+\index{get.h@{get.h}!getSizePionOnCase2@{getSizePionOnCase2}}
+\index{getSizePionOnCase2@{getSizePionOnCase2}!get.h@{get.h}}
+\doxysubsubsection{\texorpdfstring{getSizePionOnCase2()}{getSizePionOnCase2()}}
+{\footnotesize\ttfamily int get\+Size\+Pion\+On\+Case2 (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie la taille du pion sur la case demandé (-\/1) si pas de pion. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map3D \+: map du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & index \+: index de la map\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: renvoie la taille du pion sur la case demandé (-\/1) si pas de pion
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 111 du fichier get.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{get_8h_a6e7679f3603a07fd45f96a6e4722bc12_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{get_8h_a6e7679f3603a07fd45f96a6e4722bc12_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{get_8h_a94dc5bdb09065d2c7dfaa760a576eaab}\label{get_8h_a94dc5bdb09065d2c7dfaa760a576eaab}} 
@@ -89,6 +307,10 @@ int \+: retourne -\/1 si stack est vide sinon 0, 1 ou 2 (taille du pion).
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
+
+
+Définition à la ligne 64 du fichier get.\+c.
+
 \mbox{\Hypertarget{get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5}\label{get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5}} 
 \index{get.h@{get.h}!sizePionMaxStack@{sizePionMaxStack}}
 \index{sizePionMaxStack@{sizePionMaxStack}!get.h@{get.h}}
@@ -112,3 +334,14 @@ int \+:retourne la taille max du pion d\textquotesingle{}une pile.
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
+
+
+Définition à la ligne 41 du fichier get.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5_icgraph}
+\end{center}
+\end{figure}

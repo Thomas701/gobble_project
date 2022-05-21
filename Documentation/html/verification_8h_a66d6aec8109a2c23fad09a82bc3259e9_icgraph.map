@@ -1,12 +1,18 @@
 <map id="maximum" name="maximum">
-<area shape="rect" id="node1" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="1033,130,1123,157"/>
-<area shape="rect" id="node2" href="$verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="784,75,985,102"/>
-<area shape="rect" id="node9" href="$demande_8c.html#a2c1c4e9f42f4ae6ae93159d132fb464f" title="Fonction qui demande au joueur le pion qu&#39;il veut deplacer et verifie si il existe et qu&#39;il peut le d..." alt="" coords="517,123,736,164"/>
-<area shape="rect" id="node10" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="848,185,921,211"/>
-<area shape="rect" id="node3" href="$verification_8c.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="527,5,726,47"/>
-<area shape="rect" id="node6" href="$verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="574,71,679,98"/>
-<area shape="rect" id="node4" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="129,15,231,42"/>
-<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,42,60,69"/>
-<area shape="rect" id="node7" href="$fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,71,469,98"/>
-<area shape="rect" id="node8" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,67,252,94"/>
+<area shape="rect" id="node1" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="1621,111,1711,138"/>
+<area shape="rect" id="node2" href="$verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="1372,82,1573,109"/>
+<area shape="rect" id="node6" href="$ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="939,111,1057,138"/>
+<area shape="rect" id="node15" href="$demande_8c.html#a2c1c4e9f42f4ae6ae93159d132fb464f" title="Fonction qui demande au joueur le pion qu&#39;il veut deplacer et verifie si il existe et qu&#39;il peut le d..." alt="" coords="1105,5,1324,47"/>
+<area shape="rect" id="node16" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="811,238,884,265"/>
+<area shape="rect" id="node3" href="$verification_8c.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="1115,71,1314,112"/>
+<area shape="rect" id="node14" href="$verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="651,187,756,214"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="947,35,1049,62"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,86,60,113"/>
+<area shape="rect" id="node7" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="678,137,729,163"/>
+<area shape="rect" id="node13" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="804,86,891,113"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,137,600,163"/>
+<area shape="rect" id="node11" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,86,603,113"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,175,469,202"/>
+<area shape="rect" id="node10" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,162,252,189"/>
+<area shape="rect" id="node12" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,86,217,113"/>
 </map>

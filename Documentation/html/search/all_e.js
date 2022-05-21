@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['verification_2ec_99',['verification.c',['../verification_8c.html',1,'']]],
-  ['verification_2eh_100',['verification.h',['../verification_8h.html',1,'']]],
-  ['vider_5fbuffer_101',['vider_buffer',['../free_8h.html#a183c5f911befa83432ff61674e326603',1,'vider_buffer(void):&#160;free.c'],['../free_8c.html#a183c5f911befa83432ff61674e326603',1,'vider_buffer(void):&#160;free.c']]]
+  ['trainingia_158',['trainingIA',['../fonction_8h.html#af344af621c12e66e76b660969ad2295f',1,'trainingIA(SDL_Renderer *renderer, SDL_Texture **tableauTextureMapVide, point **tableauDePoint, SDL_Texture **textureTableauPion, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int i, int j, int **tabIA, int *tabResult):&#160;fonction.c'],['../fonction_8c.html#af344af621c12e66e76b660969ad2295f',1,'trainingIA(SDL_Renderer *renderer, SDL_Texture **tableauTextureMapVide, point **tableauDePoint, SDL_Texture **textureTableauPion, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int i, int j, int **tabIA, int *tabResult):&#160;fonction.c']]],
+  ['transition_159',['transition',['../graphique_8h.html#a4d3c576dd7b3b2a8afe95eaff33ccc57',1,'transition(SDL_Renderer *renderer, SDL_Texture **textureTableauPiont, point **tableauDePoint, char ***map3D, int dep, int end, SDL_Texture **tableauTextureMapVide, char c, char **pileJ1, char **pileJ2, int indicePionWhoEat):&#160;graphique.c'],['../graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57',1,'transition(SDL_Renderer *renderer, SDL_Texture **textureTableauPiont, point **tableauDePoint, char ***map3D, int dep, int end, SDL_Texture **tableauTextureMapVide, char c, char **pileJ1, char **pileJ2, int indicePionWhoEat):&#160;graphique.c']]]
 ];

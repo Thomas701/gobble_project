@@ -74,6 +74,8 @@ $(function() {
 
 <p>Fichier contenant les codes des fonctions permettant d'écrire et lire les maps et piles dans des fichiers. On ne les utilise pas.  
 <a href="#details">Plus de détails...</a></p>
+
+<p><a href="save_file_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
@@ -83,8 +85,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a96e0d8e534d3ebe4c3918c00f60d3184"><td class="memItemLeft" align="right" valign="top">char ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184">readFile3D</a> (char *nameFile)</td></tr>
 <tr class="memdesc:a96e0d8e534d3ebe4c3918c00f60d3184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui lit le plateau de jeu détaillé dans un fichier.  <a href="save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a96e0d8e534d3ebe4c3918c00f60d3184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f5e0477b7904f6d15f18edc74deb601"><td class="memItemLeft" align="right" valign="top"><a id="a5f5e0477b7904f6d15f18edc74deb601"></a>
-char **&#160;</td><td class="memItemRight" valign="bottom"><b>readFile2D</b> (char *nameFile)</td></tr>
+<tr class="memitem:a5f5e0477b7904f6d15f18edc74deb601"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="save_file_8c.html#a5f5e0477b7904f6d15f18edc74deb601">readFile2D</a> (char *nameFile)</td></tr>
 <tr class="separator:a5f5e0477b7904f6d15f18edc74deb601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab86fa378fb5ba4fd5b4437eae2de3e21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="save_file_8c.html#ab86fa378fb5ba4fd5b4437eae2de3e21">writeFilePile</a> (char **pile1, char **pile2)</td></tr>
 <tr class="memdesc:ab86fa378fb5ba4fd5b4437eae2de3e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui écrit les piles des joueurs dans un fichier "pile.txt".  <a href="save_file_8c.html#ab86fa378fb5ba4fd5b4437eae2de3e21">Plus de détails...</a><br /></td></tr>
@@ -98,7 +99,39 @@ char **&#160;</td><td class="memItemRight" valign="bottom"><b>readFile2D</b> (ch
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a5f5e0477b7904f6d15f18edc74deb601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f5e0477b7904f6d15f18edc74deb601">&#9670;&nbsp;</a></span>readFile2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** readFile2D </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>nameFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="save_file_8c_source.html#l00107">107</a> du fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="save_file_8c_a5f5e0477b7904f6d15f18edc74deb601_cgraph.png" border="0" usemap="#save_file_8c_a5f5e0477b7904f6d15f18edc74deb601_cgraph" alt=""/></div>
+<map name="save_file_8c_a5f5e0477b7904f6d15f18edc74deb601_cgraph" id="save_file_8c_a5f5e0477b7904f6d15f18edc74deb601_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,97,32"/>
+<area shape="rect" href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="145,5,255,32"/>
+<area shape="rect" href="error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="303,5,429,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a96e0d8e534d3ebe4c3918c00f60d3184"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a96e0d8e534d3ebe4c3918c00f60d3184">&#9670;&nbsp;</a></span>readFile3D()</h2>
 
@@ -133,6 +166,8 @@ VILLEPREUX Thibault </dd></dl>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>char ** : retourne la map2D non detaillé. Attention il y a un malloc dans cette fonction donc libérer le tableau si utilisation.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="save_file_8c_source.html#l00057">57</a> du fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -190,6 +225,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
 
+<p class="definition">Définition à la ligne <a class="el" href="save_file_8c_source.html#l00191">191</a> du fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
+
 </div>
 </div>
 <a id="a77600fa36352855946e04ae100f8fc5c"></a>
@@ -217,6 +254,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="save_file_8c_source.html#l00021">21</a> du fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
 
 </div>
 </div>
@@ -257,6 +296,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="save_file_8c_source.html#l00155">155</a> du fichier <a class="el" href="save_file_8c_source.html">saveFile.c</a>.</p>
 
 </div>
 </div>

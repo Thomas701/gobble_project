@@ -1,6 +1,13 @@
 <map id="initMap2D" name="initMap2D">
-<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="517,56,607,83"/>
-<area shape="rect" id="node2" href="$fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,5,469,32"/>
-<area shape="rect" id="node3" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,56,252,83"/>
-<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,81,60,108"/>
+<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="944,169,1033,196"/>
+<area shape="rect" id="node2" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="651,43,753,69"/>
+<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,68,60,95"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,169,469,196"/>
+<area shape="rect" id="node5" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,93,252,120"/>
+<area shape="rect" id="node6" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="805,296,892,323"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,245,600,272"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,296,603,323"/>
+<area shape="rect" id="node11" href="$fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="801,144,896,171"/>
+<area shape="rect" id="node7" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="677,296,727,323"/>
+<area shape="rect" id="node10" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,169,217,196"/>
 </map>

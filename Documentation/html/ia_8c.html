@@ -1,0 +1,1508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gobble Project: Référence du fichier src/ia.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gobble Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier ia.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les code des fonctions concernant l'intelligence artificielle.  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="ia_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ad707bbcb8e2701a20041722fdf31f275"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#ad707bbcb8e2701a20041722fdf31f275">createTabOfCoups</a> ()</td></tr>
+<tr class="memdesc:ad707bbcb8e2701a20041722fdf31f275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l'IA.  <a href="ia_8c.html#ad707bbcb8e2701a20041722fdf31f275">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad707bbcb8e2701a20041722fdf31f275"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49eb63bb4f16d8f730f8d0828d538271"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a49eb63bb4f16d8f730f8d0828d538271">afficheTabOfCoups</a> (int **tab)</td></tr>
+<tr class="memdesc:a49eb63bb4f16d8f730f8d0828d538271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'afficher le tableau contenant les coups pouvants être joué par l'IA.  <a href="ia_8c.html#a49eb63bb4f16d8f730f8d0828d538271">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a49eb63bb4f16d8f730f8d0828d538271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7866b2ca0b3eca5a5d1579f2d2e925"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925">initTabOfCoups</a> (int **tab)</td></tr>
+<tr class="memdesc:a4b7866b2ca0b3eca5a5d1579f2d2e925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'initialiser l'ensemble des cases du tableau à -1.  <a href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4b7866b2ca0b3eca5a5d1579f2d2e925"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3daa1236ed5842bf365e59fd3ab937fa"><td class="memItemLeft" align="right" valign="top">char ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a3daa1236ed5842bf365e59fd3ab937fa">copyMap3D</a> (char ***map3D)</td></tr>
+<tr class="memdesc:a3daa1236ed5842bf365e59fd3ab937fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de copier la map 3D.  <a href="ia_8c.html#a3daa1236ed5842bf365e59fd3ab937fa">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3daa1236ed5842bf365e59fd3ab937fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2de371019b61d42f97ce4e3b8201fd"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd">copyMap2D</a> (char **map2D)</td></tr>
+<tr class="memdesc:a2e2de371019b61d42f97ce4e3b8201fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de copier la map 2D.  <a href="ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2e2de371019b61d42f97ce4e3b8201fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08f171c0f9610e91ae64f696b8632255"><td class="memItemLeft" align="right" valign="top">char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a08f171c0f9610e91ae64f696b8632255">copyStack</a> (char **pile)</td></tr>
+<tr class="memdesc:a08f171c0f9610e91ae64f696b8632255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de copier une pile.  <a href="ia_8c.html#a08f171c0f9610e91ae64f696b8632255">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a08f171c0f9610e91ae64f696b8632255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1474b2f1b39e4a03462558beb7e91b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0">listTabOfCoups</a> (char ***map3D, char **stacks, int **tabOfCoups, char c)</td></tr>
+<tr class="memdesc:ad1474b2f1b39e4a03462558beb7e91b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet de trouver la liste des coups possibles que peux jouer l'IA.  <a href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ad1474b2f1b39e4a03462558beb7e91b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addbe81105e0658b076d3fe85b439166e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#addbe81105e0658b076d3fe85b439166e">placePionByIa</a> (int **tab, int bestCoup, char ***map3D, char **stacks, char c)</td></tr>
+<tr class="memdesc:addbe81105e0658b076d3fe85b439166e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Place un piont.  <a href="ia_8c.html#addbe81105e0658b076d3fe85b439166e">Plus de détails...</a><br /></td></tr>
+<tr class="separator:addbe81105e0658b076d3fe85b439166e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85af03eabc3fecf6c40b71ed7d1f4e6c"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c">play</a> (char ***map3D, char **map2D, char **pileJ1, char **pileJ2, char c, int ia, int prof, int alphaBeta, int *tableauParam)</td></tr>
+<tr class="memdesc:a85af03eabc3fecf6c40b71ed7d1f4e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fait jouer l'IA.  <a href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a85af03eabc3fecf6c40b71ed7d1f4e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3852eaa43422dd342e74109cd51c1af6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a3852eaa43422dd342e74109cd51c1af6">allFree</a> (char ***map3D, char **map2D, char **stacks, char **stacksOp, int **tab, <a class="el" href="structliste.html">liste</a> *l)</td></tr>
+<tr class="memdesc:a3852eaa43422dd342e74109cd51c1af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">free l'ensemble des éléments  <a href="ia_8c.html#a3852eaa43422dd342e74109cd51c1af6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a3852eaa43422dd342e74109cd51c1af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa32523492bf748832b6bdd899552a942"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#aa32523492bf748832b6bdd899552a942">prediction</a> (int prof, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int **tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int *tableauParam)</td></tr>
+<tr class="separator:aa32523492bf748832b6bdd899552a942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ed2d29463d3c173234ae29950f00a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5">evaluation</a> (int *tabParam, char ***map3D, char **map2D, int **tabOfCoups, int index, char c)</td></tr>
+<tr class="memdesc:a74ed2d29463d3c173234ae29950f00a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">évalue la grille et ajoute la note des paramètres.  <a href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a74ed2d29463d3c173234ae29950f00a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e14914f85289ae9c683de5374ff3939"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a6e14914f85289ae9c683de5374ff3939">countDiff</a> (char **map2D, char c)</td></tr>
+<tr class="memdesc:a6e14914f85289ae9c683de5374ff3939"><td class="mdescLeft">&#160;</td><td class="mdescRight">compte la différence entre le nombre de pion du joueur et le nombre de pion de l'adversaire posé sur la grille  <a href="ia_8c.html#a6e14914f85289ae9c683de5374ff3939">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6e14914f85289ae9c683de5374ff3939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79133f2909e5654fbbe1f7632c559354"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a79133f2909e5654fbbe1f7632c559354">rdm</a> (int i, int j)</td></tr>
+<tr class="memdesc:a79133f2909e5654fbbe1f7632c559354"><td class="mdescLeft">&#160;</td><td class="mdescRight">renvoie un nombre random entre i et j inclu  <a href="ia_8c.html#a79133f2909e5654fbbe1f7632c559354">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a79133f2909e5654fbbe1f7632c559354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad88f9be1536f936802db219e9dcd35e6"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#ad88f9be1536f936802db219e9dcd35e6">generateTab</a> (int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10)</td></tr>
+<tr class="separator:ad88f9be1536f936802db219e9dcd35e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7573a7b5f6c15e75c0bed8ce93cadabf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a7573a7b5f6c15e75c0bed8ce93cadabf">writeChampion</a> (int *tabParam, char nom[20])</td></tr>
+<tr class="memdesc:a7573a7b5f6c15e75c0bed8ce93cadabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui écrit les paramètre de l'ia gagnante du tournois.  <a href="ia_8c.html#a7573a7b5f6c15e75c0bed8ce93cadabf">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a7573a7b5f6c15e75c0bed8ce93cadabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a481f1274a11514275d2f523fa9f5bb6c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a481f1274a11514275d2f523fa9f5bb6c">nbreChampion</a> (char nom[20])</td></tr>
+<tr class="memdesc:a481f1274a11514275d2f523fa9f5bb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie le nombre d'ia stockées dans le fichier.  <a href="ia_8c.html#a481f1274a11514275d2f523fa9f5bb6c">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a481f1274a11514275d2f523fa9f5bb6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af67535e4d32d0a48d5d146c18e04ca33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#af67535e4d32d0a48d5d146c18e04ca33">readChampion</a> (int **tabIA, char nom[20])</td></tr>
+<tr class="memdesc:af67535e4d32d0a48d5d146c18e04ca33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui stocke les 10 champion dans le tableau d'IA.  <a href="ia_8c.html#af67535e4d32d0a48d5d146c18e04ca33">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af67535e4d32d0a48d5d146c18e04ca33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d7ac71f1ecf9971b2de75dc9ba00d5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ia_8c.html#a2d7ac71f1ecf9971b2de75dc9ba00d5a">clearFile</a> (char nom[20])</td></tr>
+<tr class="memdesc:a2d7ac71f1ecf9971b2de75dc9ba00d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui vide le contenu d'un fichier.  <a href="ia_8c.html#a2d7ac71f1ecf9971b2de75dc9ba00d5a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2d7ac71f1ecf9971b2de75dc9ba00d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les code des fonctions concernant l'intelligence artificielle. </p>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a49eb63bb4f16d8f730f8d0828d538271"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49eb63bb4f16d8f730f8d0828d538271">&#9670;&nbsp;</a></span>afficheTabOfCoups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void afficheTabOfCoups </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tab</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'afficher le tableau contenant les coups pouvants être joué par l'IA. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tab : tableau de coups possible que l'on doit afficher</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, il s'agit seulement d'un affichage console</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00049">49</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+
+</div>
+</div>
+<a id="a3852eaa43422dd342e74109cd51c1af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3852eaa43422dd342e74109cd51c1af6">&#9670;&nbsp;</a></span>allFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allFree </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stacks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stacksOp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structliste.html">liste</a> *&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>free l'ensemble des éléments </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D représentant la grille du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : map2D représentant la grille du jeu en 2D </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stacks : pile du joueur 1 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stacksOp : pile du joueur 2 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tab : correspond au tableau de coups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">liste</td><td>* l : correspond à la liste</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, cela free</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00375">375</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a3852eaa43422dd342e74109cd51c1af6_cgraph.png" border="0" usemap="#ia_8c_a3852eaa43422dd342e74109cd51c1af6_cgraph" alt=""/></div>
+<map name="ia_8c_a3852eaa43422dd342e74109cd51c1af6_cgraph" id="ia_8c_a3852eaa43422dd342e74109cd51c1af6_cgraph">
+<area shape="rect" title="free l&#39;ensemble des éléments" alt="" coords="5,81,72,108"/>
+<area shape="rect" href="free_8h.html#a2766c0fd59a44d80c549cd95789f13d6" title="Fonction permettant de free le plateau de jeu détaillé." alt="" coords="151,5,227,32"/>
+<area shape="rect" href="free_8h.html#a403c3ca1600b95a561db142984a2ee20" title="Fonction permettant de free le plateau de jeu non détaillé." alt="" coords="141,56,236,83"/>
+<area shape="rect" href="free_8h.html#a305adc7754c15f89ef7637c2b5cbcc12" title="Fonction permettant de free les piles d&#39;un joueur." alt="" coords="147,107,231,133"/>
+<area shape="rect" href="free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="120,157,257,184"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a3852eaa43422dd342e74109cd51c1af6_icgraph.png" border="0" usemap="#ia_8c_a3852eaa43422dd342e74109cd51c1af6_icgraph" alt=""/></div>
+<map name="ia_8c_a3852eaa43422dd342e74109cd51c1af6_icgraph" id="ia_8c_a3852eaa43422dd342e74109cd51c1af6_icgraph">
+<area shape="rect" title="free l&#39;ensemble des éléments" alt="" coords="884,31,951,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,31,836,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2d7ac71f1ecf9971b2de75dc9ba00d5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7ac71f1ecf9971b2de75dc9ba00d5a">&#9670;&nbsp;</a></span>clearFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clearFile </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nom</em>[20]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui vide le contenu d'un fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>nom[20]: nom du fichier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : ne renvoie rien</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00729">729</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a_icgraph.png" border="0" usemap="#ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a_icgraph" alt=""/></div>
+<map name="ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a_icgraph" id="ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a_icgraph">
+<area shape="rect" title="Fonction qui vide le contenu d&#39;un fichier." alt="" coords="231,5,308,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2e2de371019b61d42f97ce4e3b8201fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2de371019b61d42f97ce4e3b8201fd">&#9670;&nbsp;</a></span>copyMap2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** copyMap2D </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de copier la map 2D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : map2D a copier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : retourne la nouvelle map2D copiée</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00125">125</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_cgraph.png" border="0" usemap="#ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_cgraph" alt=""/></div>
+<map name="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_cgraph" id="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_cgraph">
+<area shape="rect" title="Permet de copier la map 2D." alt="" coords="5,5,104,32"/>
+<area shape="rect" href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="152,5,261,32"/>
+<area shape="rect" href="error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="309,5,436,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_icgraph.png" border="0" usemap="#ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_icgraph" alt=""/></div>
+<map name="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_icgraph" id="ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_icgraph">
+<area shape="rect" title="Permet de copier la map 2D." alt="" coords="884,31,983,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,31,836,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3daa1236ed5842bf365e59fd3ab937fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3daa1236ed5842bf365e59fd3ab937fa">&#9670;&nbsp;</a></span>copyMap3D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char*** copyMap3D </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de copier la map 3D. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D a copier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Retourne la nouvelle map3D copiée</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00099">99</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_cgraph.png" border="0" usemap="#ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_cgraph" alt=""/></div>
+<map name="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_cgraph" id="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_cgraph">
+<area shape="rect" title="Permet de copier la map 3D." alt="" coords="5,5,104,32"/>
+<area shape="rect" href="creation_8h.html#a56566517a2b19fa1c8871e21df713816" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="152,5,243,32"/>
+<area shape="rect" href="error_8h.html#a721446eb4867da7d9ad5218eb33b8670" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu detail..." alt="" coords="291,5,417,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_icgraph.png" border="0" usemap="#ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_icgraph" alt=""/></div>
+<map name="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_icgraph" id="ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_icgraph">
+<area shape="rect" title="Permet de copier la map 3D." alt="" coords="884,31,983,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,31,836,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a08f171c0f9610e91ae64f696b8632255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08f171c0f9610e91ae64f696b8632255">&#9670;&nbsp;</a></span>copyStack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char** copyStack </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de copier une pile. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** pile : pile à copié</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : retourne la nouvelle pile copiée</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00146">146</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a08f171c0f9610e91ae64f696b8632255_cgraph.png" border="0" usemap="#ia_8c_a08f171c0f9610e91ae64f696b8632255_cgraph" alt=""/></div>
+<map name="ia_8c_a08f171c0f9610e91ae64f696b8632255_cgraph" id="ia_8c_a08f171c0f9610e91ae64f696b8632255_cgraph">
+<area shape="rect" title="Permet de copier une pile." alt="" coords="5,5,95,32"/>
+<area shape="rect" href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="143,5,241,32"/>
+<area shape="rect" href="error_8h.html#add54b3f9a5b45d93571c73272f821b86" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création d&#39;une pile)." alt="" coords="289,5,421,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a08f171c0f9610e91ae64f696b8632255_icgraph.png" border="0" usemap="#ia_8c_a08f171c0f9610e91ae64f696b8632255_icgraph" alt=""/></div>
+<map name="ia_8c_a08f171c0f9610e91ae64f696b8632255_icgraph" id="ia_8c_a08f171c0f9610e91ae64f696b8632255_icgraph">
+<area shape="rect" title="Permet de copier une pile." alt="" coords="884,31,973,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,31,836,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6e14914f85289ae9c683de5374ff3939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e14914f85289ae9c683de5374ff3939">&#9670;&nbsp;</a></span>countDiff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int countDiff </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>compte la différence entre le nombre de pion du joueur et le nombre de pion de l'adversaire posé sur la grille </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : map 2D </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : piont du joueur</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : retourne la différence</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00572">572</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+
+</div>
+</div>
+<a id="ad707bbcb8e2701a20041722fdf31f275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad707bbcb8e2701a20041722fdf31f275">&#9670;&nbsp;</a></span>createTabOfCoups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int** createTabOfCoups </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l'IA. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">void</td><td>: Ne prend aucun paramètre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int ** : Retourne un tableau 2D de int, chaque case est un index permettant d'identifier la case de départ et d'arrivé</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00020">20</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_ad707bbcb8e2701a20041722fdf31f275_cgraph.png" border="0" usemap="#ia_8c_ad707bbcb8e2701a20041722fdf31f275_cgraph" alt=""/></div>
+<map name="ia_8c_ad707bbcb8e2701a20041722fdf31f275_cgraph" id="ia_8c_ad707bbcb8e2701a20041722fdf31f275_cgraph">
+<area shape="rect" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="5,31,145,57"/>
+<area shape="rect" href="error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="223,5,349,32"/>
+<area shape="rect" href="error_8c.html#a1cd17c76c9446b6c908b298a8185a9a1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups)." alt="" coords="193,56,379,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_ad707bbcb8e2701a20041722fdf31f275_icgraph.png" border="0" usemap="#ia_8c_ad707bbcb8e2701a20041722fdf31f275_icgraph" alt=""/></div>
+<map name="ia_8c_ad707bbcb8e2701a20041722fdf31f275_icgraph" id="ia_8c_ad707bbcb8e2701a20041722fdf31f275_icgraph">
+<area shape="rect" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="884,31,1024,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a74ed2d29463d3c173234ae29950f00a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ed2d29463d3c173234ae29950f00a5">&#9670;&nbsp;</a></span>evaluation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int evaluation </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tabParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tabOfCoups</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>évalue la grille et ajoute la note des paramètres. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>* tabParam : tableau contenant les paramètre </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D représentant la grille du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : map2D représentant la grille du jeu en 2D </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tabOfCoups : tableau des coups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>index : index d'ou on doit jouer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : caractère du joueur qui joue</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne la note finale</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00522">522</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a74ed2d29463d3c173234ae29950f00a5_cgraph.png" border="0" usemap="#ia_8c_a74ed2d29463d3c173234ae29950f00a5_cgraph" alt=""/></div>
+<map name="ia_8c_a74ed2d29463d3c173234ae29950f00a5_cgraph" id="ia_8c_a74ed2d29463d3c173234ae29950f00a5_cgraph">
+<area shape="rect" title="évalue la grille et ajoute la note des paramètres." alt="" coords="5,31,96,57"/>
+<area shape="rect" href="get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="144,5,300,32"/>
+<area shape="rect" href="get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="144,56,300,83"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="348,56,396,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a74ed2d29463d3c173234ae29950f00a5_icgraph.png" border="0" usemap="#ia_8c_a74ed2d29463d3c173234ae29950f00a5_icgraph" alt=""/></div>
+<map name="ia_8c_a74ed2d29463d3c173234ae29950f00a5_icgraph" id="ia_8c_a74ed2d29463d3c173234ae29950f00a5_icgraph">
+<area shape="rect" title="évalue la grille et ajoute la note des paramètres." alt="" coords="884,31,975,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad88f9be1536f936802db219e9dcd35e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88f9be1536f936802db219e9dcd35e6">&#9670;&nbsp;</a></span>generateTab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* generateTab </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i4</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i5</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i6</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i7</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i8</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i9</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i10</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00619">619</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_ad88f9be1536f936802db219e9dcd35e6_icgraph.png" border="0" usemap="#ia_8c_ad88f9be1536f936802db219e9dcd35e6_icgraph" alt=""/></div>
+<map name="ia_8c_ad88f9be1536f936802db219e9dcd35e6_icgraph" id="ia_8c_ad88f9be1536f936802db219e9dcd35e6_icgraph">
+<area shape="rect" title=" " alt="" coords="517,31,620,57"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4b7866b2ca0b3eca5a5d1579f2d2e925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7866b2ca0b3eca5a5d1579f2d2e925">&#9670;&nbsp;</a></span>initTabOfCoups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initTabOfCoups </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tab</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet d'initialiser l'ensemble des cases du tableau à -1. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tab : tableau de coups possible que l'on doit initialiser</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, il s'agit seulement de remplir un tableau</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00080">80</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925_icgraph.png" border="0" usemap="#ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925_icgraph" alt=""/></div>
+<map name="ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925_icgraph" id="ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925_icgraph">
+<area shape="rect" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="1051,56,1171,83"/>
+<area shape="rect" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="884,5,1003,32"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,56,701,83"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,31,600,57"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,81,603,108"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,31,469,57"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,31,252,57"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,56,60,83"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,81,217,108"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad1474b2f1b39e4a03462558beb7e91b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1474b2f1b39e4a03462558beb7e91b0">&#9670;&nbsp;</a></span>listTabOfCoups()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void listTabOfCoups </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stacks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tabOfCoups</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permet de trouver la liste des coups possibles que peux jouer l'IA. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D représentant la grille du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stacks : pile du joueur en question </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tabOfCoups : tableau de coups possible </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : correspond au joueur qui joue</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, il s'agit de remplir le tableau</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00170">170</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_cgraph.png" border="0" usemap="#ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_cgraph" alt=""/></div>
+<map name="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_cgraph" id="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_cgraph">
+<area shape="rect" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="5,241,124,268"/>
+<area shape="rect" href="verification_8h.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="172,23,371,65"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="227,89,316,116"/>
+<area shape="rect" href="verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="194,140,349,167"/>
+<area shape="rect" href="verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="224,191,319,217"/>
+<area shape="rect" href="get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="193,241,349,268"/>
+<area shape="rect" href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="211,292,331,319"/>
+<area shape="rect" href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2" title=" " alt="" coords="214,343,329,369"/>
+<area shape="rect" href="verification_8h.html#abdb7736101ad9e2d773dad6ecbd72ec1" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="212,393,331,420"/>
+<area shape="rect" href="verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="227,444,316,471"/>
+<area shape="rect" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="419,31,620,57"/>
+<area shape="rect" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="668,5,757,32"/>
+<area shape="rect" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="670,56,755,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_icgraph.png" border="0" usemap="#ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_icgraph" alt=""/></div>
+<map name="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_icgraph" id="ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_icgraph">
+<area shape="rect" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="884,31,1003,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a481f1274a11514275d2f523fa9f5bb6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a481f1274a11514275d2f523fa9f5bb6c">&#9670;&nbsp;</a></span>nbreChampion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int nbreChampion </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nom</em>[20]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie le nombre d'ia stockées dans le fichier. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>nom[20] : nom du fichier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : renvoie le nombre d'ia stockées dans le fichier</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00671">671</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a481f1274a11514275d2f523fa9f5bb6c_icgraph.png" border="0" usemap="#ia_8c_a481f1274a11514275d2f523fa9f5bb6c_icgraph" alt=""/></div>
+<map name="ia_8c_a481f1274a11514275d2f523fa9f5bb6c_icgraph" id="ia_8c_a481f1274a11514275d2f523fa9f5bb6c_icgraph">
+<area shape="rect" title="Fonction qui renvoie le nombre d&#39;ia stockées dans le fichier." alt="" coords="231,5,348,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="addbe81105e0658b076d3fe85b439166e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addbe81105e0658b076d3fe85b439166e">&#9670;&nbsp;</a></span>placePionByIa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void placePionByIa </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>bestCoup</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stacks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Place un piont. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tab : tableau de coups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>bestCoup : index du coup à jouer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D représentant la grille du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stacks : pile du joueur </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : correspond au joueur qui joue</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, place un pion</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00251">251</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_addbe81105e0658b076d3fe85b439166e_cgraph.png" border="0" usemap="#ia_8c_addbe81105e0658b076d3fe85b439166e_cgraph" alt=""/></div>
+<map name="ia_8c_addbe81105e0658b076d3fe85b439166e_cgraph" id="ia_8c_addbe81105e0658b076d3fe85b439166e_cgraph">
+<area shape="rect" title="Place un piont." alt="" coords="5,31,120,57"/>
+<area shape="rect" href="fonction_8h.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="204,5,271,32"/>
+<area shape="rect" href="fonction_8h.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="168,56,307,83"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="355,5,444,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_addbe81105e0658b076d3fe85b439166e_icgraph.png" border="0" usemap="#ia_8c_addbe81105e0658b076d3fe85b439166e_icgraph" alt=""/></div>
+<map name="ia_8c_addbe81105e0658b076d3fe85b439166e_icgraph" id="ia_8c_addbe81105e0658b076d3fe85b439166e_icgraph">
+<area shape="rect" title="Place un piont." alt="" coords="884,31,999,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,56,836,83"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a85af03eabc3fecf6c40b71ed7d1f4e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85af03eabc3fecf6c40b71ed7d1f4e6c">&#9670;&nbsp;</a></span>play()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* play </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ia</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prof</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alphaBeta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tableauParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fait jouer l'IA. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map3D représentant la grille du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : map2D représentant la grille du jeu en 2D </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** pileJ1 : pile du joueur 1 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** pileJ2 : pile du joueur 2 </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : correspond au joueur qui joue </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>ia : = 1 si c'est l'ia qui joue, = 0 si ce n'est pas le cas (agit comme un boolean) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>prof : correspond à la profondeur de recherche </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>alphaBeta : si on utilise le alpha Beta ou pas </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>* tableauParam : tableau de paramètre de l'IA</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Ne Retourne rien, modifie la map3D et 2D</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00289">289</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_cgraph.png" border="0" usemap="#ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_cgraph" alt=""/></div>
+<map name="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_cgraph" id="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_cgraph">
+<area shape="rect" title="Fait jouer l&#39;IA." alt="" coords="5,917,56,944"/>
+<area shape="rect" href="liste_8h.html#ac38600916d3240890f129ddc638b6e84" title="ajoute un élément au début d&#39;une liste" alt="" coords="305,157,351,184"/>
+<area shape="rect" href="liste_8h.html#af7e0f5238bce3e3a6ef83aaafde415cc" title="reset une liste" alt="" coords="120,1237,175,1264"/>
+<area shape="rect" href="liste_8h.html#a2a479a91481bafc5be84ef8820aa6dff" title="creer une liste" alt="" coords="281,208,375,235"/>
+<area shape="rect" href="ia_8c.html#ad707bbcb8e2701a20041722fdf31f275" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="258,259,398,285"/>
+<area shape="rect" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="283,917,373,944"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="789,1161,837,1188"/>
+<area shape="rect" href="free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="496,883,633,909"/>
+<area shape="rect" href="liste_8h.html#a7b9a2f43a8dbdd82e30023472111c3de" title="renvoie la valeur contenu dans l&#39;indice à l&#39;index n" alt="" coords="126,1288,169,1315"/>
+<area shape="rect" href="get_8h.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="239,1212,417,1239"/>
+<area shape="rect" href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="505,157,625,184"/>
+<area shape="rect" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="269,461,387,488"/>
+<area shape="rect" href="ia_8c.html#addbe81105e0658b076d3fe85b439166e" title="Place un piont." alt="" coords="271,1019,385,1045"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="104,613,191,640"/>
+<area shape="rect" href="liste_8c.html#ad96397b14c3010948f796616a7951f47" title="creer une liste" alt="" coords="517,5,612,32"/>
+<area shape="rect" href="error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="749,157,876,184"/>
+<area shape="rect" href="error_8c.html#a1cd17c76c9446b6c908b298a8185a9a1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups)." alt="" coords="472,56,657,83"/>
+<area shape="rect" href="get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="487,680,643,707"/>
+<area shape="rect" href="get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="487,1035,643,1061"/>
+<area shape="rect" href="get_8c.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="487,1237,643,1264"/>
+<area shape="rect" href="get_8c.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="487,1187,643,1213"/>
+<area shape="rect" href="verification_8h.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="465,513,664,554"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="768,756,857,783"/>
+<area shape="rect" href="verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="487,360,642,387"/>
+<area shape="rect" href="verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="517,411,612,437"/>
+<area shape="rect" href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2" title=" " alt="" coords="507,461,622,488"/>
+<area shape="rect" href="verification_8h.html#abdb7736101ad9e2d773dad6ecbd72ec1" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="505,259,624,285"/>
+<area shape="rect" href="verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="520,309,609,336"/>
+<area shape="rect" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="712,520,913,547"/>
+<area shape="rect" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="961,495,1051,521"/>
+<area shape="rect" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="963,545,1049,572"/>
+<area shape="rect" href="fonction_8h.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="531,984,598,1011"/>
+<area shape="rect" href="fonction_8h.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="495,1085,634,1112"/>
+<area shape="rect" href="ia_8c.html#a3852eaa43422dd342e74109cd51c1af6" title="free l&#39;ensemble des éléments" alt="" coords="295,765,361,792"/>
+<area shape="rect" href="free_8h.html#a2766c0fd59a44d80c549cd95789f13d6" title="Fonction permettant de free le plateau de jeu détaillé." alt="" coords="527,731,603,757"/>
+<area shape="rect" href="free_8h.html#a403c3ca1600b95a561db142984a2ee20" title="Fonction permettant de free le plateau de jeu non détaillé." alt="" coords="517,781,612,808"/>
+<area shape="rect" href="free_8h.html#a305adc7754c15f89ef7637c2b5cbcc12" title="Fonction permettant de free les piles d&#39;un joueur." alt="" coords="523,832,607,859"/>
+<area shape="rect" href="ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd" title="Permet de copier la map 2D." alt="" coords="279,411,377,437"/>
+<area shape="rect" href="ia_8c.html#a3daa1236ed5842bf365e59fd3ab937fa" title="Permet de copier la map 3D." alt="" coords="279,613,377,640"/>
+<area shape="rect" href="ia_8c.html#a08f171c0f9610e91ae64f696b8632255" title="Permet de copier une pile." alt="" coords="283,867,373,893"/>
+<area shape="rect" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b" title="Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma..." alt="" coords="281,512,375,539"/>
+<area shape="rect" href="init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="283,563,373,589"/>
+<area shape="rect" href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="510,208,619,235"/>
+<area shape="rect" href="creation_8h.html#a56566517a2b19fa1c8871e21df713816" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="519,579,610,605"/>
+<area shape="rect" href="error_8h.html#a721446eb4867da7d9ad5218eb33b8670" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu detail..." alt="" coords="749,579,876,605"/>
+<area shape="rect" href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="515,933,614,960"/>
+<area shape="rect" href="error_8h.html#add54b3f9a5b45d93571c73272f821b86" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création d&#39;une pile)." alt="" coords="747,933,879,960"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_icgraph.png" border="0" usemap="#ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_icgraph" alt=""/></div>
+<map name="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_icgraph" id="ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_icgraph">
+<area shape="rect" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa32523492bf748832b6bdd899552a942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa32523492bf748832b6bdd899552a942">&#9670;&nbsp;</a></span>prediction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int prediction </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>prof</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tabOfCoups</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ia</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alphaBeta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tableauParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00408">408</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_aa32523492bf748832b6bdd899552a942_cgraph.png" border="0" usemap="#ia_8c_aa32523492bf748832b6bdd899552a942_cgraph" alt=""/></div>
+<map name="ia_8c_aa32523492bf748832b6bdd899552a942_cgraph" id="ia_8c_aa32523492bf748832b6bdd899552a942_cgraph">
+<area shape="rect" title=" " alt="" coords="5,385,92,412"/>
+<area shape="rect" href="liste_8h.html#ac38600916d3240890f129ddc638b6e84" title="ajoute un élément au début d&#39;une liste" alt="" coords="187,5,233,32"/>
+<area shape="rect" href="ia_8c.html#a3852eaa43422dd342e74109cd51c1af6" title="free l&#39;ensemble des éléments" alt="" coords="177,107,243,133"/>
+<area shape="rect" href="free_8h.html#a2766c0fd59a44d80c549cd95789f13d6" title="Fonction permettant de free le plateau de jeu détaillé." alt="" coords="389,56,465,83"/>
+<area shape="rect" href="free_8h.html#a403c3ca1600b95a561db142984a2ee20" title="Fonction permettant de free le plateau de jeu non détaillé." alt="" coords="380,157,475,184"/>
+<area shape="rect" href="free_8h.html#a305adc7754c15f89ef7637c2b5cbcc12" title="Fonction permettant de free les piles d&#39;un joueur." alt="" coords="385,208,469,235"/>
+<area shape="rect" href="ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd" title="Permet de copier la map 2D." alt="" coords="161,309,259,336"/>
+<area shape="rect" href="ia_8c.html#a3daa1236ed5842bf365e59fd3ab937fa" title="Permet de copier la map 3D." alt="" coords="161,259,259,285"/>
+<area shape="rect" href="ia_8c.html#a08f171c0f9610e91ae64f696b8632255" title="Permet de copier une pile." alt="" coords="165,512,255,539"/>
+<area shape="rect" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b" title="Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma..." alt="" coords="163,411,257,437"/>
+<area shape="rect" href="liste_8h.html#a2a479a91481bafc5be84ef8820aa6dff" title="creer une liste" alt="" coords="163,461,257,488"/>
+<area shape="rect" href="ia_8c.html#ad707bbcb8e2701a20041722fdf31f275" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="140,360,280,387"/>
+<area shape="rect" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="165,563,255,589"/>
+<area shape="rect" href="init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="165,613,255,640"/>
+<area shape="rect" href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="367,639,487,665"/>
+<area shape="rect" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="151,765,269,792"/>
+<area shape="rect" href="ia_8c.html#addbe81105e0658b076d3fe85b439166e" title="Place un piont." alt="" coords="153,1060,267,1087"/>
+<area shape="rect" href="liste_8c.html#ad96397b14c3010948f796616a7951f47" title="creer une liste" alt="" coords="380,5,475,32"/>
+<area shape="rect" href="free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="359,107,496,133"/>
+<area shape="rect" href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="373,309,482,336"/>
+<area shape="rect" href="error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="612,335,739,361"/>
+<area shape="rect" href="creation_8h.html#a56566517a2b19fa1c8871e21df713816" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="382,259,473,285"/>
+<area shape="rect" href="error_8h.html#a721446eb4867da7d9ad5218eb33b8670" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu detail..." alt="" coords="612,259,739,285"/>
+<area shape="rect" href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="378,487,477,513"/>
+<area shape="rect" href="error_8h.html#add54b3f9a5b45d93571c73272f821b86" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création d&#39;une pile)." alt="" coords="609,487,741,513"/>
+<area shape="rect" href="error_8c.html#a1cd17c76c9446b6c908b298a8185a9a1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups)." alt="" coords="335,411,520,437"/>
+<area shape="rect" href="get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="349,588,505,615"/>
+<area shape="rect" href="get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="349,537,505,564"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="651,537,699,564"/>
+<area shape="rect" href="verification_8h.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="328,842,527,883"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="631,984,720,1011"/>
+<area shape="rect" href="verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="350,959,505,985"/>
+<area shape="rect" href="verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="380,1009,475,1036"/>
+<area shape="rect" href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2" title=" " alt="" coords="370,689,485,716"/>
+<area shape="rect" href="verification_8h.html#abdb7736101ad9e2d773dad6ecbd72ec1" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="368,740,487,767"/>
+<area shape="rect" href="verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="383,791,472,817"/>
+<area shape="rect" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="575,849,776,876"/>
+<area shape="rect" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="824,824,913,851"/>
+<area shape="rect" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="826,875,911,901"/>
+<area shape="rect" href="fonction_8h.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="394,1060,461,1087"/>
+<area shape="rect" href="fonction_8h.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="358,1111,497,1137"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_aa32523492bf748832b6bdd899552a942_icgraph.png" border="0" usemap="#ia_8c_aa32523492bf748832b6bdd899552a942_icgraph" alt=""/></div>
+<map name="ia_8c_aa32523492bf748832b6bdd899552a942_icgraph" id="ia_8c_aa32523492bf748832b6bdd899552a942_icgraph">
+<area shape="rect" title=" " alt="" coords="749,31,836,57"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a79133f2909e5654fbbe1f7632c559354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79133f2909e5654fbbe1f7632c559354">&#9670;&nbsp;</a></span>rdm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rdm </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>renvoie un nombre random entre i et j inclu </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>i : min </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>j : max</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : retourne le chiffre aléatoire entre i et j.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00594">594</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a79133f2909e5654fbbe1f7632c559354_icgraph.png" border="0" usemap="#ia_8c_a79133f2909e5654fbbe1f7632c559354_icgraph" alt=""/></div>
+<map name="ia_8c_a79133f2909e5654fbbe1f7632c559354_icgraph" id="ia_8c_a79133f2909e5654fbbe1f7632c559354_icgraph">
+<area shape="rect" title="renvoie un nombre random entre i et j inclu" alt="" coords="231,5,279,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af67535e4d32d0a48d5d146c18e04ca33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af67535e4d32d0a48d5d146c18e04ca33">&#9670;&nbsp;</a></span>readChampion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void readChampion </td>
+          <td>(</td>
+          <td class="paramtype">int **&#160;</td>
+          <td class="paramname"><em>tabIA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nom</em>[20]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui stocke les 10 champion dans le tableau d'IA. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>** tabIA : tableau d'IA </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>nom[20]: nom du fichier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : ne renvoie rien</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00698">698</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_af67535e4d32d0a48d5d146c18e04ca33_icgraph.png" border="0" usemap="#ia_8c_af67535e4d32d0a48d5d146c18e04ca33_icgraph" alt=""/></div>
+<map name="ia_8c_af67535e4d32d0a48d5d146c18e04ca33_icgraph" id="ia_8c_af67535e4d32d0a48d5d146c18e04ca33_icgraph">
+<area shape="rect" title="Fonction qui stocke les 10 champion dans le tableau d&#39;IA." alt="" coords="231,5,348,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7573a7b5f6c15e75c0bed8ce93cadabf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7573a7b5f6c15e75c0bed8ce93cadabf">&#9670;&nbsp;</a></span>writeChampion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void writeChampion </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tabParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>nom</em>[20]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui écrit les paramètre de l'ia gagnante du tournois. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>* tabParam : tableau de paramètre </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>nom[20] : nom du fichier</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="ia_8c_source.html#l00640">640</a> du fichier <a class="el" href="ia_8c_source.html">ia.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf_icgraph.png" border="0" usemap="#ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf_icgraph" alt=""/></div>
+<map name="ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf_icgraph" id="ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf_icgraph">
+<area shape="rect" title="Fonction qui écrit les paramètre de l&#39;ia gagnante du tournois." alt="" coords="231,5,352,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

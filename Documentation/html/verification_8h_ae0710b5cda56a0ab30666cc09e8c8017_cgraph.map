@@ -1,0 +1,4 @@
+<map id="canMooveThisPion" name="canMooveThisPion">
+<area shape="rect" id="node1" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map...." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node2" href="$verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39" title="Fonction qui regarde si il existe une case du plateau vide." alt="" coords="197,5,304,32"/>
+</map>

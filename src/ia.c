@@ -4,6 +4,7 @@
  * \brief Fichier contenant les code des fonctions concernant l'intelligence artificielle.
  * 
  * \author DUPOIS Thomas
+ * \author VILLEPREUX Thibault
  */
 
 /**

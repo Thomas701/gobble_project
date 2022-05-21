@@ -83,16 +83,18 @@ int \+: Retourne 0 si bien passé, sinon -\/1. La gestion pour quitter le progra
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 135 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{init_8h_ac0e5ba316b9b150fa998cc4075ae5672_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -118,10 +120,26 @@ Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vide
 void \+: Pas de retour pour la fonction.
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: Contient le plateau de jeu que l\textquotesingle{}on va modifier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 22 du fichier init.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -152,10 +170,30 @@ Elle effectue un premier parcours pour mettre toutes les cases à \textquotesing
 void \+: Pas de retour pour la fonction.
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+Elle effectue un premier parcours pour mettre toutes les cases à \textquotesingle{}0\textquotesingle{} puis parcours la map3D et si pion rencontré, elle l\textquotesingle{}écrit dans la map 2D.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: Contient le plateau de jeu non detaillé ou l\textquotesingle{}on va mettre les valeurs de map3D. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: Contient le plateau de jeu detaillé que l\textquotesingle{}on va copier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 46 du fichier init.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -183,10 +221,28 @@ Fonction qui initialise les piles du joueur à son caractère identifiant (b ou 
 void \+: Pas de retour pour la fonction.
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: contient les piles du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 76 du fichier init.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -212,10 +268,26 @@ Fonction qui initialise (attention ne créée pas) toutes les cases/surfaces en 
 void \+: Pas de type de retour.
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: contient les surfaces (x/y et weidth/height) des cases du plateau et des piles en 3$\ast$3.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de type de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 312 du fichier init.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -243,8 +315,11 @@ void \+: Pas de type de retour.
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 290 du fichier init.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -272,16 +347,18 @@ int \+: Retourne -\/1 si erreur, sinon 0
 \begin{DoxyAuthor}{Auteur}
 D\+U\+P\+O\+IS Thomas 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 238 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=306pt]{init_8h_a378c028b0ddd060dd4643e04d3a1bafa_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -309,16 +386,18 @@ int \+: Retourne -\/1 si erreur, sinon 0
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 206 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=243pt]{init_8h_ae50fd7713aca8e86439c8a2aadbab5d6_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -346,18 +425,35 @@ Fonction qui charge les images des options menu.
 int \+: Retourne -\/1 si erreur, sinon 0
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ ptexture\+Tableau\+Option\+Menu \+: pointeur sur tableau qui va contenir les images des options.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 96 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=317pt]{init_8h_a8f0b2e072f0de59baa36e4b77e15e0f3_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -385,16 +481,18 @@ int \+: Retourne -\/1 si erreur, sinon 0
 \begin{DoxyAuthor}{Auteur}
 V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+
+Définition à la ligne 179 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=316pt]{init_8h_a34fa94001e97c9d21c12159b7d1fc405_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -422,18 +520,37 @@ Fonction qui charge les images des lignes coloré (en cas de victoire ou égalit
 int \+: Retourne -\/1 si erreur, sinon 0
 \end{DoxyReturn}
 \begin{DoxyAuthor}{Auteur}
-V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
 \end{DoxyAuthor}
-Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
-\nopagebreak
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu principale du jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$$\ast$ p\+Texture\+Tableau\+Win \+: pointeur sur tableau qui va contenir les images des lignes coloré (en cas de victoire ou égalité).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne -\/1 si erreur, sinon 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibaul 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 264 du fichier init.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=276pt]{init_8h_af3b494e08e48520f09b6b419652aa0ea_cgraph}
 \end{center}
 \end{figure}
-Voici le graphe des appelants de cette fonction \+:
-\nopagebreak
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

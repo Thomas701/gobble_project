@@ -1,0 +1,5 @@
+<map id="createTabOfCoups" name="createTabOfCoups">
+<area shape="rect" id="node1" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="5,31,145,57"/>
+<area shape="rect" id="node2" href="$error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="223,5,349,32"/>
+<area shape="rect" id="node3" href="$error_8c.html#a1cd17c76c9446b6c908b298a8185a9a1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups)." alt="" coords="193,56,379,83"/>
+</map>

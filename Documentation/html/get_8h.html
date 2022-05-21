@@ -88,13 +88,91 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a94dc5bdb09065d2c7dfaa760a576eaab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#a94dc5bdb09065d2c7dfaa760a576eaab">sizePionInStack</a> (char **stackArray, int numStack)</td></tr>
 <tr class="memdesc:a94dc5bdb09065d2c7dfaa760a576eaab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui regarde la taille d'un pion d'une pile.  <a href="get_8h.html#a94dc5bdb09065d2c7dfaa760a576eaab">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a94dc5bdb09065d2c7dfaa760a576eaab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92c46153a227bf06803230d7afaddc8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#ac92c46153a227bf06803230d7afaddc8">getSizePionOnCase</a> (char ***map3D, int i, int j)</td></tr>
+<tr class="memdesc:ac92c46153a227bf06803230d7afaddc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion.  <a href="get_8h.html#ac92c46153a227bf06803230d7afaddc8">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac92c46153a227bf06803230d7afaddc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7679f3603a07fd45f96a6e4722bc12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12">getSizePionOnCase2</a> (char ***map3D, int index)</td></tr>
+<tr class="memdesc:a6e7679f3603a07fd45f96a6e4722bc12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion.  <a href="get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a6e7679f3603a07fd45f96a6e4722bc12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b54240324a48af54eade306deec53d5"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#a1b54240324a48af54eade306deec53d5">getCaractereOnCase</a> (char ***map3D, int index)</td></tr>
+<tr class="memdesc:a1b54240324a48af54eade306deec53d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie le caractère du pion sur la case demandé ('0') si pas de pion.  <a href="get_8h.html#a1b54240324a48af54eade306deec53d5">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1b54240324a48af54eade306deec53d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f4e6def7d13bd59a436414701691b2f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#a8f4e6def7d13bd59a436414701691b2f">getIndexPionWhoAreEat</a> (char ***map3D, int index)</td></tr>
+<tr class="memdesc:a8f4e6def7d13bd59a436414701691b2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie la taille du pion mangé (-1) si aucun pion n'est mangé  <a href="get_8h.html#a8f4e6def7d13bd59a436414701691b2f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a8f4e6def7d13bd59a436414701691b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2769987739618d5cfad74960e45e217"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="get_8h.html#aa2769987739618d5cfad74960e45e217">getMaxOnTable</a> (int *tab, int <a class="el" href="liste_8c.html#ae68f291c9fe0120bd2de4c9a4b242950">size</a>)</td></tr>
+<tr class="memdesc:aa2769987739618d5cfad74960e45e217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui renvoie le nombre maximum dans le tableau.  <a href="get_8h.html#aa2769987739618d5cfad74960e45e217">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa2769987739618d5cfad74960e45e217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Fichier contenant les codes des fonctions permettant d'écrire et lire les maps et piles dans des fichiers. On ne les utilise pas. </p>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="get_8h_source.html">get.h</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a1b54240324a48af54eade306deec53d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b54240324a48af54eade306deec53d5">&#9670;&nbsp;</a></span>getCaractereOnCase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char getCaractereOnCase </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie le caractère du pion sur la case demandé ('0') si pas de pion. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map3D : map du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>index : index de la map</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>char : renvoie le caractère du pion sur la case demandé ('0') si pas de pion</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00139">139</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a1b54240324a48af54eade306deec53d5_icgraph.png" border="0" usemap="#get_8h_a1b54240324a48af54eade306deec53d5_icgraph" alt=""/></div>
+<map name="get_8h_a1b54240324a48af54eade306deec53d5_icgraph" id="get_8h_a1b54240324a48af54eade306deec53d5_icgraph">
+<area shape="rect" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="1187,77,1343,104"/>
+<area shape="rect" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="1034,27,1125,53"/>
+<area shape="rect" href="get_8c.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="793,128,972,155"/>
+<area shape="rect" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="1020,77,1139,104"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="673,39,723,65"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="839,27,926,53"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,64,600,91"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,13,603,40"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,112,469,139"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,87,252,113"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,61,60,88"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,24,217,51"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="651,115,745,141"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="aad7afd925ca39d6ad75730fbe2d7e61b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad7afd925ca39d6ad75730fbe2d7e61b">&#9670;&nbsp;</a></span>getIndex()</h2>
 
@@ -130,7 +208,18 @@ VILLEPREUX Thibault </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int :retourne l'indice si pion.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Point</td><td>pointMouse : point de la souris où l'utilisateur à cliquer. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Rect</td><td>** tableauCase : tableau contenant les surfaces des cases.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int :retourne l'indice si pion.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00022">22</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -148,9 +237,263 @@ Voici le graphe des appelants de cette fonction :</div>
 <area shape="rect" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="671,31,749,57"/>
 <area shape="rect" href="verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="533,5,607,32"/>
 <area shape="rect" href="verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="517,56,623,83"/>
-<area shape="rect" href="fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,31,469,57"/>
-<area shape="rect" href="graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,31,252,57"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,31,469,57"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,31,252,57"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8f4e6def7d13bd59a436414701691b2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f4e6def7d13bd59a436414701691b2f">&#9670;&nbsp;</a></span>getIndexPionWhoAreEat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getIndexPionWhoAreEat </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie la taille du pion mangé (-1) si aucun pion n'est mangé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map3D : map du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>index : index de la map</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : renvoie la taille du pion mangé (-1) si aucun pion n'est mangé</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00163">163</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a8f4e6def7d13bd59a436414701691b2f_cgraph.png" border="0" usemap="#get_8h_a8f4e6def7d13bd59a436414701691b2f_cgraph" alt=""/></div>
+<map name="get_8h_a8f4e6def7d13bd59a436414701691b2f_cgraph" id="get_8h_a8f4e6def7d13bd59a436414701691b2f_cgraph">
+<area shape="rect" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="5,56,184,83"/>
+<area shape="rect" href="get_8c.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="232,5,388,32"/>
+<area shape="rect" href="get_8c.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="232,56,388,83"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="436,81,484,108"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a8f4e6def7d13bd59a436414701691b2f_icgraph.png" border="0" usemap="#get_8h_a8f4e6def7d13bd59a436414701691b2f_icgraph" alt=""/></div>
+<map name="get_8h_a8f4e6def7d13bd59a436414701691b2f_icgraph" id="get_8h_a8f4e6def7d13bd59a436414701691b2f_icgraph">
+<area shape="rect" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="793,56,972,83"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,60,469,87"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="673,107,723,133"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="651,5,745,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,63,252,89"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,95,60,121"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,107,600,133"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,157,603,184"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,120,217,147"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa2769987739618d5cfad74960e45e217"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2769987739618d5cfad74960e45e217">&#9670;&nbsp;</a></span>getMaxOnTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getMaxOnTable </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>tab</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie le nombre maximum dans le tableau. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map3D : map du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>size : taille du tableau</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : renvoie le nombre maximum dans le tableau</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00188">188</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_aa2769987739618d5cfad74960e45e217_cgraph.png" border="0" usemap="#get_8h_aa2769987739618d5cfad74960e45e217_cgraph" alt=""/></div>
+<map name="get_8h_aa2769987739618d5cfad74960e45e217_cgraph" id="get_8h_aa2769987739618d5cfad74960e45e217_cgraph">
+<area shape="rect" title="Fonction qui renvoie le nombre maximum dans le tableau." alt="" coords="5,5,128,32"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="176,5,224,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_aa2769987739618d5cfad74960e45e217_icgraph.png" border="0" usemap="#get_8h_aa2769987739618d5cfad74960e45e217_icgraph" alt=""/></div>
+<map name="get_8h_aa2769987739618d5cfad74960e45e217_icgraph" id="get_8h_aa2769987739618d5cfad74960e45e217_icgraph">
+<area shape="rect" title="Fonction qui renvoie le nombre maximum dans le tableau." alt="" coords="231,5,353,32"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="108,5,183,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac92c46153a227bf06803230d7afaddc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac92c46153a227bf06803230d7afaddc8">&#9670;&nbsp;</a></span>getSizePionOnCase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getSizePionOnCase </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map3D : map du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>i : coordonné x </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>j : coordonné y</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : renvoie la taille du pion sur la case demandé (-1) si pas de pion</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00088">88</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_ac92c46153a227bf06803230d7afaddc8_cgraph.png" border="0" usemap="#get_8h_ac92c46153a227bf06803230d7afaddc8_cgraph" alt=""/></div>
+<map name="get_8h_ac92c46153a227bf06803230d7afaddc8_cgraph" id="get_8h_ac92c46153a227bf06803230d7afaddc8_cgraph">
+<area shape="rect" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="5,5,153,32"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="201,5,249,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6e7679f3603a07fd45f96a6e4722bc12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7679f3603a07fd45f96a6e4722bc12">&#9670;&nbsp;</a></span>getSizePionOnCase2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int getSizePionOnCase2 </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui renvoie la taille du pion sur la case demandé (-1) si pas de pion. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map3D : map du jeu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>index : index de la map</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : renvoie la taille du pion sur la case demandé (-1) si pas de pion</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00111">111</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_cgraph.png" border="0" usemap="#get_8h_a6e7679f3603a07fd45f96a6e4722bc12_cgraph" alt=""/></div>
+<map name="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_cgraph" id="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_cgraph">
+<area shape="rect" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="5,5,161,32"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="209,5,257,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_icgraph.png" border="0" usemap="#get_8h_a6e7679f3603a07fd45f96a6e4722bc12_icgraph" alt=""/></div>
+<map name="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_icgraph" id="get_8h_a6e7679f3603a07fd45f96a6e4722bc12_icgraph">
+<area shape="rect" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="1159,81,1315,108"/>
+<area shape="rect" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="1020,56,1111,83"/>
+<area shape="rect" href="get_8c.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="793,107,972,133"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="673,56,723,83"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="839,5,926,32"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,56,600,83"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,5,603,32"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,104,469,131"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,79,252,105"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,53,60,80"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,16,217,43"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="651,107,745,133"/>
 </map>
 </div>
 
@@ -193,6 +536,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <dl class="section return"><dt>Renvoie</dt><dd>int : retourne -1 si stack est vide sinon 0, 1 ou 2 (taille du pion).</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
 
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00064">64</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+
 </div>
 </div>
 <a id="a5b283e6ec1d60b83c6dbf6d2078140f5"></a>
@@ -231,6 +576,19 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int :retourne la taille max du pion d'une pile.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="get_8c_source.html#l00041">41</a> du fichier <a class="el" href="get_8c_source.html">get.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5_icgraph.png" border="0" usemap="#get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5_icgraph" alt=""/></div>
+<map name="get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5_icgraph" id="get_8h_a5b283e6ec1d60b83c6dbf6d2078140f5_icgraph">
+<area shape="rect" title="Fonction qui regarde la taille maximum d&#39;un pion d&#39;une pile." alt="" coords="529,5,669,32"/>
+<area shape="rect" href="demande_8c.html#a5640432ec67cad60ba21586b562d0a51" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="259,5,481,32"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,5,211,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
 
 </div>
 </div>

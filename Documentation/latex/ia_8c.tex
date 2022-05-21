@@ -1,0 +1,753 @@
+\hypertarget{ia_8c}{}\doxysection{Référence du fichier src/ia.c}
+\label{ia_8c}\index{src/ia.c@{src/ia.c}}
+
+
+Fichier contenant les code des fonctions concernant l\textquotesingle{}intelligence artificielle.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{ia_8c_ad707bbcb8e2701a20041722fdf31f275}{create\+Tab\+Of\+Coups}} ()
+\begin{DoxyCompactList}\small\item\em Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_a49eb63bb4f16d8f730f8d0828d538271}{affiche\+Tab\+Of\+Coups}} (int $\ast$$\ast$tab)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}afficher le tableau contenant les coups pouvants être joué par l\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925}{init\+Tab\+Of\+Coups}} (int $\ast$$\ast$tab)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}initialiser l\textquotesingle{}ensemble des cases du tableau à -\/1. \end{DoxyCompactList}\item 
+char $\ast$$\ast$$\ast$ \mbox{\hyperlink{ia_8c_a3daa1236ed5842bf365e59fd3ab937fa}{copy\+Map3D}} (char $\ast$$\ast$$\ast$map3D)
+\begin{DoxyCompactList}\small\item\em Permet de copier la map 3D. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{ia_8c_a2e2de371019b61d42f97ce4e3b8201fd}{copy\+Map2D}} (char $\ast$$\ast$map2D)
+\begin{DoxyCompactList}\small\item\em Permet de copier la map 2D. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \mbox{\hyperlink{ia_8c_a08f171c0f9610e91ae64f696b8632255}{copy\+Stack}} (char $\ast$$\ast$pile)
+\begin{DoxyCompactList}\small\item\em Permet de copier une pile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_ad1474b2f1b39e4a03462558beb7e91b0}{list\+Tab\+Of\+Coups}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$stacks, int $\ast$$\ast$tab\+Of\+Coups, char c)
+\begin{DoxyCompactList}\small\item\em Permet de trouver la liste des coups possibles que peux jouer l\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_addbe81105e0658b076d3fe85b439166e}{place\+Pion\+By\+Ia}} (int $\ast$$\ast$tab, int best\+Coup, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$stacks, char c)
+\begin{DoxyCompactList}\small\item\em Place un piont. \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c}{play}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, char c, int ia, int prof, int alpha\+Beta, int $\ast$tableau\+Param)
+\begin{DoxyCompactList}\small\item\em Fait jouer l\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_a3852eaa43422dd342e74109cd51c1af6}{all\+Free}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$stacks, char $\ast$$\ast$stacks\+Op, int $\ast$$\ast$tab, \mbox{\hyperlink{structliste}{liste}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em free l\textquotesingle{}ensemble des éléments \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ia_8c_aa32523492bf748832b6bdd899552a942}{prediction}} (int prof, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int $\ast$$\ast$tab\+Of\+Coups, int index, int ia, char c, int alpha\+Beta, int alpha, int beta, int $\ast$tableau\+Param)
+\item 
+int \mbox{\hyperlink{ia_8c_a74ed2d29463d3c173234ae29950f00a5}{evaluation}} (int $\ast$tab\+Param, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int $\ast$$\ast$tab\+Of\+Coups, int index, char c)
+\begin{DoxyCompactList}\small\item\em évalue la grille et ajoute la note des paramètres. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ia_8c_a6e14914f85289ae9c683de5374ff3939}{count\+Diff}} (char $\ast$$\ast$map2D, char c)
+\begin{DoxyCompactList}\small\item\em compte la différence entre le nombre de pion du joueur et le nombre de pion de l\textquotesingle{}adversaire posé sur la grille \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ia_8c_a79133f2909e5654fbbe1f7632c559354}{rdm}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em renvoie un nombre random entre i et j inclu \end{DoxyCompactList}\item 
+int $\ast$ \mbox{\hyperlink{ia_8c_ad88f9be1536f936802db219e9dcd35e6}{generate\+Tab}} (int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10)
+\item 
+void \mbox{\hyperlink{ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf}{write\+Champion}} (int $\ast$tab\+Param, char nom\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui écrit les paramètre de l\textquotesingle{}ia gagnante du tournois. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{ia_8c_a481f1274a11514275d2f523fa9f5bb6c}{nbre\+Champion}} (char nom\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui renvoie le nombre d\textquotesingle{}ia stockées dans le fichier. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_af67535e4d32d0a48d5d146c18e04ca33}{read\+Champion}} (int $\ast$$\ast$tab\+IA, char nom\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui stocke les 10 champion dans le tableau d\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a}{clear\+File}} (char nom\mbox{[}20\mbox{]})
+\begin{DoxyCompactList}\small\item\em Fonction qui vide le contenu d\textquotesingle{}un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les code des fonctions concernant l\textquotesingle{}intelligence artificielle. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{ia_8c_a49eb63bb4f16d8f730f8d0828d538271}\label{ia_8c_a49eb63bb4f16d8f730f8d0828d538271}} 
+\index{ia.c@{ia.c}!afficheTabOfCoups@{afficheTabOfCoups}}
+\index{afficheTabOfCoups@{afficheTabOfCoups}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{afficheTabOfCoups()}{afficheTabOfCoups()}}
+{\footnotesize\ttfamily void affiche\+Tab\+Of\+Coups (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tab }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}afficher le tableau contenant les coups pouvants être joué par l\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: tableau de coups possible que l\textquotesingle{}on doit afficher\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, il s\textquotesingle{}agit seulement d\textquotesingle{}un affichage console
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 49 du fichier ia.\+c.
+
+\mbox{\Hypertarget{ia_8c_a3852eaa43422dd342e74109cd51c1af6}\label{ia_8c_a3852eaa43422dd342e74109cd51c1af6}} 
+\index{ia.c@{ia.c}!allFree@{allFree}}
+\index{allFree@{allFree}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{allFree()}{allFree()}}
+{\footnotesize\ttfamily void all\+Free (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{stacks,  }\item[{char $\ast$$\ast$}]{stacks\+Op,  }\item[{int $\ast$$\ast$}]{tab,  }\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+free l\textquotesingle{}ensemble des éléments 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D représentant la grille du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map2D représentant la grille du jeu en 2D \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stacks \+: pile du joueur 1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stacks\+Op \+: pile du joueur 2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: correspond au tableau de coups \\
+\hline
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: correspond à la liste\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, cela free
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 375 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{ia_8c_a3852eaa43422dd342e74109cd51c1af6_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a3852eaa43422dd342e74109cd51c1af6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a}\label{ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a}} 
+\index{ia.c@{ia.c}!clearFile@{clearFile}}
+\index{clearFile@{clearFile}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{clearFile()}{clearFile()}}
+{\footnotesize\ttfamily void clear\+File (\begin{DoxyParamCaption}\item[{char}]{nom\mbox{[}20\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui vide le contenu d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & nom\mbox{[}20\mbox{]}\+: nom du fichier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ne renvoie rien
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 729 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{ia_8c_a2d7ac71f1ecf9971b2de75dc9ba00d5a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a2e2de371019b61d42f97ce4e3b8201fd}\label{ia_8c_a2e2de371019b61d42f97ce4e3b8201fd}} 
+\index{ia.c@{ia.c}!copyMap2D@{copyMap2D}}
+\index{copyMap2D@{copyMap2D}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{copyMap2D()}{copyMap2D()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ copy\+Map2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D }\end{DoxyParamCaption})}
+
+
+
+Permet de copier la map 2D. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map2D a copier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: retourne la nouvelle map2D copiée
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 125 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a2e2de371019b61d42f97ce4e3b8201fd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a3daa1236ed5842bf365e59fd3ab937fa}\label{ia_8c_a3daa1236ed5842bf365e59fd3ab937fa}} 
+\index{ia.c@{ia.c}!copyMap3D@{copyMap3D}}
+\index{copyMap3D@{copyMap3D}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{copyMap3D()}{copyMap3D()}}
+{\footnotesize\ttfamily char$\ast$$\ast$$\ast$ copy\+Map3D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
+
+
+
+Permet de copier la map 3D. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D a copier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Retourne la nouvelle map3D copiée
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 99 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a3daa1236ed5842bf365e59fd3ab937fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a08f171c0f9610e91ae64f696b8632255}\label{ia_8c_a08f171c0f9610e91ae64f696b8632255}} 
+\index{ia.c@{ia.c}!copyStack@{copyStack}}
+\index{copyStack@{copyStack}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{copyStack()}{copyStack()}}
+{\footnotesize\ttfamily char$\ast$$\ast$ copy\+Stack (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{pile }\end{DoxyParamCaption})}
+
+
+
+Permet de copier une pile. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: pile à copié\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: retourne la nouvelle pile copiée
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 146 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a08f171c0f9610e91ae64f696b8632255_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a08f171c0f9610e91ae64f696b8632255_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a6e14914f85289ae9c683de5374ff3939}\label{ia_8c_a6e14914f85289ae9c683de5374ff3939}} 
+\index{ia.c@{ia.c}!countDiff@{countDiff}}
+\index{countDiff@{countDiff}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{countDiff()}{countDiff()}}
+{\footnotesize\ttfamily int count\+Diff (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+compte la différence entre le nombre de pion du joueur et le nombre de pion de l\textquotesingle{}adversaire posé sur la grille 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map 2D \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: piont du joueur\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne la différence
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 572 du fichier ia.\+c.
+
+\mbox{\Hypertarget{ia_8c_ad707bbcb8e2701a20041722fdf31f275}\label{ia_8c_ad707bbcb8e2701a20041722fdf31f275}} 
+\index{ia.c@{ia.c}!createTabOfCoups@{createTabOfCoups}}
+\index{createTabOfCoups@{createTabOfCoups}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{createTabOfCoups()}{createTabOfCoups()}}
+{\footnotesize\ttfamily int$\ast$$\ast$ create\+Tab\+Of\+Coups (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: Ne prend aucun paramètre\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int $\ast$$\ast$ \+: Retourne un tableau 2D de int, chaque case est un index permettant d\textquotesingle{}identifier la case de départ et d\textquotesingle{}arrivé
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 20 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_ad707bbcb8e2701a20041722fdf31f275_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_ad707bbcb8e2701a20041722fdf31f275_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a74ed2d29463d3c173234ae29950f00a5}\label{ia_8c_a74ed2d29463d3c173234ae29950f00a5}} 
+\index{ia.c@{ia.c}!evaluation@{evaluation}}
+\index{evaluation@{evaluation}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{evaluation()}{evaluation()}}
+{\footnotesize\ttfamily int evaluation (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab\+Param,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int $\ast$$\ast$}]{tab\+Of\+Coups,  }\item[{int}]{index,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+évalue la grille et ajoute la note des paramètres. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ tab\+Param \+: tableau contenant les paramètre \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D représentant la grille du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map2D représentant la grille du jeu en 2D \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab\+Of\+Coups \+: tableau des coups \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & index \+: index d\textquotesingle{}ou on doit jouer \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: caractère du joueur qui joue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne la note finale
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 522 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a74ed2d29463d3c173234ae29950f00a5_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a74ed2d29463d3c173234ae29950f00a5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_ad88f9be1536f936802db219e9dcd35e6}\label{ia_8c_ad88f9be1536f936802db219e9dcd35e6}} 
+\index{ia.c@{ia.c}!generateTab@{generateTab}}
+\index{generateTab@{generateTab}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{generateTab()}{generateTab()}}
+{\footnotesize\ttfamily int$\ast$ generate\+Tab (\begin{DoxyParamCaption}\item[{int}]{i1,  }\item[{int}]{i2,  }\item[{int}]{i3,  }\item[{int}]{i4,  }\item[{int}]{i5,  }\item[{int}]{i6,  }\item[{int}]{i7,  }\item[{int}]{i8,  }\item[{int}]{i9,  }\item[{int}]{i10 }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 619 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_ad88f9be1536f936802db219e9dcd35e6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925}\label{ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925}} 
+\index{ia.c@{ia.c}!initTabOfCoups@{initTabOfCoups}}
+\index{initTabOfCoups@{initTabOfCoups}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{initTabOfCoups()}{initTabOfCoups()}}
+{\footnotesize\ttfamily void init\+Tab\+Of\+Coups (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tab }\end{DoxyParamCaption})}
+
+
+
+Permet d\textquotesingle{}initialiser l\textquotesingle{}ensemble des cases du tableau à -\/1. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: tableau de coups possible que l\textquotesingle{}on doit initialiser\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, il s\textquotesingle{}agit seulement de remplir un tableau
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 80 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a4b7866b2ca0b3eca5a5d1579f2d2e925_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_ad1474b2f1b39e4a03462558beb7e91b0}\label{ia_8c_ad1474b2f1b39e4a03462558beb7e91b0}} 
+\index{ia.c@{ia.c}!listTabOfCoups@{listTabOfCoups}}
+\index{listTabOfCoups@{listTabOfCoups}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{listTabOfCoups()}{listTabOfCoups()}}
+{\footnotesize\ttfamily void list\+Tab\+Of\+Coups (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{stacks,  }\item[{int $\ast$$\ast$}]{tab\+Of\+Coups,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Permet de trouver la liste des coups possibles que peux jouer l\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D représentant la grille du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stacks \+: pile du joueur en question \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab\+Of\+Coups \+: tableau de coups possible \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: correspond au joueur qui joue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, il s\textquotesingle{}agit de remplir le tableau
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 170 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_ad1474b2f1b39e4a03462558beb7e91b0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a481f1274a11514275d2f523fa9f5bb6c}\label{ia_8c_a481f1274a11514275d2f523fa9f5bb6c}} 
+\index{ia.c@{ia.c}!nbreChampion@{nbreChampion}}
+\index{nbreChampion@{nbreChampion}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{nbreChampion()}{nbreChampion()}}
+{\footnotesize\ttfamily int nbre\+Champion (\begin{DoxyParamCaption}\item[{char}]{nom\mbox{[}20\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui renvoie le nombre d\textquotesingle{}ia stockées dans le fichier. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & nom\mbox{[}20\mbox{]} \+: nom du fichier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: renvoie le nombre d\textquotesingle{}ia stockées dans le fichier
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 671 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{ia_8c_a481f1274a11514275d2f523fa9f5bb6c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_addbe81105e0658b076d3fe85b439166e}\label{ia_8c_addbe81105e0658b076d3fe85b439166e}} 
+\index{ia.c@{ia.c}!placePionByIa@{placePionByIa}}
+\index{placePionByIa@{placePionByIa}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{placePionByIa()}{placePionByIa()}}
+{\footnotesize\ttfamily void place\+Pion\+By\+Ia (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tab,  }\item[{int}]{best\+Coup,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{stacks,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Place un piont. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: tableau de coups \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & best\+Coup \+: index du coup à jouer \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D représentant la grille du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stacks \+: pile du joueur \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: correspond au joueur qui joue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, place un pion
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 251 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_addbe81105e0658b076d3fe85b439166e_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_addbe81105e0658b076d3fe85b439166e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c}\label{ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c}} 
+\index{ia.c@{ia.c}!play@{play}}
+\index{play@{play}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{play()}{play()}}
+{\footnotesize\ttfamily int$\ast$ play (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{char}]{c,  }\item[{int}]{ia,  }\item[{int}]{prof,  }\item[{int}]{alpha\+Beta,  }\item[{int $\ast$}]{tableau\+Param }\end{DoxyParamCaption})}
+
+
+
+Fait jouer l\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map3D représentant la grille du jeu \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map2D représentant la grille du jeu en 2D \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: pile du joueur 1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: pile du joueur 2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: correspond au joueur qui joue \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & ia \+: = 1 si c\textquotesingle{}est l\textquotesingle{}ia qui joue, = 0 si ce n\textquotesingle{}est pas le cas (agit comme un boolean) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & prof \+: correspond à la profondeur de recherche \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & alpha\+Beta \+: si on utilise le alpha Beta ou pas \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ tableau\+Param \+: tableau de paramètre de l\textquotesingle{}IA\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne Retourne rien, modifie la map3D et 2D
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 289 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_a85af03eabc3fecf6c40b71ed7d1f4e6c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_aa32523492bf748832b6bdd899552a942}\label{ia_8c_aa32523492bf748832b6bdd899552a942}} 
+\index{ia.c@{ia.c}!prediction@{prediction}}
+\index{prediction@{prediction}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{prediction()}{prediction()}}
+{\footnotesize\ttfamily int prediction (\begin{DoxyParamCaption}\item[{int}]{prof,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int $\ast$$\ast$}]{tab\+Of\+Coups,  }\item[{int}]{index,  }\item[{int}]{ia,  }\item[{char}]{c,  }\item[{int}]{alpha\+Beta,  }\item[{int}]{alpha,  }\item[{int}]{beta,  }\item[{int $\ast$}]{tableau\+Param }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 408 du fichier ia.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_aa32523492bf748832b6bdd899552a942_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ia_8c_aa32523492bf748832b6bdd899552a942_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a79133f2909e5654fbbe1f7632c559354}\label{ia_8c_a79133f2909e5654fbbe1f7632c559354}} 
+\index{ia.c@{ia.c}!rdm@{rdm}}
+\index{rdm@{rdm}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{rdm()}{rdm()}}
+{\footnotesize\ttfamily int rdm (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+renvoie un nombre random entre i et j inclu 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & i \+: min \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & j \+: max\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne le chiffre aléatoire entre i et j.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 594 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{ia_8c_a79133f2909e5654fbbe1f7632c559354_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_af67535e4d32d0a48d5d146c18e04ca33}\label{ia_8c_af67535e4d32d0a48d5d146c18e04ca33}} 
+\index{ia.c@{ia.c}!readChampion@{readChampion}}
+\index{readChampion@{readChampion}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{readChampion()}{readChampion()}}
+{\footnotesize\ttfamily void read\+Champion (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tab\+IA,  }\item[{char}]{nom\mbox{[}20\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui stocke les 10 champion dans le tableau d\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab\+IA \+: tableau d\textquotesingle{}IA \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & nom\mbox{[}20\mbox{]}\+: nom du fichier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ne renvoie rien
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 698 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{ia_8c_af67535e4d32d0a48d5d146c18e04ca33_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf}\label{ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf}} 
+\index{ia.c@{ia.c}!writeChampion@{writeChampion}}
+\index{writeChampion@{writeChampion}!ia.c@{ia.c}}
+\doxysubsubsection{\texorpdfstring{writeChampion()}{writeChampion()}}
+{\footnotesize\ttfamily void write\+Champion (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab\+Param,  }\item[{char}]{nom\mbox{[}20\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Fonction qui écrit les paramètre de l\textquotesingle{}ia gagnante du tournois. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ tab\+Param \+: tableau de paramètre \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & nom\mbox{[}20\mbox{]} \+: nom du fichier\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 640 du fichier ia.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{ia_8c_a7573a7b5f6c15e75c0bed8ce93cadabf_icgraph}
+\end{center}
+\end{figure}

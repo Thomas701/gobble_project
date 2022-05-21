@@ -75,6 +75,8 @@ $(function() {
 <p>Fichier contenant les codes des fonctions où l'on demande à l'utilisateurs ces choix d'action au clavier. Avec vérification.<br  />
 .  
 <a href="#details">Plus de détails...</a></p>
+
+<p><a href="demande_8c_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
@@ -93,8 +95,7 @@ Fonctions</h2></td></tr>
 <tr class="memdesc:a695efdbb9b1d84b147ab28b2c50bfc90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui demande le pion que veut jouer le joueur dans sa pile. <b>Avec vérification.</b><br  />
 .  <a href="demande_8c.html#a695efdbb9b1d84b147ab28b2c50bfc90">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a695efdbb9b1d84b147ab28b2c50bfc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45ec250b247fc0ba12305f49be037069"><td class="memItemLeft" align="right" valign="top"><a id="a45ec250b247fc0ba12305f49be037069"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SGO_demanderQuelleCaseJouerPion</b> (char ***map3D, int *numPion, int *endPion)</td></tr>
+<tr class="memitem:a45ec250b247fc0ba12305f49be037069"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demande_8c.html#a45ec250b247fc0ba12305f49be037069">SGO_demanderQuelleCaseJouerPion</a> (char ***map3D, int *numPion, int *endPion)</td></tr>
 <tr class="separator:a45ec250b247fc0ba12305f49be037069"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a777a6d914d321aaada9fd7a184a415d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demande_8c.html#a777a6d914d321aaada9fd7a184a415d4">SF_demandeDeplacement</a> ()</td></tr>
 <tr class="memdesc:a777a6d914d321aaada9fd7a184a415d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui demande l'option du mode de jeu. Les déplacements sont restriens de 1 ou pas. <b>Avec vérification.</b><br  />
@@ -103,8 +104,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SGO_demanderQuelleCas
 <tr class="memitem:a2c1c4e9f42f4ae6ae93159d132fb464f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demande_8c.html#a2c1c4e9f42f4ae6ae93159d132fb464f">SGO_verifEtDeplacementCaseAvecLimite</a> (char ***map3D, char c, int *debPion, int *endPion)</td></tr>
 <tr class="memdesc:a2c1c4e9f42f4ae6ae93159d132fb464f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui demande au joueur le pion qu'il veut deplacer et verifie si il existe et qu'il peut le deplacer (avec deplacement restreint de 1). Et son emplacement d'arriver (si il existe et il peut le mettre).  <a href="demande_8c.html#a2c1c4e9f42f4ae6ae93159d132fb464f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a2c1c4e9f42f4ae6ae93159d132fb464f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdfa3c6dec19e486beeb3a439af3b31d"><td class="memItemLeft" align="right" valign="top"><a id="afdfa3c6dec19e486beeb3a439af3b31d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SGO_verifEtDeplacementCaseSansLimite</b> (char ***map3D, char c, int *debPion, int *endPion)</td></tr>
+<tr class="memitem:afdfa3c6dec19e486beeb3a439af3b31d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="demande_8c.html#afdfa3c6dec19e486beeb3a439af3b31d">SGO_verifEtDeplacementCaseSansLimite</a> (char ***map3D, char c, int *debPion, int *endPion)</td></tr>
 <tr class="separator:afdfa3c6dec19e486beeb3a439af3b31d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
@@ -114,6 +114,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SGO_verifEtDeplacemen
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="a777a6d914d321aaada9fd7a184a415d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a777a6d914d321aaada9fd7a184a415d4">&#9670;&nbsp;</a></span>SF_demandeDeplacement()</h2>
@@ -141,6 +143,8 @@ VILLEPREUX Thibault </dd></dl>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Return 0 si déplacement non restreint sinon 1 (restreint de connexité 1).</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00156">156</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -209,6 +213,8 @@ Voici le graphe des appelants de cette fonction :</div>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00027">27</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -276,6 +282,8 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction car réponse enregistré dans <b>debPion</b>.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00052">52</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -293,6 +301,62 @@ Voici le graphe des appelants de cette fonction :</div>
 <div class="center"><img src="demande_8c_aa510dfb386d4794394ced9e84f3a8a83_icgraph.png" border="0" usemap="#demande_8c_aa510dfb386d4794394ced9e84f3a8a83_icgraph" alt=""/></div>
 <map name="demande_8c_aa510dfb386d4794394ced9e84f3a8a83_icgraph" id="demande_8c_aa510dfb386d4794394ced9e84f3a8a83_icgraph">
 <area shape="rect" title="Fonction qui demande le pion que veut deplacer le joueur. Sans vérification." alt="" coords="259,5,493,32"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,5,211,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a45ec250b247fc0ba12305f49be037069"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ec250b247fc0ba12305f49be037069">&#9670;&nbsp;</a></span>SGO_demanderQuelleCaseJouerPion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SGO_demanderQuelleCaseJouerPion </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>numPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>endPion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00133">133</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_a45ec250b247fc0ba12305f49be037069_cgraph.png" border="0" usemap="#demande_8c_a45ec250b247fc0ba12305f49be037069_cgraph" alt=""/></div>
+<map name="demande_8c_a45ec250b247fc0ba12305f49be037069_cgraph" id="demande_8c_a45ec250b247fc0ba12305f49be037069_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,264,57"/>
+<area shape="rect" href="verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="315,5,409,32"/>
+<area shape="rect" href="free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="312,56,412,83"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_a45ec250b247fc0ba12305f49be037069_icgraph.png" border="0" usemap="#demande_8c_a45ec250b247fc0ba12305f49be037069_icgraph" alt=""/></div>
+<map name="demande_8c_a45ec250b247fc0ba12305f49be037069_icgraph" id="demande_8c_a45ec250b247fc0ba12305f49be037069_icgraph">
+<area shape="rect" title=" " alt="" coords="259,5,517,32"/>
 <area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,5,211,32"/>
 <area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
 </map>
@@ -354,15 +418,31 @@ Voici le graphe des appelants de cette fonction :</div>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00076">76</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="demande_8c_a5640432ec67cad60ba21586b562d0a51_cgraph.png" border="0" usemap="#demande_8c_a5640432ec67cad60ba21586b562d0a51_cgraph" alt=""/></div>
 <map name="demande_8c_a5640432ec67cad60ba21586b562d0a51_cgraph" id="demande_8c_a5640432ec67cad60ba21586b562d0a51_cgraph">
-<area shape="rect" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="5,56,228,83"/>
-<area shape="rect" href="print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="296,5,395,32"/>
-<area shape="rect" href="print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="276,56,415,83"/>
-<area shape="rect" href="print_8h.html#ae797942a45cfa592c344203266d5643b" title="Fonction qui affiche dans le terminal les piles du joueur." alt="" coords="298,107,393,133"/>
+<area shape="rect" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="5,157,228,184"/>
+<area shape="rect" href="verification_8h.html#add639b2ba8138ee6a979cbbea7103d3f" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="291,5,401,32"/>
+<area shape="rect" href="verification_8h.html#a09836d26091dcf3a269aa53d2183374e" title=" " alt="" coords="291,56,401,83"/>
+<area shape="rect" href="print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="297,107,395,133"/>
+<area shape="rect" href="print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="277,157,415,184"/>
+<area shape="rect" href="print_8h.html#ae797942a45cfa592c344203266d5643b" title="Fonction qui affiche dans le terminal les piles du joueur." alt="" coords="299,208,393,235"/>
+<area shape="rect" href="get_8h.html#a5b283e6ec1d60b83c6dbf6d2078140f5" title="Fonction qui regarde la taille maximum d&#39;un pion d&#39;une pile." alt="" coords="276,259,416,285"/>
+<area shape="rect" href="free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="296,309,396,336"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_a5640432ec67cad60ba21586b562d0a51_icgraph.png" border="0" usemap="#demande_8c_a5640432ec67cad60ba21586b562d0a51_icgraph" alt=""/></div>
+<map name="demande_8c_a5640432ec67cad60ba21586b562d0a51_icgraph" id="demande_8c_a5640432ec67cad60ba21586b562d0a51_icgraph">
+<area shape="rect" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="259,5,481,32"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,5,211,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
 </map>
 </div>
 
@@ -422,6 +502,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00106">106</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -431,6 +513,16 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" href="verification_8h.html#add639b2ba8138ee6a979cbbea7103d3f" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="279,5,388,32"/>
 <area shape="rect" href="verification_8h.html#a6ed8fab0b7f06f2d905a9b6c09e7b757" title="Fonction qui regarde si il existe un pion d&#39;une certaine taille sur la pile d&#39;un joueur." alt="" coords="268,56,399,83"/>
 <area shape="rect" href="free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="283,107,383,133"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_icgraph.png" border="0" usemap="#demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_icgraph" alt=""/></div>
+<map name="demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_icgraph" id="demande_8c_a695efdbb9b1d84b147ab28b2c50bfc90_icgraph">
+<area shape="rect" title="Fonction qui demande le pion que veut jouer le joueur dans sa pile. Avec vérification...." alt="" coords="259,5,473,32"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,5,211,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
 </map>
 </div>
 
@@ -487,6 +579,8 @@ Voici le graphe d'appel pour cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Return 0 si déplacement non restreint sinon 1 (restreint de connexité 1).</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00182">182</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -499,6 +593,79 @@ Voici le graphe d'appel pour cette fonction :</div>
 <area shape="rect" href="free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="323,157,423,184"/>
 <area shape="rect" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="521,31,611,57"/>
 <area shape="rect" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="523,81,609,108"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f_icgraph.png" border="0" usemap="#demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f_icgraph" alt=""/></div>
+<map name="demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f_icgraph" id="demande_8c_a2c1c4e9f42f4ae6ae93159d132fb464f_icgraph">
+<area shape="rect" title="Fonction qui demande au joueur le pion qu&#39;il veut deplacer et verifie si il existe et qu&#39;il peut le d..." alt="" coords="259,5,477,47"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,13,211,39"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afdfa3c6dec19e486beeb3a439af3b31d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdfa3c6dec19e486beeb3a439af3b31d">&#9670;&nbsp;</a></span>SGO_verifEtDeplacementCaseSansLimite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SGO_verifEtDeplacementCaseSansLimite </td>
+          <td>(</td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>debPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>endPion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="demande_8c_source.html#l00216">216</a> du fichier <a class="el" href="demande_8c_source.html">demande.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_cgraph.png" border="0" usemap="#demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_cgraph" alt=""/></div>
+<map name="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_cgraph" id="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,49,224,90"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="305,5,394,32"/>
+<area shape="rect" href="verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="272,56,427,83"/>
+<area shape="rect" href="free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="299,107,399,133"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_icgraph.png" border="0" usemap="#demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_icgraph" alt=""/></div>
+<map name="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_icgraph" id="demande_8c_afdfa3c6dec19e486beeb3a439af3b31d_icgraph">
+<area shape="rect" title=" " alt="" coords="259,5,477,47"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,13,211,39"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,13,60,39"/>
 </map>
 </div>
 

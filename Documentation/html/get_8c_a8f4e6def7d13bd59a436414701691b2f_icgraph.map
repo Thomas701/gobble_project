@@ -1,0 +1,11 @@
+<map id="getIndexPionWhoAreEat" name="getIndexPionWhoAreEat">
+<area shape="rect" id="node1" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="793,56,972,83"/>
+<area shape="rect" id="node2" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,60,469,87"/>
+<area shape="rect" id="node5" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="673,107,723,133"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="651,5,745,32"/>
+<area shape="rect" id="node3" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,63,252,89"/>
+<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,95,60,121"/>
+<area shape="rect" id="node6" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,107,600,133"/>
+<area shape="rect" id="node7" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,157,603,184"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,120,217,147"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="placePionByIa" name="placePionByIa">
+<area shape="rect" id="node1" title="Place un piont." alt="" coords="5,31,120,57"/>
+<area shape="rect" id="node2" href="$fonction_8h.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="204,5,271,32"/>
+<area shape="rect" id="node4" href="$fonction_8h.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="168,56,307,83"/>
+<area shape="rect" id="node3" href="$verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="355,5,444,32"/>
+</map>

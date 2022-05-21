@@ -1,0 +1,5 @@
+<map id="copyStack" name="copyStack">
+<area shape="rect" id="node1" title="Permet de copier une pile." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="143,5,241,32"/>
+<area shape="rect" id="node3" href="$error_8h.html#add54b3f9a5b45d93571c73272f821b86" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création d&#39;une pile)." alt="" coords="289,5,421,32"/>
+</map>

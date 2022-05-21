@@ -116,6 +116,8 @@ Fonctions</h2></td></tr>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
 <dd>
 VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="init_8h_source.html">init.h</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
 <a id="ac0e5ba316b9b150fa998cc4075ae5672"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0e5ba316b9b150fa998cc4075ae5672">&#9670;&nbsp;</a></span>initialiseDebutProgramme()</h2>
@@ -209,6 +211,8 @@ VILLEPREUX Thibault </dd></dl>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne 0 si bien passé, sinon -1. La gestion pour quitter le programme ne se fait pas ici car il faut libérer proprement la mémoire.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00135">135</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -261,16 +265,30 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map : Contient le plateau de jeu que l'on va modifier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00022">22</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph.png" border="0" usemap="#init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph" alt=""/></div>
 <map name="init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph" id="init_8h_ae453f1d59909147e6dc030acd96d355e_icgraph">
-<area shape="rect" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="300,56,371,83"/>
-<area shape="rect" href="graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
-<area shape="rect" href="save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="134,107,226,133"/>
+<area shape="rect" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="440,81,511,108"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,56,60,83"/>
+<area shape="rect" href="save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="300,107,392,133"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="303,157,389,184"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,132,217,159"/>
 </map>
 </div>
 
@@ -313,16 +331,37 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault</dd></dl>
+<p>Elle effectue un premier parcours pour mettre toutes les cases à '0' puis parcours la map3D et si pion rencontré, elle l'écrit dans la map 2D.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** map2D : Contient le plateau de jeu non detaillé ou l'on va mettre les valeurs de map3D. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : Contient le plateau de jeu detaillé que l'on va copier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00046">46</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952_icgraph.png" border="0" usemap="#init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952_icgraph" alt=""/></div>
 <map name="init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952_icgraph" id="init_8h_a18877e4c5446e6b4c2f8acb1c4f2f952_icgraph">
-<area shape="rect" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="517,56,607,83"/>
-<area shape="rect" href="fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,5,469,32"/>
-<area shape="rect" href="graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,56,252,83"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,81,60,108"/>
+<area shape="rect" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="944,169,1033,196"/>
+<area shape="rect" href="fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="651,43,753,69"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,68,60,95"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,169,469,196"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,93,252,120"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="805,296,892,323"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,245,600,272"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,296,603,323"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="801,144,896,171"/>
+<area shape="rect" href="ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="677,296,727,323"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,169,217,196"/>
 </map>
 </div>
 
@@ -363,15 +402,30 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** pile : contient les piles du joueur. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>c : identifiant du joueur.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de retour pour la fonction.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00076">76</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
 <div class="center"><img src="init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph.png" border="0" usemap="#init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph" alt=""/></div>
 <map name="init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph" id="init_8h_a80997a18a545555f09a485ad12d3ec76_icgraph">
-<area shape="rect" title="Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n)." alt="" coords="300,5,367,32"/>
-<area shape="rect" href="graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
-<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+<area shape="rect" title="Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n)." alt="" coords="433,31,500,57"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="300,56,385,83"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" href="fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
 </map>
 </div>
 
@@ -401,7 +455,19 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de type de retour.</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Rect</td><td>** tableauCase : contient les surfaces (x/y et weidth/height) des cases du plateau et des piles en 3*3.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de type de retour.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00312">312</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -439,6 +505,8 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>void : Pas de type de retour.</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00290">290</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe des appelants de cette fonction :</div>
 <div class="dyncontent">
@@ -486,6 +554,8 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00238">238</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -543,6 +613,8 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00206">206</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -600,7 +672,20 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : Rendu principale du jeu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>*** ptextureTableauOptionMenu : pointeur sur tableau qui va contenir les images des options.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00096">96</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -658,6 +743,8 @@ Voici le graphe des appelants de cette fonction :</div>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
 <dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00179">179</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">
@@ -715,7 +802,22 @@ Voici le graphe des appelants de cette fonction :</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
-<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : Rendu principale du jeu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>*** pTextureTableauWin : pointeur sur tableau qui va contenir les images des lignes coloré (en cas de victoire ou égalité).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne -1 si erreur, sinon 0</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibaul </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="init_8c_source.html#l00264">264</a> du fichier <a class="el" href="init_8c_source.html">init.c</a>.</p>
 <div class="dynheader">
 Voici le graphe d'appel pour cette fonction :</div>
 <div class="dyncontent">

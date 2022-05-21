@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gobble Project:  Fichier source de main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gobble Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifdef WINDOWS</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">//Chemin d&#39;accès bibliothèques SDL2 pour WINDOWS.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../include/SDL2/SDL.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../include/SDL2/SDL_image.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../include/SDL2/SDL_mixer.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//Chemin d&#39;accès bibliothèques SDL2 pour LINUX.</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL.h&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_image.h&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;SDL2/SDL_mixer.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//Chemin d&#39;accès bibliothèques standards pour LINUX &amp; WINDOWS.</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="main_8c.html#aed89bd71aee8be823e8a20ec4e093c1e">   33</a></span>&#160;<span class="preprocessor">#define HEIGHT 800 // hauteur fenetre</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="main_8c.html#a241aeeb764887ae5e3de58b98f04b16d">   39</a></span>&#160;<span class="preprocessor">#define WIDTH  1280 // largeur fenetre</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">   44</a></span>&#160;<span class="preprocessor">#define N 3</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="main_8c.html#a4d1e80d51fbd0faa8283d1fffdd8869b">   49</a></span>&#160;<span class="preprocessor">#define Z3 0.77</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="main_8c.html#a3550f7bd3eb3a1d5d589bcd8482a1e28">   54</a></span>&#160;<span class="preprocessor">#define Z2 0.86</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">//Chemin d&#39;accès de nos headers</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fonction_8h.html">headers/fonction.h</a>&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="get_8h.html">headers/get.h</a>&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="creation_8h.html">headers/creation.h</a>&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="demande_8h.html">headers/demande.h</a>&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="error_8h.html">headers/error.h</a>&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="graphique_8h.html">headers/graphique.h</a>&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="init_8h.html">headers/init.h</a>&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="print_8h.html">headers/print.h</a>&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="save_file_8h.html">headers/saveFile.h</a>&quot;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="verification_8h.html">headers/verification.h</a>&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="free_8h.html">headers/free.h</a>&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="liste_8h.html">headers/liste.h</a>&quot;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ia_8h.html">headers/ia.h</a>&quot;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// inclusions des src</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fonction_8c.html">src/fonction.c</a>&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="get_8c.html">src/get.c</a>&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="demande_8c.html">src/demande.c</a>&quot;</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="verification_8c.html">src/verification.c</a>&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="graphique_8c.html">src/graphique.c</a>&quot;</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="creation_8c.html">src/creation.c</a>&quot;</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="print_8c.html">src/print.c</a>&quot;</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="free_8c.html">src/free.c</a>&quot;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="init_8c.html">src/init.c</a>&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="save_file_8c.html">src/saveFile.c</a>&quot;</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="error_8c.html">src/error.c</a>&quot;</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="liste_8c.html">src/liste.c</a>&quot;</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ia_8c.html">src/ia.c</a>&quot;</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">  101</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> ** argv){</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  srand(time(NULL));</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">char</span> ** pileJ1 = <a class="code" href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486">createStack</a>(<span class="charliteral">&#39;b&#39;</span>); <span class="keywordtype">char</span> ** pileJ2 = <a class="code" href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486">createStack</a>(<span class="charliteral">&#39;n&#39;</span>);  <span class="comment">// pile joueur 1 &amp; 2</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">char</span> *** map3D = <a class="code" href="creation_8h.html#a56566517a2b19fa1c8871e21df713816">createMap</a>();      <span class="keywordtype">char</span> ** map2D = <a class="code" href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8">createMap2D</a>();      <span class="comment">// map 3D et 2D, pour stocker pion, 2D pour parcours plus rapide</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="init_8h.html#ae453f1d59909147e6dc030acd96d355e">initMap</a>(map3D);                    <a class="code" href="init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952">initMap2D</a>(map2D, map3D);            <span class="comment">// remplie la map que du char &#39;0&#39;</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">int</span> statut = EXIT_FAILURE ;                                            <span class="comment">// par default jusqu&#39;à preuve du contraire le programme n&#39;est pas </span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                                                                         <span class="comment">//arrivé jusqu&#39;à la fin donc erreur</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">int</span> deplacement = <a class="code" href="demande_8h.html#a777a6d914d321aaada9fd7a184a415d4">SF_demandeDeplacement</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keywordflow">if</span> (argc &gt; 1 &amp;&amp; (strcmp(argv[1],<span class="stringliteral">&quot;--console&quot;</span>) || strcmp(argv[1],<span class="stringliteral">&quot;-c&quot;</span>)) ){ <span class="comment">// lancement console</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">int</span> tour = 0; <span class="keywordtype">char</span> c;               <span class="comment">// tour %2 permet de connaitre le jour et c stocke la lettre du joeuur qui doit jouer</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">while</span> (!<a class="code" href="verification_8h.html#aa768305402b820525d9d57efd9c6feea">check_End_Game</a>(map2D)) {   <span class="comment">// tant que la partie n&#39;est pas finie</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      c = (tour % 2 == 0) ? <span class="charliteral">&#39;b&#39;</span> : <span class="charliteral">&#39;n&#39;</span>; <span class="comment">// on regarde c&#39;est à quelle joueur de jouer le tour</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keywordflow">if</span> (c == <span class="charliteral">&#39;b&#39;</span>) <a class="code" href="fonction_8h.html#a71ce73854ff11858d29a7add5a4ef554">gameOption</a>(pileJ1, map3D, map2D, c, deplacement); <span class="comment">// on appelle la fonction qui va permettre au joueur --&gt;</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keywordflow">else</span>          <a class="code" href="fonction_8h.html#a71ce73854ff11858d29a7add5a4ef554">gameOption</a>(pileJ2, map3D, map2D, c, deplacement); <span class="comment">// de jouer avec le bon numero de pile</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      tour++;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a>(map2D, <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>, <span class="charliteral">&#39;b&#39;</span>) &amp;&amp; <a class="code" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a>(map2D, <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>, <span class="charliteral">&#39;n&#39;</span>)) printf(<span class="stringliteral">&quot;Egalite!\n&quot;</span>);             <span class="comment">// les deux joueurs ont alignés N pions</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a>(map2D, <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>, <span class="charliteral">&#39;b&#39;</span>))                         printf(<span class="stringliteral">&quot;Le joueur 1 a gagne!\n&quot;</span>); <span class="comment">// joueur 1 a aligné N pions.</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">else</span>                                                        printf(<span class="stringliteral">&quot;Le joueur 2 a gagne!\n&quot;</span>); <span class="comment">// joueur 2 a aligné N pions.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302">printMap3dDebug</a>(map3D);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    statut = EXIT_SUCCESS; <span class="comment">// la partie c&#39;est déroulé normalement et le programme va quitter sans erreur</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordflow">else</span> { <span class="comment">// lancement interface graphique</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    SDL_Window * window = NULL ; <span class="comment">// fenetre principale, on va travailler sur uniquement une fenêtre(pas besoin de plus)</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    SDL_Renderer * renderer = NULL; <span class="comment">// renderer principale</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">    /********************************* ENSEMBLE DE TEXTURES *********************************/</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    SDL_Texture ** textureBackground = NULL;        <span class="comment">// contient l&#39;animation de fond dans menu de 400 cases</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    SDL_Texture **  tableauTextureMapVide = NULL;   <span class="comment">// 0 map avec gobble en vert , 1 en bleu et 2 en rouge. Change selon la couleur du joueur</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    SDL_Texture ** textureTableauOptionMenu = NULL; <span class="comment">// contient les options dans le menu 1VS1, 1VSIA, QUIT GAME and SOUND</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    SDL_Texture ** textureTableauPion = NULL;       <span class="comment">// contient les images des pions sélectionnés et déselectionner</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    SDL_Texture ** textureTableauWin = NULL;        <span class="comment">// tableau contenant les images de victoires et d&#39;égalité</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">    /****************************************************************************************/</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    SDL_Rect ** tableauCase = NULL; <span class="comment">// contient des rect qui indique la taille et positions des cases de la map</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="structpoint.html">point</a> ** tableauDePoint = NULL; <span class="comment">// tableau de point acceuillant le tableau de point en dur des centres cases map + emplacement piles 0 à 8 pour les cases 9, 10 , 11 et 12 pour les piles bleu puis rouge, et chaque case est un pointeur vers un point</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    Mix_Music * mainMusic = NULL;   <span class="comment">// musique principal Zelda Ocarina of Time remix libre de droits : https://youtu.be/AysrSoY1GdM</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    SDL_Surface * icones = NULL;    <span class="comment">// icones fenêtres </span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// boolean </span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">int</span> etatS = 1 ;          <span class="comment">// 1 si on est dans le menu, 0 sinon</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">int</span> * p_etatS = &amp;etatS;  <span class="comment">// on manipule un pointeur</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">int</span> boolPlayMusic = 1;   <span class="comment">// permet de savoir si on joue de la musique (possibilité de la désactiver pendant une game)</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordtype">char</span> c = <span class="charliteral">&#39;b&#39;</span>;            <span class="comment">// variable definissant le joueur qui commence à joueur</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">char</span> * p_c = &amp;c;         <span class="comment">// pointeur sur la variable qui définit quel joueur joue</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">int</span> ia = 0;              <span class="comment">// variable correspondant à l&#39;ia</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">int</span> * p_ia = &amp;ia;        <span class="comment">// pointeur sur la variable ia</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">// chargement SDL / fenetre / renderer / textureMenu et background</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordflow">if</span> (0 != <a class="code" href="init_8h.html#ac0e5ba316b9b150fa998cc4075ae5672">initialiseDebutProgramme</a>(&amp;window, &amp;textureBackground, &amp;tableauTextureMapVide, &amp;icones, &amp;renderer, &amp;textureTableauOptionMenu, &amp;textureTableauPion, &amp;textureTableauWin, &amp;tableauDePoint, &amp;tableauCase)) {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;       fprintf(stderr, <span class="stringliteral">&quot;Error in initialiseDebutProgramme : %s \n&quot;</span>,SDL_GetError()); </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;       <span class="keywordflow">goto</span> Quit; <span class="comment">// si erreur quitte le programme</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;     }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">//intro_authors(&amp;renderer);          // intro image authors + son , pas de quit si erreur</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="init_8h.html#a2e2316cf6caa1e5d59c26dda378a6b95">loadAndPlayMainMusic</a>(&amp;mainMusic);  <span class="comment">// lancement musique, si plante pas de music mais pas d&#39;arret du jeu</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">while</span> (etatS)</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">if</span> (etatS == 1) <span class="comment">// lancement menu</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <a class="code" href="graphique_8h.html#a484859937dbc558bc6eb7024c5f755de">lancementMenu</a>(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic, p_ia); <span class="comment">// lancementMenu</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (etatS == 2) <span class="comment">// lancement du jeu (si choisie dans le menu)</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="graphique_8h.html#aacf71f70344edaba3fc040ebac3cb02d">lancementJeu1VS1</a>(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (etatS == 3) <span class="comment">// menu pause</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="graphique_8h.html#a2c7c5273a970888cd0d1737c2e1172f0">pause</a>(renderer, textureTableauOptionMenu, p_etatS, boolPlayMusic, tableauTextureMapVide, textureTableauPion, tableauDePoint, map3D);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (etatS == 4) <span class="comment">// entrainement IA</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <a class="code" href="fonction_8h.html#a43f67d29d43c1e67e0b5d856226e8d63">IAGame</a>(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    statut = EXIT_SUCCESS; <span class="comment">// si on arrive ici ca veut dire que tout c&#39;est bien passé et que l&#39;utillisateur à voulue partir</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;Quit :</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="free_8h.html#a9a82aa663ef15bc7d210a93a50a7a54d">freeSDL</a>(window, renderer, mainMusic, textureTableauPion, tableauTextureMapVide, textureTableauOptionMenu, textureBackground, tableauDePoint, icones, tableauCase, textureTableauWin);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    Mix_CloseAudio(); <span class="comment">// liberation de la gestion musique</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    SDL_Quit();       <span class="comment">// libere SDL_INIT uniquement pas les images / polices...</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  } <span class="comment">// fin else (lancement programme en SDL)</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <a class="code" href="free_8c.html#ae18aa7f2279019088550e51c912754e7">freeBaseGame</a>(map3D, map2D, pileJ1, pileJ2);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keywordflow">return</span> statut;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="acreation_8h_html_a3e7bd7161b38fea3af60f6f4ffa89486"><div class="ttname"><a href="creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486">createStack</a></div><div class="ttdeci">char ** createStack(char c)</div><div class="ttdoc">Permet de créer dynamiquement les piles de départ d'un joueur avec le caractère c (initialisation + d...</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00044">creation.c:44</a></div></div>
+<div class="ttc" id="agraphique_8h_html_aacf71f70344edaba3fc040ebac3cb02d"><div class="ttname"><a href="graphique_8h.html#aacf71f70344edaba3fc040ebac3cb02d">lancementJeu1VS1</a></div><div class="ttdeci">void lancementJeu1VS1(SDL_Renderer *renderer, SDL_Texture **tableauTextureMapVide, point **tableauDePoint, SDL_Texture **textureTableauWin, int *p_etatS, int boolPlayMusic, SDL_Texture **textureTableauOptionMenu, SDL_Rect **tableauCase, SDL_Texture **textureTableauPion, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int distance, char *c, int *ia)</div><div class="ttdef"><b>Definition:</b> <a href="graphique_8c_source.html#l00345">graphique.c:345</a></div></div>
+<div class="ttc" id="afonction_8h_html"><div class="ttname"><a href="fonction_8h.html">fonction.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions &quot;actives&quot; liées aux mouvement des pions.</div></div>
+<div class="ttc" id="aerror_8c_html"><div class="ttname"><a href="error_8c.html">error.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions d'erreurs (affiches messages et quitte le programme).</div></div>
+<div class="ttc" id="agraphique_8c_html"><div class="ttname"><a href="graphique_8c.html">graphique.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions graphiques. Elles gèrent le chargement des images (initiali...</div></div>
+<div class="ttc" id="agraphique_8h_html_a484859937dbc558bc6eb7024c5f755de"><div class="ttname"><a href="graphique_8h.html#a484859937dbc558bc6eb7024c5f755de">lancementMenu</a></div><div class="ttdeci">void lancementMenu(SDL_Renderer *renderer, SDL_Texture **textureBackground, SDL_Texture **textureTableauOptionMenu, int *p_etats, int boolPlayMusic, int *ia)</div><div class="ttdoc">Fonction qui gère lorsque le joueur se trouve dans le menu principale. .</div><div class="ttdef"><b>Definition:</b> <a href="graphique_8c_source.html#l00124">graphique.c:124</a></div></div>
+<div class="ttc" id="averification_8h_html_aa768305402b820525d9d57efd9c6feea"><div class="ttname"><a href="verification_8h.html#aa768305402b820525d9d57efd9c6feea">check_End_Game</a></div><div class="ttdeci">int check_End_Game(char **map)</div><div class="ttdoc">Fonction qui nous informe en cas de victoire du joueur et nous donne l'identifiant de la ligne corres...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00396">verification.c:396</a></div></div>
+<div class="ttc" id="ainit_8h_html_ae453f1d59909147e6dc030acd96d355e"><div class="ttname"><a href="init_8h.html#ae453f1d59909147e6dc030acd96d355e">initMap</a></div><div class="ttdeci">void initMap(char ***map)</div><div class="ttdoc">Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides ('0').</div><div class="ttdef"><b>Definition:</b> <a href="init_8c_source.html#l00022">init.c:22</a></div></div>
+<div class="ttc" id="aprint_8c_html"><div class="ttname"><a href="print_8c.html">print.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant d'afficher dans le terminal le plateau et les pi...</div></div>
+<div class="ttc" id="agraphique_8h_html"><div class="ttname"><a href="graphique_8h.html">graphique.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions graphiques. Elles gèrent le chargement des images (initia...</div></div>
+<div class="ttc" id="ainit_8h_html_a2e2316cf6caa1e5d59c26dda378a6b95"><div class="ttname"><a href="init_8h.html#a2e2316cf6caa1e5d59c26dda378a6b95">loadAndPlayMainMusic</a></div><div class="ttdeci">void loadAndPlayMainMusic(Mix_Music **mainMusic)</div><div class="ttdoc">Fonction qui charge et joue la musique principale.</div><div class="ttdef"><b>Definition:</b> <a href="init_8c_source.html#l00290">init.c:290</a></div></div>
+<div class="ttc" id="agraphique_8h_html_a2c7c5273a970888cd0d1737c2e1172f0"><div class="ttname"><a href="graphique_8h.html#a2c7c5273a970888cd0d1737c2e1172f0">pause</a></div><div class="ttdeci">void pause(SDL_Renderer *renderer, SDL_Texture **textureTableauOptionMenu, int *p_etats, int boolPlayMusic, SDL_Texture **tableauTextureMapVide, SDL_Texture **textureTableauPion, point **tableauDePoint, char ***map3D)</div><div class="ttdef"><b>Definition:</b> <a href="graphique_8c_source.html#l00693">graphique.c:693</a></div></div>
+<div class="ttc" id="acreation_8h_html_a3340c609d18569433fce6b4b7bd176c8"><div class="ttname"><a href="creation_8h.html#a3340c609d18569433fce6b4b7bd176c8">createMap2D</a></div><div class="ttdeci">char ** createMap2D()</div><div class="ttdoc">Permet de créer dynamiquement le plateau de jeu non détaillé.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00112">creation.c:112</a></div></div>
+<div class="ttc" id="amain_8c_html_a3c04138a5bfe5d72780bb7e82a18e627"><div class="ttname"><a href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a></div><div class="ttdeci">int main(int argc, char **argv)</div><div class="ttdoc">Fonction principale, entrée du programme.</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00101">main.c:101</a></div></div>
+<div class="ttc" id="acreation_8h_html_a56566517a2b19fa1c8871e21df713816"><div class="ttname"><a href="creation_8h.html#a56566517a2b19fa1c8871e21df713816">createMap</a></div><div class="ttdeci">char *** createMap()</div><div class="ttdoc">Permet de créer dynamiquement le plateau de jeu détaillé.</div><div class="ttdef"><b>Definition:</b> <a href="creation_8c_source.html#l00074">creation.c:74</a></div></div>
+<div class="ttc" id="acreation_8h_html"><div class="ttname"><a href="creation_8h.html">creation.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant la créations des piles, plateau,...</div></div>
+<div class="ttc" id="averification_8h_html"><div class="ttname"><a href="verification_8h.html">verification.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant de vérifier si un déplacement / insertion de n...</div></div>
+<div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant l'initialisation de nos structures de données ...</div></div>
+<div class="ttc" id="afree_8c_html"><div class="ttname"><a href="free_8c.html">free.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant de free de nos structures de données commes les ...</div></div>
+<div class="ttc" id="ainit_8h_html_a18877e4c5446e6b4c2f8acb1c4f2f952"><div class="ttname"><a href="init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952">initMap2D</a></div><div class="ttdeci">void initMap2D(char **map2D, char ***map3D)</div><div class="ttdoc">Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D....</div><div class="ttdef"><b>Definition:</b> <a href="init_8c_source.html#l00046">init.c:46</a></div></div>
+<div class="ttc" id="asave_file_8h_html"><div class="ttname"><a href="save_file_8h.html">saveFile.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant d'écrire et lire les maps et piles dans des fi...</div></div>
+<div class="ttc" id="afonction_8c_html"><div class="ttname"><a href="fonction_8c.html">fonction.c</a></div><div class="ttdoc">Fichier contenant les code des fonctions &quot;actives&quot; liées aux mouvement des pions.</div></div>
+<div class="ttc" id="averification_8c_html"><div class="ttname"><a href="verification_8c.html">verification.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant de vérifier si un déplacement / insertion de nou...</div></div>
+<div class="ttc" id="ainit_8c_html"><div class="ttname"><a href="init_8c.html">init.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant l'initialisation de nos structures de données co...</div></div>
+<div class="ttc" id="aerror_8h_html"><div class="ttname"><a href="error_8h.html">error.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions d'erreurs (affiches messages et quitte le programme).</div></div>
+<div class="ttc" id="aia_8h_html"><div class="ttname"><a href="ia_8h.html">ia.h</a></div></div>
+<div class="ttc" id="afree_8h_html"><div class="ttname"><a href="free_8h.html">free.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant de free de nos structures de données commes le...</div></div>
+<div class="ttc" id="afree_8h_html_a9a82aa663ef15bc7d210a93a50a7a54d"><div class="ttname"><a href="free_8h.html#a9a82aa663ef15bc7d210a93a50a7a54d">freeSDL</a></div><div class="ttdeci">void freeSDL(SDL_Window *window, SDL_Renderer *renderer, Mix_Music *mainMusic, SDL_Texture **textureTableauPion, SDL_Texture **tableauTextureMapVide, SDL_Texture **textureTableauOptionMenu, SDL_Texture **textureBackground, point **tableauDePoint, SDL_Surface *icones, SDL_Rect **tableauCase, SDL_Texture **textureTableauWin)</div><div class="ttdoc">Fonction permettant de free les textures, misiques, rendu, fenêtre de la SDL.</div><div class="ttdef"><b>Definition:</b> <a href="free_8c_source.html#l00193">free.c:193</a></div></div>
+<div class="ttc" id="aprint_8h_html"><div class="ttname"><a href="print_8h.html">print.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions permettant d'afficher dans le terminal le plateau et les ...</div></div>
+<div class="ttc" id="aget_8c_html"><div class="ttname"><a href="get_8c.html">get.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant d'écrire et lire les maps et piles dans des fich...</div></div>
+<div class="ttc" id="aliste_8h_html"><div class="ttname"><a href="liste_8h.html">liste.h</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant la créations de listes.</div></div>
+<div class="ttc" id="afree_8c_html_ae18aa7f2279019088550e51c912754e7"><div class="ttname"><a href="free_8c.html#ae18aa7f2279019088550e51c912754e7">freeBaseGame</a></div><div class="ttdeci">void freeBaseGame(char ***map3D, char **map2D, char **pileJ1, char **pileJ2)</div><div class="ttdef"><b>Definition:</b> <a href="free_8c_source.html#l00243">free.c:243</a></div></div>
+<div class="ttc" id="afonction_8h_html_a43f67d29d43c1e67e0b5d856226e8d63"><div class="ttname"><a href="fonction_8h.html#a43f67d29d43c1e67e0b5d856226e8d63">IAGame</a></div><div class="ttdeci">void IAGame(SDL_Renderer *renderer, SDL_Texture **tableauTextureMapVide, point **tableauDePoint, SDL_Texture **textureTableauWin, int *p_etatS, int boolPlayMusic, SDL_Texture **textureTableauOptionMenu, SDL_Rect **tableauCase, SDL_Texture **textureTableauPion, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int distance, char *c, int *ia)</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8c_source.html#l00337">fonction.c:337</a></div></div>
+<div class="ttc" id="astructpoint_html"><div class="ttname"><a href="structpoint.html">point</a></div><div class="ttdoc">Objet représentant un point (x,y). .</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8h_source.html#l00020">fonction.h:20</a></div></div>
+<div class="ttc" id="aget_8h_html"><div class="ttname"><a href="get_8h.html">get.h</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant d'écrire et lire les maps et piles dans des fich...</div></div>
+<div class="ttc" id="aliste_8c_html"><div class="ttname"><a href="liste_8c.html">liste.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant la créations de listes.</div></div>
+<div class="ttc" id="acreation_8c_html"><div class="ttname"><a href="creation_8c.html">creation.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant la créations des piles, plateau,...</div></div>
+<div class="ttc" id="afonction_8h_html_a71ce73854ff11858d29a7add5a4ef554"><div class="ttname"><a href="fonction_8h.html#a71ce73854ff11858d29a7add5a4ef554">gameOption</a></div><div class="ttdeci">void gameOption(char **stackArray, char ***map3D, char **map2D, char c, int deplacement)</div><div class="ttdoc">Fonction principale qui demande à un joueur son action et qui l'éxécute sur la map.</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8c_source.html#l00080">fonction.c:80</a></div></div>
+<div class="ttc" id="ademande_8h_html"><div class="ttname"><a href="demande_8h.html">demande.h</a></div><div class="ttdoc">Fichier contenant les headers des fonctions où l'on demande à l'utilisateurs ces choix d'action au cl...</div></div>
+<div class="ttc" id="amain_8c_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdoc">Représente la taille de la grille et le nombres de cases vaut N*N.</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00044">main.c:44</a></div></div>
+<div class="ttc" id="asave_file_8c_html"><div class="ttname"><a href="save_file_8c.html">saveFile.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions permettant d'écrire et lire les maps et piles dans des fich...</div></div>
+<div class="ttc" id="ainit_8h_html_ac0e5ba316b9b150fa998cc4075ae5672"><div class="ttname"><a href="init_8h.html#ac0e5ba316b9b150fa998cc4075ae5672">initialiseDebutProgramme</a></div><div class="ttdeci">int initialiseDebutProgramme(SDL_Window **window, SDL_Texture ***textureBackground, SDL_Texture ***ptableauTextureMapVide, SDL_Surface **icones, SDL_Renderer **renderer, SDL_Texture ***ptextureTableauOptionMenu, SDL_Texture ***pTextureTableauPion, SDL_Texture ***pTextureTableauWin, point ***pTableauDePoint, SDL_Rect ***pTableauCase)</div><div class="ttdoc">Fonction qui initialise toutes la partie SDL images + audio. Et qui initialise les tableaux de textur...</div><div class="ttdef"><b>Definition:</b> <a href="init_8c_source.html#l00135">init.c:135</a></div></div>
+<div class="ttc" id="averification_8h_html_a28677deef3f8a0ac4347b1c50780cc3b"><div class="ttname"><a href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a></div><div class="ttdeci">int count_pion(char **map, int nbre, char c)</div><div class="ttdoc">Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00343">verification.c:343</a></div></div>
+<div class="ttc" id="aia_8c_html"><div class="ttname"><a href="ia_8c.html">ia.c</a></div><div class="ttdoc">Fichier contenant les code des fonctions concernant l'intelligence artificielle.</div></div>
+<div class="ttc" id="ademande_8c_html"><div class="ttname"><a href="demande_8c.html">demande.c</a></div><div class="ttdoc">Fichier contenant les codes des fonctions où l'on demande à l'utilisateurs ces choix d'action au clav...</div></div>
+<div class="ttc" id="aprint_8h_html_a66d4ad2eb5b86d4c171a9523bef30302"><div class="ttname"><a href="print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302">printMap3dDebug</a></div><div class="ttdeci">void printMap3dDebug(char ***map)</div><div class="ttdoc">Fonction qui affiche dans le terminal le plateau de jeu détaillé.</div><div class="ttdef"><b>Definition:</b> <a href="print_8c_source.html#l00020">print.c:20</a></div></div>
+<div class="ttc" id="ademande_8h_html_a777a6d914d321aaada9fd7a184a415d4"><div class="ttname"><a href="demande_8h.html#a777a6d914d321aaada9fd7a184a415d4">SF_demandeDeplacement</a></div><div class="ttdeci">int SF_demandeDeplacement()</div><div class="ttdoc">Fonction qui demande l'option du mode de jeu. Les déplacements sont restriens de 1 ou pas....</div><div class="ttdef"><b>Definition:</b> <a href="demande_8c_source.html#l00156">demande.c:156</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

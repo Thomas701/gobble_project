@@ -1,0 +1,4 @@
+<map id="getSizePionOnCase" name="getSizePionOnCase">
+<area shape="rect" id="node1" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="5,5,153,32"/>
+<area shape="rect" id="node2" href="$liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="201,5,249,32"/>
+</map>

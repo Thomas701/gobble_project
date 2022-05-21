@@ -1,6 +1,8 @@
 <map id="initMap" name="initMap">
-<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="300,56,371,83"/>
-<area shape="rect" id="node2" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node4" href="$save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="134,107,226,133"/>
+<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="440,81,511,108"/>
+<area shape="rect" id="node2" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node4" href="$save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="300,107,392,133"/>
+<area shape="rect" id="node5" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="303,157,389,184"/>
+<area shape="rect" id="node6" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,132,217,159"/>
 </map>

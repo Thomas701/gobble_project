@@ -1,0 +1,275 @@
+\hypertarget{liste_8h}{}\doxysection{Référence du fichier headers/liste.h}
+\label{liste_8h}\index{headers/liste.h@{headers/liste.h}}
+
+
+Fichier contenant les codes des fonctions permettant la créations de listes.  
+
+
+\doxysubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structliste}{liste}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structliste}{liste}} \mbox{\hyperlink{liste_8h_a1fc5bcb36d07aad251e3d65c3fecf01c}{liste}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structliste}{liste}} $\ast$ \mbox{\hyperlink{liste_8h_a2a479a91481bafc5be84ef8820aa6dff}{create\+Liste}} ()
+\begin{DoxyCompactList}\small\item\em creer une liste \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8h_ac38600916d3240890f129ddc638b6e84}{add}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l, int n)
+\begin{DoxyCompactList}\small\item\em ajoute un élément au début d\textquotesingle{}une liste \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8h_af7e0f5238bce3e3a6ef83aaafde415cc}{clear}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em reset une liste \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{liste_8h_a23f695a6f4e83f0cd02bb0cee37e440d}{contains}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l, int n)
+\begin{DoxyCompactList}\small\item\em renvoie 0 ou 1 selon si la liste contient l\textquotesingle{}élément \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{liste_8h_ae68f291c9fe0120bd2de4c9a4b242950}{size}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em renvoie la taille de la liste \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{liste_8h_aef2e6649dd2431f06ad42d1ebf55b5f0}{affiche\+Liste}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l)
+\begin{DoxyCompactList}\small\item\em affiche la liste \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{liste_8h_a7b9a2f43a8dbdd82e30023472111c3de}{get}} (\mbox{\hyperlink{structliste}{liste}} $\ast$l, int n)
+\begin{DoxyCompactList}\small\item\em renvoie la valeur contenu dans l\textquotesingle{}indice à l\textquotesingle{}index n \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les codes des fonctions permettant la créations de listes. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{liste_8h_a1fc5bcb36d07aad251e3d65c3fecf01c}\label{liste_8h_a1fc5bcb36d07aad251e3d65c3fecf01c}} 
+\index{liste.h@{liste.h}!liste@{liste}}
+\index{liste@{liste}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{liste}{liste}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structliste}{liste}} \mbox{\hyperlink{structliste}{liste}}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{liste_8h_ac38600916d3240890f129ddc638b6e84}\label{liste_8h_ac38600916d3240890f129ddc638b6e84}} 
+\index{liste.h@{liste.h}!add@{add}}
+\index{add@{add}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+ajoute un élément au début d\textquotesingle{}une liste 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste dans laquelle on ajoute l\textquotesingle{}élément \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & n \+: élément à ajouter\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne retourne rien
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 39 du fichier liste.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{liste_8h_ac38600916d3240890f129ddc638b6e84_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{liste_8h_ac38600916d3240890f129ddc638b6e84_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{liste_8h_aef2e6649dd2431f06ad42d1ebf55b5f0}\label{liste_8h_aef2e6649dd2431f06ad42d1ebf55b5f0}} 
+\index{liste.h@{liste.h}!afficheListe@{afficheListe}}
+\index{afficheListe@{afficheListe}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{afficheListe()}{afficheListe()}}
+{\footnotesize\ttfamily void affiche\+Liste (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+affiche la liste 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste utilisée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: ne retourne rien
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 129 du fichier liste.\+c.
+
+\mbox{\Hypertarget{liste_8h_af7e0f5238bce3e3a6ef83aaafde415cc}\label{liste_8h_af7e0f5238bce3e3a6ef83aaafde415cc}} 
+\index{liste.h@{liste.h}!clear@{clear}}
+\index{clear@{clear}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+reset une liste 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste qui va être reset\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Ne retourne rien
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 65 du fichier liste.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{liste_8h_af7e0f5238bce3e3a6ef83aaafde415cc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{liste_8h_a23f695a6f4e83f0cd02bb0cee37e440d}\label{liste_8h_a23f695a6f4e83f0cd02bb0cee37e440d}} 
+\index{liste.h@{liste.h}!contains@{contains}}
+\index{contains@{contains}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily int contains (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+renvoie 0 ou 1 selon si la liste contient l\textquotesingle{}élément 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste utilisée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne 1 ou 0
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 87 du fichier liste.\+c.
+
+\mbox{\Hypertarget{liste_8h_a2a479a91481bafc5be84ef8820aa6dff}\label{liste_8h_a2a479a91481bafc5be84ef8820aa6dff}} 
+\index{liste.h@{liste.h}!createListe@{createListe}}
+\index{createListe@{createListe}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{createListe()}{createListe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structliste}{liste}} $\ast$ create\+Liste (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+creer une liste 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em void} & \+: pas de paramètre\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+liste $\ast$ \+: Retourne la liste cree
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 19 du fichier liste.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{liste_8h_a2a479a91481bafc5be84ef8820aa6dff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{liste_8h_a7b9a2f43a8dbdd82e30023472111c3de}\label{liste_8h_a7b9a2f43a8dbdd82e30023472111c3de}} 
+\index{liste.h@{liste.h}!get@{get}}
+\index{get@{get}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily int get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur contenu dans l\textquotesingle{}indice à l\textquotesingle{}index n 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste utilisée \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & n \+: index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne l\textquotesingle{}élément à l\textquotesingle{}index n
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 151 du fichier liste.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{liste_8h_a7b9a2f43a8dbdd82e30023472111c3de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{liste_8h_ae68f291c9fe0120bd2de4c9a4b242950}\label{liste_8h_ae68f291c9fe0120bd2de4c9a4b242950}} 
+\index{liste.h@{liste.h}!size@{size}}
+\index{size@{size}!liste.h@{liste.h}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily int size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structliste}{liste}} $\ast$}]{l }\end{DoxyParamCaption})}
+
+
+
+renvoie la taille de la liste 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em liste} & $\ast$ l \+: liste utilisée\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne la taille de la liste
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 108 du fichier liste.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{liste_8h_ae68f291c9fe0120bd2de4c9a4b242950_icgraph}
+\end{center}
+\end{figure}

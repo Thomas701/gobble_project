@@ -1,0 +1,6 @@
+<map id="canPlayNewPion" name="canPlayNewPion">
+<area shape="rect" id="node1" title="Fonction qui regarde si le joueur peut jouer un nouveau pion sur le plateau. ." alt="" coords="5,56,136,83"/>
+<area shape="rect" id="node2" href="$verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39" title="Fonction qui regarde si il existe une case du plateau vide." alt="" coords="190,5,297,32"/>
+<area shape="rect" id="node3" href="$verification_8c.html#a40255217879033ed8cda37b28dd651bd" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="184,56,303,83"/>
+<area shape="rect" id="node4" href="$verification_8c.html#a6a052365be8ea742b235b5acda37e9e5" title="Fonction qui regarde si il y a un pion de taille &gt; 1 dans la pile du joueur (patant de l&#39;hypothèse qu..." alt="" coords="191,107,295,133"/>
+</map>

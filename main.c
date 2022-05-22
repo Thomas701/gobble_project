@@ -84,7 +84,6 @@
 #include "src/liste.c"
 #include "src/ia.c"
 
-
 /**
  * \fn int main(int argc, char ** argv)
  * \brief Fonction principale, entrée du programme.

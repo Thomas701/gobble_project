@@ -594,7 +594,7 @@ int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups,
     //nbre de pion gobé < nbre de pion gobé adversaire
     if (number_pion_gobe(map3D, c) < number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
         result += tabParam[19];
-    //alignement de 2 pions
+    //alignement de 2 pions // PROBLEME CREER UNE NOUVELLE MAP 3D, met la a jour avec le coup et test sur cette map
     if (count_pion(map2D, N-1, c))
         result += tabParam[20];
     return result;
@@ -793,7 +793,7 @@ void readChampion(int ** tabIA, char nom[20])
     int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
     int i = 0;
     printf("2eme\n");
-    char *file_contents = malloc(30);
+    char *file_contents = (char*) malloc(sizeof(char)*63);
     printf("3eme\n");
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 

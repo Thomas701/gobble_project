@@ -6,6 +6,9 @@
  * \author DUPOIS Thomas
  */
 
+#ifndef LISTE_H_
+#define LISTE_H_
+
 // Structure liste
 typedef struct liste
 {
@@ -99,3 +102,4 @@ void afficheListe(liste * l);
  */
 int get(liste * l, int n);
 
+#endif

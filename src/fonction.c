@@ -344,37 +344,40 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
     printf("-------------------------------\n");
     printf("TOUR: %d\n", tour);
     int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
-    printf("TEST 1\n");
+    printf("TEST creation tabIA\n");
     if (nbreChampion("champion.txt") == 10 || nbreChampion("grandChampion.txt") == 10 || nbreChampion("tresGrandChampion.txt") == 10)
     {
-      printf("TEST 2 CHAMPION 10\n");
+      printf("DETECTION GAGNANT\n");
       for (int i = 0; i < nbreIA; i++)
       {
         int * tab = (int*) malloc(sizeof(int)*21);
         tabIA[i] = tab;
         tabResult[i] = 0;
       }
-      printf("TEST 3 CHAMPION 10\n");
+      printf("RESET TABLEAU EFFECTUE\n");
       if (nbreChampion("tresGrandChampion.txt") == 10)
       {
+        printf("detection TGC \n");
         readChampion(tabIA, "tresGrandChampion.txt");
+        printf("TGC good\n");
         tgc = 1;
         clearFile("tresGrandChampion.txt");
       }
       else if (nbreChampion("grandChampion.txt") == 10)
       {
+        printf("detection GC \n");
         readChampion(tabIA, "grandChampion.txt");
+        printf("GC good\n");
         gc = 1;
         clearFile("grandChampion.txt");
       }
       else if (nbreChampion("champion.txt") == 10)
       {
-        printf("TEST 4 CHAMPION 10\n");
+        printf("detection Champion \n");
         readChampion(tabIA, "champion.txt");
-        printf("TEST 5 CHAMPION 10\n");
+        printf("Champion good\n");
         champion = 1;
         clearFile("champion.txt");
-        printf("TEST 6 CHAMPION 10\n");
       }
     }
     else

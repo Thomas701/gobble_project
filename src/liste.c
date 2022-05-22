@@ -64,11 +64,12 @@ void add(liste * l, int n)
  */
 void clear(liste * l)
 {
-    liste * l2 = l;
+    liste * l2 = l->suivant;
     while(l2 != NULL)
     {
-        l2 = l2->suivant;
+        liste * l3 = l2->suivant;
         free(l2);
+        l2 = l3;
     }
     l->value = -1;
     l->suivant = NULL;

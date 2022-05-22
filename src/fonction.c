@@ -339,7 +339,7 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
   int champion = 0; int gc = 0; int tgc =0;
   int nbreIA = 10; int min = -5; int max = 5; int bestIA;
   int * tabResult = (int*) malloc(sizeof(int)*nbreIA);
-  for (int tour = 0; tour < 250; tour++)
+  for (int tour = 0; tour < 5000; tour++)
   {  
     printf("-------------------------------\n");
     printf("TOUR: %d\n", tour);

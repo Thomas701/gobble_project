@@ -1,9 +1,0 @@
-<map id="SGO_verifEtDeplacementCaseAvecLimite" name="SGO_verifEtDeplacementCaseAvecLimite">
-<area shape="rect" id="node1" title="Fonction qui demande au joueur le pion qu&#39;il veut deplacer et verifie si il existe et qu&#39;il peut le d..." alt="" coords="5,74,224,115"/>
-<area shape="rect" id="node2" href="$verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="328,5,417,32"/>
-<area shape="rect" id="node3" href="$verification_8h.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="272,56,473,83"/>
-<area shape="rect" id="node6" href="$verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="328,107,417,133"/>
-<area shape="rect" id="node7" href="$free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="323,157,423,184"/>
-<area shape="rect" id="node4" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="521,31,611,57"/>
-<area shape="rect" id="node5" href="$verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="523,81,609,108"/>
-</map>

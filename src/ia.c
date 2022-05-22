@@ -787,20 +787,21 @@ int nbreChampion(char nom[20])
  */
 void readChampion(int ** tabIA, char nom[20])
 {
+    printf("1er\n");
     FILE *f;
     f = fopen(nom,"r");   
     int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
     int i = 0;
-    printf("test malloc ligne fichier\n");
+    printf("2eme\n");
     char *file_contents = malloc(sizeof(char)*63);
-    printf("test ligne fichier reussi\n");
+    printf("3eme\n");
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
         //printf("> %s\n", file_contents);
-        printf("Test de scan\n");
+        printf("5eme\n");
         sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
-        printf("Test scan reussi i=%d\n", i);
+        printf("TEST continue i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
         tabIA[i][5] = i6; tabIA[i][6] = i7; tabIA[i][7] = i8; tabIA[i][8] = i9; tabIA[i][9] = i10;
         tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14; tabIA[i][14] = i15;

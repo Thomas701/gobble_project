@@ -1,6 +1,0 @@
-<map id="initMap2D" name="initMap2D">
-<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="517,56,607,83"/>
-<area shape="rect" id="node2" href="$fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,5,469,32"/>
-<area shape="rect" id="node3" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,56,252,83"/>
-<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,81,60,108"/>
-</map>

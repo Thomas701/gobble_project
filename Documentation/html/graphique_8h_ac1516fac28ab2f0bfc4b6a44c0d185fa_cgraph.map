@@ -1,4 +1,0 @@
-<map id="lancementMenu" name="lancementMenu">
-<area shape="rect" id="node1" title="Fonction qui gère lorsque le joueur se trouve dans le menu principale. ." alt="" coords="5,5,132,32"/>
-<area shape="rect" id="node2" href="$verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="180,5,291,32"/>
-</map>

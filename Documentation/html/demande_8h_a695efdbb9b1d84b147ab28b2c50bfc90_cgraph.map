@@ -1,6 +1,0 @@
-<map id="SGO_demanderQuelPionJouer" name="SGO_demanderQuelPionJouer">
-<area shape="rect" id="node1" title="Fonction qui demande le pion que veut jouer le joueur dans sa pile. Avec vérification...." alt="" coords="5,56,220,83"/>
-<area shape="rect" id="node2" href="$verification_8h.html#add639b2ba8138ee6a979cbbea7103d3f" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="279,5,388,32"/>
-<area shape="rect" id="node3" href="$verification_8h.html#a6ed8fab0b7f06f2d905a9b6c09e7b757" title="Fonction qui regarde si il existe un pion d&#39;une certaine taille sur la pile d&#39;un joueur." alt="" coords="268,56,399,83"/>
-<area shape="rect" id="node4" href="$free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="283,107,383,133"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="loadTextureTableauMap" name="loadTextureTableauMap">
-<area shape="rect" id="node1" title=" " alt="" coords="349,5,525,32"/>
-<area shape="rect" id="node2" href="$init_8c.html#ac0e5ba316b9b150fa998cc4075ae5672" title="Fonction qui initialise toutes la partie SDL images + audio. Et qui initialise les tableaux de textur..." alt="" coords="108,5,301,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
-</map>

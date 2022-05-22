@@ -1,4 +1,0 @@
-<map id="canPlayStack" name="canPlayStack">
-<area shape="rect" id="node1" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="268,5,377,32"/>
-<area shape="rect" id="node2" href="$demande_8c.html#a695efdbb9b1d84b147ab28b2c50bfc90" title="Fonction qui demande le pion que veut jouer le joueur dans sa pile. Avec vérification...." alt="" coords="5,5,220,32"/>
-</map>

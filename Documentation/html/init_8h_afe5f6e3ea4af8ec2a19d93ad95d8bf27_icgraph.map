@@ -1,4 +1,0 @@
-<map id="initTableauCase" name="initTableauCase">
-<area shape="rect" id="node1" title="Fonction qui initialise (attention ne créée pas) toutes les cases/surfaces en 3*3." alt="" coords="137,5,263,32"/>
-<area shape="rect" id="node2" href="$verification_8c.html#a25929dd14025a5f9ab5f1e309b1335bc" title="Fonction qui vérifie que les cases n&#39;ont pas été modifié car bug sur WINDOWS." alt="" coords="5,5,89,32"/>
-</map>

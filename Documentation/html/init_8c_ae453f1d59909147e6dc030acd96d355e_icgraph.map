@@ -1,6 +1,0 @@
-<map id="initMap" name="initMap">
-<area shape="rect" id="node1" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="300,56,371,83"/>
-<area shape="rect" id="node2" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,5,252,32"/>
-<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
-<area shape="rect" id="node4" href="$save_file_8c.html#a96e0d8e534d3ebe4c3918c00f60d3184" title="Fonction qui lit le plateau de jeu détaillé dans un fichier." alt="" coords="134,107,226,133"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="SGO_demanderQuellePileJouer" name="SGO_demanderQuellePileJouer">
-<area shape="rect" id="node1" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="5,56,228,83"/>
-<area shape="rect" id="node2" href="$print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="296,5,395,32"/>
-<area shape="rect" id="node3" href="$print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="276,56,415,83"/>
-<area shape="rect" id="node4" href="$print_8h.html#ae797942a45cfa592c344203266d5643b" title="Fonction qui affiche dans le terminal les piles du joueur." alt="" coords="298,107,393,133"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="canMoove" name="canMoove">
-<area shape="rect" id="node1" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="784,56,873,83"/>
-<area shape="rect" id="node2" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="590,5,663,32"/>
-<area shape="rect" id="node6" href="$fonction_8c.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="593,56,660,83"/>
-<area shape="rect" id="node7" href="$demande_8c.html#a2c1c4e9f42f4ae6ae93159d132fb464f" title="Fonction qui demande au joueur le pion qu&#39;il veut deplacer et verifie si il existe et qu&#39;il peut le d..." alt="" coords="517,107,736,149"/>
-<area shape="rect" id="node3" href="$fonction_8c.html#a2124887144979ae99d8e21f83b3ba144" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="300,31,469,57"/>
-<area shape="rect" id="node4" href="$graphique_8c.html#a64c57249f8e702593dafc2edf2fa2672" title="Fonction qui lance la partie Homme VS Homme." alt="" coords="108,31,252,57"/>
-<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
-</map>

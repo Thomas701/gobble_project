@@ -1,5 +1,0 @@
-<map id="canMooveThisPionDistance" name="canMooveThisPionDistance">
-<area shape="rect" id="node1" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="5,31,207,57"/>
-<area shape="rect" id="node2" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="255,5,344,32"/>
-<area shape="rect" id="node3" href="$verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="257,56,342,83"/>
-</map>

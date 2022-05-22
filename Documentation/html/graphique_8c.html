@@ -1,0 +1,1038 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gobble Project: Référence du fichier src/graphique.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gobble Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier graphique.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Fichier contenant les codes des fonctions graphiques. Elles gèrent le chargement des images (initialisations) et leurs affichagent.  
+<a href="#details">Plus de détails...</a></p>
+
+<p><a href="graphique_8c_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab8d3e34505fd960cddb919fbde930b57"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#ab8d3e34505fd960cddb919fbde930b57">loadImage</a> (const char *path, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:ab8d3e34505fd960cddb919fbde930b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui va permmetre de transformer une image (n'importe quel format valide) en texture.  <a href="graphique_8c.html#ab8d3e34505fd960cddb919fbde930b57">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ab8d3e34505fd960cddb919fbde930b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202c2687f8e2c5cb50a7df539e0b819d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a202c2687f8e2c5cb50a7df539e0b819d">intro_authors</a> (SDL_Renderer **renderer)</td></tr>
+<tr class="memdesc:a202c2687f8e2c5cb50a7df539e0b819d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction lance l'animation de début avec le nom des participants et le logo ISIMA avec fondu transparent.  <a href="graphique_8c.html#a202c2687f8e2c5cb50a7df539e0b819d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a202c2687f8e2c5cb50a7df539e0b819d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a484859937dbc558bc6eb7024c5f755de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a484859937dbc558bc6eb7024c5f755de">lancementMenu</a> (SDL_Renderer *renderer, SDL_Texture **textureBackground, SDL_Texture **textureTableauOptionMenu, int *p_etats, int boolPlayMusic, int *ia)</td></tr>
+<tr class="memdesc:a484859937dbc558bc6eb7024c5f755de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui gère lorsque le joueur se trouve dans le menu principale.<br  />
+.  <a href="graphique_8c.html#a484859937dbc558bc6eb7024c5f755de">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a484859937dbc558bc6eb7024c5f755de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf71f70344edaba3fc040ebac3cb02d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d">lancementJeu1VS1</a> (SDL_Renderer *renderer, SDL_Texture **tableauTextureMapVide, <a class="el" href="structpoint.html">point</a> **tableauDePoint, SDL_Texture **textureTableauWin, int *p_etatS, int boolPlayMusic, SDL_Texture **textureTableauOptionMenu, SDL_Rect **tableauCase, SDL_Texture **textureTableauPion, char ***map3D, char **map2D, char **pileJ1, char **pileJ2, int distance, char *c, int *ia)</td></tr>
+<tr class="separator:aacf71f70344edaba3fc040ebac3cb02d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e0d4768732ce9330c87514561d1f34b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a5e0d4768732ce9330c87514561d1f34b">affichePileSDL</a> (SDL_Renderer *renderer, SDL_Texture **textureTableauPion, <a class="el" href="structpoint.html">point</a> **tableauDePoint, char **stackArrayJ1, char **stackArrayJ2)</td></tr>
+<tr class="memdesc:a5e0d4768732ce9330c87514561d1f34b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche les piles des joueurs en interface graphique.  <a href="graphique_8c.html#a5e0d4768732ce9330c87514561d1f34b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a5e0d4768732ce9330c87514561d1f34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621debd3e47a00dd315991401bb3e4c8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a621debd3e47a00dd315991401bb3e4c8">affichePionSurPlateau</a> (SDL_Renderer *renderer, SDL_Texture **textureTableauPion, <a class="el" href="structpoint.html">point</a> **tableauDePoint, char ***map3D, int index)</td></tr>
+<tr class="separator:a621debd3e47a00dd315991401bb3e4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f01ef0a20e757f674fdd4ead6e7ef9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a89f01ef0a20e757f674fdd4ead6e7ef9">affichePionSelect</a> (SDL_Renderer *renderer, <a class="el" href="structpoint.html">point</a> **tableauDePoint, SDL_Texture **textureTableauPion, char ***map3D, int index)</td></tr>
+<tr class="memdesc:a89f01ef0a20e757f674fdd4ead6e7ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche le pion sélectionné sur la map en interface graphique.  <a href="graphique_8c.html#a89f01ef0a20e757f674fdd4ead6e7ef9">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a89f01ef0a20e757f674fdd4ead6e7ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fbe2ade1b6af727a22c3eeee0fa34b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6">printMapEmptySDL</a> (SDL_Texture *textureMapVide, SDL_Renderer *renderer)</td></tr>
+<tr class="memdesc:a2fbe2ade1b6af727a22c3eeee0fa34b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fonction qui affiche en interface graphique la map sans pion.  <a href="graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2fbe2ade1b6af727a22c3eeee0fa34b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3c576dd7b3b2a8afe95eaff33ccc57"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57">transition</a> (SDL_Renderer *renderer, SDL_Texture **textureTableauPiont, <a class="el" href="structpoint.html">point</a> **tableauDePoint, char ***map3D, int dep, int end, SDL_Texture **tableauTextureMapVide, char c, char **pileJ1, char **pileJ2, int indicePionWhoEat)</td></tr>
+<tr class="separator:a4d3c576dd7b3b2a8afe95eaff33ccc57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553ce3aa6a51180bfa5d2b08a8c1d8a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a553ce3aa6a51180bfa5d2b08a8c1d8a6">affichePionOnCase</a> (SDL_Renderer *renderer, SDL_Texture **textureTableauPiont, <a class="el" href="structpoint.html">point</a> **tableauDePoint, int index, int indicePion)</td></tr>
+<tr class="separator:a553ce3aa6a51180bfa5d2b08a8c1d8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7c5273a970888cd0d1737c2e1172f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8c.html#a2c7c5273a970888cd0d1737c2e1172f0">pause</a> (SDL_Renderer *renderer, SDL_Texture **textureTableauOptionMenu, int *p_etats, int boolPlayMusic, SDL_Texture **tableauTextureMapVide, SDL_Texture **textureTableauPion, <a class="el" href="structpoint.html">point</a> **tableauDePoint, char ***map3D)</td></tr>
+<tr class="separator:a2c7c5273a970888cd0d1737c2e1172f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Fichier contenant les codes des fonctions graphiques. Elles gèrent le chargement des images (initialisations) et leurs affichagent. </p>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition dans le fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a5e0d4768732ce9330c87514561d1f34b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e0d4768732ce9330c87514561d1f34b">&#9670;&nbsp;</a></span>affichePileSDL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int affichePileSDL </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stackArrayJ1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>stackArrayJ2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche les piles des joueurs en interface graphique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : rendu ou l'on colle les images. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>** tableauDePoint : tableau de point pour gérer l'affichage des pions. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stackArrayJ1 : contient la pile du joueur 1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stackArrayJ2 : contient la pile du joueur 2.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne 0 si succès et sinon -1.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas</dd></dl>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : rendu ou l'on colle les images. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>** tableauDePoint : tableau de point pour gérer l'affichage des pions. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stackArrayJ1 : contient la pile du joueur 1. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>** stackArrayJ2 : contient la pile du joueur 2.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne 0 si succès et sinon -1.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00402">402</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a5e0d4768732ce9330c87514561d1f34b_icgraph.png" border="0" usemap="#graphique_8c_a5e0d4768732ce9330c87514561d1f34b_icgraph" alt=""/></div>
+<map name="graphique_8c_a5e0d4768732ce9330c87514561d1f34b_icgraph" id="graphique_8c_a5e0d4768732ce9330c87514561d1f34b_icgraph">
+<area shape="rect" title="Fonction qui affiche les piles des joueurs en interface graphique." alt="" coords="792,5,907,32"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,56,469,83"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="660,81,744,108"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,107,605,133"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,157,612,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a553ce3aa6a51180bfa5d2b08a8c1d8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553ce3aa6a51180bfa5d2b08a8c1d8a6">&#9670;&nbsp;</a></span>affichePionOnCase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int affichePionOnCase </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPiont</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indicePion</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00655">655</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a553ce3aa6a51180bfa5d2b08a8c1d8a6_icgraph.png" border="0" usemap="#graphique_8c_a553ce3aa6a51180bfa5d2b08a8c1d8a6_icgraph" alt=""/></div>
+<map name="graphique_8c_a553ce3aa6a51180bfa5d2b08a8c1d8a6_icgraph" id="graphique_8c_a553ce3aa6a51180bfa5d2b08a8c1d8a6_icgraph">
+<area shape="rect" title=" " alt="" coords="792,20,936,47"/>
+<area shape="rect" href="graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="660,20,744,47"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,20,469,47"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,20,605,47"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,71,612,98"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,20,252,47"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,20,60,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a89f01ef0a20e757f674fdd4ead6e7ef9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f01ef0a20e757f674fdd4ead6e7ef9">&#9670;&nbsp;</a></span>affichePionSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int affichePionSelect </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche le pion sélectionné sur la map en interface graphique. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : rendu ou l'on colle les images. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">point</td><td>** tableauDePoint : tableau de point pour gérer l'affichage des pions. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char</td><td>*** map3D : map detaillé du plateau de jeu. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>index : contient l'identifiant de la case du pion qui a été selectionné.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : Retourne 0 si succès et sinon -1.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00517">517</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a89f01ef0a20e757f674fdd4ead6e7ef9_icgraph.png" border="0" usemap="#graphique_8c_a89f01ef0a20e757f674fdd4ead6e7ef9_icgraph" alt=""/></div>
+<map name="graphique_8c_a89f01ef0a20e757f674fdd4ead6e7ef9_icgraph" id="graphique_8c_a89f01ef0a20e757f674fdd4ead6e7ef9_icgraph">
+<area shape="rect" title="Fonction qui affiche le pion sélectionné sur la map en interface graphique." alt="" coords="517,5,652,32"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a621debd3e47a00dd315991401bb3e4c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621debd3e47a00dd315991401bb3e4c8">&#9670;&nbsp;</a></span>affichePionSurPlateau()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int affichePionSurPlateau </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00458">458</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a621debd3e47a00dd315991401bb3e4c8_icgraph.png" border="0" usemap="#graphique_8c_a621debd3e47a00dd315991401bb3e4c8_icgraph" alt=""/></div>
+<map name="graphique_8c_a621debd3e47a00dd315991401bb3e4c8_icgraph" id="graphique_8c_a621debd3e47a00dd315991401bb3e4c8_icgraph">
+<area shape="rect" title=" " alt="" coords="792,183,956,209"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,107,469,133"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,208,252,235"/>
+<area shape="rect" href="graphique_8c.html#a2c7c5273a970888cd0d1737c2e1172f0" title=" " alt="" coords="354,259,415,285"/>
+<area shape="rect" href="graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="660,81,744,108"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,233,60,260"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,5,605,32"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,56,612,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a202c2687f8e2c5cb50a7df539e0b819d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a202c2687f8e2c5cb50a7df539e0b819d">&#9670;&nbsp;</a></span>intro_authors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void intro_authors </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer **&#160;</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction lance l'animation de début avec le nom des participants et le logo ISIMA avec fondu transparent. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : Rendu ou l'on colle l'image d'animation.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de valeur de retour.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00053">53</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a202c2687f8e2c5cb50a7df539e0b819d_cgraph.png" border="0" usemap="#graphique_8c_a202c2687f8e2c5cb50a7df539e0b819d_cgraph" alt=""/></div>
+<map name="graphique_8c_a202c2687f8e2c5cb50a7df539e0b819d_cgraph" id="graphique_8c_a202c2687f8e2c5cb50a7df539e0b819d_cgraph">
+<area shape="rect" title="Fonction lance l&#39;animation de début avec le nom des participants et le logo ISIMA avec fondu transpar..." alt="" coords="5,5,113,32"/>
+<area shape="rect" href="graphique_8c.html#ab8d3e34505fd960cddb919fbde930b57" title="Fonction qui va permmetre de transformer une image (n&#39;importe quel format valide) en texture." alt="" coords="161,5,252,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aacf71f70344edaba3fc040ebac3cb02d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacf71f70344edaba3fc040ebac3cb02d">&#9670;&nbsp;</a></span>lancementJeu1VS1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lancementJeu1VS1 </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>tableauTextureMapVide</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauWin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>p_etatS</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>boolPlayMusic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauOptionMenu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect **&#160;</td>
+          <td class="paramname"><em>tableauCase</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>map2D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ia</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00345">345</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_cgraph.png" border="0" usemap="#graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_cgraph" alt=""/></div>
+<map name="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_cgraph" id="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,966,149,993"/>
+<area shape="rect" href="graphique_8c.html#a5e0d4768732ce9330c87514561d1f34b" title="Fonction qui affiche les piles des joueurs en interface graphique." alt="" coords="908,80,1023,106"/>
+<area shape="rect" href="graphique_8c.html#a621debd3e47a00dd315991401bb3e4c8" title=" " alt="" coords="883,181,1047,208"/>
+<area shape="rect" href="verification_8h.html#aa768305402b820525d9d57efd9c6feea" title="Fonction qui nous informe en cas de victoire du joueur et nous donne l&#39;identifiant de la ligne corres..." alt="" coords="213,1245,351,1272"/>
+<area shape="rect" href="verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b" title="Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma..." alt="" coords="1134,536,1227,562"/>
+<area shape="rect" href="fonction_8h.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="197,966,367,993"/>
+<area shape="rect" href="init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="1136,1270,1225,1297"/>
+<area shape="rect" href="graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="892,358,1039,385"/>
+<area shape="rect" href="init_8h.html#ae453f1d59909147e6dc030acd96d355e" title="Fonction qui initialise le plateau de jeu detaillé (3D) avec que des cases vides (&#39;0&#39;)." alt="" coords="247,1296,317,1322"/>
+<area shape="rect" href="init_8h.html#a80997a18a545555f09a485ad12d3ec76" title="Fonction qui initialise les piles du joueur à son caractère identifiant (b ou n)." alt="" coords="249,1346,315,1373"/>
+<area shape="rect" href="graphique_8h.html#a5e0d4768732ce9330c87514561d1f34b" title="Fonction qui affiche les piles des joueurs en interface graphique." alt="" coords="439,1169,554,1196"/>
+<area shape="rect" href="graphique_8h.html#a89f01ef0a20e757f674fdd4ead6e7ef9" title="Fonction qui affiche le pion sélectionné sur la map en interface graphique." alt="" coords="429,1220,564,1246"/>
+<area shape="rect" href="graphique_8h.html#a621debd3e47a00dd315991401bb3e4c8" title=" " alt="" coords="415,1270,579,1297"/>
+<area shape="rect" href="verification_8h.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="460,257,533,284"/>
+<area shape="rect" href="verification_8h.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="444,485,549,512"/>
+<area shape="rect" href="ia_8h.html#ad88f9be1536f936802db219e9dcd35e6" title=" " alt="" coords="445,814,548,841"/>
+<area shape="rect" href="get_8h.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="876,1422,1055,1449"/>
+<area shape="rect" href="fonction_8c.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="694,1473,761,1500"/>
+<area shape="rect" href="print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="447,865,546,892"/>
+<area shape="rect" href="graphique_8h.html#a2fbe2ade1b6af727a22c3eeee0fa34b6" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="423,966,570,993"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="457,916,537,942"/>
+<area shape="rect" href="graphique_8h.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="685,308,769,334"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="449,1068,544,1094"/>
+<area shape="rect" href="verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="683,156,772,182"/>
+<area shape="rect" href="verification_8c.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="680,206,775,233"/>
+<area shape="rect" href="get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="688,257,767,284"/>
+<area shape="rect" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="921,409,1010,436"/>
+<area shape="rect" href="verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="910,257,1021,284"/>
+<area shape="rect" href="verification_8c.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="650,460,805,486"/>
+<area shape="rect" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="627,510,828,537"/>
+<area shape="rect" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="923,460,1008,486"/>
+<area shape="rect" href="get_8c.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="1103,1422,1259,1449"/>
+<area shape="rect" href="get_8c.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="1103,1372,1259,1398"/>
+<area shape="rect" href="liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="1343,1321,1391,1348"/>
+<area shape="rect" href="verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="1322,1422,1411,1449"/>
+<area shape="rect" href="ia_8h.html#a50c9ee83023888c0aa1313b19c5a0fdf" title="Fait jouer l&#39;IA." alt="" coords="702,916,753,942"/>
+<area shape="rect" href="liste_8h.html#ac38600916d3240890f129ddc638b6e84" title="ajoute un élément au début d&#39;une liste" alt="" coords="1157,612,1204,638"/>
+<area shape="rect" href="liste_8h.html#af7e0f5238bce3e3a6ef83aaafde415cc" title="reset une liste" alt="" coords="938,814,993,841"/>
+<area shape="rect" href="liste_8h.html#a2a479a91481bafc5be84ef8820aa6dff" title="creer une liste" alt="" coords="1133,789,1228,816"/>
+<area shape="rect" href="ia_8c.html#ad707bbcb8e2701a20041722fdf31f275" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="1111,916,1251,942"/>
+<area shape="rect" href="ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="1135,966,1226,993"/>
+<area shape="rect" href="free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="897,1017,1034,1044"/>
+<area shape="rect" href="liste_8h.html#a7b9a2f43a8dbdd82e30023472111c3de" title="renvoie la valeur contenu dans l&#39;indice à l&#39;index n" alt="" coords="944,1068,987,1094"/>
+<area shape="rect" href="ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="1307,865,1427,892"/>
+<area shape="rect" href="ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="1121,1068,1240,1094"/>
+<area shape="rect" href="ia_8c.html#addbe81105e0658b076d3fe85b439166e" title="Place un piont." alt="" coords="1123,713,1238,740"/>
+<area shape="rect" href="ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="922,865,1009,892"/>
+<area shape="rect" href="liste_8c.html#ad96397b14c3010948f796616a7951f47" title="creer une liste" alt="" coords="1319,612,1414,638"/>
+<area shape="rect" href="graphique_8c.html#a553ce3aa6a51180bfa5d2b08a8c1d8a6" title=" " alt="" coords="893,308,1037,334"/>
+<area shape="rect" href="fonction_8c.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="658,1270,797,1297"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_icgraph.png" border="0" usemap="#graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_icgraph" alt=""/></div>
+<map name="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_icgraph" id="graphique_8c_aacf71f70344edaba3fc040ebac3cb02d_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a484859937dbc558bc6eb7024c5f755de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484859937dbc558bc6eb7024c5f755de">&#9670;&nbsp;</a></span>lancementMenu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lancementMenu </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureBackground</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauOptionMenu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>p_etats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>boolPlayMusic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ia</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui gère lorsque le joueur se trouve dans le menu principale.<br  />
+. </p>
+<p>Il peut lancer une partie 1VS1, 1VSIA, quitter le jeu (autre que par la croix rouge) ou couper et rejouer le son.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>** renderer : rendu ou l'on colle les images. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>** textureBackground : Tableau de texture d'images qui va contenir les 400 images d'animations. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>** textureTableauOptionMenu : Tableau de texture des images des options menu (1VS1, 1VSIA, SOUN , QUIT GAME) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>* p_etats : pointeur permettant de connaître l'état du programme (en game, en pause) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>boolPlayMusic : permet de savoir si on joue de la musique ou pas. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>* ia : pointeur sur l'ia (permet de définir s'il y'aura une ia ou pas)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void : Pas de valeur de retour.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>DUPOIS Thomas </dd>
+<dd>
+VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00124">124</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a484859937dbc558bc6eb7024c5f755de_cgraph.png" border="0" usemap="#graphique_8c_a484859937dbc558bc6eb7024c5f755de_cgraph" alt=""/></div>
+<map name="graphique_8c_a484859937dbc558bc6eb7024c5f755de_cgraph" id="graphique_8c_a484859937dbc558bc6eb7024c5f755de_cgraph">
+<area shape="rect" title="Fonction qui gère lorsque le joueur se trouve dans le menu principale. ." alt="" coords="5,5,132,32"/>
+<area shape="rect" href="verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="180,5,291,32"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a484859937dbc558bc6eb7024c5f755de_icgraph.png" border="0" usemap="#graphique_8c_a484859937dbc558bc6eb7024c5f755de_icgraph" alt=""/></div>
+<map name="graphique_8c_a484859937dbc558bc6eb7024c5f755de_icgraph" id="graphique_8c_a484859937dbc558bc6eb7024c5f755de_icgraph">
+<area shape="rect" title="Fonction qui gère lorsque le joueur se trouve dans le menu principale. ." alt="" coords="108,5,235,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab8d3e34505fd960cddb919fbde930b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d3e34505fd960cddb919fbde930b57">&#9670;&nbsp;</a></span>loadImage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Texture* loadImage </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui va permmetre de transformer une image (n'importe quel format valide) en texture. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">const</td><td>char * path : prend le chemin de l'image à charger. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>*renderer : associe la texture créer à un renderer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>SDL_Texture * : Retourne un pointeur vers la texture à manipuler. </dd>
+<dd>
+NULL : Si chemin d'accès invalide ou erreur allocation texture à cause de SDL_CreateTextureFromSurface (message d'erreur qui prévient)</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00024">24</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_ab8d3e34505fd960cddb919fbde930b57_icgraph.png" border="0" usemap="#graphique_8c_ab8d3e34505fd960cddb919fbde930b57_icgraph" alt=""/></div>
+<map name="graphique_8c_ab8d3e34505fd960cddb919fbde930b57_icgraph" id="graphique_8c_ab8d3e34505fd960cddb919fbde930b57_icgraph">
+<area shape="rect" title="Fonction qui va permmetre de transformer une image (n&#39;importe quel format valide) en texture." alt="" coords="575,132,665,159"/>
+<area shape="rect" href="graphique_8c.html#a202c2687f8e2c5cb50a7df539e0b819d" title="Fonction lance l&#39;animation de début avec le nom des participants et le logo ISIMA avec fondu transpar..." alt="" coords="384,5,492,32"/>
+<area shape="rect" href="init_8c.html#a378c028b0ddd060dd4643e04d3a1bafa" title=" " alt="" coords="357,56,519,83"/>
+<area shape="rect" href="init_8c.html#ae50fd7713aca8e86439c8a2aadbab5d6" title=" " alt="" coords="399,107,477,133"/>
+<area shape="rect" href="init_8c.html#a8f0b2e072f0de59baa36e4b77e15e0f3" title="Fonction qui charge les images des options menu." alt="" coords="349,157,527,184"/>
+<area shape="rect" href="init_8c.html#a34fa94001e97c9d21c12159b7d1fc405" title=" " alt="" coords="350,208,526,235"/>
+<area shape="rect" href="init_8c.html#af3b494e08e48520f09b6b419652aa0ea" title="Fonction qui charge les images des lignes coloré (en cas de victoire ou égalité)." alt="" coords="377,259,499,285"/>
+<area shape="rect" href="init_8c.html#ac0e5ba316b9b150fa998cc4075ae5672" title="Fonction qui initialise toutes la partie SDL images + audio. Et qui initialise les tableaux de textur..." alt="" coords="108,157,301,184"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,157,60,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2c7c5273a970888cd0d1737c2e1172f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7c5273a970888cd0d1737c2e1172f0">&#9670;&nbsp;</a></span>pause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pause </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauOptionMenu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>p_etats</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>boolPlayMusic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>tableauTextureMapVide</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPion</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00693">693</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_cgraph.png" border="0" usemap="#graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_cgraph" alt=""/></div>
+<map name="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_cgraph" id="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,56,67,83"/>
+<area shape="rect" href="graphique_8c.html#a621debd3e47a00dd315991401bb3e4c8" title=" " alt="" coords="115,5,279,32"/>
+<area shape="rect" href="verification_8h.html#a1f9b6c1b19db31b32357635428e6a9f2" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="141,56,252,83"/>
+<area shape="rect" href="graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="123,107,270,133"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_icgraph.png" border="0" usemap="#graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_icgraph" alt=""/></div>
+<map name="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_icgraph" id="graphique_8c_a2c7c5273a970888cd0d1737c2e1172f0_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,169,32"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2fbe2ade1b6af727a22c3eeee0fa34b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fbe2ade1b6af727a22c3eeee0fa34b6">&#9670;&nbsp;</a></span>printMapEmptySDL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int printMapEmptySDL </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>textureMapVide</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fonction qui affiche en interface graphique la map sans pion. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Texture</td><td>* textureMapVide : map graphique à afficher. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">SDL_Renderer</td><td>* renderer : rendu ou l'on mets l'image que l'on charge.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>int : retourne 0 si succès sinon -1.</dd></dl>
+<dl class="section author"><dt>Auteur</dt><dd>VILLEPREUX Thibault </dd></dl>
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00582">582</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a2fbe2ade1b6af727a22c3eeee0fa34b6_icgraph.png" border="0" usemap="#graphique_8c_a2fbe2ade1b6af727a22c3eeee0fa34b6_icgraph" alt=""/></div>
+<map name="graphique_8c_a2fbe2ade1b6af727a22c3eeee0fa34b6_icgraph" id="graphique_8c_a2fbe2ade1b6af727a22c3eeee0fa34b6_icgraph">
+<area shape="rect" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="792,183,939,209"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,107,469,133"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,208,252,235"/>
+<area shape="rect" href="graphique_8c.html#a2c7c5273a970888cd0d1737c2e1172f0" title=" " alt="" coords="354,259,415,285"/>
+<area shape="rect" href="graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="660,81,744,108"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,233,60,260"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,5,605,32"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,56,612,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4d3c576dd7b3b2a8afe95eaff33ccc57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3c576dd7b3b2a8afe95eaff33ccc57">&#9670;&nbsp;</a></span>transition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int transition </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Renderer *&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>textureTableauPiont</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structpoint.html">point</a> **&#160;</td>
+          <td class="paramname"><em>tableauDePoint</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char ***&#160;</td>
+          <td class="paramname"><em>map3D</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Texture **&#160;</td>
+          <td class="paramname"><em>tableauTextureMapVide</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>pileJ2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>indicePionWhoEat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="graphique_8c_source.html#l00590">590</a> du fichier <a class="el" href="graphique_8c_source.html">graphique.c</a>.</p>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_cgraph.png" border="0" usemap="#graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_cgraph" alt=""/></div>
+<map name="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_cgraph" id="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_cgraph">
+<area shape="rect" title=" " alt="" coords="5,81,89,108"/>
+<area shape="rect" href="graphique_8c.html#a5e0d4768732ce9330c87514561d1f34b" title="Fonction qui affiche les piles des joueurs en interface graphique." alt="" coords="162,5,277,32"/>
+<area shape="rect" href="graphique_8c.html#a553ce3aa6a51180bfa5d2b08a8c1d8a6" title=" " alt="" coords="147,56,291,83"/>
+<area shape="rect" href="graphique_8c.html#a621debd3e47a00dd315991401bb3e4c8" title=" " alt="" coords="137,107,301,133"/>
+<area shape="rect" href="graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="146,157,293,184"/>
+</map>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_icgraph.png" border="0" usemap="#graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_icgraph" alt=""/></div>
+<map name="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_icgraph" id="graphique_8c_a4d3c576dd7b3b2a8afe95eaff33ccc57_icgraph">
+<area shape="rect" title=" " alt="" coords="660,20,744,47"/>
+<area shape="rect" href="fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,20,469,47"/>
+<area shape="rect" href="fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,20,605,47"/>
+<area shape="rect" href="fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,71,612,98"/>
+<area shape="rect" href="graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,20,252,47"/>
+<area shape="rect" href="main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,20,60,47"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

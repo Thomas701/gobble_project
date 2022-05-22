@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gobble Project:  Fichier source de src/verification.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gobble Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">verification.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="verification_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">   23</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">maximum</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> i2) { <span class="keywordflow">return</span> (i &gt; i2) ? i : i2; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263">   37</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263">minimum</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> i2) { <span class="keywordflow">return</span> (i &gt; i2) ? i2 : i; }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="verification_8c.html#a96e4ad03b50ffc967d96f8504232fbd8">   52</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a96e4ad03b50ffc967d96f8504232fbd8">existPionInMap</a>(<span class="keywordtype">char</span> ** map2D, <span class="keywordtype">char</span> c) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++) {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keywordflow">if</span> (map2D[i][j] == c)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="verification_8c.html#a6ed8fab0b7f06f2d905a9b6c09e7b757">   75</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a6ed8fab0b7f06f2d905a9b6c09e7b757">existPionInStack</a>(<span class="keywordtype">char</span> ** stack, <span class="keywordtype">int</span> num, <span class="keywordtype">int</span> i) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordflow">if</span> (stack[num][i] == <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="verification_8c.html#a09836d26091dcf3a269aa53d2183374e">   93</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a09836d26091dcf3a269aa53d2183374e">isEmptyStack</a>(<span class="keywordtype">char</span> ** stack, <span class="keywordtype">int</span> num) {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> (stack[num][i] != <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="verification_8c.html#a40255217879033ed8cda37b28dd651bd">  111</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a40255217879033ed8cda37b28dd651bd">isEmptyStacks</a>(<span class="keywordtype">char</span> ** stack){</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; i++)  {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++)  {   <span class="comment">// ascendant pour opti</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keywordflow">if</span> (stack[i][j] != <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39">  131</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39">isEmptyCase</a>(<span class="keywordtype">char</span> ** map2D) {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0 ; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; j++) {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;       <span class="keywordflow">if</span>(<span class="charliteral">&#39;0&#39;</span> == map2D[i][j]) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;     }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;   }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;   <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2">  151</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2">isEmptyCase2</a>(<span class="keywordtype">char</span> *** map3D) {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;   <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;     <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0 ; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; j++) {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;       <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; k++)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;       {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;          <span class="keywordflow">if</span> (<span class="charliteral">&#39;0&#39;</span> != map3D[i][j][k])</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;          {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            j++;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;          }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          <span class="keywordflow">if</span>(<span class="charliteral">&#39;0&#39;</span> == map3D[i][j][k] &amp;&amp; k == 2) </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;       }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;     }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;   }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;   <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4">  182</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4">canMoove</a>(<span class="keywordtype">char</span> *** map, <span class="keywordtype">int</span> posDeb, <span class="keywordtype">int</span> posEnd) {</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keywordtype">int</span> x  = (posDeb - posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>;  <span class="keywordtype">int</span> y  = posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// transforme le numéro de la case de depart en coordonnée.</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordtype">int</span> x2 = (posEnd - posEnd % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>;  <span class="keywordtype">int</span> y2 = posEnd % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// transforme le numéro de la case d&#39;arriver en coordonnée.</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordtype">int</span> count  = 0; <span class="keywordtype">int</span> count2 = 0;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordflow">if</span> (map[x ][y ][i] != <span class="charliteral">&#39;0&#39;</span>) count  = i+1; <span class="comment">// compte le nombre de pion sur la case de depart</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">if</span> (map[x2][y2][i] != <span class="charliteral">&#39;0&#39;</span>) count2 = i+1; <span class="comment">// compte le nombre de pion sur la case de d&#39;arriver</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordflow">if</span> (count &gt; count2) <span class="keywordflow">return</span> 1; <span class="comment">// si il y a plus de pion sur la case de depart alors deplacement valide</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">return</span> 0;                <span class="comment">// sinon invalide ?</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="verification_8c.html#ae0710b5cda56a0ab30666cc09e8c8017">  209</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#ae0710b5cda56a0ab30666cc09e8c8017">canMooveThisPion</a>(<span class="keywordtype">char</span> *** map, <span class="keywordtype">char</span> ** map2D, <span class="keywordtype">int</span> posDeb, <span class="keywordtype">char</span> c) {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keywordtype">int</span> x = (posDeb - posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="keywordtype">int</span> y = posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// transforme le numéro de la case en indice.</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keywordtype">int</span> count  = -1;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordtype">char</span> pion;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) { <span class="comment">// compte le nombre de pion sur la case du plateau donné en paramètre </span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keywordflow">if</span> (map[x][y][i] != <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      count = i;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      pion = map[x][y][i]; <span class="comment">// dernier pion sur la map, enregistre le joueur qui le possède</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  <span class="keywordflow">if</span> (pion != c) <span class="keywordflow">return</span> 0; <span class="comment">// si le dernier pion n&#39;est pas de notre couleur impossible (on ne peut pas déplacer un pion qui n&#39;est pas le notre)</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keywordflow">else</span> { <span class="comment">// sinon le pion que l&#39;on veut déplacer est le notre</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39">isEmptyCase</a>(map2D)) <span class="keywordflow">return</span> 1; <span class="comment">// si la map est vide alors on peut</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordflow">else</span> { <span class="comment">// on cherche une case qui possède des pions pas plus grande que notre pion</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="keywordtype">int</span> max;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++)  {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++){</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;          max = <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; k &gt;= 0; k--) {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <span class="keywordflow">if</span> (map[x][y][k] != <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;              max = k;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;              k = -1; <span class="comment">// si on trouve on sort de la boucle et on retourn 1</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;          }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;          <span class="keywordflow">if</span> (max &lt; count) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keywordflow">return</span> 0; <span class="comment">// pas trouver</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;}</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6">  254</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6">canMooveThisPionDistance</a>(<span class="keywordtype">char</span> *** map, <span class="keywordtype">int</span> posDeb, <span class="keywordtype">char</span> c) {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordtype">int</span> x = (posDeb - posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="keywordtype">int</span> y = posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>;  <span class="comment">// transforme le numéro de la case en indice</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keywordtype">int</span> i, j, iEnd, jEnd;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keywordtype">int</span> count  = -1;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keywordtype">int</span> max;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keywordtype">char</span> pion;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">if</span> (map[x][y][i] != <span class="charliteral">&#39;0&#39;</span>)  {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      count = i;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      pion = map[x][y][i];</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keywordflow">if</span> (pion != c) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    i = <a class="code" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">maximum</a>(0, x-1); iEnd = <a class="code" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263">minimum</a>(x+1, <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">for</span> (; i &lt;= iEnd; i++) {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      j = <a class="code" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">maximum</a>(0, y-1); jEnd = <a class="code" href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263">minimum</a>(y+1, <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <span class="keywordflow">for</span> (; j &lt;= jEnd; j++) {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;        max = -1; <span class="comment">// gros nombre!</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; k++) {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;          <span class="keywordflow">if</span> (map[i][j][k] != <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            max = k;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="keywordflow">break</span>; <span class="comment">//Pour stopper la boucle</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;          }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <span class="keywordflow">if</span> (max &lt; count) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;}</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="verification_8c.html#a22e35d32911afec200167660032b2fa6">  300</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a22e35d32911afec200167660032b2fa6">canMooveThisPionD</a>(<span class="keywordtype">char</span> *** map, <span class="keywordtype">int</span> posDeb, <span class="keywordtype">char</span> c) <span class="comment">// Le pion peut-il bouger?</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keywordtype">int</span> x = (posDeb - posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="keywordtype">int</span> y = posDeb % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// transforme le numéro de la case en indice.</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keywordtype">int</span> count  = -1;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keywordtype">int</span> max;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keywordtype">char</span> pion;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) { <span class="comment">// compte le nombre de pion sur la case du plateau donné en paramètre </span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keywordflow">if</span> (map[x][y][i] != <span class="charliteral">&#39;0&#39;</span>)  {</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      count = i;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      pion = map[x][y][i];      <span class="comment">// dernier pion sur la map, enregistre le joueur qui le possède</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">if</span> (pion != c) <span class="keywordflow">return</span> 0; <span class="comment">// si le dernier pion n&#39;est pas de notre couleur impossible (on ne peut pas déplacer un pion qui n&#39;est pas le notre)</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordflow">else</span> { <span class="comment">// sinon le pion que l&#39;on veut déplacer est le notre</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++)  { <span class="comment">// on cherche une case d&#39;une distance de 1 qui possède des pions pas plus grande que notre pion</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++){</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        max = -1; <span class="comment">// gros nombre!</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; k++) { </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;          <span class="keywordflow">if</span> (map[i][j][k] != <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            max = k;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <span class="keywordflow">break</span>; <span class="comment">//Pour stopper la boucle</span></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;          }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        }</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <span class="keywordflow">if</span> (max &lt; count)  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;}</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="verification_8c.html#a28677deef3f8a0ac4347b1c50780cc3b">  343</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a>(<span class="keywordtype">char</span> ** map, <span class="keywordtype">int</span> nbre, <span class="keywordtype">char</span> c) {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keywordtype">int</span> count_L  = 0; <span class="keywordtype">int</span> count_C  = 0; <span class="comment">//compteur mis a 0 au debut</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  <span class="keywordtype">int</span> count_DD = 0; <span class="keywordtype">int</span> count_DG = 0; <span class="comment">//compteur mis a 0 au debut</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">/* Vérification si il y a une ligne, colonne ou diagonale complété */</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++) { <span class="comment">// compte dans toutes les directions</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      count_L += (map[i][j] == c) ? 1 : 0; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      count_C += (map[j][i] == c) ? 1 : 0;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      count_DD += (map[j][j] == c) ? 1 : 0;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      count_DG += (map[<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1-j][j] == c) ? 1 : 0;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">if</span> (count_C == nbre || count_L == nbre || count_DD == nbre || count_DG == nbre) <span class="keywordflow">return</span> 1; <span class="comment">// victoire du joueur</span></div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;}</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="verification_8c.html#a25929dd14025a5f9ab5f1e309b1335bc">  374</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="verification_8c.html#a25929dd14025a5f9ab5f1e309b1335bc">debugTab</a>(SDL_Rect ** tableauCase) {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) + (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*2); i++) {</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">if</span> (tableauCase[i]-&gt;x &gt; 2000 || tableauCase[i]-&gt;x &lt; 0 || tableauCase[i]-&gt;y &gt; 2000 || tableauCase[i]-&gt;y &lt; 0 </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;     || tableauCase[i]-&gt;w &gt; 2000 || tableauCase[i]-&gt;w &lt; 0 || tableauCase[i]-&gt;h &gt; 2000 || tableauCase[i]-&gt;h &lt; 0) {</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      free(tableauCase[i]);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      tableauCase[i] = (SDL_Rect *) malloc(<span class="keyword">sizeof</span>(SDL_Rect));</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <a class="code" href="init_8h.html#afe5f6e3ea4af8ec2a19d93ad95d8bf27">initTableauCase</a>(tableauCase);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;}</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno"><a class="line" href="verification_8c.html#aa768305402b820525d9d57efd9c6feea">  396</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#aa768305402b820525d9d57efd9c6feea">check_End_Game</a>(<span class="keywordtype">char</span> ** map) {</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  <span class="keywordtype">int</span> count_L  = 0; <span class="keywordtype">int</span> count_C  = 0; <span class="comment">//compteur mis a 0 au debut</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keywordtype">int</span> count_DD = 0; <span class="keywordtype">int</span> count_DG = 0; <span class="comment">//compteur mis a 0 au debut</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="comment">//Vérification si il y a une ligne, colonne ou diagonale complété</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; j++) {</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;      <span class="keywordflow">if</span> (map[i][j] == map[i][j+1] &amp;&amp; map[i][j] != <span class="charliteral">&#39;0&#39;</span>) count_L++; <span class="comment">// compte dans toutes les directions</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;      <span class="keywordflow">if</span> (map[j][i] == map[j+1][i] &amp;&amp; map[j][i] != <span class="charliteral">&#39;0&#39;</span>) count_C++;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      <span class="keywordflow">if</span> (map[j][j] == map[j+1][j+1] &amp;&amp; map[j][j] != <span class="charliteral">&#39;0&#39;</span>) count_DD++;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="keywordflow">if</span> (map[<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1-j][j] == map[<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1-(j+1)][j+1] &amp;&amp; map[<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1-j][j] != <span class="charliteral">&#39;0&#39;</span>) count_DG++;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    } <span class="comment">// si un compteur a atteint le bon nombre on retorun l&#39;id de la ligne</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keywordflow">if</span> (count_C == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 || count_L == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 || count_DD == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 || count_DG == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1){ <span class="comment">//partie terminée, retourne le bon numéro pour afficher la bonne ligne après</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      <span class="keywordflow">if</span> (count_L == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1) <span class="keywordflow">return</span> (i == 0) ? 1 : (i == 1) ? 2 : 3;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (count_C == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1) <span class="keywordflow">return</span> (i == 0) ? 4 : (i == 1) ? 5 : 6;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (count_DD == <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1) <span class="keywordflow">return</span> 7;</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">return</span> 8;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    }</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keywordflow">else</span> { <span class="comment">//sinon on mets à 0 et on recommence</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      count_C = 0; count_L = 0; count_DD = 0; count_DG = 0;</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    }</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;  }</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  <span class="keywordflow">return</span> 0; <span class="comment">// pas de victoire</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;}</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="verification_8c.html#a6a052365be8ea742b235b5acda37e9e5">  433</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a6a052365be8ea742b235b5acda37e9e5">sizeMaxPion</a>(<span class="keywordtype">char</span> ** stackArray) {</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 ; i++)    {</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 ; j &gt;= 1 ; j--) {</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      <span class="keywordflow">if</span>(<span class="charliteral">&#39;0&#39;</span> != stackArray[i][j]) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;}</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno"><a class="line" href="verification_8c.html#adfcb5fd1cf956620ead7de296d9c3313">  456</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#adfcb5fd1cf956620ead7de296d9c3313">canPlayNewPion</a>(<span class="keywordtype">char</span> **  stackArray, <span class="keywordtype">char</span> ** map2D) {</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39">isEmptyCase</a>(map2D)) {</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="verification_8c.html#a40255217879033ed8cda37b28dd651bd">isEmptyStacks</a>(stackArray)) <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  }</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="verification_8c.html#a6a052365be8ea742b235b5acda37e9e5">sizeMaxPion</a>(stackArray)) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  }</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;}</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno"><a class="line" href="verification_8c.html#add639b2ba8138ee6a979cbbea7103d3f">  481</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#add639b2ba8138ee6a979cbbea7103d3f">canPlayStack</a>(<span class="keywordtype">int</span> sizePion, <span class="keywordtype">char</span> *** map){</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;  <span class="keywordtype">int</span> possible;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0 ; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; i++) {</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0 ; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a> ; j++) {</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;      possible = 1 ;</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> k = <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1 ; k &gt;= sizePion; k--) {</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keywordflow">if</span> (map[i][j][k] != <span class="charliteral">&#39;0&#39;</span>) {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;          possible = 0 ; <span class="comment">// si il y a </span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;        }</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      }</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;      <span class="keywordflow">if</span> (1 == possible) <span class="keywordflow">return</span> 1; </div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    }</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  }</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;}</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="verification_8c.html#a311343dd170318fed2254bd88c6c35dd">  511</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#a311343dd170318fed2254bd88c6c35dd">canPutPion</a>(<span class="keywordtype">char</span> *** map, <span class="keywordtype">int</span> sizePion, <span class="keywordtype">int</span> endPion) {</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;  <span class="keywordtype">int</span> x = (endPion - endPion % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="keywordtype">int</span> y = endPion % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// transforme le numéro de la case d&#39;arriver en coordonnée</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; i &gt;= sizePion ; i--) { <span class="comment">// on regarde si il y a un pion de même taille ou de taille supérieur</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    <span class="keywordflow">if</span>(map[x][y][i] != <span class="charliteral">&#39;0&#39;</span>)</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  }</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;}</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00531"></a><span class="lineno"><a class="line" href="verification_8c.html#acefd0a52f69bd622ef1406d258e4294d">  531</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#acefd0a52f69bd622ef1406d258e4294d">isStackFull</a>(<span class="keywordtype">char</span> ** pile) {</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; i++) {</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++) {</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="keywordflow">if</span> (pile[i][j] == <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> 0; <span class="comment">// si on trouve un &#39;0&#39; alors pile non pleine</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    }</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;  }</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;  <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;}</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
+<div class="line"><a name="l00555"></a><span class="lineno"><a class="line" href="verification_8c.html#a3c38e14cc2d59ee07c0a9b41dd945a6c">  555</a></span>&#160;SDL_bool <a class="code" href="verification_8c.html#a3c38e14cc2d59ee07c0a9b41dd945a6c">isInRect</a>(SDL_Point <a class="code" href="structpoint.html">point</a>, SDL_Point rectangleHautGauche, SDL_Point rectangleBasDroit) {</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= rectangleHautGauche.x &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt;= rectangleBasDroit.x &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= rectangleHautGauche.y &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt;= rectangleBasDroit.y) <span class="comment">// si le point est dans le rectangle</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">return</span> SDL_TRUE ;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;  <span class="keywordflow">return</span> SDL_FALSE;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;}</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno"><a class="line" href="verification_8c.html#a1f9b6c1b19db31b32357635428e6a9f2">  575</a></span>&#160;SDL_bool <a class="code" href="verification_8c.html#a1f9b6c1b19db31b32357635428e6a9f2">isInRectangle</a>(SDL_Point <a class="code" href="structpoint.html">point</a>, SDL_Rect rect) { </div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;  <span class="keywordflow">if</span>(<a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &gt;= rect.x &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a6150e0515f7202e2fb518f7206ed97dc">x</a> &lt;= (rect.x + rect.w) &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &gt;= rect.y &amp;&amp; <a class="code" href="structpoint.html">point</a>.<a class="code" href="structpoint.html#a0a2f84ed7838f07779ae24c5a9086d33">y</a> &lt;= (rect.y + rect.h))</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">return</span> SDL_TRUE;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  <span class="keywordflow">return</span> SDL_FALSE;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;}</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="line"><a name="l00599"></a><span class="lineno"><a class="line" href="verification_8c.html#abb3638a3a1557f9141f506855adf6a45">  599</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#abb3638a3a1557f9141f506855adf6a45">canSelection</a>(SDL_Point pointMouse, <span class="keywordtype">char</span> *** map3D, <span class="keywordtype">char</span> ** map2D, SDL_Rect ** tableauCase, <span class="keywordtype">char</span> ** pileJ1, <span class="keywordtype">char</span> ** pileJ2, <span class="keywordtype">char</span> c, <span class="keywordtype">int</span> distance) {</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  <span class="keywordtype">int</span> index = <a class="code" href="get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b">getIndex</a>(pointMouse, tableauCase);</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  <span class="keywordflow">if</span>(index != -1) {</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    <span class="comment">// cas des piles</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;b&#39;</span> &amp;&amp; index &gt; (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>)-1 &amp;&amp; index &lt; (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) + <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) {</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; i++) {</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        <span class="keywordflow">if</span> (pileJ1[i][(<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1)- index % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>] != <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      }</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    }</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;n&#39;</span> &amp;&amp; index &gt; (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) + (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1)) {</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1; i++) {</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        <span class="keywordflow">if</span> (pileJ2[i][(<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>-1)- index % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>] != <span class="charliteral">&#39;0&#39;</span>) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;      }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    }</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <span class="comment">// cas des pions sur la map</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (index &gt;= 0 &amp;&amp; index &lt; (<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>*<a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>)) {</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;      <span class="keywordflow">if</span> (distance) {</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6">canMooveThisPionDistance</a>(map3D, index, c)) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      }</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;      {</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="verification_8c.html#a22e35d32911afec200167660032b2fa6">canMooveThisPionD</a>(map3D, index, c)) <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;      } </div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;    }</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">return</span> -1; <span class="comment">// cas ou il clique sur la pile adversaire</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  }</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="keywordflow">return</span> -1; <span class="comment">// cas index == -1</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;}</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160; </div>
+<div class="line"><a name="l00651"></a><span class="lineno"><a class="line" href="verification_8c.html#aa918657f742618d7b36f704cc1747b29">  651</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#aa918657f742618d7b36f704cc1747b29">canPlay</a>(<span class="keywordtype">int</span> imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, <span class="keywordtype">char</span> *** map3D, <span class="keywordtype">char</span> ** pile, <span class="keywordtype">int</span> distance) {</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  <span class="keywordtype">int</span> index = <a class="code" href="get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b">getIndex</a>(pointMouse, tableauCase); <span class="comment">// recupère la case ou le clique a été fait, -1 si la case n&#39;existe pas</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  <span class="keywordtype">int</span> x1 = (imageIndexP - imageIndexP % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="keywordtype">int</span> y1 = imageIndexP % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; <span class="comment">// coordonnée du pion de départ</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;  <span class="keywordtype">int</span> x2 = (index - index % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) / <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>;             <span class="keywordtype">int</span> y2 = index % <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>;       <span class="comment">// coordonnée du pion d&#39;arriver</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;  </div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  <span class="keywordflow">if</span> (index == -1 || index &gt; 8) <span class="keywordflow">return</span> -1; <span class="comment">// pas le droit de poser son pion sur une pile ou sur autre qu&#39;une case</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="keywordflow">if</span> (imageIndexP &gt; 8) { <span class="comment">// cas où le pion de départ appartient à la pile </span></div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;      <span class="keywordtype">int</span> sizePionMax = (imageIndexP == 9 || imageIndexP == 12) ? 2 : (imageIndexP == 10 || imageIndexP == 13) ? 1 : 0 ;  <span class="comment">// recupère la taille du pion</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="verification_8c.html#a311343dd170318fed2254bd88c6c35dd">canPutPion</a>(map3D, sizePionMax, index)) <span class="keywordflow">return</span> index; <span class="comment">// si on peut jouer ce pion, on retourne l&#39;indice de la case</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">return</span> -1; <span class="comment">// sinon -1</span></div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    }</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    <span class="keywordflow">else</span> { <span class="comment">// si le pion de départ appartient au plateau de jeu</span></div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4">canMoove</a>(map3D, imageIndexP, index) &amp;&amp; (<a class="code" href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">maximum</a>(abs(x1-x2), abs(y1-y2)) &lt;= 1 || distance == 0)) <span class="keywordflow">return</span> index; <span class="comment">// on regarde si on peut le jouer et si oui on retourne l&#39;indice</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    }</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  }</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;}</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00684"></a><span class="lineno"><a class="line" href="verification_8c.html#ac46832b68e98d1c321d5f0341ea08760">  684</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="verification_8c.html#ac46832b68e98d1c321d5f0341ea08760">canEffectDeplacementWithDistance</a>(<span class="keywordtype">char</span> *** map3D, <span class="keywordtype">char</span> c) {</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;  <span class="keywordtype">int</span> posDeb;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; i++) {</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0;j &lt; <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>; j++) {</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      posDeb = (i * <a class="code" href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a>) + j;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;      <span class="keywordflow">if</span> (<a class="code" href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6">canMooveThisPionDistance</a>(map3D, posDeb, c)) <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    }</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  }</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="averification_8c_html_a3c38e14cc2d59ee07c0a9b41dd945a6c"><div class="ttname"><a href="verification_8c.html#a3c38e14cc2d59ee07c0a9b41dd945a6c">isInRect</a></div><div class="ttdeci">SDL_bool isInRect(SDL_Point point, SDL_Point rectangleHautGauche, SDL_Point rectangleBasDroit)</div><div class="ttdoc">Fonction qui regarde si le point de la souris se trouve à l'intérieur de la surface....</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00555">verification.c:555</a></div></div>
+<div class="ttc" id="averification_8c_html_ae0710b5cda56a0ab30666cc09e8c8017"><div class="ttname"><a href="verification_8c.html#ae0710b5cda56a0ab30666cc09e8c8017">canMooveThisPion</a></div><div class="ttdeci">int canMooveThisPion(char ***map, char **map2D, int posDeb, char c)</div><div class="ttdoc">Fonction qui regarde si le pion d'une case du plateau de jeu peut se deplacer ailleurs dans la map....</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00209">verification.c:209</a></div></div>
+<div class="ttc" id="averification_8c_html_a96e4ad03b50ffc967d96f8504232fbd8"><div class="ttname"><a href="verification_8c.html#a96e4ad03b50ffc967d96f8504232fbd8">existPionInMap</a></div><div class="ttdeci">int existPionInMap(char **map2D, char c)</div><div class="ttdoc">Fonction qui regarde si il existe un pion visible sur le plateau.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00052">verification.c:52</a></div></div>
+<div class="ttc" id="averification_8c_html_a28677deef3f8a0ac4347b1c50780cc3b"><div class="ttname"><a href="verification_8c.html#a28677deef3f8a0ac4347b1c50780cc3b">count_pion</a></div><div class="ttdeci">int count_pion(char **map, int nbre, char c)</div><div class="ttdoc">Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00343">verification.c:343</a></div></div>
+<div class="ttc" id="averification_8c_html_ac2b319e050ff5ddc1aed4782412fb7d6"><div class="ttname"><a href="verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6">canMooveThisPionDistance</a></div><div class="ttdeci">int canMooveThisPionDistance(char ***map, int posDeb, char c)</div><div class="ttdoc">Fonction qui regarde si le pion d'une case du plateau de jeu peut se deplacer ailleurs dans la map d'...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00254">verification.c:254</a></div></div>
+<div class="ttc" id="averification_8c_html_a311343dd170318fed2254bd88c6c35dd"><div class="ttname"><a href="verification_8c.html#a311343dd170318fed2254bd88c6c35dd">canPutPion</a></div><div class="ttdeci">int canPutPion(char ***map, int sizePion, int endPion)</div><div class="ttdoc">Fonction qui regarde si on peut mettre un pion d'une taille donnée sur une case du plateau de jeu.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00511">verification.c:511</a></div></div>
+<div class="ttc" id="averification_8c_html_adfcb5fd1cf956620ead7de296d9c3313"><div class="ttname"><a href="verification_8c.html#adfcb5fd1cf956620ead7de296d9c3313">canPlayNewPion</a></div><div class="ttdeci">int canPlayNewPion(char **stackArray, char **map2D)</div><div class="ttdoc">Fonction qui regarde si le joueur peut jouer un nouveau pion sur le plateau. .</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00456">verification.c:456</a></div></div>
+<div class="ttc" id="averification_8c_html_ad47a0a15f03b7aec9942d858ec28fa39"><div class="ttname"><a href="verification_8c.html#ad47a0a15f03b7aec9942d858ec28fa39">isEmptyCase</a></div><div class="ttdeci">int isEmptyCase(char **map2D)</div><div class="ttdoc">Fonction qui regarde si il existe une case du plateau vide.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00131">verification.c:131</a></div></div>
+<div class="ttc" id="averification_8c_html_a40255217879033ed8cda37b28dd651bd"><div class="ttname"><a href="verification_8c.html#a40255217879033ed8cda37b28dd651bd">isEmptyStacks</a></div><div class="ttdeci">int isEmptyStacks(char **stack)</div><div class="ttdoc">Fonction qui regarde si la pile du joueur est vide.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00111">verification.c:111</a></div></div>
+<div class="ttc" id="averification_8c_html_add639b2ba8138ee6a979cbbea7103d3f"><div class="ttname"><a href="verification_8c.html#add639b2ba8138ee6a979cbbea7103d3f">canPlayStack</a></div><div class="ttdeci">int canPlayStack(int sizePion, char ***map)</div><div class="ttdoc">Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00481">verification.c:481</a></div></div>
+<div class="ttc" id="averification_8c_html_a6ed8fab0b7f06f2d905a9b6c09e7b757"><div class="ttname"><a href="verification_8c.html#a6ed8fab0b7f06f2d905a9b6c09e7b757">existPionInStack</a></div><div class="ttdeci">int existPionInStack(char **stack, int num, int i)</div><div class="ttdoc">Fonction qui regarde si il existe un pion d'une certaine taille sur la pile d'un joueur.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00075">verification.c:75</a></div></div>
+<div class="ttc" id="averification_8c_html_a25929dd14025a5f9ab5f1e309b1335bc"><div class="ttname"><a href="verification_8c.html#a25929dd14025a5f9ab5f1e309b1335bc">debugTab</a></div><div class="ttdeci">void debugTab(SDL_Rect **tableauCase)</div><div class="ttdoc">Fonction qui vérifie que les cases n'ont pas été modifié car bug sur WINDOWS.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00374">verification.c:374</a></div></div>
+<div class="ttc" id="ainit_8h_html_afe5f6e3ea4af8ec2a19d93ad95d8bf27"><div class="ttname"><a href="init_8h.html#afe5f6e3ea4af8ec2a19d93ad95d8bf27">initTableauCase</a></div><div class="ttdeci">void initTableauCase(SDL_Rect **tableauCase)</div><div class="ttdoc">Fonction qui initialise (attention ne créée pas) toutes les cases/surfaces en 3*3.</div><div class="ttdef"><b>Definition:</b> <a href="init_8c_source.html#l00312">init.c:312</a></div></div>
+<div class="ttc" id="averification_8c_html_a6a052365be8ea742b235b5acda37e9e5"><div class="ttname"><a href="verification_8c.html#a6a052365be8ea742b235b5acda37e9e5">sizeMaxPion</a></div><div class="ttdeci">int sizeMaxPion(char **stackArray)</div><div class="ttdoc">Fonction qui regarde si il y a un pion de taille &gt; 1 dans la pile du joueur (patant de l'hypothèse qu...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00433">verification.c:433</a></div></div>
+<div class="ttc" id="astructpoint_html"><div class="ttname"><a href="structpoint.html">point</a></div><div class="ttdoc">Objet représentant un point (x,y). .</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8h_source.html#l00020">fonction.h:20</a></div></div>
+<div class="ttc" id="astructpoint_html_a0a2f84ed7838f07779ae24c5a9086d33"><div class="ttname"><a href="structpoint.html#a0a2f84ed7838f07779ae24c5a9086d33">point::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8h_source.html#l00021">fonction.h:21</a></div></div>
+<div class="ttc" id="astructpoint_html_a6150e0515f7202e2fb518f7206ed97dc"><div class="ttname"><a href="structpoint.html#a6150e0515f7202e2fb518f7206ed97dc">point::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> <a href="fonction_8h_source.html#l00021">fonction.h:21</a></div></div>
+<div class="ttc" id="averification_8c_html_a22e35d32911afec200167660032b2fa6"><div class="ttname"><a href="verification_8c.html#a22e35d32911afec200167660032b2fa6">canMooveThisPionD</a></div><div class="ttdeci">int canMooveThisPionD(char ***map, int posDeb, char c)</div><div class="ttdoc">Fonction qui regarde si le pion d'une case du plateau de jeu peut se deplacer ailleurs dans la map d'...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00300">verification.c:300</a></div></div>
+<div class="ttc" id="averification_8c_html_a09836d26091dcf3a269aa53d2183374e"><div class="ttname"><a href="verification_8c.html#a09836d26091dcf3a269aa53d2183374e">isEmptyStack</a></div><div class="ttdeci">int isEmptyStack(char **stack, int num)</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00093">verification.c:93</a></div></div>
+<div class="ttc" id="averification_8c_html_adcc5c1f674d01e1f25f6fc7b212625d2"><div class="ttname"><a href="verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2">isEmptyCase2</a></div><div class="ttdeci">int isEmptyCase2(char ***map3D)</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00151">verification.c:151</a></div></div>
+<div class="ttc" id="averification_8c_html_aa918657f742618d7b36f704cc1747b29"><div class="ttname"><a href="verification_8c.html#aa918657f742618d7b36f704cc1747b29">canPlay</a></div><div class="ttdeci">int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect **tableauCase, char ***map3D, char **pile, int distance)</div><div class="ttdoc">Fonction qui permet de savoir si on peut jouer un pion, il appelle d'autres fonctions pour vérifier l...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00651">verification.c:651</a></div></div>
+<div class="ttc" id="averification_8c_html_a66d6aec8109a2c23fad09a82bc3259e9"><div class="ttname"><a href="verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9">maximum</a></div><div class="ttdeci">int maximum(int i, int i2)</div><div class="ttdoc">Fonction qui retourne le maximum entre 2 entiers.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00023">verification.c:23</a></div></div>
+<div class="ttc" id="amain_8c_html_a0240ac851181b84ac374872dc5434ee4"><div class="ttname"><a href="main_8c.html#a0240ac851181b84ac374872dc5434ee4">N</a></div><div class="ttdeci">#define N</div><div class="ttdoc">Représente la taille de la grille et le nombres de cases vaut N*N.</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00044">main.c:44</a></div></div>
+<div class="ttc" id="averification_8c_html_abb3638a3a1557f9141f506855adf6a45"><div class="ttname"><a href="verification_8c.html#abb3638a3a1557f9141f506855adf6a45">canSelection</a></div><div class="ttdeci">int canSelection(SDL_Point pointMouse, char ***map3D, char **map2D, SDL_Rect **tableauCase, char **pileJ1, char **pileJ2, char c, int distance)</div><div class="ttdoc">Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu'il y a un pion sur la ca...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00599">verification.c:599</a></div></div>
+<div class="ttc" id="averification_8c_html_ae7e6919b02e99fa46dd93cd06656f3d4"><div class="ttname"><a href="verification_8c.html#ae7e6919b02e99fa46dd93cd06656f3d4">canMoove</a></div><div class="ttdeci">int canMoove(char ***map, int posDeb, int posEnd)</div><div class="ttdoc">Fonction qui regarde si le pion d'une case du plateau de jeu peut se déplacer vers une autre case du ...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00182">verification.c:182</a></div></div>
+<div class="ttc" id="aget_8h_html_aad7afd925ca39d6ad75730fbe2d7e61b"><div class="ttname"><a href="get_8h.html#aad7afd925ca39d6ad75730fbe2d7e61b">getIndex</a></div><div class="ttdeci">int getIndex(SDL_Point pointMouse, SDL_Rect **tableauCase)</div><div class="ttdoc">Fonction qui regarde si il y a un clique sur une case plateau ou pile.</div><div class="ttdef"><b>Definition:</b> <a href="get_8c_source.html#l00022">get.c:22</a></div></div>
+<div class="ttc" id="averification_8c_html_ac46832b68e98d1c321d5f0341ea08760"><div class="ttname"><a href="verification_8c.html#ac46832b68e98d1c321d5f0341ea08760">canEffectDeplacementWithDistance</a></div><div class="ttdeci">int canEffectDeplacementWithDistance(char ***map3D, char c)</div><div class="ttdoc">Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00684">verification.c:684</a></div></div>
+<div class="ttc" id="averification_8c_html_a9187f4e9b7527956cc569aa821f24263"><div class="ttname"><a href="verification_8c.html#a9187f4e9b7527956cc569aa821f24263">minimum</a></div><div class="ttdeci">int minimum(int i, int i2)</div><div class="ttdoc">Fonction qui retourne le minimum entre 2 entiers.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00037">verification.c:37</a></div></div>
+<div class="ttc" id="averification_8c_html_acefd0a52f69bd622ef1406d258e4294d"><div class="ttname"><a href="verification_8c.html#acefd0a52f69bd622ef1406d258e4294d">isStackFull</a></div><div class="ttdeci">int isStackFull(char **pile)</div><div class="ttdoc">Fonction qui regarde si la pile du joueur est pleine ou non.</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00531">verification.c:531</a></div></div>
+<div class="ttc" id="averification_8c_html_aa768305402b820525d9d57efd9c6feea"><div class="ttname"><a href="verification_8c.html#aa768305402b820525d9d57efd9c6feea">check_End_Game</a></div><div class="ttdeci">int check_End_Game(char **map)</div><div class="ttdoc">Fonction qui nous informe en cas de victoire du joueur et nous donne l'identifiant de la ligne corres...</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00396">verification.c:396</a></div></div>
+<div class="ttc" id="averification_8c_html_a1f9b6c1b19db31b32357635428e6a9f2"><div class="ttname"><a href="verification_8c.html#a1f9b6c1b19db31b32357635428e6a9f2">isInRectangle</a></div><div class="ttdeci">SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect)</div><div class="ttdoc">Fonction qui regarde si le point de la souris se trouve à l'intérieur de la surface....</div><div class="ttdef"><b>Definition:</b> <a href="verification_8c_source.html#l00575">verification.c:575</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

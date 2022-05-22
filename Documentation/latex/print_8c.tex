@@ -1,0 +1,204 @@
+\hypertarget{print_8c}{}\doxysection{Référence du fichier src/print.c}
+\label{print_8c}\index{src/print.c@{src/print.c}}
+
+
+Fichier contenant les codes des fonctions permettant d\textquotesingle{}afficher dans le terminal le plateau et les piles.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{print_8c_a66d4ad2eb5b86d4c171a9523bef30302}{print\+Map3d\+Debug}} (char $\ast$$\ast$$\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche dans le terminal le plateau de jeu détaillé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8c_a70c9f0d9019b48dbf1f602b80403c8a3}{print\+Map2D}} (char $\ast$$\ast$map2D)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche dans le terminal le plateau de jeu non détaillé. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8c_ae797942a45cfa592c344203266d5643b}{print\+Stacks}} (char $\ast$$\ast$stacks\+Array)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche dans le terminal les piles du joueur. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8c_a4e1b7b552f60c0aa6fca0f7757e12b6a}{print\+I\+A\+Parametre}} (int $\ast$$\ast$tab)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche dans le terminal le tableau de paramètre de l\textquotesingle{}IA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{print_8c_ae1e48b1128532be65d4370150650957b}{print\+I\+A\+Result}} (int $\ast$tab, int nbre\+IA)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche les resultats des IA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les codes des fonctions permettant d\textquotesingle{}afficher dans le terminal le plateau et les piles. 
+
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{print_8c_a4e1b7b552f60c0aa6fca0f7757e12b6a}\label{print_8c_a4e1b7b552f60c0aa6fca0f7757e12b6a}} 
+\index{print.c@{print.c}!printIAParametre@{printIAParametre}}
+\index{printIAParametre@{printIAParametre}!print.c@{print.c}}
+\doxysubsubsection{\texorpdfstring{printIAParametre()}{printIAParametre()}}
+{\footnotesize\ttfamily void print\+I\+A\+Parametre (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{tab }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche dans le terminal le tableau de paramètre de l\textquotesingle{}IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: tableau de paramètre\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 84 du fichier print.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{print_8c_a4e1b7b552f60c0aa6fca0f7757e12b6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{print_8c_ae1e48b1128532be65d4370150650957b}\label{print_8c_ae1e48b1128532be65d4370150650957b}} 
+\index{print.c@{print.c}!printIAResult@{printIAResult}}
+\index{printIAResult@{printIAResult}!print.c@{print.c}}
+\doxysubsubsection{\texorpdfstring{printIAResult()}{printIAResult()}}
+{\footnotesize\ttfamily void print\+I\+A\+Result (\begin{DoxyParamCaption}\item[{int $\ast$}]{tab,  }\item[{int}]{nbre\+IA }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche les resultats des IA. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab \+: tableau de resultat d\textquotesingle{}ia \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & nbre\+IA \+: Le nombre d\textquotesingle{}IA\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 106 du fichier print.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{print_8c_ae1e48b1128532be65d4370150650957b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{print_8c_a70c9f0d9019b48dbf1f602b80403c8a3}\label{print_8c_a70c9f0d9019b48dbf1f602b80403c8a3}} 
+\index{print.c@{print.c}!printMap2D@{printMap2D}}
+\index{printMap2D@{printMap2D}!print.c@{print.c}}
+\doxysubsubsection{\texorpdfstring{printMap2D()}{printMap2D()}}
+{\footnotesize\ttfamily void print\+Map2D (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche dans le terminal le plateau de jeu non détaillé. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non détaillé à afficher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 44 du fichier print.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{print_8c_a70c9f0d9019b48dbf1f602b80403c8a3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{print_8c_a66d4ad2eb5b86d4c171a9523bef30302}\label{print_8c_a66d4ad2eb5b86d4c171a9523bef30302}} 
+\index{print.c@{print.c}!printMap3dDebug@{printMap3dDebug}}
+\index{printMap3dDebug@{printMap3dDebug}!print.c@{print.c}}
+\doxysubsubsection{\texorpdfstring{printMap3dDebug()}{printMap3dDebug()}}
+{\footnotesize\ttfamily void print\+Map3d\+Debug (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche dans le terminal le plateau de jeu détaillé. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé à afficher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé à afficher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 20 du fichier print.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{print_8c_a66d4ad2eb5b86d4c171a9523bef30302_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{print_8c_ae797942a45cfa592c344203266d5643b}\label{print_8c_ae797942a45cfa592c344203266d5643b}} 
+\index{print.c@{print.c}!printStacks@{printStacks}}
+\index{printStacks@{printStacks}!print.c@{print.c}}
+\doxysubsubsection{\texorpdfstring{printStacks()}{printStacks()}}
+{\footnotesize\ttfamily void print\+Stacks (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stacks\+Array }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche dans le terminal les piles du joueur. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: piles du joueur à afficher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de retour pour la fonction.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 64 du fichier print.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{print_8c_ae797942a45cfa592c344203266d5643b_icgraph}
+\end{center}
+\end{figure}

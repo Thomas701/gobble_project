@@ -1,0 +1,10 @@
+<map id="SGO_demanderQuellePileJouer" name="SGO_demanderQuellePileJouer">
+<area shape="rect" id="node1" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="5,157,228,184"/>
+<area shape="rect" id="node2" href="$verification_8h.html#add639b2ba8138ee6a979cbbea7103d3f" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="291,5,401,32"/>
+<area shape="rect" id="node3" href="$verification_8h.html#a09836d26091dcf3a269aa53d2183374e" title=" " alt="" coords="291,56,401,83"/>
+<area shape="rect" id="node4" href="$print_8h.html#a70c9f0d9019b48dbf1f602b80403c8a3" title="Fonction qui affiche dans le terminal le plateau de jeu non détaillé." alt="" coords="297,107,395,133"/>
+<area shape="rect" id="node5" href="$print_8h.html#a66d4ad2eb5b86d4c171a9523bef30302" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="277,157,415,184"/>
+<area shape="rect" id="node6" href="$print_8h.html#ae797942a45cfa592c344203266d5643b" title="Fonction qui affiche dans le terminal les piles du joueur." alt="" coords="299,208,393,235"/>
+<area shape="rect" id="node7" href="$get_8h.html#a5b283e6ec1d60b83c6dbf6d2078140f5" title="Fonction qui regarde la taille maximum d&#39;un pion d&#39;une pile." alt="" coords="276,259,416,285"/>
+<area shape="rect" id="node8" href="$free_8h.html#a183c5f911befa83432ff61674e326603" title="Fonction permettant de vider le buffer afin d&#39;éviter les bugs dans les scanf." alt="" coords="296,309,396,336"/>
+</map>

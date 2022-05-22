@@ -1,0 +1,11 @@
+<map id="loadImage" name="loadImage">
+<area shape="rect" id="node1" title="Fonction qui va permmetre de transformer une image (n&#39;importe quel format valide) en texture." alt="" coords="575,132,665,159"/>
+<area shape="rect" id="node2" href="$graphique_8c.html#a202c2687f8e2c5cb50a7df539e0b819d" title="Fonction lance l&#39;animation de début avec le nom des participants et le logo ISIMA avec fondu transpar..." alt="" coords="384,5,492,32"/>
+<area shape="rect" id="node3" href="$init_8c.html#a378c028b0ddd060dd4643e04d3a1bafa" title=" " alt="" coords="357,56,519,83"/>
+<area shape="rect" id="node6" href="$init_8c.html#ae50fd7713aca8e86439c8a2aadbab5d6" title=" " alt="" coords="399,107,477,133"/>
+<area shape="rect" id="node7" href="$init_8c.html#a8f0b2e072f0de59baa36e4b77e15e0f3" title="Fonction qui charge les images des options menu." alt="" coords="349,157,527,184"/>
+<area shape="rect" id="node8" href="$init_8c.html#a34fa94001e97c9d21c12159b7d1fc405" title=" " alt="" coords="350,208,526,235"/>
+<area shape="rect" id="node9" href="$init_8c.html#af3b494e08e48520f09b6b419652aa0ea" title="Fonction qui charge les images des lignes coloré (en cas de victoire ou égalité)." alt="" coords="377,259,499,285"/>
+<area shape="rect" id="node4" href="$init_8c.html#ac0e5ba316b9b150fa998cc4075ae5672" title="Fonction qui initialise toutes la partie SDL images + audio. Et qui initialise les tableaux de textur..." alt="" coords="108,157,301,184"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,157,60,184"/>
+</map>

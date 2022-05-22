@@ -1,0 +1,6 @@
+<map id="getIndexPionWhoAreEat" name="getIndexPionWhoAreEat">
+<area shape="rect" id="node1" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="5,56,184,83"/>
+<area shape="rect" id="node2" href="$get_8c.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="232,5,388,32"/>
+<area shape="rect" id="node3" href="$get_8c.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="232,56,388,83"/>
+<area shape="rect" id="node4" href="$liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="436,81,484,108"/>
+</map>

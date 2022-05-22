@@ -1,0 +1,15 @@
+<map id="listTabOfCoups" name="listTabOfCoups">
+<area shape="rect" id="node1" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="5,241,124,268"/>
+<area shape="rect" id="node2" href="$verification_8h.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="172,23,371,65"/>
+<area shape="rect" id="node6" href="$verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="227,89,316,116"/>
+<area shape="rect" id="node7" href="$verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="194,140,349,167"/>
+<area shape="rect" id="node8" href="$verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="224,191,319,217"/>
+<area shape="rect" id="node9" href="$get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="193,241,349,268"/>
+<area shape="rect" id="node10" href="$ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="211,292,331,319"/>
+<area shape="rect" id="node11" href="$verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2" title=" " alt="" coords="214,343,329,369"/>
+<area shape="rect" id="node12" href="$verification_8h.html#abdb7736101ad9e2d773dad6ecbd72ec1" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="212,393,331,420"/>
+<area shape="rect" id="node13" href="$verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="227,444,316,471"/>
+<area shape="rect" id="node3" href="$verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="419,31,620,57"/>
+<area shape="rect" id="node4" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="668,5,757,32"/>
+<area shape="rect" id="node5" href="$verification_8c.html#a9187f4e9b7527956cc569aa821f24263" title="Fonction qui retourne le minimum entre 2 entiers." alt="" coords="670,56,755,83"/>
+</map>

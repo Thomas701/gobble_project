@@ -1,0 +1,10 @@
+<map id="printMapEmptySDL" name="printMapEmptySDL">
+<area shape="rect" id="node1" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="792,183,939,209"/>
+<area shape="rect" id="node2" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,107,469,133"/>
+<area shape="rect" id="node3" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,208,252,235"/>
+<area shape="rect" id="node5" href="$graphique_8c.html#a2c7c5273a970888cd0d1737c2e1172f0" title=" " alt="" coords="354,259,415,285"/>
+<area shape="rect" id="node6" href="$graphique_8c.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="660,81,744,108"/>
+<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,233,60,260"/>
+<area shape="rect" id="node7" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="525,5,605,32"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="517,56,612,83"/>
+</map>

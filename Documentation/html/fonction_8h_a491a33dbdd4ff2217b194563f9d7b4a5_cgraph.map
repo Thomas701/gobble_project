@@ -1,0 +1,52 @@
+<map id="SGOG_IA" name="SGOG_IA">
+<area shape="rect" id="node1" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="5,459,85,485"/>
+<area shape="rect" id="node2" href="$verification_8h.html#a28677deef3f8a0ac4347b1c50780cc3b" title="Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la ma..." alt="" coords="520,199,613,225"/>
+<area shape="rect" id="node3" href="$init_8h.html#a18877e4c5446e6b4c2f8acb1c4f2f952" title="Fonction qui initialise le plateau de jeu non detaillé (2D) avec les case de la map3D...." alt="" coords="522,300,611,327"/>
+<area shape="rect" id="node4" href="$ia_8h.html#a50c9ee83023888c0aa1313b19c5a0fdf" title="Fait jouer l&#39;IA." alt="" coords="150,687,201,713"/>
+<area shape="rect" id="node46" href="$graphique_8h.html#a4d3c576dd7b3b2a8afe95eaff33ccc57" title=" " alt="" coords="133,1339,217,1365"/>
+<area shape="rect" id="node5" href="$liste_8h.html#ac38600916d3240890f129ddc638b6e84" title="ajoute un élément au début d&#39;une liste" alt="" coords="543,1187,590,1213"/>
+<area shape="rect" id="node7" href="$liste_8h.html#af7e0f5238bce3e3a6ef83aaafde415cc" title="reset une liste" alt="" coords="320,769,375,796"/>
+<area shape="rect" id="node8" href="$liste_8h.html#a2a479a91481bafc5be84ef8820aa6dff" title="creer une liste" alt="" coords="519,1085,614,1112"/>
+<area shape="rect" id="node9" href="$ia_8c.html#ad707bbcb8e2701a20041722fdf31f275" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="497,1237,637,1264"/>
+<area shape="rect" id="node12" href="$ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="521,629,612,656"/>
+<area shape="rect" id="node15" href="$liste_8h.html#ae68f291c9fe0120bd2de4c9a4b242950" title="renvoie la taille de la liste" alt="" coords="1027,132,1075,159"/>
+<area shape="rect" id="node16" href="$free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="735,1136,872,1163"/>
+<area shape="rect" id="node17" href="$liste_8h.html#a7b9a2f43a8dbdd82e30023472111c3de" title="renvoie la valeur contenu dans l&#39;indice à l&#39;index n" alt="" coords="326,325,369,352"/>
+<area shape="rect" id="node18" href="$get_8h.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="477,81,656,108"/>
+<area shape="rect" id="node21" href="$ia_8c.html#a4b7866b2ca0b3eca5a5d1579f2d2e925" title="Permet d&#39;initialiser l&#39;ensemble des cases du tableau à &#45;1." alt="" coords="743,208,863,235"/>
+<area shape="rect" id="node22" href="$ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="507,528,626,555"/>
+<area shape="rect" id="node32" href="$ia_8c.html#addbe81105e0658b076d3fe85b439166e" title="Place un piont." alt="" coords="509,781,624,808"/>
+<area shape="rect" id="node35" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="304,719,391,745"/>
+<area shape="rect" id="node6" href="$liste_8c.html#ad96397b14c3010948f796616a7951f47" title="creer une liste" alt="" coords="756,1187,851,1213"/>
+<area shape="rect" id="node10" href="$error_8h.html#a4ab8e97db4492ec35429f60241093de9" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="988,1187,1115,1213"/>
+<area shape="rect" id="node11" href="$error_8c.html#a1cd17c76c9446b6c908b298a8185a9a1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du tableau de coups)." alt="" coords="711,1237,896,1264"/>
+<area shape="rect" id="node13" href="$get_8h.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="725,629,881,656"/>
+<area shape="rect" id="node14" href="$get_8h.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="725,680,881,707"/>
+<area shape="rect" id="node19" href="$get_8c.html#a1b54240324a48af54eade306deec53d5" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="725,5,881,32"/>
+<area shape="rect" id="node20" href="$get_8c.html#a6e7679f3603a07fd45f96a6e4722bc12" title="Fonction qui renvoie la taille du pion sur la case demandé (&#45;1) si pas de pion." alt="" coords="725,107,881,133"/>
+<area shape="rect" id="node23" href="$verification_8h.html#ac46832b68e98d1c321d5f0341ea08760" title="Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la dis..." alt="" coords="704,259,903,301"/>
+<area shape="rect" id="node26" href="$verification_8h.html#ae7e6919b02e99fa46dd93cd06656f3d4" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se déplacer vers une autre case du ..." alt="" coords="1007,731,1096,757"/>
+<area shape="rect" id="node27" href="$verification_8h.html#a22e35d32911afec200167660032b2fa6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="726,427,881,453"/>
+<area shape="rect" id="node28" href="$verification_8h.html#a311343dd170318fed2254bd88c6c35dd" title="Fonction qui regarde si on peut mettre un pion d&#39;une taille donnée sur une case du plateau de jeu." alt="" coords="756,477,851,504"/>
+<area shape="rect" id="node29" href="$verification_8c.html#adcc5c1f674d01e1f25f6fc7b212625d2" title=" " alt="" coords="746,528,861,555"/>
+<area shape="rect" id="node30" href="$verification_8h.html#abdb7736101ad9e2d773dad6ecbd72ec1" title="Fonction qui regarde si la pile du joueur est vide." alt="" coords="744,325,863,352"/>
+<area shape="rect" id="node31" href="$verification_8h.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="759,376,848,403"/>
+<area shape="rect" id="node24" href="$verification_8c.html#ac2b319e050ff5ddc1aed4782412fb7d6" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="951,267,1152,293"/>
+<area shape="rect" id="node25" href="$verification_8c.html#a66d6aec8109a2c23fad09a82bc3259e9" title="Fonction qui retourne le maximum entre 2 entiers." alt="" coords="1200,267,1289,293"/>
+<area shape="rect" id="node33" href="$fonction_8h.html#a5e39184e8bf4db30953c9defac0662d9" title="Permet de déplacer un pion se trouvant sur la map. ." alt="" coords="770,883,837,909"/>
+<area shape="rect" id="node34" href="$fonction_8h.html#a6943dc5b37283bec546157d5ec4a5953" title="Permet de placer le pion sur la map. Il faut d&#39;abord vérifier si le coup est valide." alt="" coords="734,832,873,859"/>
+<area shape="rect" id="node36" href="$ia_8c.html#a3852eaa43422dd342e74109cd51c1af6" title="free l&#39;ensemble des éléments" alt="" coords="533,933,600,960"/>
+<area shape="rect" id="node37" href="$free_8h.html#a2766c0fd59a44d80c549cd95789f13d6" title="Fonction permettant de free le plateau de jeu détaillé." alt="" coords="765,984,841,1011"/>
+<area shape="rect" id="node38" href="$free_8h.html#a403c3ca1600b95a561db142984a2ee20" title="Fonction permettant de free le plateau de jeu non détaillé." alt="" coords="756,1035,851,1061"/>
+<area shape="rect" id="node39" href="$free_8h.html#a305adc7754c15f89ef7637c2b5cbcc12" title="Fonction permettant de free les piles d&#39;un joueur." alt="" coords="761,933,845,960"/>
+<area shape="rect" id="node40" href="$ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd" title="Permet de copier la map 2D." alt="" coords="517,1035,616,1061"/>
+<area shape="rect" id="node42" href="$ia_8c.html#a3daa1236ed5842bf365e59fd3ab937fa" title="Permet de copier la map 3D." alt="" coords="517,680,616,707"/>
+<area shape="rect" id="node44" href="$ia_8c.html#a08f171c0f9610e91ae64f696b8632255" title="Permet de copier une pile." alt="" coords="522,731,611,757"/>
+<area shape="rect" id="node41" href="$creation_8h.html#a3340c609d18569433fce6b4b7bd176c8" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="749,1085,858,1112"/>
+<area shape="rect" id="node43" href="$creation_8h.html#a56566517a2b19fa1c8871e21df713816" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="758,731,849,757"/>
+<area shape="rect" id="node45" href="$creation_8h.html#a3e7bd7161b38fea3af60f6f4ffa89486" title="Permet de créer dynamiquement les piles de départ d&#39;un joueur avec le caractère c (initialisation + d..." alt="" coords="754,781,853,808"/>
+<area shape="rect" id="node47" href="$graphique_8c.html#a5e0d4768732ce9330c87514561d1f34b" title="Fonction qui affiche les piles des joueurs en interface graphique." alt="" coords="290,1440,405,1467"/>
+<area shape="rect" id="node48" href="$graphique_8c.html#a553ce3aa6a51180bfa5d2b08a8c1d8a6" title=" " alt="" coords="275,1288,419,1315"/>
+<area shape="rect" id="node49" href="$graphique_8c.html#a621debd3e47a00dd315991401bb3e4c8" title=" " alt="" coords="265,1339,429,1365"/>
+<area shape="rect" id="node50" href="$graphique_8c.html#a2fbe2ade1b6af727a22c3eeee0fa34b6" title="Fonction qui affiche en interface graphique la map sans pion." alt="" coords="274,1389,421,1416"/>
+</map>

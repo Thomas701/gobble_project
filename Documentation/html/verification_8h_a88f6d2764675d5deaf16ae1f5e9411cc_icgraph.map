@@ -1,0 +1,7 @@
+<map id="isEmptyCase" name="isEmptyCase">
+<area shape="rect" id="node1" title="Fonction qui regarde si il existe une case du plateau vide." alt="" coords="451,31,557,57"/>
+<area shape="rect" id="node2" href="$verification_8c.html#ae0710b5cda56a0ab30666cc09e8c8017" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map...." alt="" coords="259,5,403,32"/>
+<area shape="rect" id="node3" href="$verification_8c.html#adfcb5fd1cf956620ead7de296d9c3313" title="Fonction qui regarde si le joueur peut jouer un nouveau pion sur le plateau. ." alt="" coords="265,56,396,83"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,56,211,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,56,60,83"/>
+</map>

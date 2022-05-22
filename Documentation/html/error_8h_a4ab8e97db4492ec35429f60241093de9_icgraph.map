@@ -1,0 +1,15 @@
+<map id="errorInCreate2D" name="errorInCreate2D">
+<area shape="rect" id="node1" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu non de..." alt="" coords="1229,107,1356,133"/>
+<area shape="rect" id="node2" href="$creation_8c.html#aac32f39ca3e9025fca6d959b5b01719e" title="Permet de créer dynamiquement le plateau de jeu non détaillé." alt="" coords="1072,69,1181,96"/>
+<area shape="rect" id="node13" href="$ia_8c.html#ad707bbcb8e2701a20041722fdf31f275" title="Permet de créer dynamiquement le tableau contenant les coups pouvants être joué par l&#39;IA." alt="" coords="884,157,1024,184"/>
+<area shape="rect" id="node3" href="$ia_8c.html#a2e2de371019b61d42f97ce4e3b8201fd" title="Permet de copier la map 2D." alt="" coords="905,107,1003,133"/>
+<area shape="rect" id="node9" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,107,60,133"/>
+<area shape="rect" id="node12" href="$save_file_8c.html#a5f5e0477b7904f6d15f18edc74deb601" title=" " alt="" coords="908,5,1000,32"/>
+<area shape="rect" id="node4" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="749,107,836,133"/>
+<area shape="rect" id="node5" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,132,701,159"/>
+<area shape="rect" id="node6" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,107,600,133"/>
+<area shape="rect" id="node10" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,157,603,184"/>
+<area shape="rect" id="node7" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,107,469,133"/>
+<area shape="rect" id="node8" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,107,252,133"/>
+<area shape="rect" id="node11" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,157,217,184"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="allFree" name="allFree">
+<area shape="rect" id="node1" title="free l&#39;ensemble des éléments" alt="" coords="5,81,72,108"/>
+<area shape="rect" id="node2" href="$free_8h.html#a2766c0fd59a44d80c549cd95789f13d6" title="Fonction permettant de free le plateau de jeu détaillé." alt="" coords="151,5,227,32"/>
+<area shape="rect" id="node3" href="$free_8h.html#a403c3ca1600b95a561db142984a2ee20" title="Fonction permettant de free le plateau de jeu non détaillé." alt="" coords="141,56,236,83"/>
+<area shape="rect" id="node4" href="$free_8h.html#a305adc7754c15f89ef7637c2b5cbcc12" title="Fonction permettant de free les piles d&#39;un joueur." alt="" coords="147,107,231,133"/>
+<area shape="rect" id="node5" href="$free_8h.html#ae45e62dfe7b5e656a4a13a26b8cb4017" title=" " alt="" coords="120,157,257,184"/>
+</map>

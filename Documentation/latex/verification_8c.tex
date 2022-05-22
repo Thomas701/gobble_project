@@ -1,0 +1,1070 @@
+\hypertarget{verification_8c}{}\doxysection{Référence du fichier src/verification.c}
+\label{verification_8c}\index{src/verification.c@{src/verification.c}}
+
+
+Fichier contenant les codes des fonctions permettant de vérifier si un déplacement / insertion de nouveau pion est valide.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{verification_8c_a66d6aec8109a2c23fad09a82bc3259e9}{maximum}} (int i, int i2)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne le maximum entre 2 entiers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a9187f4e9b7527956cc569aa821f24263}{minimum}} (int i, int i2)
+\begin{DoxyCompactList}\small\item\em Fonction qui retourne le minimum entre 2 entiers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a96e4ad03b50ffc967d96f8504232fbd8}{exist\+Pion\+In\+Map}} (char $\ast$$\ast$map2D, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il {\bfseries{existe un pion visible}} sur le plateau. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a6ed8fab0b7f06f2d905a9b6c09e7b757}{exist\+Pion\+In\+Stack}} (char $\ast$$\ast$stack, int num, int i)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il existe un pion d\textquotesingle{}une certaine taille sur la pile d\textquotesingle{}un joueur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a09836d26091dcf3a269aa53d2183374e}{is\+Empty\+Stack}} (char $\ast$$\ast$stack, int num)
+\item 
+int \mbox{\hyperlink{verification_8c_a40255217879033ed8cda37b28dd651bd}{is\+Empty\+Stacks}} (char $\ast$$\ast$stack)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si la pile du joueur est vide. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_ad47a0a15f03b7aec9942d858ec28fa39}{is\+Empty\+Case}} (char $\ast$$\ast$map2D)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il existe une case du plateau vide. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_adcc5c1f674d01e1f25f6fc7b212625d2}{is\+Empty\+Case2}} (char $\ast$$\ast$$\ast$map3D)
+\item 
+int \mbox{\hyperlink{verification_8c_ae7e6919b02e99fa46dd93cd06656f3d4}{can\+Moove}} (char $\ast$$\ast$$\ast$map, int pos\+Deb, int pos\+End)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se déplacer vers une autre case du plateau de jeu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_ae0710b5cda56a0ab30666cc09e8c8017}{can\+Moove\+This\+Pion}} (char $\ast$$\ast$$\ast$map, char $\ast$$\ast$map2D, int pos\+Deb, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map. Il existe une possibilité de déplacement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_ac2b319e050ff5ddc1aed4782412fb7d6}{can\+Moove\+This\+Pion\+Distance}} (char $\ast$$\ast$$\ast$map, int pos\+Deb, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map {\bfseries{d\textquotesingle{}une distance de 1}}. Il existe une possibilité de déplacement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a22e35d32911afec200167660032b2fa6}{can\+Moove\+This\+PionD}} (char $\ast$$\ast$$\ast$map, int pos\+Deb, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map {\bfseries{d\textquotesingle{}une distance de 1}}. Il existe une possibilité de déplacement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a28677deef3f8a0ac4347b1c50780cc3b}{count\+\_\+pion}} (char $\ast$$\ast$map, int nbre, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{verification_8c_a25929dd14025a5f9ab5f1e309b1335bc}{debug\+Tab}} (S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case)
+\begin{DoxyCompactList}\small\item\em Fonction qui vérifie que les cases n\textquotesingle{}ont pas été modifié car bug sur W\+I\+N\+D\+O\+WS. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_aa768305402b820525d9d57efd9c6feea}{check\+\_\+\+End\+\_\+\+Game}} (char $\ast$$\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction qui nous informe en cas de victoire du joueur et nous donne l\textquotesingle{}identifiant de la ligne correspondante. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a6a052365be8ea742b235b5acda37e9e5}{size\+Max\+Pion}} (char $\ast$$\ast$stack\+Array)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si il y a un pion de taille $>$ 1 dans la pile du joueur (patant de l\textquotesingle{}hypothèse que les piles sont non vide appelle dans can\+Play\+New\+Pion). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_adfcb5fd1cf956620ead7de296d9c3313}{can\+Play\+New\+Pion}} (char $\ast$$\ast$stack\+Array, char $\ast$$\ast$map2D)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le joueur peut jouer un nouveau pion sur le plateau.~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_add639b2ba8138ee6a979cbbea7103d3f}{can\+Play\+Stack}} (int size\+Pion, char $\ast$$\ast$$\ast$map)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau.~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_a311343dd170318fed2254bd88c6c35dd}{can\+Put\+Pion}} (char $\ast$$\ast$$\ast$map, int size\+Pion, int end\+Pion)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si on peut mettre un pion d\textquotesingle{}une taille donnée sur une case du plateau de jeu. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_acefd0a52f69bd622ef1406d258e4294d}{is\+Stack\+Full}} (char $\ast$$\ast$pile)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si la pile du joueur est pleine ou non. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{verification_8c_a3c38e14cc2d59ee07c0a9b41dd945a6c}{is\+In\+Rect}} (S\+D\+L\+\_\+\+Point \mbox{\hyperlink{structpoint}{point}}, S\+D\+L\+\_\+\+Point rectangle\+Haut\+Gauche, S\+D\+L\+\_\+\+Point rectangle\+Bas\+Droit)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le point de la souris se trouve à l\textquotesingle{}intérieur de la surface. La surface est donné grâce à 2 points.~\newline
+. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+bool \mbox{\hyperlink{verification_8c_a1f9b6c1b19db31b32357635428e6a9f2}{is\+In\+Rectangle}} (S\+D\+L\+\_\+\+Point \mbox{\hyperlink{structpoint}{point}}, S\+D\+L\+\_\+\+Rect rect)
+\begin{DoxyCompactList}\small\item\em Fonction qui regarde si le point de la souris se trouve à l\textquotesingle{}intérieur de la surface. La surface est donné grâce à S\+D\+L\+\_\+\+Rect.~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_abb3638a3a1557f9141f506855adf6a45}{can\+Selection}} (S\+D\+L\+\_\+\+Point point\+Mouse, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, char c, int distance)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu\textquotesingle{}il y a un pion sur la case sélectionné ou qu\textquotesingle{}il peut récuperer un pion sur une pile (le pion existe et c\textquotesingle{}est la pile du joueur). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_aa918657f742618d7b36f704cc1747b29}{can\+Play}} (int image\+IndexP, S\+D\+L\+\_\+\+Point point\+Mouse, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$pile, int distance)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de savoir si on peut jouer un pion, il appelle d\textquotesingle{}autres fonctions pour vérifier la validiter du coup.~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{verification_8c_ac46832b68e98d1c321d5f0341ea08760}{can\+Effect\+Deplacement\+With\+Distance}} (char $\ast$$\ast$$\ast$map3D, char c)
+\begin{DoxyCompactList}\small\item\em Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la distance est réduite de 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les codes des fonctions permettant de vérifier si un déplacement / insertion de nouveau pion est valide. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{verification_8c_ac46832b68e98d1c321d5f0341ea08760}\label{verification_8c_ac46832b68e98d1c321d5f0341ea08760}} 
+\index{verification.c@{verification.c}!canEffectDeplacementWithDistance@{canEffectDeplacementWithDistance}}
+\index{canEffectDeplacementWithDistance@{canEffectDeplacementWithDistance}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canEffectDeplacementWithDistance()}{canEffectDeplacementWithDistance()}}
+{\footnotesize\ttfamily int can\+Effect\+Deplacement\+With\+Distance (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de savoir si il existe au moins un déplacement valide pour le joueur quand la distance est réduite de 1. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si possible sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 684 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_ac46832b68e98d1c321d5f0341ea08760_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_ac46832b68e98d1c321d5f0341ea08760_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_ae7e6919b02e99fa46dd93cd06656f3d4}\label{verification_8c_ae7e6919b02e99fa46dd93cd06656f3d4}} 
+\index{verification.c@{verification.c}!canMoove@{canMoove}}
+\index{canMoove@{canMoove}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canMoove()}{canMoove()}}
+{\footnotesize\ttfamily int can\+Moove (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{int}]{pos\+Deb,  }\item[{int}]{pos\+End }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se déplacer vers une autre case du plateau de jeu. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: numéro de la case de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+End \+: numéro de la case d\textquotesingle{}arriver.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si le déplacement est possible sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 182 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_ae7e6919b02e99fa46dd93cd06656f3d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_ae0710b5cda56a0ab30666cc09e8c8017}\label{verification_8c_ae0710b5cda56a0ab30666cc09e8c8017}} 
+\index{verification.c@{verification.c}!canMooveThisPion@{canMooveThisPion}}
+\index{canMooveThisPion@{canMooveThisPion}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canMooveThisPion()}{canMooveThisPion()}}
+{\footnotesize\ttfamily int can\+Moove\+This\+Pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int}]{pos\+Deb,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map. Il existe une possibilité de déplacement. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: numéro de la case de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur qui veut deplacer son pion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si le déplacement est possible sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 209 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{verification_8c_ae0710b5cda56a0ab30666cc09e8c8017_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a22e35d32911afec200167660032b2fa6}\label{verification_8c_a22e35d32911afec200167660032b2fa6}} 
+\index{verification.c@{verification.c}!canMooveThisPionD@{canMooveThisPionD}}
+\index{canMooveThisPionD@{canMooveThisPionD}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canMooveThisPionD()}{canMooveThisPionD()}}
+{\footnotesize\ttfamily int can\+Moove\+This\+PionD (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{int}]{pos\+Deb,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map {\bfseries{d\textquotesingle{}une distance de 1}}. Il existe une possibilité de déplacement. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: numéro de la case de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur qui veut deplacer son pion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si le déplacement est possible sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 300 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a22e35d32911afec200167660032b2fa6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_ac2b319e050ff5ddc1aed4782412fb7d6}\label{verification_8c_ac2b319e050ff5ddc1aed4782412fb7d6}} 
+\index{verification.c@{verification.c}!canMooveThisPionDistance@{canMooveThisPionDistance}}
+\index{canMooveThisPionDistance@{canMooveThisPionDistance}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canMooveThisPionDistance()}{canMooveThisPionDistance()}}
+{\footnotesize\ttfamily int can\+Moove\+This\+Pion\+Distance (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{int}]{pos\+Deb,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le pion d\textquotesingle{}une case du plateau de jeu peut se deplacer ailleurs dans la map {\bfseries{d\textquotesingle{}une distance de 1}}. Il existe une possibilité de déplacement. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: numéro de la case de depart. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur qui veut deplacer son pion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si le déplacement est possible sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 254 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{verification_8c_ac2b319e050ff5ddc1aed4782412fb7d6_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_ac2b319e050ff5ddc1aed4782412fb7d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_aa918657f742618d7b36f704cc1747b29}\label{verification_8c_aa918657f742618d7b36f704cc1747b29}} 
+\index{verification.c@{verification.c}!canPlay@{canPlay}}
+\index{canPlay@{canPlay}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canPlay()}{canPlay()}}
+{\footnotesize\ttfamily int can\+Play (\begin{DoxyParamCaption}\item[{int}]{image\+IndexP,  }\item[{S\+D\+L\+\_\+\+Point}]{point\+Mouse,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{pile,  }\item[{int}]{distance }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de savoir si on peut jouer un pion, il appelle d\textquotesingle{}autres fonctions pour vérifier la validiter du coup.~\newline
+. 
+
+Cette fonction est appellée quand on a un pion selectionné et que le joueur utilise le clique de sa souris.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & image\+IndexP \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point\+Mouse \+: coordonnée de la souris. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau de case contenant les surfaces des cases des piles et des cases du plateau de jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & distance \+: mode de jeu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne l\textquotesingle{}indice si valide et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 651 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_aa918657f742618d7b36f704cc1747b29_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_aa918657f742618d7b36f704cc1747b29_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_adfcb5fd1cf956620ead7de296d9c3313}\label{verification_8c_adfcb5fd1cf956620ead7de296d9c3313}} 
+\index{verification.c@{verification.c}!canPlayNewPion@{canPlayNewPion}}
+\index{canPlayNewPion@{canPlayNewPion}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canPlayNewPion()}{canPlayNewPion()}}
+{\footnotesize\ttfamily int can\+Play\+New\+Pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack\+Array,  }\item[{char $\ast$$\ast$}]{map2D }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le joueur peut jouer un nouveau pion sur le plateau.~\newline
+. 
+
+On peut jouer un nouveau pion si il existe une case vide sur le plateau, ou si on veut jouer un pion de taille $>$ 1.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si c\textquotesingle{}est possible et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+On peut jouer un nouveau pion si il existe une case vide sur le plateau, ou si on veut jouer un pion de taille $>$ 1.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si c\textquotesingle{}est possible et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 456 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{verification_8c_adfcb5fd1cf956620ead7de296d9c3313_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_adfcb5fd1cf956620ead7de296d9c3313_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_add639b2ba8138ee6a979cbbea7103d3f}\label{verification_8c_add639b2ba8138ee6a979cbbea7103d3f}} 
+\index{verification.c@{verification.c}!canPlayStack@{canPlayStack}}
+\index{canPlayStack@{canPlayStack}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canPlayStack()}{canPlayStack()}}
+{\footnotesize\ttfamily int can\+Play\+Stack (\begin{DoxyParamCaption}\item[{int}]{size\+Pion,  }\item[{char $\ast$$\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau.~\newline
+. 
+
+On peut jouer un nouveau pion si il existe une case ou il n\textquotesingle{}y a pas de pion de même taille et de taille supérieur.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & size\+Pion \+: taille du pion que l\textquotesingle{}on cherche à poser. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si c\textquotesingle{}est possible et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 481 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_add639b2ba8138ee6a979cbbea7103d3f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a311343dd170318fed2254bd88c6c35dd}\label{verification_8c_a311343dd170318fed2254bd88c6c35dd}} 
+\index{verification.c@{verification.c}!canPutPion@{canPutPion}}
+\index{canPutPion@{canPutPion}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canPutPion()}{canPutPion()}}
+{\footnotesize\ttfamily int can\+Put\+Pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{int}]{size\+Pion,  }\item[{int}]{end\+Pion }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si on peut mettre un pion d\textquotesingle{}une taille donnée sur une case du plateau de jeu. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & size\+Pion \+: taille du pion que l\textquotesingle{}on cherche à poser. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & end\+Pion \+: case ou l\textquotesingle{}on veut poser le pion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si c\textquotesingle{}est possible et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & size\+Pion \+: taille du pion que l\textquotesingle{}on cherche à poser. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & end\+Pion \+: case ou l\textquotesingle{}on veut poser le pion.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si c\textquotesingle{}est possible et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 511 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a311343dd170318fed2254bd88c6c35dd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_abb3638a3a1557f9141f506855adf6a45}\label{verification_8c_abb3638a3a1557f9141f506855adf6a45}} 
+\index{verification.c@{verification.c}!canSelection@{canSelection}}
+\index{canSelection@{canSelection}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{canSelection()}{canSelection()}}
+{\footnotesize\ttfamily int can\+Selection (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Point}]{point\+Mouse,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{char}]{c,  }\item[{int}]{distance }\end{DoxyParamCaption})}
+
+
+
+Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu\textquotesingle{}il y a un pion sur la case sélectionné ou qu\textquotesingle{}il peut récuperer un pion sur une pile (le pion existe et c\textquotesingle{}est la pile du joueur). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point\+Mouse \+: coordonnée de la souris. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau de case contenant les surfaces des cases des piles et des cases du plateau de jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: pile du joueur 1. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: pile du joueur 2. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & distance \+: mode de jeu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne l\textquotesingle{}indice si valide et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point\+Mouse \+: coordonnée de la souris. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau de case contenant les surfaces des cases des piles et des cases du plateau de jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: pile du joueur 1. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: pile du joueur 2. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & distance \+: mode de jeu.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne l\textquotesingle{}indice si valide et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 599 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_abb3638a3a1557f9141f506855adf6a45_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_abb3638a3a1557f9141f506855adf6a45_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_aa768305402b820525d9d57efd9c6feea}\label{verification_8c_aa768305402b820525d9d57efd9c6feea}} 
+\index{verification.c@{verification.c}!check\_End\_Game@{check\_End\_Game}}
+\index{check\_End\_Game@{check\_End\_Game}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{check\_End\_Game()}{check\_End\_Game()}}
+{\footnotesize\ttfamily int check\+\_\+\+End\+\_\+\+Game (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map }\end{DoxyParamCaption})}
+
+
+
+Fonction qui nous informe en cas de victoire du joueur et nous donne l\textquotesingle{}identifiant de la ligne correspondante. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau de cases\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 0 si pas de victoire sinon retourn un nombre $>$ 0, qui représente un identifiant de la ligne afin de réaliser un affichage en S\+DL.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 396 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_aa768305402b820525d9d57efd9c6feea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a28677deef3f8a0ac4347b1c50780cc3b}\label{verification_8c_a28677deef3f8a0ac4347b1c50780cc3b}} 
+\index{verification.c@{verification.c}!count\_pion@{count\_pion}}
+\index{count\_pion@{count\_pion}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{count\_pion()}{count\_pion()}}
+{\footnotesize\ttfamily int count\+\_\+pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map,  }\item[{int}]{nbre,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si il y a un alignement de nombre (passé en paramètre) pions du joueur sur la map. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map \+: plateau de jeu non detaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & nbre \+: nombre de pion(s) à aligné(s). \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe un alignement de {\bfseries{nbre pion(s)}} du joueur sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 343 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a28677deef3f8a0ac4347b1c50780cc3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a25929dd14025a5f9ab5f1e309b1335bc}\label{verification_8c_a25929dd14025a5f9ab5f1e309b1335bc}} 
+\index{verification.c@{verification.c}!debugTab@{debugTab}}
+\index{debugTab@{debugTab}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{debugTab()}{debugTab()}}
+{\footnotesize\ttfamily void debug\+Tab (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case }\end{DoxyParamCaption})}
+
+
+
+Fonction qui vérifie que les cases n\textquotesingle{}ont pas été modifié car bug sur W\+I\+N\+D\+O\+WS. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & $\ast$$\ast$ tableau\+Case \+: tableau de cases.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: pas de retour, fonction avec effet de bord.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 374 du fichier verification.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{verification_8c_a25929dd14025a5f9ab5f1e309b1335bc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a96e4ad03b50ffc967d96f8504232fbd8}\label{verification_8c_a96e4ad03b50ffc967d96f8504232fbd8}} 
+\index{verification.c@{verification.c}!existPionInMap@{existPionInMap}}
+\index{existPionInMap@{existPionInMap}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{existPionInMap()}{existPionInMap()}}
+{\footnotesize\ttfamily int exist\+Pion\+In\+Map (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si il {\bfseries{existe un pion visible}} sur le plateau. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map non detaillé, uniquement en 2D qui permet de voir uniquement les pions visibles. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur (\textquotesingle{}b\textquotesingle{} ou \textquotesingle{}n\textquotesingle{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe un pion visible c sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: map non detaillé, uniquement en 2D qui permet de voir uniquement les pions visibles. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: identifiant du joueur (\textquotesingle{}b\textquotesingle{} ou \textquotesingle{}n\textquotesingle{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe un pion visible c sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 52 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a96e4ad03b50ffc967d96f8504232fbd8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a6ed8fab0b7f06f2d905a9b6c09e7b757}\label{verification_8c_a6ed8fab0b7f06f2d905a9b6c09e7b757}} 
+\index{verification.c@{verification.c}!existPionInStack@{existPionInStack}}
+\index{existPionInStack@{existPionInStack}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{existPionInStack()}{existPionInStack()}}
+{\footnotesize\ttfamily int exist\+Pion\+In\+Stack (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack,  }\item[{int}]{num,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si il existe un pion d\textquotesingle{}une certaine taille sur la pile d\textquotesingle{}un joueur. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack \+: pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & num \+: numéro de la pile du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & i \+: taille du pion que l\textquotesingle{}on doit chercher.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe un pion sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 75 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a6ed8fab0b7f06f2d905a9b6c09e7b757_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_ad47a0a15f03b7aec9942d858ec28fa39}\label{verification_8c_ad47a0a15f03b7aec9942d858ec28fa39}} 
+\index{verification.c@{verification.c}!isEmptyCase@{isEmptyCase}}
+\index{isEmptyCase@{isEmptyCase}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isEmptyCase()}{isEmptyCase()}}
+{\footnotesize\ttfamily int is\+Empty\+Case (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{map2D }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si il existe une case du plateau vide. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe une case vide sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 131 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_ad47a0a15f03b7aec9942d858ec28fa39_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_adcc5c1f674d01e1f25f6fc7b212625d2}\label{verification_8c_adcc5c1f674d01e1f25f6fc7b212625d2}} 
+\index{verification.c@{verification.c}!isEmptyCase2@{isEmptyCase2}}
+\index{isEmptyCase2@{isEmptyCase2}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isEmptyCase2()}{isEmptyCase2()}}
+{\footnotesize\ttfamily int is\+Empty\+Case2 (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 151 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_adcc5c1f674d01e1f25f6fc7b212625d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a09836d26091dcf3a269aa53d2183374e}\label{verification_8c_a09836d26091dcf3a269aa53d2183374e}} 
+\index{verification.c@{verification.c}!isEmptyStack@{isEmptyStack}}
+\index{isEmptyStack@{isEmptyStack}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isEmptyStack()}{isEmptyStack()}}
+{\footnotesize\ttfamily int is\+Empty\+Stack (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack,  }\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 93 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a09836d26091dcf3a269aa53d2183374e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a40255217879033ed8cda37b28dd651bd}\label{verification_8c_a40255217879033ed8cda37b28dd651bd}} 
+\index{verification.c@{verification.c}!isEmptyStacks@{isEmptyStacks}}
+\index{isEmptyStacks@{isEmptyStacks}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isEmptyStacks()}{isEmptyStacks()}}
+{\footnotesize\ttfamily int is\+Empty\+Stacks (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si la pile du joueur est vide. 
+
+Fonction qui regarde si il existe une case du plateau vide.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack \+: pile du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si elle est vide sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non detaillé.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si il existe une case vide sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 111 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a40255217879033ed8cda37b28dd651bd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a3c38e14cc2d59ee07c0a9b41dd945a6c}\label{verification_8c_a3c38e14cc2d59ee07c0a9b41dd945a6c}} 
+\index{verification.c@{verification.c}!isInRect@{isInRect}}
+\index{isInRect@{isInRect}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isInRect()}{isInRect()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+bool is\+In\+Rect (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Point}]{point,  }\item[{S\+D\+L\+\_\+\+Point}]{rectangle\+Haut\+Gauche,  }\item[{S\+D\+L\+\_\+\+Point}]{rectangle\+Bas\+Droit }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le point de la souris se trouve à l\textquotesingle{}intérieur de la surface. La surface est donné grâce à 2 points.~\newline
+. 
+
+Différence avec \mbox{\hyperlink{verification_8h_a1f9b6c1b19db31b32357635428e6a9f2}{is\+In\+Rectangle()}} qui prend un S\+D\+L\+\_\+\+Rect, cette dernière est bien plus utilisé.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point \+: coordonnée de la souris. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & rectangle\+Haut\+Gauche \+: coordonnée du rectangle haut gauche. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & rectangle\+Bas\+Droit \+: coordonnée du rectangle bas droit.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+bool \+: retourne S\+D\+L\+\_\+\+T\+R\+UE si le point de la souris est dedans et S\+D\+L\+\_\+\+F\+A\+L\+SE sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 555 du fichier verification.\+c.
+
+\mbox{\Hypertarget{verification_8c_a1f9b6c1b19db31b32357635428e6a9f2}\label{verification_8c_a1f9b6c1b19db31b32357635428e6a9f2}} 
+\index{verification.c@{verification.c}!isInRectangle@{isInRectangle}}
+\index{isInRectangle@{isInRectangle}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isInRectangle()}{isInRectangle()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+bool is\+In\+Rectangle (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Point}]{point,  }\item[{S\+D\+L\+\_\+\+Rect}]{rect }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si le point de la souris se trouve à l\textquotesingle{}intérieur de la surface. La surface est donné grâce à S\+D\+L\+\_\+\+Rect.~\newline
+. 
+
+Différence avec \mbox{\hyperlink{verification_8h_a3c38e14cc2d59ee07c0a9b41dd945a6c}{is\+In\+Rect()}} qui 2 points (un en haut à gauche et un en bas à droite), cette dernière n\textquotesingle{}est pas utilisé.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Point} & point \+: coordonnée de la souris. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Rect} & rect \+: surface du rectangle.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+bool \+: retourne S\+D\+L\+\_\+\+T\+R\+UE si le point de la souris est dedans le rectangle et S\+D\+L\+\_\+\+F\+A\+L\+SE sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 575 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a1f9b6c1b19db31b32357635428e6a9f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_acefd0a52f69bd622ef1406d258e4294d}\label{verification_8c_acefd0a52f69bd622ef1406d258e4294d}} 
+\index{verification.c@{verification.c}!isStackFull@{isStackFull}}
+\index{isStackFull@{isStackFull}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{isStackFull()}{isStackFull()}}
+{\footnotesize\ttfamily int is\+Stack\+Full (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{pile }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si la pile du joueur est pleine ou non. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: pile du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si la pile est pleine et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile \+: pile du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si la pile est pleine et 0 sinon.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 531 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{verification_8c_acefd0a52f69bd622ef1406d258e4294d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a66d6aec8109a2c23fad09a82bc3259e9}\label{verification_8c_a66d6aec8109a2c23fad09a82bc3259e9}} 
+\index{verification.c@{verification.c}!maximum@{maximum}}
+\index{maximum@{maximum}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{maximum()}{maximum()}}
+{\footnotesize\ttfamily int maximum (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{i2 }\end{DoxyParamCaption})}
+
+
+
+Fonction qui retourne le maximum entre 2 entiers. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & i \+: premier entier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & i2 \+: deuxième entier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne l\textquotesingle{}entier le plus grand.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 23 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a66d6aec8109a2c23fad09a82bc3259e9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a9187f4e9b7527956cc569aa821f24263}\label{verification_8c_a9187f4e9b7527956cc569aa821f24263}} 
+\index{verification.c@{verification.c}!minimum@{minimum}}
+\index{minimum@{minimum}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{minimum()}{minimum()}}
+{\footnotesize\ttfamily int minimum (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{i2 }\end{DoxyParamCaption})}
+
+
+
+Fonction qui retourne le minimum entre 2 entiers. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em int} & i \+: premier entier. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & i2 \+: deuxième entier.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne l\textquotesingle{}entier le plus petit.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 37 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a9187f4e9b7527956cc569aa821f24263_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{verification_8c_a6a052365be8ea742b235b5acda37e9e5}\label{verification_8c_a6a052365be8ea742b235b5acda37e9e5}} 
+\index{verification.c@{verification.c}!sizeMaxPion@{sizeMaxPion}}
+\index{sizeMaxPion@{sizeMaxPion}!verification.c@{verification.c}}
+\doxysubsubsection{\texorpdfstring{sizeMaxPion()}{sizeMaxPion()}}
+{\footnotesize\ttfamily int size\+Max\+Pion (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack\+Array }\end{DoxyParamCaption})}
+
+
+
+Fonction qui regarde si il y a un pion de taille $>$ 1 dans la pile du joueur (patant de l\textquotesingle{}hypothèse que les piles sont non vide appelle dans can\+Play\+New\+Pion). 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si on a au moins une pile ayant une taille max de pion de 1 ou plus sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 1 si on a au moins une pile ayant une taille max de pion de 1 ou plus sinon 0.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 433 du fichier verification.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{verification_8c_a6a052365be8ea742b235b5acda37e9e5_icgraph}
+\end{center}
+\end{figure}

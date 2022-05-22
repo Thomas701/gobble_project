@@ -1,0 +1,11 @@
+<map id="isInRectangle" name="isInRectangle">
+<area shape="rect" id="node1" title="Fonction qui regarde si le point de la souris se trouve à l&#39;intérieur de la surface...." alt="" coords="797,107,908,133"/>
+<area shape="rect" id="node2" href="$get_8c.html#aad7afd925ca39d6ad75730fbe2d7e61b" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="671,56,749,83"/>
+<area shape="rect" id="node8" href="$graphique_8c.html#a484859937dbc558bc6eb7024c5f755de" title="Fonction qui gère lorsque le joueur se trouve dans le menu principale. ." alt="" coords="321,107,448,133"/>
+<area shape="rect" id="node9" href="$graphique_8c.html#a2c7c5273a970888cd0d1737c2e1172f0" title=" " alt="" coords="149,157,211,184"/>
+<area shape="rect" id="node3" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="533,5,607,32"/>
+<area shape="rect" id="node7" href="$verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="517,56,623,83"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,56,469,83"/>
+<area shape="rect" id="node5" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,56,252,83"/>
+<area shape="rect" id="node6" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,107,60,133"/>
+</map>

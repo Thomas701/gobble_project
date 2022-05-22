@@ -1,0 +1,8 @@
+<map id="printMap3dDebug" name="printMap3dDebug">
+<area shape="rect" id="node1" title="Fonction qui affiche dans le terminal le plateau de jeu détaillé." alt="" coords="549,93,688,120"/>
+<area shape="rect" id="node2" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,93,211,120"/>
+<area shape="rect" id="node3" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,144,60,170"/>
+<area shape="rect" id="node4" href="$demande_8c.html#a44a860f65d52c1a3b80ec05313023336" title="Fonction qui demande l&#39;action que veut effectuer le joueur. Soit jouer un nouveau pion ou deplacer un..." alt="" coords="259,42,501,69"/>
+<area shape="rect" id="node5" href="$demande_8c.html#aa510dfb386d4794394ced9e84f3a8a83" title="Fonction qui demande le pion que veut deplacer le joueur. Sans vérification." alt="" coords="263,93,497,120"/>
+<area shape="rect" id="node6" href="$demande_8c.html#a5640432ec67cad60ba21586b562d0a51" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="269,144,491,170"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="getIndex" name="getIndex">
+<area shape="rect" id="node1" title="Fonction qui regarde si il y a un clique sur une case plateau ou pile." alt="" coords="671,31,749,57"/>
+<area shape="rect" id="node2" href="$verification_8c.html#aa918657f742618d7b36f704cc1747b29" title="Fonction qui permet de savoir si on peut jouer un pion, il appelle d&#39;autres fonctions pour vérifier l..." alt="" coords="533,5,607,32"/>
+<area shape="rect" id="node6" href="$verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="517,56,623,83"/>
+<area shape="rect" id="node3" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,31,469,57"/>
+<area shape="rect" id="node4" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,31,252,57"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+</map>

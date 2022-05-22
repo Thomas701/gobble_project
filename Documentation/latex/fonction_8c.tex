@@ -1,0 +1,456 @@
+\hypertarget{fonction_8c}{}\doxysection{Référence du fichier src/fonction.c}
+\label{fonction_8c}\index{src/fonction.c@{src/fonction.c}}
+
+
+Fichier contenant les code des fonctions \char`\"{}actives\char`\"{} liées aux mouvement des pions.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fonction_8c_a6943dc5b37283bec546157d5ec4a5953}{moove\+Since\+Stack}} (char $\ast$$\ast$$\ast$map, char $\ast$$\ast$stack\+Array, int num\+Stack, int size\+Pion, int end\+Pion, char c)
+\begin{DoxyCompactList}\small\item\em Permet de placer le pion sur la map. Il faut d\textquotesingle{}abord vérifier si le coup est valide. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fonction_8c_a5e39184e8bf4db30953c9defac0662d9}{moove}} (char $\ast$$\ast$$\ast$map, int pos\+Deb, int pos\+End)
+\begin{DoxyCompactList}\small\item\em Permet de déplacer un pion se trouvant sur la map.~\newline
+. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonction_8c_a470f303bd91f781a9ec3b2d8bf4b9b45}{game\+Option}} (char $\ast$$\ast$stack\+Array, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char c, int deplacement)
+\begin{DoxyCompactList}\small\item\em Fonction principale qui demande à un joueur son action et qui l\textquotesingle{}éxécute sur la map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonction_8c_ad969fbe7771993551d63673a388a7911}{game\+Option\+Graphique}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int $\ast$p\+\_\+etats, int bool\+Play\+Music, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, int distance, char $\ast$c, int $\ast$ia)
+\item 
+void \mbox{\hyperlink{fonction_8c_a5106b0424ba036701cb58953e6cf1354}{S\+G\+O\+G\+\_\+\+P\+I\+LE}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, int image\+IndexP, int image\+IndexS, int eating\+Pion, char $\ast$c)
+\begin{DoxyCompactList}\small\item\em Fonction permettant de déplacer un pion depuis une pile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonction_8c_a491a33dbdd4ff2217b194563f9d7b4a5}{S\+G\+O\+G\+\_\+\+IA}} (char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$c, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int alpha\+Beta, int $\ast$p\+\_\+etats, int prof, S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, int $\ast$tab\+Param)
+\begin{DoxyCompactList}\small\item\em Fonction permettant à l\textquotesingle{}intelligence artificielle de jouer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fonction_8c_a43f67d29d43c1e67e0b5d856226e8d63}{I\+A\+Game}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Win, int $\ast$p\+\_\+etatS, int bool\+Play\+Music, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int distance, char $\ast$c, int $\ast$ia)
+\item 
+void \mbox{\hyperlink{fonction_8c_af344af621c12e66e76b660969ad2295f}{training\+IA}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int i, int j, int $\ast$$\ast$tab\+IA, int $\ast$tab\+Result)
+\begin{DoxyCompactList}\small\item\em Fonction qui lance la partie IA VS IA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les code des fonctions \char`\"{}actives\char`\"{} liées aux mouvement des pions. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{fonction_8c_a470f303bd91f781a9ec3b2d8bf4b9b45}\label{fonction_8c_a470f303bd91f781a9ec3b2d8bf4b9b45}} 
+\index{fonction.c@{fonction.c}!gameOption@{gameOption}}
+\index{gameOption@{gameOption}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{gameOption()}{gameOption()}}
+{\footnotesize\ttfamily void game\+Option (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{stack\+Array,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char}]{c,  }\item[{int}]{deplacement }\end{DoxyParamCaption})}
+
+
+
+Fonction principale qui demande à un joueur son action et qui l\textquotesingle{}éxécute sur la map. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: tableau des piles des 2 joueurs \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: permet d\textquotesingle{}identifier le joueur qui doit jouer \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & deplacement \+: Mode de jeu, pas de restriction de voisin deplacement = 0, sinon deplacement = 1\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pas de retour (void).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 80 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a470f303bd91f781a9ec3b2d8bf4b9b45_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{fonction_8c_a470f303bd91f781a9ec3b2d8bf4b9b45_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_ad969fbe7771993551d63673a388a7911}\label{fonction_8c_ad969fbe7771993551d63673a388a7911}} 
+\index{fonction.c@{fonction.c}!gameOptionGraphique@{gameOptionGraphique}}
+\index{gameOptionGraphique@{gameOptionGraphique}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{gameOptionGraphique()}{gameOptionGraphique()}}
+{\footnotesize\ttfamily void game\+Option\+Graphique (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int $\ast$}]{p\+\_\+etats,  }\item[{int}]{bool\+Play\+Music,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{int}]{distance,  }\item[{char $\ast$}]{c,  }\item[{int $\ast$}]{ia }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 138 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_ad969fbe7771993551d63673a388a7911_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_ad969fbe7771993551d63673a388a7911_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_a43f67d29d43c1e67e0b5d856226e8d63}\label{fonction_8c_a43f67d29d43c1e67e0b5d856226e8d63}} 
+\index{fonction.c@{fonction.c}!IAGame@{IAGame}}
+\index{IAGame@{IAGame}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{IAGame()}{IAGame()}}
+{\footnotesize\ttfamily void I\+A\+Game (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Win,  }\item[{int $\ast$}]{p\+\_\+etatS,  }\item[{int}]{bool\+Play\+Music,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int}]{distance,  }\item[{char $\ast$}]{c,  }\item[{int $\ast$}]{ia }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 337 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a43f67d29d43c1e67e0b5d856226e8d63_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=213pt]{fonction_8c_a43f67d29d43c1e67e0b5d856226e8d63_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_a5e39184e8bf4db30953c9defac0662d9}\label{fonction_8c_a5e39184e8bf4db30953c9defac0662d9}} 
+\index{fonction.c@{fonction.c}!moove@{moove}}
+\index{moove@{moove}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{moove()}{moove()}}
+{\footnotesize\ttfamily int moove (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{int}]{pos\+Deb,  }\item[{int}]{pos\+End }\end{DoxyParamCaption})}
+
+
+
+Permet de déplacer un pion se trouvant sur la map.~\newline
+. 
+
+Il faut vérifié avant si le déplacement est valide, mais sur-\/vérification grâce à \mbox{\hyperlink{verification_8h_ae7e6919b02e99fa46dd93cd06656f3d4}{can\+Moove()}}.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: position de départ du pion (entre 0 et 8 si 3$\ast$3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+End \+: position d\textquotesingle{}arriver du pion (entre 0 et 8 si 3$\ast$3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si on a réussi a mettre le pion sur la map \textbackslash{}retrun 0 si déplacement non valide (can\+Moove) ou si erreur lors de l\textquotesingle{}insertion (n\textquotesingle{}arrive jamais).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+Vérifi dans la fonction si déplacement valide grâce à \mbox{\hyperlink{verification_8h_ae7e6919b02e99fa46dd93cd06656f3d4}{can\+Moove()}}.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+Deb \+: position de départ du pion (entre 0 et 8 si 3$\ast$3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & pos\+End \+: position d\textquotesingle{}arriver du pion (entre 0 et 8 si 3$\ast$3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+1 si on a réussi a mettre le pion sur la map \textbackslash{}retrun 0 si déplacement non valide (can\+Moove) ou si erreur lors de l\textquotesingle{}insertion (n\textquotesingle{}arrive jamais).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 49 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{fonction_8c_a5e39184e8bf4db30953c9defac0662d9_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a5e39184e8bf4db30953c9defac0662d9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_a6943dc5b37283bec546157d5ec4a5953}\label{fonction_8c_a6943dc5b37283bec546157d5ec4a5953}} 
+\index{fonction.c@{fonction.c}!mooveSinceStack@{mooveSinceStack}}
+\index{mooveSinceStack@{mooveSinceStack}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{mooveSinceStack()}{mooveSinceStack()}}
+{\footnotesize\ttfamily void moove\+Since\+Stack (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map,  }\item[{char $\ast$$\ast$}]{stack\+Array,  }\item[{int}]{num\+Stack,  }\item[{int}]{size\+Pion,  }\item[{int}]{end\+Pion,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Permet de placer le pion sur la map. Il faut d\textquotesingle{}abord vérifier si le coup est valide. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur qui déplace \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & num\+Stack \+: numéro de la pile du joueur (exemple si 3$\ast$3 seulement 2 piles donc numéro 0 ou 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & size\+Pion \+: taille du pion à déplacer(permet de l\textquotesingle{}identifier au sein de la pile) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & end\+Pion \+: position sur la map ou il faut mettre le pion (entre 0 et 8 si 3$\ast$3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: lettre qu\textquotesingle{}il faut mettre sur la map, soit \textquotesingle{}b\textquotesingle{} si joueur 1, sinon \textquotesingle{}n\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pas de retour (void).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas \& V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map \+: plateau de jeu détaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array \+: pile du joueur qui déplace \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & num\+Stack \+: numéro de la pile du joueur (exemple si 3$\ast$3 seulement 2 piles donc numéro 0 ou 1) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & size\+Pion \+: taille du pion à déplacer(permet de l\textquotesingle{}identifier au sein de la pile) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & end\+Pion \+: position sur la map ou il faut mettre le pion (entre 0 et 8 si 3$\ast$3) \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & c \+: lettre qu\textquotesingle{}il faut mettre sur la map, soit \textquotesingle{}b\textquotesingle{} si joueur 1, sinon \textquotesingle{}n\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pas de retour (void).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 26 du fichier fonction.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a6943dc5b37283bec546157d5ec4a5953_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_a491a33dbdd4ff2217b194563f9d7b4a5}\label{fonction_8c_a491a33dbdd4ff2217b194563f9d7b4a5}} 
+\index{fonction.c@{fonction.c}!SGOG\_IA@{SGOG\_IA}}
+\index{SGOG\_IA@{SGOG\_IA}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{SGOG\_IA()}{SGOG\_IA()}}
+{\footnotesize\ttfamily void S\+G\+O\+G\+\_\+\+IA (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$}]{c,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int}]{alpha\+Beta,  }\item[{int $\ast$}]{p\+\_\+etats,  }\item[{int}]{prof,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{int $\ast$}]{tab\+Param }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant à l\textquotesingle{}intelligence artificielle de jouer. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non-\/detaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ c \+: caractère de l\textquotesingle{}ia qui joue \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: contient les spiles du joueur 1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: contient les spiles du joueur 2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & alpha\+Beta \+: boolean si le alpha\+Beta est utilisé \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ p\+\_\+etats \+: état de la partie, victoire / menu / entrain de jouer \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & prof \+: la profondeur de recherche dans l\textquotesingle{}arbre \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$ renderer \+: renderer principale, sur lequel ou on colle les images du plateau / pions... \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ tableau\+Texture\+Map\+Vide \+: pour afficher la map vide avec couleur (couleur pour indiquer le tour du joueur) \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: contient les images de pions \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: contient les coordonnées des cases su plateau + pile \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ tab\+Param \+: tableau de paramètres de l\textquotesingle{}ia\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pas de retour (void).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 299 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a491a33dbdd4ff2217b194563f9d7b4a5_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a491a33dbdd4ff2217b194563f9d7b4a5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_a5106b0424ba036701cb58953e6cf1354}\label{fonction_8c_a5106b0424ba036701cb58953e6cf1354}} 
+\index{fonction.c@{fonction.c}!SGOG\_PILE@{SGOG\_PILE}}
+\index{SGOG\_PILE@{SGOG\_PILE}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{SGOG\_PILE()}{SGOG\_PILE()}}
+{\footnotesize\ttfamily void S\+G\+O\+G\+\_\+\+P\+I\+LE (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{int}]{image\+IndexP,  }\item[{int}]{image\+IndexS,  }\item[{int}]{eating\+Pion,  }\item[{char $\ast$}]{c }\end{DoxyParamCaption})}
+
+
+
+Fonction permettant de déplacer un pion depuis une pile. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$ renderer \+: renderer principale, sur lequel ou on colle les images du plateau / pions... \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ tableau\+Texture\+Map\+Vide \+: pour afficher la map vide avec couleur (couleur pour indiquer le tour du joueur) \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: contient les images de pions \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: contient les coordonnées des cases su plateau + pile \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: contient les spiles du joueur 1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: contient les spiles du joueur 2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: plateau de jeu detaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: plateau de jeu non-\/detaillé \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & image\+IndexP \+: index de la case de départ \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & image\+IndexS \+: index de la case de d\textquotesingle{}arrivé \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & eating\+Pion \+: index du pion mangé (-\/1 si aucun pion mangé) \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$ c \+: caractère représentant le joueur qui joue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Pas de retour (void).
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 258 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a5106b0424ba036701cb58953e6cf1354_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_a5106b0424ba036701cb58953e6cf1354_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fonction_8c_af344af621c12e66e76b660969ad2295f}\label{fonction_8c_af344af621c12e66e76b660969ad2295f}} 
+\index{fonction.c@{fonction.c}!trainingIA@{trainingIA}}
+\index{trainingIA@{trainingIA}!fonction.c@{fonction.c}}
+\doxysubsubsection{\texorpdfstring{trainingIA()}{trainingIA()}}
+{\footnotesize\ttfamily void training\+IA (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int}]{i,  }\item[{int}]{j,  }\item[{int $\ast$$\ast$}]{tab\+IA,  }\item[{int $\ast$}]{tab\+Result }\end{DoxyParamCaption})}
+
+
+
+Fonction qui lance la partie IA VS IA. 
+
+Elle entraine l\textquotesingle{}intelligence artificielle
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu ou l\textquotesingle{}on colle les images. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ tableau\+Texture\+Map\+Vide \+: tableau de texture d\textquotesingle{}images qui contient map vide bleau ou rouge selon le tour du joueur. \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: tableau de point pour gérer l\textquotesingle{}affichage des pions. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: tableau de texture, contient les images des pions sélectionnés et non selectionnés. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: contient la map du jeu détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ map2D \+: contient la map du jeu non détaillé. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J1 \+: contient la pile du joueur 1. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ pile\+J2 \+: contient la pile du joueur 2. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & i \+: ia1 \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & j \+: ia2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$$\ast$ tab\+IA \+: contient l\textquotesingle{}ensemble des ias (tableaux de paramètre) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ tab\+Result \+: contient les resultats\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de valeur de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 433 du fichier fonction.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fonction_8c_af344af621c12e66e76b660969ad2295f_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{fonction_8c_af344af621c12e66e76b660969ad2295f_icgraph}
+\end{center}
+\end{figure}

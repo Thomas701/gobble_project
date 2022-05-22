@@ -1,0 +1,15 @@
+<map id="canMooveThisPionD" name="canMooveThisPionD">
+<area shape="rect" id="node1" title="Fonction qui regarde si le pion d&#39;une case du plateau de jeu peut se deplacer ailleurs dans la map d&#39;..." alt="" coords="1205,67,1360,93"/>
+<area shape="rect" id="node2" href="$verification_8c.html#abb3638a3a1557f9141f506855adf6a45" title="Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu&#39;il y a un pion sur la ca..." alt="" coords="651,5,756,32"/>
+<area shape="rect" id="node6" href="$ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="989,67,1107,93"/>
+<area shape="rect" id="node12" href="$demande_8c.html#afdfa3c6dec19e486beeb3a439af3b31d" title=" " alt="" coords="939,139,1157,181"/>
+<area shape="rect" id="node3" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,56,469,83"/>
+<area shape="rect" id="node4" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,56,252,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,107,60,133"/>
+<area shape="rect" id="node7" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="678,81,729,108"/>
+<area shape="rect" id="node11" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="804,107,891,133"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,56,600,83"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,107,603,133"/>
+<area shape="rect" id="node10" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="347,107,422,133"/>
+<area shape="rect" id="node13" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="129,157,231,184"/>
+</map>

@@ -1,0 +1,411 @@
+\hypertarget{graphique_8h}{}\doxysection{Référence du fichier headers/graphique.h}
+\label{graphique_8h}\index{headers/graphique.h@{headers/graphique.h}}
+
+
+Fichier contenant les headers des fonctions graphiques. Elles gèrent le chargement des images (initialisations) et leurs affichagent.  
+
+
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Texture $\ast$ \mbox{\hyperlink{graphique_8h_a425d4d813f3802ec428153b07f0d4e04}{load\+Image}} (const char $\ast$path, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Fonction qui va permmetre de transformer une image (n\textquotesingle{}importe quel format valide) en texture. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8h_a202c2687f8e2c5cb50a7df539e0b819d}{intro\+\_\+authors}} (S\+D\+L\+\_\+\+Renderer $\ast$$\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Fonction lance l\textquotesingle{}animation de début avec le nom des participants et le logo I\+S\+I\+MA avec fondu transparent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8h_a484859937dbc558bc6eb7024c5f755de}{lancement\+Menu}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Background, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Option\+Menu, int $\ast$p\+\_\+etats, int bool\+Play\+Music, int $\ast$ia)
+\begin{DoxyCompactList}\small\item\em Fonction qui gère lorsque le joueur se trouve dans le menu principale.~\newline
+. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graphique_8h_aacf71f70344edaba3fc040ebac3cb02d}{lancement\+Jeu1\+V\+S1}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Win, int $\ast$p\+\_\+etatS, int bool\+Play\+Music, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Option\+Menu, S\+D\+L\+\_\+\+Rect $\ast$$\ast$tableau\+Case, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, char $\ast$$\ast$$\ast$map3D, char $\ast$$\ast$map2D, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int distance, char $\ast$c, int $\ast$ia)
+\item 
+int \mbox{\hyperlink{graphique_8h_a5e0d4768732ce9330c87514561d1f34b}{affiche\+Pile\+S\+DL}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, char $\ast$$\ast$stack\+Array\+J1, char $\ast$$\ast$stack\+Array\+J2)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche les piles des joueurs en interface graphique. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8h_a621debd3e47a00dd315991401bb3e4c8}{affiche\+Pion\+Sur\+Plateau}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, char $\ast$$\ast$$\ast$map3D, int index)
+\item 
+int \mbox{\hyperlink{graphique_8h_a89f01ef0a20e757f674fdd4ead6e7ef9}{affiche\+Pion\+Select}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, char $\ast$$\ast$$\ast$map3D, int index)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche le pion sélectionné sur la map en interface graphique. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8h_a2fbe2ade1b6af727a22c3eeee0fa34b6}{print\+Map\+Empty\+S\+DL}} (S\+D\+L\+\_\+\+Texture $\ast$texture\+Map\+Vide, S\+D\+L\+\_\+\+Renderer $\ast$renderer)
+\begin{DoxyCompactList}\small\item\em Fonction qui affiche en interface graphique la map sans pion. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graphique_8h_a4d3c576dd7b3b2a8afe95eaff33ccc57}{transition}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Piont, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, char $\ast$$\ast$$\ast$map3D, int dep, int end, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, char c, char $\ast$$\ast$pile\+J1, char $\ast$$\ast$pile\+J2, int indice\+Pion\+Who\+Eat)
+\item 
+int \mbox{\hyperlink{graphique_8h_a553ce3aa6a51180bfa5d2b08a8c1d8a6}{affiche\+Pion\+On\+Case}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Piont, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, int index, int indice\+Pion)
+\item 
+void \mbox{\hyperlink{graphique_8h_a2c7c5273a970888cd0d1737c2e1172f0}{pause}} (S\+D\+L\+\_\+\+Renderer $\ast$renderer, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Option\+Menu, int $\ast$p\+\_\+etats, int bool\+Play\+Music, S\+D\+L\+\_\+\+Texture $\ast$$\ast$tableau\+Texture\+Map\+Vide, S\+D\+L\+\_\+\+Texture $\ast$$\ast$texture\+Tableau\+Pion, \mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$tableau\+De\+Point, char $\ast$$\ast$$\ast$map3D)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Fichier contenant les headers des fonctions graphiques. Elles gèrent le chargement des images (initialisations) et leurs affichagent. 
+
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{graphique_8h_a5e0d4768732ce9330c87514561d1f34b}\label{graphique_8h_a5e0d4768732ce9330c87514561d1f34b}} 
+\index{graphique.h@{graphique.h}!affichePileSDL@{affichePileSDL}}
+\index{affichePileSDL@{affichePileSDL}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{affichePileSDL()}{affichePileSDL()}}
+{\footnotesize\ttfamily int affiche\+Pile\+S\+DL (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{char $\ast$$\ast$}]{stack\+Array\+J1,  }\item[{char $\ast$$\ast$}]{stack\+Array\+J2 }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche les piles des joueurs en interface graphique. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu ou l\textquotesingle{}on colle les images. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: tableau de texture, contient les images des pions sélectionnés et non selectionnés. \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: tableau de point pour gérer l\textquotesingle{}affichage des pions. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array\+J1 \+: contient la pile du joueur 1. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array\+J2 \+: contient la pile du joueur 2.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne 0 si succès et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas
+\end{DoxyAuthor}
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu ou l\textquotesingle{}on colle les images. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: tableau de texture, contient les images des pions sélectionnés et non selectionnés. \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: tableau de point pour gérer l\textquotesingle{}affichage des pions. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array\+J1 \+: contient la pile du joueur 1. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$ stack\+Array\+J2 \+: contient la pile du joueur 2.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne 0 si succès et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 402 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a5e0d4768732ce9330c87514561d1f34b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a553ce3aa6a51180bfa5d2b08a8c1d8a6}\label{graphique_8h_a553ce3aa6a51180bfa5d2b08a8c1d8a6}} 
+\index{graphique.h@{graphique.h}!affichePionOnCase@{affichePionOnCase}}
+\index{affichePionOnCase@{affichePionOnCase}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{affichePionOnCase()}{affichePionOnCase()}}
+{\footnotesize\ttfamily int affiche\+Pion\+On\+Case (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Piont,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{int}]{index,  }\item[{int}]{indice\+Pion }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 655 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a553ce3aa6a51180bfa5d2b08a8c1d8a6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a89f01ef0a20e757f674fdd4ead6e7ef9}\label{graphique_8h_a89f01ef0a20e757f674fdd4ead6e7ef9}} 
+\index{graphique.h@{graphique.h}!affichePionSelect@{affichePionSelect}}
+\index{affichePionSelect@{affichePionSelect}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{affichePionSelect()}{affichePionSelect()}}
+{\footnotesize\ttfamily int affiche\+Pion\+Select (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche le pion sélectionné sur la map en interface graphique. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu ou l\textquotesingle{}on colle les images. \\
+\hline
+\mbox{\texttt{ in}}  & {\em point} & $\ast$$\ast$ tableau\+De\+Point \+: tableau de point pour gérer l\textquotesingle{}affichage des pions. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Pion \+: tableau de texture, contient les images des pions sélectionnés et non selectionnés. \\
+\hline
+\mbox{\texttt{ in}}  & {\em char} & $\ast$$\ast$$\ast$ map3D \+: map detaillé du plateau de jeu. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & index \+: contient l\textquotesingle{}identifiant de la case du pion qui a été selectionné.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: Retourne 0 si succès et sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 517 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a89f01ef0a20e757f674fdd4ead6e7ef9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a621debd3e47a00dd315991401bb3e4c8}\label{graphique_8h_a621debd3e47a00dd315991401bb3e4c8}} 
+\index{graphique.h@{graphique.h}!affichePionSurPlateau@{affichePionSurPlateau}}
+\index{affichePionSurPlateau@{affichePionSurPlateau}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{affichePionSurPlateau()}{affichePionSurPlateau()}}
+{\footnotesize\ttfamily int affiche\+Pion\+Sur\+Plateau (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 458 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a621debd3e47a00dd315991401bb3e4c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a202c2687f8e2c5cb50a7df539e0b819d}\label{graphique_8h_a202c2687f8e2c5cb50a7df539e0b819d}} 
+\index{graphique.h@{graphique.h}!intro\_authors@{intro\_authors}}
+\index{intro\_authors@{intro\_authors}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{intro\_authors()}{intro\_authors()}}
+{\footnotesize\ttfamily void intro\+\_\+authors (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$$\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Fonction lance l\textquotesingle{}animation de début avec le nom des participants et le logo I\+S\+I\+MA avec fondu transparent. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: Rendu ou l\textquotesingle{}on colle l\textquotesingle{}image d\textquotesingle{}animation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de valeur de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 53 du fichier graphique.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{graphique_8h_a202c2687f8e2c5cb50a7df539e0b819d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_aacf71f70344edaba3fc040ebac3cb02d}\label{graphique_8h_aacf71f70344edaba3fc040ebac3cb02d}} 
+\index{graphique.h@{graphique.h}!lancementJeu1VS1@{lancementJeu1VS1}}
+\index{lancementJeu1VS1@{lancementJeu1VS1}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{lancementJeu1VS1()}{lancementJeu1VS1()}}
+{\footnotesize\ttfamily void lancement\+Jeu1\+V\+S1 (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Win,  }\item[{int $\ast$}]{p\+\_\+etatS,  }\item[{int}]{bool\+Play\+Music,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Option\+Menu,  }\item[{S\+D\+L\+\_\+\+Rect $\ast$$\ast$}]{tableau\+Case,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{char $\ast$$\ast$}]{map2D,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int}]{distance,  }\item[{char $\ast$}]{c,  }\item[{int $\ast$}]{ia }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 345 du fichier graphique.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_aacf71f70344edaba3fc040ebac3cb02d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{graphique_8h_aacf71f70344edaba3fc040ebac3cb02d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a484859937dbc558bc6eb7024c5f755de}\label{graphique_8h_a484859937dbc558bc6eb7024c5f755de}} 
+\index{graphique.h@{graphique.h}!lancementMenu@{lancementMenu}}
+\index{lancementMenu@{lancementMenu}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{lancementMenu()}{lancementMenu()}}
+{\footnotesize\ttfamily void lancement\+Menu (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Background,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Option\+Menu,  }\item[{int $\ast$}]{p\+\_\+etats,  }\item[{int}]{bool\+Play\+Music,  }\item[{int $\ast$}]{ia }\end{DoxyParamCaption})}
+
+
+
+Fonction qui gère lorsque le joueur se trouve dans le menu principale.~\newline
+. 
+
+Il peut lancer une partie 1V\+S1, 1V\+S\+IA, quitter le jeu (autre que par la croix rouge) ou couper et rejouer le son.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$$\ast$ renderer \+: rendu ou l\textquotesingle{}on colle les images. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Background \+: Tableau de texture d\textquotesingle{}images qui va contenir les 400 images d\textquotesingle{}animations. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$$\ast$ texture\+Tableau\+Option\+Menu \+: Tableau de texture des images des options menu (1V\+S1, 1V\+S\+IA, S\+O\+UN , Q\+U\+IT G\+A\+ME) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ p\+\_\+etats \+: pointeur permettant de connaître l\textquotesingle{}état du programme (en game, en pause) \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & bool\+Play\+Music \+: permet de savoir si on joue de la musique ou pas. \\
+\hline
+\mbox{\texttt{ in}}  & {\em int} & $\ast$ ia \+: pointeur sur l\textquotesingle{}ia (permet de définir s\textquotesingle{}il y\textquotesingle{}aura une ia ou pas)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void \+: Pas de valeur de retour.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+D\+U\+P\+O\+IS Thomas 
+
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 124 du fichier graphique.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{graphique_8h_a484859937dbc558bc6eb7024c5f755de_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{graphique_8h_a484859937dbc558bc6eb7024c5f755de_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a425d4d813f3802ec428153b07f0d4e04}\label{graphique_8h_a425d4d813f3802ec428153b07f0d4e04}} 
+\index{graphique.h@{graphique.h}!loadImage@{loadImage}}
+\index{loadImage@{loadImage}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{loadImage()}{loadImage()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Texture $\ast$ load\+Image (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Fonction qui va permmetre de transformer une image (n\textquotesingle{}importe quel format valide) en texture. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em const} & char $\ast$ path \+: prend le chemin de l\textquotesingle{}image à charger. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$renderer \+: associe la texture créer à un renderer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+S\+D\+L\+\_\+\+Texture $\ast$ \+: Retourne un pointeur vers la texture à manipuler. 
+
+N\+U\+LL \+: Si chemin d\textquotesingle{}accès invalide ou erreur allocation texture à cause de S\+D\+L\+\_\+\+Create\+Texture\+From\+Surface (message d\textquotesingle{}erreur qui prévient)
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 24 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a425d4d813f3802ec428153b07f0d4e04_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a2c7c5273a970888cd0d1737c2e1172f0}\label{graphique_8h_a2c7c5273a970888cd0d1737c2e1172f0}} 
+\index{graphique.h@{graphique.h}!pause@{pause}}
+\index{pause@{pause}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily void pause (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Option\+Menu,  }\item[{int $\ast$}]{p\+\_\+etats,  }\item[{int}]{bool\+Play\+Music,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Pion,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{char $\ast$$\ast$$\ast$}]{map3D }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 693 du fichier graphique.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{graphique_8h_a2c7c5273a970888cd0d1737c2e1172f0_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{graphique_8h_a2c7c5273a970888cd0d1737c2e1172f0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a2fbe2ade1b6af727a22c3eeee0fa34b6}\label{graphique_8h_a2fbe2ade1b6af727a22c3eeee0fa34b6}} 
+\index{graphique.h@{graphique.h}!printMapEmptySDL@{printMapEmptySDL}}
+\index{printMapEmptySDL@{printMapEmptySDL}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{printMapEmptySDL()}{printMapEmptySDL()}}
+{\footnotesize\ttfamily int print\+Map\+Empty\+S\+DL (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Texture $\ast$}]{texture\+Map\+Vide,  }\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})}
+
+
+
+Fonction qui affiche en interface graphique la map sans pion. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Texture} & $\ast$ texture\+Map\+Vide \+: map graphique à afficher. \\
+\hline
+\mbox{\texttt{ in}}  & {\em S\+D\+L\+\_\+\+Renderer} & $\ast$ renderer \+: rendu ou l\textquotesingle{}on mets l\textquotesingle{}image que l\textquotesingle{}on charge.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \+: retourne 0 si succès sinon -\/1.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Auteur}
+V\+I\+L\+L\+E\+P\+R\+E\+UX Thibault 
+\end{DoxyAuthor}
+
+
+Définition à la ligne 582 du fichier graphique.\+c.
+
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a2fbe2ade1b6af727a22c3eeee0fa34b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{graphique_8h_a4d3c576dd7b3b2a8afe95eaff33ccc57}\label{graphique_8h_a4d3c576dd7b3b2a8afe95eaff33ccc57}} 
+\index{graphique.h@{graphique.h}!transition@{transition}}
+\index{transition@{transition}!graphique.h@{graphique.h}}
+\doxysubsubsection{\texorpdfstring{transition()}{transition()}}
+{\footnotesize\ttfamily int transition (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{renderer,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{texture\+Tableau\+Piont,  }\item[{\mbox{\hyperlink{structpoint}{point}} $\ast$$\ast$}]{tableau\+De\+Point,  }\item[{char $\ast$$\ast$$\ast$}]{map3D,  }\item[{int}]{dep,  }\item[{int}]{end,  }\item[{S\+D\+L\+\_\+\+Texture $\ast$$\ast$}]{tableau\+Texture\+Map\+Vide,  }\item[{char}]{c,  }\item[{char $\ast$$\ast$}]{pile\+J1,  }\item[{char $\ast$$\ast$}]{pile\+J2,  }\item[{int}]{indice\+Pion\+Who\+Eat }\end{DoxyParamCaption})}
+
+
+
+Définition à la ligne 590 du fichier graphique.\+c.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{graphique_8h_a4d3c576dd7b3b2a8afe95eaff33ccc57_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{graphique_8h_a4d3c576dd7b3b2a8afe95eaff33ccc57_icgraph}
+\end{center}
+\end{figure}

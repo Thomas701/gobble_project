@@ -1,0 +1,10 @@
+<map id="get" name="get">
+<area shape="rect" id="node1" title="renvoie la valeur contenu dans l&#39;indice à l&#39;index n" alt="" coords="749,31,792,57"/>
+<area shape="rect" id="node2" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="651,31,701,57"/>
+<area shape="rect" id="node3" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,5,600,32"/>
+<area shape="rect" id="node7" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,56,603,83"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,5,469,32"/>
+<area shape="rect" id="node5" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,5,252,32"/>
+<area shape="rect" id="node6" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,56,217,83"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="copyMap3D" name="copyMap3D">
+<area shape="rect" id="node1" title="Permet de copier la map 3D." alt="" coords="5,5,104,32"/>
+<area shape="rect" id="node2" href="$creation_8h.html#a56566517a2b19fa1c8871e21df713816" title="Permet de créer dynamiquement le plateau de jeu détaillé." alt="" coords="152,5,243,32"/>
+<area shape="rect" id="node3" href="$error_8h.html#a721446eb4867da7d9ad5218eb33b8670" title="Affiche erreur et quitte le programme (appeler si erreur lors de la création du plateau de jeu detail..." alt="" coords="291,5,417,32"/>
+</map>

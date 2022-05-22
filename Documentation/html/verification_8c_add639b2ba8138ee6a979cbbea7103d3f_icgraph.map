@@ -1,0 +1,7 @@
+<map id="canPlayStack" name="canPlayStack">
+<area shape="rect" id="node1" title="Fonction qui regarde si le joueur peut jouer un nouveau pion (et on connais sa taille) sur le plateau..." alt="" coords="529,31,639,57"/>
+<area shape="rect" id="node2" href="$demande_8c.html#a5640432ec67cad60ba21586b562d0a51" title="Fonction qui demande le pion que veut deplacer le joueur. Avec vérification. ." alt="" coords="259,5,481,32"/>
+<area shape="rect" id="node5" href="$demande_8c.html#a695efdbb9b1d84b147ab28b2c50bfc90" title="Fonction qui demande le pion que veut jouer le joueur dans sa pile. Avec vérification...." alt="" coords="263,56,477,83"/>
+<area shape="rect" id="node3" href="$fonction_8c.html#a470f303bd91f781a9ec3b2d8bf4b9b45" title="Fonction principale qui demande à un joueur son action et qui l&#39;éxécute sur la map." alt="" coords="108,31,211,57"/>
+<area shape="rect" id="node4" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,31,60,57"/>
+</map>

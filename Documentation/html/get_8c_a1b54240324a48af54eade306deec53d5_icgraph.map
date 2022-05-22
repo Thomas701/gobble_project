@@ -1,0 +1,15 @@
+<map id="getCaractereOnCase" name="getCaractereOnCase">
+<area shape="rect" id="node1" title="Fonction qui renvoie le caractère du pion sur la case demandé (&#39;0&#39;) si pas de pion." alt="" coords="1187,77,1343,104"/>
+<area shape="rect" id="node2" href="$ia_8c.html#a74ed2d29463d3c173234ae29950f00a5" title="évalue la grille et ajoute la note des paramètres." alt="" coords="1034,27,1125,53"/>
+<area shape="rect" id="node11" href="$get_8c.html#a8f4e6def7d13bd59a436414701691b2f" title="Fonction qui renvoie la taille du pion mangé (&#45;1) si aucun pion n&#39;est mangé" alt="" coords="793,128,972,155"/>
+<area shape="rect" id="node13" href="$ia_8c.html#ad1474b2f1b39e4a03462558beb7e91b0" title="Permet de trouver la liste des coups possibles que peux jouer l&#39;IA." alt="" coords="1020,77,1139,104"/>
+<area shape="rect" id="node3" href="$ia_8c.html#a85af03eabc3fecf6c40b71ed7d1f4e6c" title="Fait jouer l&#39;IA." alt="" coords="673,39,723,65"/>
+<area shape="rect" id="node10" href="$ia_8c.html#aa32523492bf748832b6bdd899552a942" title=" " alt="" coords="839,27,926,53"/>
+<area shape="rect" id="node4" href="$fonction_8c.html#a491a33dbdd4ff2217b194563f9d7b4a5" title="Fonction permettant à l&#39;intelligence artificielle de jouer." alt="" coords="520,64,600,91"/>
+<area shape="rect" id="node8" href="$fonction_8c.html#af344af621c12e66e76b660969ad2295f" title="Fonction qui lance la partie IA VS IA." alt="" coords="517,13,603,40"/>
+<area shape="rect" id="node5" href="$fonction_8c.html#ad969fbe7771993551d63673a388a7911" title=" " alt="" coords="300,112,469,139"/>
+<area shape="rect" id="node6" href="$graphique_8c.html#aacf71f70344edaba3fc040ebac3cb02d" title=" " alt="" coords="108,87,252,113"/>
+<area shape="rect" id="node7" href="$main_8c.html#a3c04138a5bfe5d72780bb7e82a18e627" title="Fonction principale, entrée du programme." alt="" coords="5,61,60,88"/>
+<area shape="rect" id="node9" href="$fonction_8c.html#a43f67d29d43c1e67e0b5d856226e8d63" title=" " alt="" coords="143,24,217,51"/>
+<area shape="rect" id="node12" href="$fonction_8c.html#a5106b0424ba036701cb58953e6cf1354" title="Fonction permettant de déplacer un pion depuis une pile." alt="" coords="651,115,745,141"/>
+</map>

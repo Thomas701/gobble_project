@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gobble Project:  Fichier source de src/liste.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gobble Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">liste.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="liste_8c.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="liste_8c.html#ad96397b14c3010948f796616a7951f47">   19</a></span>&#160;<a class="code" href="structliste.html">liste</a> * <a class="code" href="liste_8c.html#ad96397b14c3010948f796616a7951f47">createListe</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="structliste.html">liste</a> * l = malloc(<span class="keyword">sizeof</span>(<a class="code" href="structliste.html">liste</a>));</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a> = -1;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a> = NULL;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">return</span> l;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="liste_8c.html#ac38600916d3240890f129ddc638b6e84">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="liste_8c.html#ac38600916d3240890f129ddc638b6e84">add</a>(<a class="code" href="structliste.html">liste</a> * l, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span> (-1 == l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a> = n;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">while</span> (l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a> != NULL)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            l = l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="structliste.html">liste</a> * l2 = <a class="code" href="liste_8c.html#ad96397b14c3010948f796616a7951f47">createListe</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        l2-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a> = n;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a> = l2;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="liste_8c.html#af7e0f5238bce3e3a6ef83aaafde415cc">   65</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="liste_8c.html#af7e0f5238bce3e3a6ef83aaafde415cc">clear</a>(<a class="code" href="structliste.html">liste</a> * l)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="structliste.html">liste</a> * l2 = l;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">while</span>(l2 != NULL)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        l2 = l2-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        free(l2);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a> = -1;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a> = NULL;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="liste_8c.html#a23f695a6f4e83f0cd02bb0cee37e440d">   87</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="liste_8c.html#a23f695a6f4e83f0cd02bb0cee37e440d">contains</a>(<a class="code" href="structliste.html">liste</a> * l, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">while</span>(l != NULL)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a> == n)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        l = l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="liste_8c.html#ae68f291c9fe0120bd2de4c9a4b242950">  108</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="liste_8c.html#ae68f291c9fe0120bd2de4c9a4b242950">size</a>(<a class="code" href="structliste.html">liste</a> * l)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">while</span>(l != NULL)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        l = l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        n++;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">return</span> n;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="liste_8c.html#aef2e6649dd2431f06ad42d1ebf55b5f0">  129</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="liste_8c.html#aef2e6649dd2431f06ad42d1ebf55b5f0">afficheListe</a>(<a class="code" href="structliste.html">liste</a> * l)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    printf(<span class="stringliteral">&quot;--- Liste ---\n&quot;</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">while</span>(l != NULL)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        printf(<span class="stringliteral">&quot;-&gt;%d &quot;</span>, l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        l = l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="liste_8c.html#a7b9a2f43a8dbdd82e30023472111c3de">  151</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="liste_8c.html#a7b9a2f43a8dbdd82e30023472111c3de">get</a>(<a class="code" href="structliste.html">liste</a> * l, <span class="keywordtype">int</span> n)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;{</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">int</span> i = 0;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">while</span>(i &lt; n)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        l = l-&gt;<a class="code" href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">suivant</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        i++;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">return</span> l-&gt;<a class="code" href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;}</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aliste_8c_html_a23f695a6f4e83f0cd02bb0cee37e440d"><div class="ttname"><a href="liste_8c.html#a23f695a6f4e83f0cd02bb0cee37e440d">contains</a></div><div class="ttdeci">int contains(liste *l, int n)</div><div class="ttdoc">renvoie 0 ou 1 selon si la liste contient l'élément</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00087">liste.c:87</a></div></div>
+<div class="ttc" id="aliste_8c_html_af7e0f5238bce3e3a6ef83aaafde415cc"><div class="ttname"><a href="liste_8c.html#af7e0f5238bce3e3a6ef83aaafde415cc">clear</a></div><div class="ttdeci">void clear(liste *l)</div><div class="ttdoc">reset une liste</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00065">liste.c:65</a></div></div>
+<div class="ttc" id="aliste_8c_html_ae68f291c9fe0120bd2de4c9a4b242950"><div class="ttname"><a href="liste_8c.html#ae68f291c9fe0120bd2de4c9a4b242950">size</a></div><div class="ttdeci">int size(liste *l)</div><div class="ttdoc">renvoie la taille de la liste</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00108">liste.c:108</a></div></div>
+<div class="ttc" id="aliste_8c_html_aef2e6649dd2431f06ad42d1ebf55b5f0"><div class="ttname"><a href="liste_8c.html#aef2e6649dd2431f06ad42d1ebf55b5f0">afficheListe</a></div><div class="ttdeci">void afficheListe(liste *l)</div><div class="ttdoc">affiche la liste</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00129">liste.c:129</a></div></div>
+<div class="ttc" id="aliste_8c_html_ad96397b14c3010948f796616a7951f47"><div class="ttname"><a href="liste_8c.html#ad96397b14c3010948f796616a7951f47">createListe</a></div><div class="ttdeci">liste * createListe()</div><div class="ttdoc">creer une liste</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00019">liste.c:19</a></div></div>
+<div class="ttc" id="aliste_8c_html_a7b9a2f43a8dbdd82e30023472111c3de"><div class="ttname"><a href="liste_8c.html#a7b9a2f43a8dbdd82e30023472111c3de">get</a></div><div class="ttdeci">int get(liste *l, int n)</div><div class="ttdoc">renvoie la valeur contenu dans l'indice à l'index n</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00151">liste.c:151</a></div></div>
+<div class="ttc" id="astructliste_html_ac4f474c82e82cbb89ca7c36dd52be0ed"><div class="ttname"><a href="structliste.html#ac4f474c82e82cbb89ca7c36dd52be0ed">liste::value</a></div><div class="ttdeci">int value</div><div class="ttdef"><b>Definition:</b> <a href="liste_8h_source.html#l00012">liste.h:12</a></div></div>
+<div class="ttc" id="astructliste_html"><div class="ttname"><a href="structliste.html">liste</a></div><div class="ttdef"><b>Definition:</b> <a href="liste_8h_source.html#l00010">liste.h:10</a></div></div>
+<div class="ttc" id="aliste_8c_html_ac38600916d3240890f129ddc638b6e84"><div class="ttname"><a href="liste_8c.html#ac38600916d3240890f129ddc638b6e84">add</a></div><div class="ttdeci">void add(liste *l, int n)</div><div class="ttdoc">ajoute un élément au début d'une liste</div><div class="ttdef"><b>Definition:</b> <a href="liste_8c_source.html#l00039">liste.c:39</a></div></div>
+<div class="ttc" id="astructliste_html_a906e42df5cb1375b4a2a0a6ab5ec4f62"><div class="ttname"><a href="structliste.html#a906e42df5cb1375b4a2a0a6ab5ec4f62">liste::suivant</a></div><div class="ttdeci">struct liste * suivant</div><div class="ttdef"><b>Definition:</b> <a href="liste_8h_source.html#l00013">liste.h:13</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

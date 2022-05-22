@@ -189,7 +189,7 @@ void allFree(char *** map3D, char ** map2D, char ** stacks, char ** stacksOp, in
 int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int ** tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int * tableauParam);
 
 /**
- * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
+ * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks)
  * \brief évalue la grille et ajoute la note des paramètres
  *  
  * \param[in] int * tabParam : tableau contenant les paramètre
@@ -203,7 +203,7 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
  * 
  * \author DUPOIS Thomas
  */
-int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c);
+int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks);
 
 /**
  * \fn int number_pion_gobe(char *** map3D, char c)

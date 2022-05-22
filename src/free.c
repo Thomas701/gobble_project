@@ -193,19 +193,19 @@ void freeTableIA(int ** tab, int nbre)
 void freeSDL(SDL_Window * window, SDL_Renderer * renderer, Mix_Music * mainMusic, SDL_Texture ** textureTableauPion, SDL_Texture **  tableauTextureMapVide,
 SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point ** tableauDePoint, SDL_Surface * icones, SDL_Rect ** tableauCase, SDL_Texture ** textureTableauWin)
 {
-  if(mainMusic) Mix_FreeMusic(mainMusic); // free musique principale
+   if(mainMusic) Mix_FreeMusic(mainMusic); // free musique principale
 
   /************************** FREE TEXTURE **************************/
   if(textureTableauPion) {
-    for(int i=0; i<(N*2)*2; ++i) // nombres d'images de pion
+    for(int i=0; i < (N*2)*2; ++i) // nombres d'images de pion
       SDL_DestroyTexture(textureTableauPion[i]);
     free(textureTableauPion);
   }
 
   if(textureTableauWin) {
-    for(int i = 0; i < 11; i++) // nombres d'images de pion
-      SDL_DestroyTexture(textureTableauPion[i]);
-    free(textureTableauPion);
+    for(int i = 0; i < 8; i++) // nombres d'images de pion
+      SDL_DestroyTexture(textureTableauWin[i]);
+    free(textureTableauWin);
   }
 
   if(tableauTextureMapVide) {
@@ -219,10 +219,10 @@ SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point 
     free(textureBackground);
   }
   if(textureTableauOptionMenu) {
-    for(int i = 0; i < 11; i++)                  // nombres options menus
+    for(int i = 0; i < 12; i++)                  // nombres options menus
       SDL_DestroyTexture(textureTableauOptionMenu[i]);
     free(textureTableauOptionMenu);
-  }
+    }
   /************************** END TEXTURE **************************/
 
   if(tableauDePoint) {

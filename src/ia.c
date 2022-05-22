@@ -530,6 +530,8 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
  */
 int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
 {
+    /*char *** map3DCop = createMap();
+    map3DCop =*/
     int result = 0;
     //placer un pion (déplacement depuis une pile)
     if(tabOfCoups[0][index] > 8)

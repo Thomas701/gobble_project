@@ -197,13 +197,13 @@ SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point 
 
   /************************** FREE TEXTURE **************************/
   if(textureTableauPion) {
-    for(int i=0; i<(N*2)*2; ++i) // nombres d'images de pion
+    for(int i=0; i < (N*2)*2; ++i) // nombres d'images de pion
       SDL_DestroyTexture(textureTableauPion[i]);
     free(textureTableauPion);
   }
 
   if(textureTableauWin) {
-    for(int i = 0; i < 11; i++) // nombres d'images de pion
+    for(int i = 0; i < 8; i++) // nombres d'images de pion
       SDL_DestroyTexture(textureTableauPion[i]);
     free(textureTableauPion);
   }
@@ -219,7 +219,7 @@ SDL_Texture ** textureTableauOptionMenu,SDL_Texture ** textureBackground, point 
     free(textureBackground);
   }
   if(textureTableauOptionMenu) {
-    for(int i = 0; i < 11; i++)                  // nombres options menus
+    for(int i = 0; i < 12; i++)                  // nombres options menus
       SDL_DestroyTexture(textureTableauOptionMenu[i]);
     free(textureTableauOptionMenu);
   }

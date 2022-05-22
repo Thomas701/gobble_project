@@ -53,6 +53,11 @@
  */
 #define Z2 0.86
 
+/** \def D
+ * \brief Représente la restriction de distance d'une case. 0 si pas de restriction sinon 1.
+ */
+#define D 1
+
 //Chemin d'accès de nos headers
 #include "headers/fonction.h"
 #include "headers/get.h"
@@ -104,7 +109,7 @@ int main(int argc, char ** argv){
   initMap(map3D);                    initMap2D(map2D, map3D);            // remplie la map que du char '0'
   int statut = EXIT_FAILURE ;                                            // par default jusqu'à preuve du contraire le programme n'est pas 
                                                                          //arrivé jusqu'à la fin donc erreur
-  int deplacement = SF_demandeDeplacement();
+  int deplacement = D;
 
   if (argc > 1 && (strcmp(argv[1],"--console") || strcmp(argv[1],"-c")) ){ // lancement console
     int tour = 0; char c;               // tour %2 permet de connaitre le jour et c stocke la lettre du joeuur qui doit jouer

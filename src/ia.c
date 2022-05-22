@@ -4,7 +4,6 @@
  * \brief Fichier contenant les code des fonctions concernant l'intelligence artificielle.
  * 
  * \author DUPOIS Thomas
- * \author VILLEPREUX Thibault
  */
 
 /**
@@ -739,9 +738,9 @@ void writeChampion(int * tabParam, char nom[20])
     {
         for (int i = 0; i < 21; i++)
         {   
-            itoa(tabParam[i], nbre, 10);
-            fputs(nbre, fichier);
-            fputs(";", fichier);
+	  sprintf(nbre,"%d",tabParam[i]);
+	  fputs(nbre, fichier);
+	  fputs(";", fichier);
         }
         fputs("\n", fichier);
         fclose(fichier);

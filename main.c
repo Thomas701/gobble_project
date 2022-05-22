@@ -2,7 +2,7 @@
  * \file main.c
  * \brief Fonction principale, entrée du programme.
  * \author DUPOIS Thomas 
- * \author VILLEPREUX Thibault
+ * \author VILLEPREUX Thibault 
  * 
  */
 

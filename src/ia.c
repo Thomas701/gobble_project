@@ -18,7 +18,6 @@
  */
 int ** createTabOfCoups()
 {
-    int nbreIndex = 2;                                      //index de départ et d'arrivé
     int ** tab = (int **) malloc(sizeof(int *)*2);       // alloue le tableau 1D
     if(!tab) errorInCreate2D();                             // appelle fonction qui envoie message + quit prog si NULL (malloc impossible)
     for(int i = 0; i < 2; i++) 
@@ -184,8 +183,8 @@ void listTabOfCoups(char *** map3D, char ** stacks, int ** tabOfCoups, char c)
                 continue;
             //si l'index ciblé n'a pas le bon caractère, ou qu'aucun déplacement n'est possible dans la map,
             // ou que le pion ciblé ne peut pas se déplacer, ou que le déplacement n'est pas valide, ou que la distance de déplacement est trop grande
-            int x1 = (i - i % N) / N;   int y1 = i % N; 
-            int x2 = (j - j % N) / N;   int y2 = j % N;
+            x1 = (i - i % N) / N;   y1 = i % N; 
+            x2 = (j - j % N) / N;   y2 = j % N;
             if (i < 9 && (getCaractereOnCase(map3D, i) != c || !canEffectDeplacementWithDistance(map3D, c) 
             || !canMooveThisPionD(map3D, i, c) || !canMoove(map3D, i, j) || maximum(abs(x1-x2), abs(y1-y2)) > 1))
                 continue;
@@ -625,7 +624,7 @@ int number_pion_gobe(char *** map3D, char c)
             {
                 if (a && map3D[i][j][k] == c)
                     count++;
-                if (map3D[i][j][k] != c)
+                if (map3D[i][j][k] == cOp)
                     a = 1;
             }
         }

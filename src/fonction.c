@@ -87,7 +87,7 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
       && (deplacement == 0 || (canEffectDeplacementWithDistance(map3D, c) && deplacement == 1)))  // demande l'option jouer nouveau pion ou deplacer ancien pion 
          SGO_demandePileEtDeplacement(map3D, map2D, p_answer);
   
-  if (answer == 2 || answer == 0 && (deplacement == 0 || canEffectDeplacementWithDistance(map3D, c))) {// cas ou il a choisi/obligé de prendre l'option de déplacer un pion déja jouer
+  if ((answer == 2 || answer == 0) && (deplacement == 0 || canEffectDeplacementWithDistance(map3D, c))) {// cas ou il a choisi/obligé de prendre l'option de déplacer un pion déja jouer
     int debPion = 0 ; int * p_debPion = &debPion ; 
     int endPion = 0 ; int * p_endPion = &endPion ;
     SGO_demandeQuelPionDeplacer(map3D, map2D, p_debPion);  // demande le coup qu le joueur veut faire (coord pion avant / après)

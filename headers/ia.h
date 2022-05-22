@@ -1,7 +1,7 @@
 /**
- * \file verification.h
+ * \file ia.h
  * 
- * \brief Fichier contenant les headers des fonctions permettant de vérifier si un déplacement / insertion de nouveau pion est valide.
+ * \brier Fichier contenant les code des fonctions concernant l'intelligence artificielle
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
@@ -45,6 +45,20 @@ void afficheTabOfCoups(int ** tab);
  * \author DUPOIS Thomas
  */
 void initTabOfCoups(int ** tab);
+
+/**
+ * \fn void listTabOfCoups(char *** map3D, char ** stacks, int ** tabOfCoups, char c)
+ * \brief Permet de trouver la liste des coups possibles que peux jouer l'IA
+ *  
+ * \param[in] char *** map3D : map3D représentant la grille du jeu
+ * \param[in] char ** stacks : pile du joueur en question
+ * \param[in] int ** tabOfCoups : tableau de coups possible 
+ * \param[in] char c : correspond au joueur qui joue
+ * 
+ * \return void : Ne Retourne rien, il s'agit de remplir le tableau
+ * 
+ * \author DUPOIS Thomas
+ */
 
 /**
  * \fn char *** copyMap3D(char *** map3D)

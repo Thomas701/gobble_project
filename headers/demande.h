@@ -27,7 +27,7 @@
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */
-void SGO_demandePileEtDeplacement(char *** map3D, char ** map2D, int * answer);
+void SGO_demandePileEtDeplacement(char *** map3D, char ** map2D, int * answer) ;
 
 /**
  * \fn void SGO_demandeQuelPionDeplacer(char *** map3D, char ** map2D, int * debPion)

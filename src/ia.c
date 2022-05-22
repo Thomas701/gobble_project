@@ -594,7 +594,7 @@ int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups,
     //nbre de pion gobé < nbre de pion gobé adversaire
     if (number_pion_gobe(map3D, c) < number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
         result += tabParam[19];
-    //alignement de 2 pions // PROBLEME CREER UNE NOUVELLE MAP 3D, met la a jour avec le coup et test sur cette map
+    //alignement de 2 pions
     if (count_pion(map2D, N-1, c))
         result += tabParam[20];
     return result;
@@ -738,9 +738,9 @@ void writeChampion(int * tabParam, char nom[20])
     {
         for (int i = 0; i < 21; i++)
         {   
-            itoa(tabParam[i], nbre, 10);
-            fputs(nbre, fichier);
-            fputs(";", fichier);
+	  sprintf(nbre,"%d",tabParam[i]);
+	  fputs(nbre, fichier);
+	  fputs(";", fichier);
         }
         fputs("\n", fichier);
         fclose(fichier);
@@ -787,21 +787,20 @@ int nbreChampion(char nom[20])
  */
 void readChampion(int ** tabIA, char nom[20])
 {
-    printf("1er\n");
     FILE *f;
     f = fopen(nom,"r");   
     int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
     int i = 0;
-    printf("2eme\n");
-    char *file_contents = (char*) malloc(sizeof(char)*63);
-    printf("3eme\n");
+    printf("test malloc ligne fichier\n");
+    char *file_contents = malloc(sizeof(char)*63);
+    printf("test ligne fichier reussi\n");
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
         //printf("> %s\n", file_contents);
-        printf("5eme\n");
+        printf("Test de scan\n");
         sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
-        printf("TEST continue i=%d\n", i);
+        printf("Test scan reussi i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
         tabIA[i][5] = i6; tabIA[i][6] = i7; tabIA[i][7] = i8; tabIA[i][8] = i9; tabIA[i][9] = i10;
         tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14; tabIA[i][14] = i15;

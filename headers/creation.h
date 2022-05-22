@@ -5,8 +5,8 @@
  * 
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
- */
-#ifndef CREATION_H_
+ */#ifndef CREATION_H_
+
 #define CREATION_H_
 
 /**

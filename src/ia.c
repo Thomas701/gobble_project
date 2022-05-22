@@ -327,7 +327,7 @@ int * play(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char c
     {
         for (int i = 0; i < size(l); i++)
         {
-            calcul = evaluation(tableauParam, map3D, map2D, tab, get(l, i), c);
+            calcul = evaluation(tableauParam, map3D, map2D, tab, get(l, i), c, pileJ1);
             if (calcul > max)
             {
                 clear(l2);
@@ -406,7 +406,7 @@ void allFree(char *** map3D, char ** map2D, char ** stacks, char ** stacksOp, in
 int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int ** tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int * tableauParam)
 {
     if (prof == -1)
-        return evaluation(tableauParam, map3D, map2D, tabOfCoups, index, c);
+        return evaluation(tableauParam, map3D, map2D, tabOfCoups, index, c, ((c == 'b') ? pileJ1 : pileJ2));
     /* ----- */
     char ** stacks; char ** stacksOp;
     int iaOp = (ia == 1) ? 0 : 1;       // IA OPPOSE
@@ -514,7 +514,7 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 // <- [20] aligne 2 gobblets
 
 /**
- * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
+ * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks)
  * \brief évalue la grille et ajoute la note des paramètres
  *  
  * \param[in] int * tabParam : tableau contenant les paramètre
@@ -528,10 +528,16 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
  * 
  * \author DUPOIS Thomas
  */
-int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c)
+int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks)
 {
     /*char *** map3DCop = createMap();
-    map3DCop =*/
+    char ** map2DCop = createMap2D();
+    char ** stacksCop = createStack(c);
+    map3DCop = copyMap3D(map3D);
+    map2DCop = copyMap2D(map2D);
+    stacksCop = copyStack(stacks);
+    placePionByIa(tabOfCoups, index, map3DCop, stacksCop, c);   // jouer le pion en question
+    initMap2D(map2DCop, map3DCop);                              // mettre à jour la map*/
     int result = 0;
     //placer un pion (déplacement depuis une pile)
     if(tabOfCoups[0][index] > 8)
@@ -598,6 +604,9 @@ int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups,
     //alignement de 2 pions
     if (count_pion(map2D, N-1, c))
         result += tabParam[20];
+    /*freeMap(map3DCop);
+    freeMap2D(map2DCop);
+    freeStack(stacksCop);*/
     return result;
 }
 

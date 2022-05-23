@@ -917,9 +917,9 @@ int lectureDetection(char nameFile[35], char firstAvert[35], char secondAvert[35
 {
     if (nbreChampion(nameFile) == 10)
     {
-        printf(firstAvert);
+        printf("%s",firstAvert);
         readChampion(tabIA, nameFile);
-        printf(secondAvert);
+        printf("%s", secondAvert);
         *champ = 1;
         clearFile(nameFile);
         return 1;

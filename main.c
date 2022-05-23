@@ -158,7 +158,7 @@ int main(int argc, char ** argv){
        goto Quit; // si erreur quitte le programme
      }
 
-    //intro_authors(&renderer);          // intro image authors + son , pas de quit si erreur
+    intro_authors(&renderer);          // intro image authors + son , pas de quit si erreur
     loadAndPlayMainMusic(&mainMusic);  // lancement musique, si plante pas de music mais pas d'arret du jeu
 
     while (etatS)

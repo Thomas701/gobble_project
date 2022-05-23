@@ -154,41 +154,29 @@ void SGOG_IA(char *** map3D, char ** map2D, char * c, char ** pileJ1, char ** pi
  SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, int * tabParam);
 
 /**
- * \fn void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
+ * \fn void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char * c)
  * \brief Fonction qui lance la partie Homme VS Homme.
  * 
  * Elle entraine l'intelligence artificielle
  *  
- * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
- * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
- * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
- * \param[in] SDL_Texture ** textureTableauWin : tableau de texture, contient les images de victoires avec lignes gagnantes éclairées.
  * \param[in] int * p_etatS : pointeur permettant de connaître l'état du programme (en game, en pause)
- * \param[in] SDL_Rect ** tableauCase : tableau de case / surface pour gérer l'affichage des pions et leurs sélections.
- * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
  * \param[in] char *** map3D : contient la map du jeu détaillé.
  * \param[in] char **  map2D : contient la map du jeu non détaillé.
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
  * \param[in] char ** pileJ2 : contient la pile du joueur 2.
- * \param[in] int deplacement : option de jeu avec deplacement restreins ou non .
- * \param[in] int * ia : pointeur sur l'ia
  *
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  */
-void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia);
+void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2);
 
 /**
- * \fn void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
+ * \fn void trainingIA(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
  * \brief Fonction qui lance la partie IA VS IA
  * 
  * Elle entraine l'intelligence artificielle
  *  
- * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
- * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
- * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
- * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
  * \param[in] char *** map3D : contient la map du jeu détaillé.
  * \param[in] char **  map2D : contient la map du jeu non détaillé.
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
@@ -202,6 +190,6 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
  * 
  * \author DUPOIS Thomas
  */
-void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult);
+void trainingIA(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult);
 
 #endif

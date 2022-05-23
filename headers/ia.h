@@ -319,6 +319,20 @@ int nbreChampion(char nom[20]);
 void readChampion(int ** tabIA, char nom[20]);
 
 /**
+ * \fn void readTheChampion(int ** tabIA, char nom[20])
+ * 
+ * \brief Fonction qui récupère la meilleur IA, créer 10 clone d'elle modifié génétiquement
+ * 
+ * \param[in] int ** tabIA : tableau d'IA
+ * \param[in] char nom[20]: nom du fichier
+ * 
+ * \return void : ne renvoie rien
+ * 
+ * \author DUPOIS Thomas
+ */
+void readTheChampion(int ** tabIA, char nom[20]);
+
+/**
  * \fn void clearFile(char nom[20])
  * 
  * \brief Fonction qui vide le contenu d'un fichier
@@ -330,5 +344,22 @@ void readChampion(int ** tabIA, char nom[20]);
  * \author DUPOIS Thomas
  */
 void clearFile(char nom[20]);
+
+/**
+ * \fn int lectureDetection(char nameFile[35], char firstAvert[35], char secondAvert[35], int ** tabIA, int * champ)
+ * 
+ * \brief Fonction qui effectue la detection des champions (vérifie s'il y a 10 champions dans un fichier)
+ * 
+ * \param[in] char nameFile[20] : nom du fichier
+ * \param[in] char firstAvert[35] : 1er avertissement
+ * \param[in] char secondAvert[35] : 2eme avertissement
+ * \param[in] int ** tabIA : tableau d'IA
+ * \param[in] int * champ : boolean du champion en question
+ * 
+ * \return int : renvoie 1 ou 0 selon la detection
+ * 
+ * \author DUPOIS Thomas
+ */
+int lectureDetection(char nameFile[35], char firstAvert[35], char secondAvert[35], int ** tabIA, int * champ);
 
 #endif

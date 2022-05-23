@@ -797,19 +797,16 @@ int nbreChampion(char nom[20])
  */
 void readChampion(int ** tabIA, char nom[20])
 {
-    printf("1er\n");
     FILE *f;
     f = fopen(nom,"r");   
     int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
     int i = 0;
-    printf("2eme\n");
+    printf("Test malloc ligne\n");
     char *file_contents = malloc(sizeof(char)*63);
-    printf("3eme\n");
+    printf("test malloc ligne reussi\n");
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
-        //printf("> %s\n", file_contents);
-        printf("5eme\n");
         sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
         printf("TEST continue i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
@@ -818,6 +815,66 @@ void readChampion(int ** tabIA, char nom[20])
         tabIA[i][15] = i16; tabIA[i][16] = i17; tabIA[i][17] = i18; tabIA[i][18] = i19; tabIA[i][19] = i20;
         tabIA[i][20] = i21;
         i++;
+    }
+    free(file_contents);
+    fclose(f);
+}
+
+/**
+ * \fn void readTheChampion(int ** tabIA, char nom[20])
+ * 
+ * \brief Fonction qui récupère la meilleur IA, créer 10 clone d'elle modifié génétiquement
+ * 
+ * \param[in] int ** tabIA : tableau d'IA
+ * \param[in] char nom[20]: nom du fichier
+ * 
+ * \return void : ne renvoie rien
+ * 
+ * \author DUPOIS Thomas
+ */
+void readTheChampion(int ** tabIA, char nom[20])
+{
+    FILE *f;
+    f = fopen(nom,"r");   
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
+    int i = 0;
+    printf("Test malloc ligne\n");
+    char *file_contents = malloc(sizeof(char)*63);
+    printf("test malloc ligne reussi\n");
+    /* Théoriquement, la boucle ci-dessous, ne s'execute qu'une seule fois */
+    while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
+    {
+        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
+        printf("TEST continue 2 i=%d\n", i);
+        tabIA[0][0] = i1; tabIA[0][1] = i2; tabIA[0][2] = i3; tabIA[0][3] = i4; tabIA[0][4] = i5;
+        tabIA[0][5] = i6; tabIA[0][6] = i7; tabIA[0][7] = i8; tabIA[0][8] = i9; tabIA[0][9] = i10;
+        tabIA[0][10] = i11; tabIA[0][11] = i12; tabIA[0][12] = i13; tabIA[0][13] = i14; tabIA[0][14] = i15;
+        tabIA[0][15] = i16; tabIA[0][16] = i17; tabIA[0][17] = i18; tabIA[0][18] = i19; tabIA[0][19] = i20;
+        tabIA[0][20] = i21;
+        i++;
+    }
+    for(int k = i; k < 10; k++)
+    {
+        if(k < 7) // différence minime
+        {
+            for (int j = 0; j < 21; j++)
+                tabIA[k][j] = tabIA[0][j] + rdm(-1,1); 
+        }
+        else if (k > 6 && k < 9) //croisé
+        {
+            for (int j = 0; j < 21; j++)
+            {
+                if (j < 11)
+                    tabIA[k][j] = tabIA[10-k][j];
+                else
+                    tabIA[k][j] = tabIA[9-k][j];
+            } 
+        }
+        else //increase
+        {
+            for(int j = 0; j < 21; j++)
+                tabIA[k][j] = tabIA[0][j] + ((tabIA[0][j] > 0) ? 1 : ((tabIA[0][j] < 0) ? -1 : 0));
+        }
     }
     free(file_contents);
     fclose(f);
@@ -839,6 +896,36 @@ void clearFile(char nom[20])
     FILE *f;
     f = fopen(nom,"w+");
     fclose(f);
+}
+
+/**
+ * \fn int lectureDetection(char nameFile[35], char firstAvert[35], char secondAvert[35], int ** tabIA, int * champ)
+ * 
+ * \brief Fonction qui effectue la detection des champions (vérifie s'il y a 10 champions dans un fichier)
+ * 
+ * \param[in] char nameFile[20] : nom du fichier
+ * \param[in] char firstAvert[35] : 1er avertissement
+ * \param[in] char secondAvert[35] : 2eme avertissement
+ * \param[in] int ** tabIA : tableau d'IA
+ * \param[in] int * champ : boolean du champion en question
+ * 
+ * \return int : renvoie 1 ou 0 selon la detection
+ * 
+ * \author DUPOIS Thomas
+ */
+int lectureDetection(char nameFile[35], char firstAvert[35], char secondAvert[35], int ** tabIA, int * champ)
+{
+    if (nbreChampion(nameFile) == 10)
+    {
+        printf(firstAvert);
+        readChampion(tabIA, nameFile);
+        printf(secondAvert);
+        *champ = 1;
+        clearFile(nameFile);
+        return 1;
+    }
+    else
+        return 0;
 }
 
 

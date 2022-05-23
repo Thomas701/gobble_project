@@ -170,7 +170,7 @@ int main(int argc, char ** argv){
       else if (etatS == 3) // menu pause
         pause(renderer, textureTableauOptionMenu, p_etatS, boolPlayMusic, tableauTextureMapVide, textureTableauPion, tableauDePoint, map3D);
       else if (etatS == 4) // entrainement IA
-        IAGame(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);
+        IAGame(p_etatS, map3D, map2D, pileJ1, pileJ2);
       else
         return 0;
     }

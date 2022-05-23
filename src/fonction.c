@@ -311,123 +311,119 @@ void SGOG_IA(char *** map3D, char ** map2D, char * c, char ** pileJ1, char ** pi
 }
 
 /**
- * \fn void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
+ * \fn void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char * c)
  * \brief Fonction qui lance la partie Homme VS Homme.
  * 
  * Elle entraine l'intelligence artificielle
  *  
- * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
- * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
- * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
- * \param[in] SDL_Texture ** textureTableauWin : tableau de texture, contient les images de victoires avec lignes gagnantes éclairées.
  * \param[in] int * p_etatS : pointeur permettant de connaître l'état du programme (en game, en pause)
- * \param[in] SDL_Rect ** tableauCase : tableau de case / surface pour gérer l'affichage des pions et leurs sélections.
- * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
  * \param[in] char *** map3D : contient la map du jeu détaillé.
  * \param[in] char **  map2D : contient la map du jeu non détaillé.
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
  * \param[in] char ** pileJ2 : contient la pile du joueur 2.
- * \param[in] int deplacement : option de jeu avec deplacement restreins ou non .
- * \param[in] int * ia : pointeur sur l'ia
  *
  * \return void : Pas de valeur de retour.
  * 
  * \author DUPOIS Thomas
  */
-void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint, SDL_Texture ** textureTableauWin, int * p_etatS, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Rect ** tableauCase,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int distance, char * c, int * ia)
+void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2)
 {
-  int champion = 0; int gc = 0; int tgc =0;
+  int champion = 0; int gc = 0; int tgc =0; 
+  int * p_champion = &champion; int * p_gc = &gc; int * p_tgc = &tgc;
   int nbreIA = 10; int min = -5; int max = 5; int bestIA;
   int * tabResult = (int*) malloc(sizeof(int)*nbreIA);
-  for (int tour = 0; tour < 5000; tour++)
-  {  
-    printf("-------------------------------\n");
-    printf("TOUR: %d\n", tour);
-    int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
-    printf("TEST creation tabIA\n");
-    if (nbreChampion("champion.txt") == 10 || nbreChampion("grandChampion.txt") == 10 || nbreChampion("tresGrandChampion.txt") == 10)
-    {
-      printf("DETECTION GAGNANT\n");
+  //printf("---> %d", nbreChampion("infernalChampion.txt"));
+  if (nbreChampion("infernalChampion.txt") == 1)
+  {
+    for (int tour = 0; tour < 5000; tour++)
+    {  
+      printf("--------------------------------\n");
+      printf("GENETIQUE IA ENCLENCHE : %d\n", tour);
+      int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
       for (int i = 0; i < nbreIA; i++)
       {
         int * tab = (int*) malloc(sizeof(int)*21);
         tabIA[i] = tab;
         tabResult[i] = 0;
       }
-      printf("RESET TABLEAU EFFECTUE\n");
-      if (nbreChampion("tresGrandChampion.txt") == 10)
+      readTheChampion(tabIA, "infernalChampion.txt");
+      printIAParametre(tabIA);
+      for (int i = 0; i < nbreIA-1; i ++)
       {
-        printf("detection TGC \n");
-        readChampion(tabIA, "tresGrandChampion.txt");
-        printf("TGC good\n");
-        tgc = 1;
-        clearFile("tresGrandChampion.txt");
+        for (int j = i+1; j < nbreIA; j++)
+        {
+          printf("IA : %d vs %d\n", i, j);
+          trainingIA(map3D, map2D, pileJ1, pileJ2, i, j, tabIA, tabResult);
+        }
       }
-      else if (nbreChampion("grandChampion.txt") == 10)
-      {
-        printf("detection GC \n");
-        readChampion(tabIA, "grandChampion.txt");
-        printf("GC good\n");
-        gc = 1;
-        clearFile("grandChampion.txt");
-      }
-      else if (nbreChampion("champion.txt") == 10)
-      {
-        printf("detection Champion \n");
-        readChampion(tabIA, "champion.txt");
-        printf("Champion good\n");
-        champion = 1;
-        clearFile("champion.txt");
-      }
-    }
-    else
-    {
-      for (int i = 0; i < nbreIA; i++)
-      {
-        tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
-        rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
-        rdm(min,max),rdm(min,max),rdm(min,max));
-        tabResult[i] = 0;
-      }
-    }
-    printIAParametre(tabIA);
-    for (int i = 0; i < nbreIA-1; i ++)
-    {
-      for (int j = i+1; j < nbreIA; j++)
-      {
-        printf("IA : %d vs %d\n", i, j);
-        trainingIA(renderer, tableauTextureMapVide, tableauDePoint, textureTableauPion, map3D, map2D, pileJ1, pileJ2, i, j, tabIA, tabResult);
-      }
-    }
-    printIAResult(tabResult, nbreIA);
-    bestIA = getMaxOnTable(tabResult, nbreIA);
-    if (champion)
-      writeChampion(tabIA[bestIA], "grandChampion.txt");
-    else if (gc)
-      writeChampion(tabIA[bestIA], "tresGrandChampion.txt");
-    else if (tgc)
+      printIAResult(tabResult, nbreIA);
+      bestIA = getMaxOnTable(tabResult, nbreIA);
+      clearFile("infernalChampion.txt");
       writeChampion(tabIA[bestIA], "infernalChampion.txt");
-    else
-      writeChampion(tabIA[bestIA], "champion.txt");
-    champion = 0;
-    gc = 0;
-    tgc = 0;
-    freeTableIA(tabIA, nbreIA);
+      freeTableIA(tabIA, nbreIA);
+    }
+  }
+  else
+  {
+    for (int tour = 0; tour < 5000; tour++)
+    {  
+      printf("-------------------------------\n");
+      printf("TOUR: %d\n", tour);
+      int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
+      printf("TEST creation tabIA\n");
+      if (nbreChampion("champion.txt") == 10 || nbreChampion("grandChampion.txt") == 10 || nbreChampion("tresGrandChampion.txt") == 10)
+      {
+        printf("DETECTION GAGNANT\n");
+        for (int i = 0; i < nbreIA; i++)
+        {
+          int * tab = (int*) malloc(sizeof(int)*21);
+          tabIA[i] = tab;
+          tabResult[i] = 0;
+        }
+        printf("RESET TABLEAU EFFECTUE\n");
+        if (lectureDetection("tresGrandChampion.txt", "detection TGC \n", "TGC good\n", tabIA, p_tgc)) {printf("TGC FINISH\n");}
+        else if(lectureDetection("grandChampion.txt", "detection GC \n", "GC good\n", tabIA, p_gc)) {printf("GC FINISH\n");}
+        else if(lectureDetection("champion.txt", "detection Champion \n", "Champion good\n", tabIA, p_champion)) {printf("Champion FINISH\n");}
+      }
+      else
+      {
+        for (int i = 0; i < nbreIA; i++)
+        {
+          tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
+          rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
+          rdm(min,max),rdm(min,max),rdm(min,max));
+          tabResult[i] = 0;
+        }
+      }
+      printIAParametre(tabIA);
+      for (int i = 0; i < nbreIA-1; i ++)
+      {
+        for (int j = i+1; j < nbreIA; j++)
+        {
+          printf("IA : %d vs %d\n", i, j);
+          trainingIA(map3D, map2D, pileJ1, pileJ2, i, j, tabIA, tabResult);
+        }
+      }
+      printIAResult(tabResult, nbreIA);
+      bestIA = getMaxOnTable(tabResult, nbreIA);
+      if (champion) {writeChampion(tabIA[bestIA], "grandChampion.txt");}
+      else if (gc)  {writeChampion(tabIA[bestIA], "tresGrandChampion.txt");}
+      else if (tgc) {writeChampion(tabIA[bestIA], "infernalChampion.txt");}
+      else {writeChampion(tabIA[bestIA], "champion.txt");}
+      champion = 0; gc = 0; tgc = 0;
+      freeTableIA(tabIA, nbreIA);
+    }
   }
   *p_etatS = 0;
   free(tabResult);
 }
 
 /**
- * \fn void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
+ * \fn void trainingIA(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
  * \brief Fonction qui lance la partie IA VS IA
  * 
  * Elle entraine l'intelligence artificielle
  *  
- * \param[in] SDL_Renderer ** renderer : rendu ou l'on colle les images.
- * \param[in] SDL_Texture ** tableauTextureMapVide : tableau de texture d'images qui contient map vide bleau ou rouge selon le tour du joueur.
- * \param[in] point ** tableauDePoint :  tableau de point pour gérer l'affichage des pions.
- * \param[in] SDL_Texture ** textureTableauPion : tableau de texture, contient les images des pions sélectionnés et non selectionnés.
  * \param[in] char *** map3D : contient la map du jeu détaillé.
  * \param[in] char **  map2D : contient la map du jeu non détaillé.
  * \param[in] char ** pileJ1 : contient la pile du joueur 1.
@@ -441,7 +437,7 @@ void IAGame(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point
  * 
  * \author DUPOIS Thomas
  */
-void trainingIA(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,  SDL_Texture ** textureTableauPion , char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
+void trainingIA(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int i, int j, int ** tabIA, int * tabResult)
 {
   char c = 'b';
   int testArret = 0; 

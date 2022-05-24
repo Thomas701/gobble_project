@@ -151,7 +151,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   // = 2 -> IA MIN-MAX QUI COMMENCE
   // = 3 -> IA ALPHA-BETA QUI NE COMMENCE PAS
   // = 4 -> IA ALPHA-BETA QUI COMMENCE
-  int prof = (*ia == 1 || *ia == 2) ? 2 : 4;
+  int prof = (*ia == 1 || *ia == 2) ? 2 : 3;
   int alphaBeta = (*ia == 1 || *ia == 2) ? 0 : 1;
 
   while(2 == *p_etats){ // boucle principale
@@ -160,9 +160,6 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       {
         //int * tabParam = generateTab(-7,1,3,0,5,0,-1,2,1,0);
         int * tabParam = generateTab(0,3,3,-2,4,1,3,-1,-2,-3,0,0,0,0,0,0,0,0,0,0,0); // INFERNAL CHAMPION
-        //int * tabParam = generateTab(0,0,0,0,0,0,0,0,0,0);
-        //                            0,1,2,3,4,5, 6,7,8,9
-        //                            g   g     g    g
         SGOG_IA(map3D, map2D, c, pileJ1, pileJ2, alphaBeta, p_etats, prof, renderer, tableauTextureMapVide, textureTableauPion, tableauDePoint, tabParam);
       }
 

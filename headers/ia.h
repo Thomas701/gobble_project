@@ -203,7 +203,7 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
  * 
  * \author DUPOIS Thomas
  */
-int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks);
+int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks, int ia);
 
 /**
  * \fn int number_pion_gobe(char *** map3D, char c)

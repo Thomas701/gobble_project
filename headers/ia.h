@@ -205,6 +205,99 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
  */
 int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks, int ia);
 
+int evaluation2(int * tabParam, char *** map3D, char ** map2D, char c, int ia);
+
+/**
+ * \fn int numberAlign(char c, char ** map)
+ * \brief compte le nombre d'alignement dans la grille
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'alignement
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberAlign(char c, char ** map);
+
+/**
+ * \fn int nbrEncapPetit(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetit(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapMoyen(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulé
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyen(char c, char *** map3D);
+
+/**
+ * \fn int nbrCaseMaitre(char c, char ** map2D)
+ * \brief compte le nombre de case maître du joueur
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre de case maitre
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrCaseMaitre(char c, char ** map2D);
+
+/**
+ * \fn int getCenter(char c, char ** map2D)
+ * \brief le caractère en question est-il maitre du centre
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne un boolean
+ * 
+ * \author DUPOIS Thomas
+ */
+int getCenter(char c, char ** map2D);
+
+/**
+ * \fn int numberCoin(char c, char ** map2D)
+ * \brief renvoie le nombre de piont dans les coin
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre total de coin dominé
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberCoin(char c, char ** map2D);
+
+/**
+ * \fn int numberMiddle(char c, char ** map2D)
+ * \brief renvoie le nombre de piont dans les middle
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre total de middle dominé
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberMiddle(char c, char ** map2D);
+
 /**
  * \fn int number_pion_gobe(char *** map3D, char c)
  * \brief compte le nombre de pions gobés par le joueur
@@ -275,7 +368,7 @@ int rdm (int i, int j);
  * \author DUPOIS Thomas
  */
 int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
-int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21);
+int i10, int i11, int i12, int i13, int i14);
 
 /**
  * \fn void writeChampion(int * tabParam, char nom[20])

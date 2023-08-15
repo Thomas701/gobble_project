@@ -151,7 +151,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
   // = 2 -> IA MIN-MAX QUI COMMENCE
   // = 3 -> IA ALPHA-BETA QUI NE COMMENCE PAS
   // = 4 -> IA ALPHA-BETA QUI COMMENCE
-  int prof = (*ia == 1 || *ia == 2) ? 2 : 3;
+  int prof = (*ia == 1 || *ia == 2) ? 3 : 5;
   int alphaBeta = (*ia == 1 || *ia == 2) ? 0 : 1;
 
   while(2 == *p_etats){ // boucle principale
@@ -159,7 +159,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       if (((*ia == 2 || *ia == 4) && *c == 'b') || ((*ia == 1 || *ia == 3) && *c == 'n'))
       {
         //int * tabParam = generateTab(-7,1,3,0,5,0,-1,2,1,0);
-        int * tabParam = generateTab(0,3,3,-2,4,1,3,-1,-2,-3,0,0,0,0,0,0,0,0,0,0,0); // INFERNAL CHAMPION
+        int * tabParam = generateTab(-3,0,1,2,-2,0,-1,-1,-6,1,-3,-5,-5,4); // INFERNAL CHAMPION
         SGOG_IA(map3D, map2D, c, pileJ1, pileJ2, alphaBeta, p_etats, prof, renderer, tableauTextureMapVide, textureTableauPion, tableauDePoint, tabParam);
       }
 
@@ -296,6 +296,12 @@ char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int imageIndexP, 
 void SGOG_IA(char *** map3D, char ** map2D, char * c, char ** pileJ1, char ** pileJ2, int alphaBeta, int * p_etats, int prof,
  SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, int * tabParam)
 {
+  if (count_pion(map2D, N, 'b') || count_pion(map2D, N, 'n'))
+  {
+    *p_etats = 1;
+    free(tabParam);
+    return;
+  }
   int * tab = play(map3D, map2D, pileJ1, pileJ2, *c, 1, prof, alphaBeta, tabParam);
   printf("New eatingPion = %d\n", tab[2]);
   initMap2D(map2D, map3D);
@@ -327,7 +333,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
 {
   int champion = 0; int gc = 0; int tgc =0; 
   int * p_champion = &champion; int * p_gc = &gc; int * p_tgc = &tgc;
-  int nbreIA = 10; int min = -5; int max = 5; int bestIA;
+  int nbreIA = 10; int min = -10; int max = 10; int bestIA;
   int * tabResult = (int*) malloc(sizeof(int)*nbreIA);
   //printf("---> %d", nbreChampion("infernalChampion.txt"));
   if (nbreChampion("infernalChampion.txt") == 1)
@@ -339,7 +345,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
       int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
       for (int i = 0; i < nbreIA; i++)
       {
-        int * tab = (int*) malloc(sizeof(int)*21);
+        int * tab = (int*) malloc(sizeof(int)*14);
         tabIA[i] = tab;
         tabResult[i] = 0;
       }
@@ -373,7 +379,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
         printf("DETECTION GAGNANT\n");
         for (int i = 0; i < nbreIA; i++)
         {
-          int * tab = (int*) malloc(sizeof(int)*21);
+          int * tab = (int*) malloc(sizeof(int)*14);
           tabIA[i] = tab;
           tabResult[i] = 0;
         }
@@ -387,8 +393,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
         for (int i = 0; i < nbreIA; i++)
         {
           tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
-          rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
-          rdm(min,max),rdm(min,max),rdm(min,max));
+          rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max));
           tabResult[i] = 0;
         }
       }

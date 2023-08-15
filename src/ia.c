@@ -302,7 +302,6 @@ int * play(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char c
     listTabOfCoups(map3D, stacks, tab, c);  //
     /* -------------------------------------*/
     //afficheTabOfCoups(tab);
-    //printf("2\n");
     while (tab[0][index] != -1)
     {
         //printf("index: %d\n dep=%d, end=%d\n", index, tab[0][index], tab[1][index]);
@@ -330,7 +329,8 @@ int * play(char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, char c
     {
         for (int i = 0; i < size(l); i++)
         {
-            calcul = evaluation(tableauParam, map3D, map2D, tab, get(l, i), c, pileJ1, 1);
+            //calcul = evaluation(tableauParam, map3D, map2D, tab, get(l, i), c, pileJ1, 1);
+            calcul = evaluation2(tableauParam, map3D, map2D, c, 1);
             if (calcul > max)
             {
                 clear(l2);
@@ -409,7 +409,11 @@ void allFree(char *** map3D, char ** map2D, char ** stacks, char ** stacksOp, in
 int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int ** tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int * tableauParam)
 {
     if (prof == -1)
-        return evaluation(tableauParam, map3D, map2D, tabOfCoups, index, c, ((c == 'b') ? pileJ1 : pileJ2), ((ia) ? 1 : -1));
+    {
+        return evaluation2(tableauParam, map3D, map2D, c, ((ia) ? 1 : -1));
+    }
+        
+        //return evaluation(tableauParam, map3D, map2D, tabOfCoups, index, c, ((c == 'b') ? pileJ1 : pileJ2), ((ia) ? 1 : -1));
     /* ----- */
     char ** stacks; char ** stacksOp;
     int iaOp = (ia == 1) ? 0 : 1;       // IA OPPOSE
@@ -458,7 +462,6 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
         liste * l = createListe();
         int indexTab = 0;
         int mem; int continuer = 1;
-
         while (tab[0][indexTab] != -1 && continuer)
         {
             mem = prediction(prof-1, newMap3D, newMap2D, ((c == 'b') ? stacks : stacksOp), ((c == 'b') ? stacksOp : stacks), tab, indexTab, iaOp, cOp, alphaBeta, alpha, beta, tableauParam);
@@ -471,7 +474,6 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
                 continuer = 0;
             indexTab++;
         }
-
         while (l != NULL)
         {
             liste * l2 = l-> suivant;
@@ -514,6 +516,23 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 // <- [18] nbre de pion gobé > nbre de pion gobé adversaire
 // <- [19] nbre de pion gobé < nbre de pion gobé adversaire
 // <- [20] aligne 2 gobblets
+
+/*-------------------------------------------------------------------*/
+// Liste des paramètres 2 
+//[0] <- nombre d'alignement  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[1] <- nombre encapsulation petit <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[2] <- nombre encapsulation moyen <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[3] <- nombre de possession center  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[4] <- nombre de possession middle <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[5] <- nombre de possession coin <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[6] <- nombre de case maîtres <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[7] <- nombre d'alignement  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[8] <- nombre encapsulation petit ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[9] <- nombre encapsulation moyen ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[10] <- nombre de possession center  ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[11] <- nombre de possession middle ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[12] <- nombre de possession coin  ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[13] <- nombre de case maîtres ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
 
 //2;5;4;0;-5;-5;5;-4;-1;2;-4;3;3;5;3;4;-5;-2;-4;1;4;
 
@@ -641,6 +660,211 @@ int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups,
     return result;
 }
 
+int evaluation2(int * tabParam, char *** map3D, char ** map2D, char c, int ia)
+{
+    int result = 0;
+    char cOp = (c == 'b') ? 'n' : 'b';
+    // alignement
+    result = result + tabParam[0] * numberAlign(c, map2D);
+    result = result + tabParam[7] * numberAlign(cOp, map2D);
+    // encapsulation petit
+    result = result + tabParam[1] * nbrEncapPetit(cOp, map3D);
+    result = result + tabParam[8] * nbrEncapPetit(c, map3D);
+    // encapsulation moyen
+    result = result + tabParam[2] * nbrEncapMoyen(cOp, map3D);
+    result = result + tabParam[9] * nbrEncapMoyen(c, map3D);
+    // possession centre
+    result = result + tabParam[3] * getCenter(c, map2D);
+    result = result + tabParam[10] * getCenter(cOp, map2D);
+    // possession middle
+    result = result + tabParam[4] * numberMiddle(c, map2D);
+    result = result + tabParam[11] * numberMiddle(cOp, map2D);
+    // possession coin
+    result = result + tabParam[5] * numberCoin(c, map2D);
+    result = result + tabParam[12] * numberCoin(cOp, map2D);
+    // nbr cases maître
+    result = result + tabParam[6] * nbrCaseMaitre(c, map2D);
+    result = result + tabParam[13] * nbrCaseMaitre(cOp, map2D);
+    return (result * ia);
+}
+
+
+/**
+ * \fn int numberAlign(char c, char ** map)
+ * \brief compte le nombre d'alignement dans la grille
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'alignement
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberAlign(char c, char ** map)
+{
+    int totalAlign = 0;
+    int countLigne = 0;
+    int countColonne = 0;
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (map[i][j] == c)
+                countLigne++;
+            if (map[j][i] == c)
+                countColonne++;
+        }
+        if(countLigne >= 2)
+            totalAlign++;
+        if(countColonne >= 2)
+            totalAlign++;
+        countLigne = 0;
+        countColonne = 0;
+    }
+    if ((map[0][0] == c && map[1][1] == c) || (map[1][1] == c && map[2][2] == c) || (map[0][0] == c && map[2][2] == c))
+        totalAlign++;
+    if ((map[0][2] == c && map[1][1] == c) || (map[1][1] == c && map[2][0] == c) || (map[0][2] == c && map[2][0] == c))
+        totalAlign++;
+    return totalAlign;
+}
+
+
+/**
+ * \fn int nbrEncapPetit(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetit(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (map3D[i][j][0] == c && map3D[i][j][1] == cOp)
+                totalEncap++;
+        }
+    }
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapMoyen(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulé
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyen(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (map3D[i][j][1] == c && map3D[i][j][2] == cOp)
+                totalEncap++;
+        }
+    }
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrCaseMaitre(char c, char ** map2D)
+ * \brief compte le nombre de case maître du joueur
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre de case maitre
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrCaseMaitre(char c, char ** map2D)
+{
+    int totalCaseMaitre = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (map2D[i][j] == c)
+                totalCaseMaitre++;
+        }
+    }
+    return totalCaseMaitre;
+}
+
+/**
+ * \fn int getCenter(char c, char ** map2D)
+ * \brief le caractère en question est-il maitre du centre
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne un boolean
+ * 
+ * \author DUPOIS Thomas
+ */
+int getCenter(char c, char ** map2D)
+{
+    return (map2D[1][1] == c) ? 1 : 0;
+}
+
+/**
+ * \fn int numberCoin(char c, char ** map2D)
+ * \brief renvoie le nombre de piont dans les coin
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre total de coin dominé
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberCoin(char c, char ** map2D)
+{
+    int totalNbrCoin = 0;
+    if (map2D[0][0] == c) {totalNbrCoin++;}
+    if (map2D[0][2] == c) {totalNbrCoin++;}
+    if (map2D[2][0] == c) {totalNbrCoin++;}
+    if (map2D[2][2] == c) {totalNbrCoin++;}
+    return totalNbrCoin;
+}
+
+/**
+ * \fn int numberMiddle(char c, char ** map2D)
+ * \brief renvoie le nombre de piont dans les middle
+ *  
+ * \param[in] char c : caractere en question
+ * \param[in] char ** map2D : map2D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre total de middle dominé
+ * 
+ * \author DUPOIS Thomas
+ */
+int numberMiddle(char c, char ** map2D)
+{
+    int totalNbrMiddle = 0;
+    if (map2D[0][1] == c) {totalNbrMiddle++;}
+    if (map2D[1][0] == c) {totalNbrMiddle++;}
+    if (map2D[1][2] == c) {totalNbrMiddle++;}
+    if (map2D[2][1] == c) {totalNbrMiddle++;}
+    return totalNbrMiddle;
+}
+
 /**
  * \fn int number_pion_gobe(char *** map3D, char c)
  * \brief compte le nombre de pions gobés par le joueur
@@ -744,15 +968,13 @@ int rdm (int i, int j)
  * \author DUPOIS Thomas
  */
 int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
-int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, int i20, int i21)
+int i10, int i11, int i12, int i13, int i14)
 {
-    int * tab = (int*) malloc(sizeof(int)*21);
+    int * tab = (int*) malloc(sizeof(int)*14);
     tab[0] = i1; tab[1] = i2; tab[2] = i3; tab[3] = i4;
     tab[4] = i5; tab[5] = i6; tab[6] = i7; tab[7] = i8;
     tab[8] = i9, tab[9] = i10; tab[10] = i11; tab[11] = i12;
-    tab[12] = i13; tab[13] = i14; tab[14] = i15; tab[15] = i16;
-    tab[16] = i17; tab[17] = i18; tab[18] = i19; tab[19] = i20;
-    tab[20] = i21; 
+    tab[12] = i13; tab[13] = i14;
     return tab;
 }
 
@@ -777,7 +999,7 @@ void writeChampion(int * tabParam, char nom[20])
     printf("->%s\n", nbre);
     if (fichier != NULL)
     {
-        for (int i = 0; i < 21; i++)
+        for (int i = 0; i < 14; i++)
         {   
 	  sprintf(nbre,"%d",tabParam[i]);
 	  fputs(nbre, fichier);
@@ -830,7 +1052,7 @@ void readChampion(int ** tabIA, char nom[20])
 {
     FILE *f;
     f = fopen(nom,"r");   
-    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14;
     int i = 0;
     printf("Test malloc ligne\n");
     char *file_contents = malloc(sizeof(char)*63);
@@ -838,13 +1060,11 @@ void readChampion(int ** tabIA, char nom[20])
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
-        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
+        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14);
         printf("TEST continue i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
         tabIA[i][5] = i6; tabIA[i][6] = i7; tabIA[i][7] = i8; tabIA[i][8] = i9; tabIA[i][9] = i10;
-        tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14; tabIA[i][14] = i15;
-        tabIA[i][15] = i16; tabIA[i][16] = i17; tabIA[i][17] = i18; tabIA[i][18] = i19; tabIA[i][19] = i20;
-        tabIA[i][20] = i21;
+        tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14;
         i++;
     }
     free(file_contents);
@@ -867,7 +1087,7 @@ void readTheChampion(int ** tabIA, char nom[20])
 {
     FILE *f;
     f = fopen(nom,"r");   
-    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21;
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14;
     int i = 0;
     printf("Test malloc ligne\n");
     char *file_contents = malloc(sizeof(char)*120);
@@ -875,30 +1095,28 @@ void readTheChampion(int ** tabIA, char nom[20])
     /* Théoriquement, la boucle ci-dessous, ne s'execute qu'une seule fois */
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
-        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21);
+        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14);
         printf("TEST continue 2 i=%d\n", i);
         tabIA[0][0] = i1; tabIA[0][1] = i2; tabIA[0][2] = i3; tabIA[0][3] = i4; tabIA[0][4] = i5;
         tabIA[0][5] = i6; tabIA[0][6] = i7; tabIA[0][7] = i8; tabIA[0][8] = i9; tabIA[0][9] = i10;
-        tabIA[0][10] = i11; tabIA[0][11] = i12; tabIA[0][12] = i13; tabIA[0][13] = i14; tabIA[0][14] = i15;
-        tabIA[0][15] = i16; tabIA[0][16] = i17; tabIA[0][17] = i18; tabIA[0][18] = i19; tabIA[0][19] = i20;
-        tabIA[0][20] = i21;
+        tabIA[0][10] = i11; tabIA[0][11] = i12; tabIA[0][12] = i13; tabIA[0][13] = i14;
         i++;
     }
     for(int k = i; k < 10; k++)
     {
         if(k < 6) // différence minime
         {
-            for (int j = 0; j < 21; j++)
+            for (int j = 0; j < 14; j++)
                 tabIA[k][j] = tabIA[0][j] + rdm(-1,1); 
         }
         else if (k == 6)
         {
-            for (int j = 0; j < 21; j++)
+            for (int j = 0; j < 14; j++)
                 tabIA[k][j] = rdm(-5,5);
         }
         else if (k > 6 && k < 9) //croisé
         {
-            for (int j = 0; j < 21; j++)
+            for (int j = 0; j < 14; j++)
             {
                 if (j < 11)
                     tabIA[k][j] = tabIA[10-k][j];
@@ -908,7 +1126,7 @@ void readTheChampion(int ** tabIA, char nom[20])
         }
         else //increase
         {
-            for(int j = 0; j < 21; j++)
+            for(int j = 0; j <14; j++)
                 tabIA[k][j] = tabIA[0][j] + ((tabIA[0][j] > 0) ? 1 : ((tabIA[0][j] < 0) ? -1 : 0));
         }
     }

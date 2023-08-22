@@ -579,13 +579,12 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect) {
 }
 
 /**
- * \fn int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance)
+ * \fn int canSelection(SDL_Point pointMouse, char *** map3D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance)
  * 
  * \brief Fonction qui permet de savoir si on peut selectionner un pion, il vérifie qu'il y a un pion sur la case sélectionné ou qu'il peut récuperer un pion sur une pile (le pion existe et c'est la pile du joueur).
  * 
  * \param[in] SDL_Point pointMouse : coordonnée de la souris.
  * \param[in] char *** map3D : plateau de jeu detaillé.
- * \param[in] char **  map2D : plateau de jeu non detaillé.
  * \param[in] SDL_Rect ** tableauCase : tableau de case contenant les surfaces des cases des piles et des cases du plateau de jeu.
  * \param[in] char ** pileJ1 : pile du joueur 1.
  * \param[in] char ** pileJ2 : pile du joueur 2.
@@ -596,7 +595,7 @@ SDL_bool isInRectangle(SDL_Point point, SDL_Rect rect) {
  * 
  * \author DUPOIS Thomas
  */
-int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance) {
+int canSelection(SDL_Point pointMouse, char *** map3D, SDL_Rect ** tableauCase, char ** pileJ1, char ** pileJ2, char c, int distance) {
   int index = getIndex(pointMouse, tableauCase);
   if(index != -1) {
     // cas des piles
@@ -631,7 +630,7 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
 
 
 /**
- * \fn int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance)
+ * \fn int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, int distance)
  * 
  * \brief Fonction qui permet de savoir si on peut jouer un pion, il appelle d'autres fonctions pour vérifier la validiter du coup.\n
  * 
@@ -641,14 +640,13 @@ int canSelection(SDL_Point pointMouse, char *** map3D, char ** map2D, SDL_Rect *
  * \param[in] SDL_Point pointMouse : coordonnée de la souris.
  * \param[in] SDL_Rect ** tableauCase : tableau de case contenant les surfaces des cases des piles et des cases du plateau de jeu.
  * \param[in] char *** map3D : plateau de jeu detaillé.
- * \param[in] char ** pile   : pile du joueur.
  * \param[in] int distance : mode de jeu.
  * 
  * \return int : retourne l'indice si valide et sinon -1.
  * 
  * \author DUPOIS Thomas
  */
-int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, char ** pile, int distance) {
+int canPlay(int imageIndexP, SDL_Point pointMouse, SDL_Rect ** tableauCase, char *** map3D, int distance) {
   int index = getIndex(pointMouse, tableauCase); // recupère la case ou le clique a été fait, -1 si la case n'existe pas
 
   int x1 = (imageIndexP - imageIndexP % N) / N; int y1 = imageIndexP % N; // coordonnée du pion de départ

@@ -166,7 +166,7 @@ int main(int argc, char ** argv){
       if (etatS == 1) // lancement menu
         lancementMenu(renderer, textureBackground, textureTableauOptionMenu, p_etatS, boolPlayMusic, p_ia); // lancementMenu
       else if (etatS == 2) // lancement du jeu (si choisie dans le menu)
-        lancementJeu1VS1(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, boolPlayMusic, textureTableauOptionMenu, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);
+        lancementJeu1VS1(renderer, tableauTextureMapVide, tableauDePoint, textureTableauWin, p_etatS, tableauCase, textureTableauPion, map3D, map2D, pileJ1, pileJ2, deplacement, p_c, p_ia);
       else if (etatS == 3) // menu pause
         pause(renderer, textureTableauOptionMenu, p_etatS, boolPlayMusic, tableauTextureMapVide, textureTableauPion, tableauDePoint, map3D);
       else if (etatS == 4) // entrainement IA

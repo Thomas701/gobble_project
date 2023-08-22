@@ -101,7 +101,7 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
  * \author DUPOIS Thomas
  * \author VILLEPREUX Thibault
  */ 
-void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic, SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia); // c = 'b' or 'n' joueur qui choisie
+void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture **  tableauTextureMapVide, point ** tableauDePoint, SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia); // c = 'b' or 'n' joueur qui choisie
 
 /**
  * \fn void SGOG_PILE(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, SDL_Texture ** textureTableauPion, point ** tableauDePoint, char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int imageIndexP, int imageIndexS, int eatingPion, char * c)

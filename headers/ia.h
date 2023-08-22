@@ -188,24 +188,34 @@ void allFree(char *** map3D, char ** map2D, char ** stacks, char ** stacksOp, in
  */
 int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** pileJ2, int ** tabOfCoups, int index, int ia, char c, int alphaBeta, int alpha, int beta, int * tableauParam);
 
+int evaluation2(int * tabParam, char *** map3D, char ** map2D, char c, int ia);
+
 /**
- * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks)
- * \brief évalue la grille et ajoute la note des paramètres
+ * \fn int nbrAlignProfondeur(char c, char *** map3D)
+ * \brief compte le nombre d'alignement avec encapsulation
  *  
- * \param[in] int * tabParam : tableau contenant les paramètre
- * \param[in] char *** map3D : map3D représentant la grille du jeu
- * \param[in] char ** map2D : map2D représentant la grille du jeu en 2D
- * \param[in] int ** tabOfCoups : tableau des coups
- * \param[in] int index : index d'ou on doit jouer
- * \param[in] char c : caractère du joueur qui joue
+ * \param[in] char c : caractère en question
+ * \param[in] char *** map3D : map3D
  * 
- * \return int : Retourne la note finale
+ * \return int : Retourne le nombre d'alignement avec pion encapsulés
  * 
  * \author DUPOIS Thomas
  */
-int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks, int ia);
+int nbrAlignProfondeur(char c, char *** map3D);
 
-int evaluation2(int * tabParam, char *** map3D, char ** map2D, char c, int ia);
+/**
+ * \fn int nbrMovement(char c, char *** map3D, char ** stacks);
+ * \brief compte le nombre de mouvement possible sur la grille
+ *  
+ * \param[in] char c
+ * \param[in] char *** map3D
+ * \param[in] char ** stacks
+ * 
+ * \return int : Retourne le nombre de coups possible
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrMovement(char c, char *** map3D, char ** stacks);
 
 /**
  * \fn int numberAlign(char c, char ** map)
@@ -234,6 +244,45 @@ int numberAlign(char c, char ** map);
 int nbrEncapPetit(char c, char *** map3D);
 
 /**
+ * \fn int nbrEncapPetitCoin(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé dans les coins
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitCoin(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapPetitMiddle(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé dans les middles
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitMiddle(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapPetitCenter(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé au centre
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitCenter(char c, char *** map3D);
+
+/**
  * \fn int nbrEncapMoyen(char c, char *** map3D)
  * \brief compte le nombre de moyen gobble encapsulé
  *  
@@ -245,6 +294,45 @@ int nbrEncapPetit(char c, char *** map3D);
  * \author DUPOIS Thomas
  */
 int nbrEncapMoyen(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapMoyenCoin(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulés dans les coins
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenCoin(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapMoyenMiddle(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulés dans les middle
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenMiddle(char c, char *** map3D);
+
+/**
+ * \fn int nbrEncapMoyenCenter(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulé au centre
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenCenter(char c, char *** map3D);
 
 /**
  * \fn int nbrCaseMaitre(char c, char ** map2D)
@@ -368,7 +456,8 @@ int rdm (int i, int j);
  * \author DUPOIS Thomas
  */
 int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
-int i10, int i11, int i12, int i13, int i14);
+int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, 
+int i20, int i21, int i22, int i23, int i24);
 
 /**
  * \fn void writeChampion(int * tabParam, char nom[20])

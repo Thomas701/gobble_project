@@ -519,20 +519,31 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 
 /*-------------------------------------------------------------------*/
 // Liste des paramètres 2 
-//[0] <- nombre d'alignement  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[1] <- nombre encapsulation petit <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[2] <- nombre encapsulation moyen <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[3] <- nombre de possession center  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[4] <- nombre de possession middle <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[5] <- nombre de possession coin <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[6] <- nombre de case maîtres <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[7] <- nombre d'alignement  <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[8] <- nombre encapsulation petit ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[9] <- nombre encapsulation moyen ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[10] <- nombre de possession center  ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[11] <- nombre de possession middle ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[12] <- nombre de possession coin  ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
-//[13] <- nombre de case maîtres ad <<<<<<<<<<<<<<<<<<<<<<<<.>>>>>>>>>>>>>>>>>>>>>>>>
+//[0] <- nombre d'alignement  
+//[1] <- nombre encapsulation petit coin
+//[2] <- nombre encapsulation petit middle
+//[3] <- nombre encapsulation petit center
+//[4] <- nombre encapsulation moyen coin
+//[5] <- nombre encapsulation moyen middle
+//[6] <- nombre encapsulation moyen centre
+//[7] <- nombre de possession center 
+//[8] <- nombre de possession middle
+//[9] <- nombre de possession coin 
+//[10] <- nombre de case maîtres 
+//[11] <- nombre d'alignement avec pion encapsulé
+
+//[12] <- nombre d'alignement ad
+//[13] <- nombre encapsulation petit coin ad
+//[14] <- nombre encapsulation petit middle ad
+//[15] <- nombre encapsulation petit center ad
+//[16] <- nombre encapsulation moyen coin ad
+//[17] <- nombre encapsulation moyen middle ad
+//[18] <- nombre encapsulation moyen centre ad
+//[19] <- nombre de possession center ad
+//[20] <- nombre de possession middle ad
+//[21] <- nombre de possession coin ad
+//[22] <- nombre de case maîtres ad
+//[23] <- nombre d'alignement avec pion encapsulé ad
 
 //2;5;4;0;-5;-5;5;-4;-1;2;-4;3;3;5;3;4;-5;-2;-4;1;4;
 
@@ -562,132 +573,129 @@ int prediction(int prof, char *** map3D, char ** map2D, char ** pileJ1, char ** 
 //-5;-3;4;2;4;2;-1;-2;0;4;5;-4;-5;-1;5;2;-1;0;4;5;5;
 //-3;-2;2;0;4;-3;-5;-4;-3;-3;-3;2;-2;-1;4;4;3;-4;0;-1;4;
 
-/**
- * \fn int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks, int ia)
- * \brief évalue la grille et ajoute la note des paramètres
- *  
- * \param[in] int * tabParam : tableau contenant les paramètre
- * \param[in] char *** map3D : map3D représentant la grille du jeu
- * \param[in] char ** map2D : map2D représentant la grille du jeu en 2D
- * \param[in] int ** tabOfCoups : tableau des coups
- * \param[in] int index : index d'ou on doit jouer
- * \param[in] char c : caractère du joueur qui joue
- * 
- * \return int : Retourne la note finale
- * 
- * \author DUPOIS Thomas
- */
-int evaluation(int * tabParam, char *** map3D, char ** map2D, int ** tabOfCoups, int index, char c, char ** stacks, int ia)
-{
-    /*char *** map3DCop = createMap();
-    char ** map2DCop = createMap2D();
-    char ** stacksCop = createStack(c);
-    map3DCop = copyMap3D(map3D);
-    map2DCop = copyMap2D(map2D);
-    stacksCop = copyStack(stacks);
-    placePionByIa(tabOfCoups, index, map3DCop, stacksCop, c);   // jouer le pion en question
-    initMap2D(map2DCop, map3DCop);                              // mettre à jour la map*/
-    //printf("JE SUIS UTILISE\n");
-    int result = 0;
-    //placer un pion (déplacement depuis une pile)
-    if(tabOfCoups[0][index] > 8)
-        result += tabParam[1] * ia;
-    //deplacer un pion (déplacement depuis une case de la map)
-    if(tabOfCoups[0][index] < 9)
-        result += tabParam[0] * ia;
-    //deplacer un pion sur le centrer
-    if(tabOfCoups[1][index] == 4)
-        result += tabParam[4] * ia;
-    //deplacer un pion sur un coin
-    if(tabOfCoups[1][index] == 0 || tabOfCoups[1][index] == 2 || tabOfCoups[1][index] == 6 || tabOfCoups[1][index] == 8)
-        result += tabParam[5] * ia;
-    //deplacer un pion sur une case middle
-    if(tabOfCoups[1][index] == 1 || tabOfCoups[1][index] == 3 || tabOfCoups[1][index] == 5 || tabOfCoups[1][index] == 7)
-        result += tabParam[6] * ia;
-    //jouer un gros pion
-    if (( tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 0) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 2))
-        result += tabParam[7] * ia;
-    //jouer un pion de taille moyenne
-    if ((tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 1) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 1))
-        result += tabParam[8] * ia;
-    //jouer un pion de petite taille
-    if ((tabOfCoups[0][index] > 8 && tabOfCoups[0][index]%3 == 2) || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[0][index]) == 0))
-        result += tabParam[9] * ia;
-    //manger un pion avec une différence de 1
-    if ((tabOfCoups[0][index] > 8 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && (N-1) - tabOfCoups[0][index]%3 - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1)
-    || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && getSizePionOnCase2(map3D, tabOfCoups[0][index]) - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1))
-        result += tabParam[2] * ia;
-    //manger un pion avec une différence de 2
-    if ((tabOfCoups[0][index] > 8 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && (N-1) - tabOfCoups[0][index]%3 - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2)
-    || (tabOfCoups[0][index] < 9 && getSizePionOnCase2(map3D, tabOfCoups[1][index]) > -1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c && getSizePionOnCase2(map3D, tabOfCoups[0][index]) - getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 2))
-        result += tabParam[3] * ia;
-    //case de départ au centre  
-    if (tabOfCoups[0][index] == 4)
-        result += tabParam[10] * ia;
-    //case de départ coin
-    if(tabOfCoups[0][index] == 0 || tabOfCoups[0][index] == 2 || tabOfCoups[0][index] == 6 || tabOfCoups[0][index] == 8)
-        result += tabParam[11] * ia;
-    //case de départ middle
-    if(tabOfCoups[0][index] == 1 || tabOfCoups[0][index] == 3 || tabOfCoups[0][index] == 5 || tabOfCoups[0][index] == 7)
-        result += tabParam[12] * ia;
-    //manger un moyen adverse
-    if (getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 1 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c)
-        result += tabParam[13] * ia;
-    //manger un petit adverse
-    if (getSizePionOnCase2(map3D, tabOfCoups[1][index]) == 0 && getCaractereOnCase(map3D,tabOfCoups[1][index]) != c)
-        result += tabParam[14] * ia;
-    // nombre de pion > nombre de pion adverse
-    if (countDiff(map2D, c) > countDiff(map2D, ((c == 'b') ? 'n': 'b')))
-        result += tabParam[15] * ia;
-    // nombre de pion == nombre de pion adverse
-    if (countDiff(map2D, c) == countDiff(map2D, ((c == 'b') ? 'n': 'b')))
-        result += tabParam[16] * ia;
-    // nombre de pion < nombre de pion adverse
-    if (countDiff(map2D, c) < countDiff(map2D, ((c == 'b') ? 'n': 'b')))
-        result += tabParam[17] * ia;
-    //nbre de pion gobé > nbre de pion gobé adversaire
-    if (number_pion_gobe(map3D, c) > number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
-        result += tabParam[18] * ia;
-    //nbre de pion gobé < nbre de pion gobé adversaire
-    if (number_pion_gobe(map3D, c) < number_pion_gobe(map3D, ((c == 'b') ? 'n': 'b')))
-        result += tabParam[19] * ia;
-    //alignement de 2 pions
-    if (count_pion(map2D, N-1, c))
-        result += tabParam[20] * ia;
-    /*freeMap(map3DCop);
-    freeMap2D(map2DCop);
-    freeStack(stacksCop);*/
-    return result;
-}
-
-int evaluation2(int * tabParam, char *** map3D, char ** map2D, char c, int ia)
+int evaluation2(int * tabParam, char *** map3D, char ** map2D,char c, int ia)
 {
     int result = 0;
     char cOp = (c == 'b') ? 'n' : 'b';
     // alignement
     result = result + tabParam[0] * numberAlign(c, map2D);
-    result = result + tabParam[7] * numberAlign(cOp, map2D);
-    // encapsulation petit
-    result = result + tabParam[1] * nbrEncapPetit(cOp, map3D);
-    result = result + tabParam[8] * nbrEncapPetit(c, map3D);
-    // encapsulation moyen
-    result = result + tabParam[2] * nbrEncapMoyen(cOp, map3D);
-    result = result + tabParam[9] * nbrEncapMoyen(c, map3D);
+    result = result + tabParam[12] * numberAlign(cOp, map2D);
+    // encapsulation petit coin
+    result = result + tabParam[1] * nbrEncapPetitCoin(cOp, map3D);
+    result = result + tabParam[13] * nbrEncapPetitCoin(c, map3D);
+    // encapsulation petit middle
+    result = result + tabParam[2] * nbrEncapPetitMiddle(cOp, map3D);
+    result = result + tabParam[14] * nbrEncapPetitMiddle(c, map3D);
+    // encapsulation petit center
+    result = result + tabParam[3] * nbrEncapPetitCenter(cOp, map3D);
+    result = result + tabParam[15] * nbrEncapPetitCenter(c, map3D);
+    // encapsulation moyen coin
+    result = result + tabParam[4] * nbrEncapMoyenCoin(cOp, map3D);
+    result = result + tabParam[16] * nbrEncapMoyenCoin(c, map3D);
+    // encapsulation moyen middle
+    result = result + tabParam[5] * nbrEncapMoyenMiddle(cOp, map3D);
+    result = result + tabParam[17] * nbrEncapMoyenMiddle(c, map3D);
+    // encapsulation moyen center
+    result = result + tabParam[6] * nbrEncapMoyenCenter(cOp, map3D);
+    result = result + tabParam[18] * nbrEncapMoyenCenter(c, map3D);
     // possession centre
-    result = result + tabParam[3] * getCenter(c, map2D);
-    result = result + tabParam[10] * getCenter(cOp, map2D);
+    result = result + tabParam[7] * getCenter(c, map2D);
+    result = result + tabParam[19] * getCenter(cOp, map2D);
     // possession middle
-    result = result + tabParam[4] * numberMiddle(c, map2D);
-    result = result + tabParam[11] * numberMiddle(cOp, map2D);
+    result = result + tabParam[8] * numberMiddle(c, map2D);
+    result = result + tabParam[20] * numberMiddle(cOp, map2D);
     // possession coin
-    result = result + tabParam[5] * numberCoin(c, map2D);
-    result = result + tabParam[12] * numberCoin(cOp, map2D);
+    result = result + tabParam[9] * numberCoin(c, map2D);
+    result = result + tabParam[21] * numberCoin(cOp, map2D);
     // nbr cases maître
-    result = result + tabParam[6] * nbrCaseMaitre(c, map2D);
-    result = result + tabParam[13] * nbrCaseMaitre(cOp, map2D);
+    result = result + tabParam[10] * nbrCaseMaitre(c, map2D);
+    result = result + tabParam[22] * nbrCaseMaitre(cOp, map2D);
+    // nbr alignement avec encapsulation
+    result = result + tabParam[10] * nbrAlignProfondeur(c, map3D);
+    result = result + tabParam[23] * nbrAlignProfondeur(cOp, map3D);
     return (result * ia);
 }
 
+/**
+ * \fn int nbrAlignProfondeur(char c, char *** map3D)
+ * \brief compte le nombre d'alignement avec encapsulation
+ *  
+ * \param[in] char c : caractère en question
+ * \param[in] char *** map3D : map3D
+ * 
+ * \return int : Retourne le nombre d'alignement avec pion encapsulés
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrAlignProfondeur(char c, char *** map3D)
+{
+    int nbLigne = 0; int nbColonne = 0;
+    int nbDiago1 = 0; int nbDiago2 = 0;
+    int totalAlign = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            for (int k = 0; k < 3; k++) {
+                if (map3D[i][j][k] == c) {
+                    nbLigne++;
+                    k = 4;
+                }
+                if (map3D[j][i][k] == c) {
+                    nbColonne++;
+                    k = 4;
+                }
+            }
+        }
+        if (nbLigne >= 2)
+            totalAlign++;
+        if (nbColonne >= 2)
+            totalAlign++;
+        nbLigne = 0;
+        nbColonne = 0;
+    }
+    for (int i = 0; i < 3; i++) {
+        for (int k = 0; k < 3; k++) {
+            if (map3D[i][i][k] == c) {
+                nbDiago1++;
+                k = 4;
+            }
+            if (map3D[i][2-i][k] == c) {
+                nbDiago2++;
+                k = 4; 
+            }
+        }
+    }
+    if (nbDiago1 >= 2)
+        totalAlign++;
+    if (nbDiago2 >= 2)
+        totalAlign++;
+
+    return totalAlign;
+}
+
+/**
+ * \fn int nbrMovement(char c, char *** map3D, char ** stacks)
+ * \brief compte le nombre de mouvement possible sur la grille
+ *  
+ * \param[in] char c
+ * \param[in] char *** map3D
+ * \param[in] char ** stacks
+ * 
+ * \return int : Retourne le nombre de coups possible
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrMovement(char c, char *** map3D, char ** stacks)
+{
+    int ** tab = createTabOfCoups();                    // création d'un nouveau tableau des coups
+    initTabOfCoups(tab); 
+    listTabOfCoups(map3D, stacks, tab, c); 
+    int index = 0;
+    while (tab[0][index] != -1)
+        index++;
+    for (int i = 0; i < 2; i++)
+        free(tab[i]);
+    return index;
+}
 
 /**
  * \fn int numberAlign(char c, char ** map)
@@ -749,11 +757,75 @@ int nbrEncapPetit(char c, char *** map3D)
     {
         for (int j = 0; j < 3; j++)
         {
-            if (map3D[i][j][0] == c && map3D[i][j][1] == cOp)
+            if (map3D[i][j][0] == c && (map3D[i][j][1] == cOp || map3D[i][j][2] == cOp))
                 totalEncap++;
         }
     }
     return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapPetitCoin(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé dans les coins
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitCoin(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    if (map3D[0][0][0] == c && (map3D[0][0][1] == cOp || map3D[0][0][2] == cOp)) {totalEncap++;}
+    if (map3D[0][2][0] == c && (map3D[0][2][1] == cOp || map3D[0][2][2] == cOp)) {totalEncap++;}
+    if (map3D[2][0][0] == c && (map3D[2][0][1] == cOp || map3D[2][0][2] == cOp)) {totalEncap++;}
+    if (map3D[2][2][0] == c && (map3D[2][2][1] == cOp || map3D[2][2][2] == cOp)) {totalEncap++;}
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapPetitMiddle(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé dans les middles
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitMiddle(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    if (map3D[0][1][0] == c && (map3D[0][1][1] == cOp || map3D[0][1][2] == cOp)) {totalEncap++;}
+    if (map3D[1][0][0] == c && (map3D[1][0][1] == cOp || map3D[1][0][2] == cOp)) {totalEncap++;}
+    if (map3D[1][2][0] == c && (map3D[1][2][1] == cOp || map3D[1][2][2] == cOp)) {totalEncap++;} 
+    if (map3D[2][1][0] == c && (map3D[2][1][1] == cOp || map3D[2][1][2] == cOp)) {totalEncap++;}
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapPetitCenter(char c, char *** map3D)
+ * \brief compte le nombre de petit gobble encapsulé au centre
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapPetitCenter(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    if (map3D[1][1][0] == c && (map3D[1][1][1] == cOp || map3D[1][1][2] == cOp))
+        return 1;
+    else
+        return 0;
 }
 
 /**
@@ -780,6 +852,70 @@ int nbrEncapMoyen(char c, char *** map3D)
         }
     }
     return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapMoyenCoin(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulés dans les coins
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenCoin(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    if (map3D[0][0][1] == c && map3D[0][0][2] == cOp) {totalEncap++;}
+    if (map3D[0][2][1] == c && map3D[0][2][2] == cOp) {totalEncap++;}  
+    if (map3D[2][0][1] == c && map3D[2][0][2] == cOp) {totalEncap++;} 
+    if (map3D[2][2][1] == c && map3D[2][2][2] == cOp) {totalEncap++;}  
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapMoyenMiddle(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulés dans les middle
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulation
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenMiddle(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    int totalEncap = 0;
+    if (map3D[0][1][1] == c && map3D[0][1][2] == cOp) {totalEncap++;}     
+    if (map3D[1][0][1] == c && map3D[1][0][2] == cOp) {totalEncap++;}    
+    if (map3D[1][2][1] == c && map3D[1][2][2] == cOp) {totalEncap++;}   
+    if (map3D[2][1][1] == c && map3D[2][1][2] == cOp) {totalEncap++;}
+    return totalEncap;
+}
+
+/**
+ * \fn int nbrEncapMoyenCenter(char c, char *** map3D)
+ * \brief compte le nombre de moyen gobble encapsulé au centre
+ *  
+ * \param[in] char c : caractere en question qui est encapsulé
+ * \param[in] char ** map3D : map3D représentant la grille du jeu
+ * 
+ * \return int : Retourne le nombre d'encapsulations
+ * 
+ * \author DUPOIS Thomas
+ */
+int nbrEncapMoyenCenter(char c, char *** map3D)
+{
+    char cOp = (c == 'b') ? 'n' : 'b';
+    if (map3D[1][1][1] == c && map3D[1][1][2] == cOp)
+        return 1;
+    else
+        return 0;
 }
 
 /**
@@ -968,13 +1104,16 @@ int rdm (int i, int j)
  * \author DUPOIS Thomas
  */
 int *generateTab(int i1, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, 
-int i10, int i11, int i12, int i13, int i14)
+int i10, int i11, int i12, int i13, int i14, int i15, int i16, int i17, int i18, int i19, 
+int i20, int i21, int i22, int i23, int i24)
 {
-    int * tab = (int*) malloc(sizeof(int)*14);
+    int * tab = (int*) malloc(sizeof(int)*24);
     tab[0] = i1; tab[1] = i2; tab[2] = i3; tab[3] = i4;
     tab[4] = i5; tab[5] = i6; tab[6] = i7; tab[7] = i8;
     tab[8] = i9, tab[9] = i10; tab[10] = i11; tab[11] = i12;
-    tab[12] = i13; tab[13] = i14;
+    tab[12] = i13; tab[13] = i14; tab[14] = i15; tab[15] = i16; 
+    tab[16] = i17; tab[17] = i18; tab[18] = i19; tab[19] = i20; 
+    tab[20] = i21; tab[21] = i22; tab[22] = i23; tab[23] = i24;
     return tab;
 }
 
@@ -999,7 +1138,7 @@ void writeChampion(int * tabParam, char nom[20])
     printf("->%s\n", nbre);
     if (fichier != NULL)
     {
-        for (int i = 0; i < 14; i++)
+        for (int i = 0; i < 24; i++)
         {   
 	  sprintf(nbre,"%d",tabParam[i]);
 	  fputs(nbre, fichier);
@@ -1052,7 +1191,7 @@ void readChampion(int ** tabIA, char nom[20])
 {
     FILE *f;
     f = fopen(nom,"r");   
-    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14;
+    int i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24;
     int i = 0;
     printf("Test malloc ligne\n");
     char *file_contents = malloc(sizeof(char)*63);
@@ -1060,11 +1199,13 @@ void readChampion(int ** tabIA, char nom[20])
 
     while (fscanf(f, "%[^\n] ", file_contents) != EOF) 
     {
-        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14);
+        sscanf(file_contents,"%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;%i;",&i1,&i2,&i3,&i4,&i5,&i6,&i7,&i8,&i9,&i10,&i11,&i12,&i13,&i14,&i15,&i16,&i17,&i18,&i19,&i20,&i21,&i22,&i23,&i24);
         printf("TEST continue i=%d\n", i);
         tabIA[i][0] = i1; tabIA[i][1] = i2; tabIA[i][2] = i3; tabIA[i][3] = i4; tabIA[i][4] = i5;
         tabIA[i][5] = i6; tabIA[i][6] = i7; tabIA[i][7] = i8; tabIA[i][8] = i9; tabIA[i][9] = i10;
-        tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14;
+        tabIA[i][10] = i11; tabIA[i][11] = i12; tabIA[i][12] = i13; tabIA[i][13] = i14; tabIA[i][14] = i15;
+        tabIA[i][15] = i16; tabIA[i][16] = i17; tabIA[i][17] = i18; tabIA[i][18] = i19; tabIA[i][19] = i20;
+        tabIA[i][20] = i21; tabIA[i][21] = i22; tabIA[i][22] = i23; tabIA[i][23] = i24;
         i++;
     }
     free(file_contents);
@@ -1106,17 +1247,17 @@ void readTheChampion(int ** tabIA, char nom[20])
     {
         if(k < 6) // différence minime
         {
-            for (int j = 0; j < 14; j++)
+            for (int j = 0; j < 24; j++)
                 tabIA[k][j] = tabIA[0][j] + rdm(-1,1); 
         }
         else if (k == 6)
         {
-            for (int j = 0; j < 14; j++)
+            for (int j = 0; j < 24; j++)
                 tabIA[k][j] = rdm(-5,5);
         }
         else if (k > 6 && k < 9) //croisé
         {
-            for (int j = 0; j < 14; j++)
+            for (int j = 0; j < 24; j++)
             {
                 if (j < 11)
                     tabIA[k][j] = tabIA[10-k][j];
@@ -1126,7 +1267,7 @@ void readTheChampion(int ** tabIA, char nom[20])
         }
         else //increase
         {
-            for(int j = 0; j <14; j++)
+            for(int j = 0; j <24; j++)
                 tabIA[k][j] = tabIA[0][j] + ((tabIA[0][j] > 0) ? 1 : ((tabIA[0][j] < 0) ? -1 : 0));
         }
     }

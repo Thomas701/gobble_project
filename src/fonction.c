@@ -136,8 +136,7 @@ void gameOption(char ** stackArray, char *** map3D, char ** map2D, char c, int d
  * \author VILLEPREUX Thibault
  */ 
 void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureMapVide, point ** tableauDePoint,
- SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, int boolPlayMusic,
- SDL_Texture ** textureTableauOptionMenu, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia)
+ SDL_Rect ** tableauCase,  char ** pileJ1, char ** pileJ2, char *** map3D, char ** map2D, int * p_etats, SDL_Texture ** textureTableauPion, int distance, char * c, int * ia)
  { 
   int selection = 0;
   int imageIndexP = -1; // indique l'indexe de l'image qui a été selectionnée
@@ -159,7 +158,7 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
       if (((*ia == 2 || *ia == 4) && *c == 'b') || ((*ia == 1 || *ia == 3) && *c == 'n'))
       {
         //int * tabParam = generateTab(-7,1,3,0,5,0,-1,2,1,0);
-        int * tabParam = generateTab(-3,0,1,2,-2,0,-1,-1,-6,1,-3,-5,-5,4); // INFERNAL CHAMPION
+        int * tabParam = generateTab(5,-1,1,-1,2,-2,0,3,-3,-2,-4,0,4,3,4,-3,5,8,-7,3,2,-1,3,-4); // INFERNAL CHAMPION
         SGOG_IA(map3D, map2D, c, pileJ1, pileJ2, alphaBeta, p_etats, prof, renderer, tableauTextureMapVide, textureTableauPion, tableauDePoint, tabParam);
       }
 
@@ -185,12 +184,12 @@ void gameOptionGraphique(SDL_Renderer * renderer, SDL_Texture ** tableauTextureM
         if (event.button.button == SDL_BUTTON_LEFT){ // bouton souris gauche
           SDL_GetMouseState(&pointMouse.x, &pointMouse.y); // recupere coord souris
           if (selection == 0) 
-            imageIndexP = canSelection(pointMouse, map3D, map2D, tableauCase, pileJ1, pileJ2, *c, distance); //si aucune image sélectionné, vérifie au clique si on peut faire une action avec le pion
+            imageIndexP = canSelection(pointMouse, map3D, tableauCase, pileJ1, pileJ2, *c, distance); //si aucune image sélectionné, vérifie au clique si on peut faire une action avec le pion
           else{
             if(*c == 'b')
-              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ1, distance);  // verifie si le joueur 1 peut faire quelque chose sur l'indexe ou il a posé le pion
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, distance);  // verifie si le joueur 1 peut faire quelque chose sur l'indexe ou il a posé le pion
             else
-              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, pileJ2, distance);  // verifie si le joueur 2 peut faire quelque chose sur l'indexe ou il a posé le pion
+              imageIndexS = canPlay(imageIndexP, pointMouse, tableauCase, map3D, distance);  // verifie si le joueur 2 peut faire quelque chose sur l'indexe ou il a posé le pion
           }
           if (selection == 1 && imageIndexS == -1)       selection = 0; 
           else if (selection == 0 && imageIndexP != -1)  selection = 1; 
@@ -345,7 +344,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
       int ** tabIA = (int**) malloc(sizeof(int*)*nbreIA);
       for (int i = 0; i < nbreIA; i++)
       {
-        int * tab = (int*) malloc(sizeof(int)*14);
+        int * tab = (int*) malloc(sizeof(int)*24);
         tabIA[i] = tab;
         tabResult[i] = 0;
       }
@@ -379,7 +378,7 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
         printf("DETECTION GAGNANT\n");
         for (int i = 0; i < nbreIA; i++)
         {
-          int * tab = (int*) malloc(sizeof(int)*14);
+          int * tab = (int*) malloc(sizeof(int)*24);
           tabIA[i] = tab;
           tabResult[i] = 0;
         }
@@ -393,7 +392,8 @@ void IAGame(int * p_etatS, char *** map3D, char ** map2D, char ** pileJ1, char *
         for (int i = 0; i < nbreIA; i++)
         {
           tabIA[i] = generateTab(rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),
-          rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max));
+          rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max)
+          ,rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max),rdm(min,max));
           tabResult[i] = 0;
         }
       }
